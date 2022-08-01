@@ -71,6 +71,7 @@ plugins:
       height: auto
       zoomable: true
       draggable: true
+  - tags
   - mkdocstrings:
       custom_templates: docs/templates
       handlers:
@@ -86,7 +87,7 @@ plugins:
             show_bases: no
             show_root_full_path: no
   - git-revision-date-localized:
-      enable_creation_date: false
+      enable_creation_date: no
       fallback_to_build_date: true
 
 # See https://github.com/mkdocstrings/python/blob/master/src/mkdocstrings_handlers/python/handler.py for other options
