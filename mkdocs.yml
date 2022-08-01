@@ -1,0 +1,91 @@
+site_name: Graphic Server Protocol
+use_directory_urls: false
+
+theme:
+  name: "material"
+  logo: assets/images/GSP-logo-white.png
+  favicon: assets/images/GSP-logo-black.png
+  features:
+    - navigation.tabs
+    # - navigation.sections
+    - header.autohide
+    - content.code.annotate 
+    - content.tabs.link
+    # - toc.integrate
+nav:
+  - "Home":
+    - index.md
+    - license.md
+  - "Overview":
+    - overview/index.md
+    - overview/how.md
+    - overview/capabilities.md
+  - "Specifications" : 
+    - protocol/base.md
+    - protocol/gsp.md
+    - protocol/structures.md
+    - Core features:
+      - protocol/canvas.md
+      - protocol/viewport.md
+    - protocol/changelog.md
+  - "Implementations" :
+      - implementations/matplotlib.md
+      - implementations/datoviz.md
+      - implementations/pygfx.md
+      
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - md_in_html
+  - tables
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.critic
+  
+  
+extra_css:
+  - css/mkdocstrings.css
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - include-markdown
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+  - mkdocstrings:
+      custom_templates: docs/templates
+      handlers:
+        python:
+          selection:
+            docstring_style: google
+            docstring_options:
+              ignore_init_summary: no
+          rendering:
+            merge_init_into_class: yes
+            show_submodules: no
+            show_source: no
+            show_bases: no
+            show_root_full_path: no
+  - git-revision-date-localized:
+      enable_creation_date: false
+      fallback_to_build_date: true
+
+# See https://github.com/mkdocstrings/python/blob/master/src/mkdocstrings_handlers/python/handler.py for other options

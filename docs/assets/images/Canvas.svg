@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" viewBox="65 35 900 500" width="900" height="500">
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-9 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M -8 0 L 0 3 L 0 -3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="DimensionArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -6 10 12" markerWidth="10" markerHeight="12" color="black">
+      <g>
+        <path d="M 0 0 L 8 0 M 8 5 L 8 -5 M 0 2 L 7 0 L 0 -2" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="DimensionArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-9 -6 10 12" markerWidth="10" markerHeight="12" color="black">
+      <g>
+        <path d="M 0 0 L -8 0 M -8 -5 L -8 5 M 0 -2 L -7 0 L 0 2" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="Canvas_1" stroke="none" stroke-opacity="1" stroke-dasharray="none" fill-opacity="1" fill="none">
+    <title>Canvas 1</title>
+    <rect fill="white" x="65" y="35" width="900" height="500"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_2">
+        <rect x="100" y="100" width="800" height="400" fill="white" fill-opacity=".20070138"/>
+        <rect x="100" y="100" width="800" height="400" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_3">
+        <line x1="109.9" y1="80" x2="890.1" y2="80" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_9">
+        <rect x="459.00735" y="65.5" width="83.34375" height="29" fill="white"/>
+        <text transform="translate(464.00735 70.5)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" x="0" y="15">800 Pixels</tspan>
+        </text>
+      </g>
+      <g id="Line_11">
+        <line x1="920" y1="490.1" x2="920" y2="109.9" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_10">
+        <rect x="905.5" y="257.98852" width="29" height="83.34375" fill="white"/>
+        <text transform="translate(910.5 336.33227) rotate(-90)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" x="0" y="15">400 Pixels</tspan>
+        </text>
+      </g>
+      <g id="Line_14">
+        <line x1="109.9" y1="50" x2="890.1" y2="50" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_13">
+        <rect x="466.19967" y="35.5" width="70.078125" height="29" fill="white"/>
+        <text transform="translate(471.19967 40.5)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" x="0" y="15">8 Inches</tspan>
+        </text>
+      </g>
+      <g id="Line_16">
+        <line x1="950" y1="490.1" x2="950" y2="109.9" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_15">
+        <rect x="935.5" y="264.62133" width="29" height="70.078125" fill="white"/>
+        <text transform="translate(940.5 329.69946) rotate(-90)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" x="0" y="15">4 Inches</tspan>
+        </text>
+      </g>
+      <g id="Graphic_20">
+        <circle cx="100" cy="500" r="4.00000639160759" fill="black"/>
+      </g>
+      <g id="Graphic_19">
+        <rect x="120" y="460" width="43.00635" height="22" fill="white"/>
+        <text transform="translate(122 462)" fill="#2d3340">
+          <tspan font-family="Roboto Mono" font-size="13" fill="#2d3340" x="0" y="14">(0,0)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_23">
+        <circle cx="900" cy="101" r="4.0000063916076" fill="black"/>
+      </g>
+      <g id="Graphic_22">
+        <rect x="822.1895" y="120" width="68.81055" height="20" fill="white"/>
+        <text transform="translate(824.1895 122)" fill="#2d3340">
+          <tspan font-family="Roboto Mono" font-size="12" fill="#2d3340" x="0" y="13">(799,399)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_25">
+        <rect x="290" y="180" width="200" height="200" fill="white"/>
+        <rect x="290" y="180" width="200" height="200" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_80">
+        <g id="Line_26">
+          <line x1="310" y1="180" x2="310" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_27">
+          <line x1="330" y1="180" x2="330" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_28">
+          <line x1="350" y1="180" x2="350" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_29">
+          <line x1="370" y1="180" x2="370" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_30">
+          <line x1="390" y1="180" x2="390" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_31">
+          <line x1="410" y1="180" x2="410" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_32">
+          <line x1="430" y1="180" x2="430" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_33">
+          <line x1="450" y1="180" x2="450" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_34">
+          <line x1="470" y1="180" x2="470" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+      </g>
+      <g id="Group_79">
+        <g id="Line_45">
+          <line x1="300" y1="180" x2="300" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+        </g>
+        <g id="Line_44">
+          <line x1="320" y1="180" x2="320" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+        </g>
+        <g id="Line_43">
+          <line x1="340" y1="180" x2="340" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+        </g>
+        <g id="Line_42">
+          <line x1="360" y1="180" x2="360" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+        </g>
+        <g id="Line_41">
+          <line x1="380" y1="180" x2="380" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+        </g>
+        <g id="Line_40">
+          <line x1="400" y1="180" x2="400" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+        </g>
+        <g id="Line_39">
+          <line x1="420" y1="180" x2="420" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+        </g>
+        <g id="Line_38">
+          <line x1="440" y1="180" x2="440" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+        </g>
+        <g id="Line_37">
+          <line x1="460" y1="180" x2="460" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+        </g>
+        <g id="Line_36">
+          <line x1="480" y1="180" x2="480" y2="380" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+        </g>
+      </g>
+      <g id="Line_66">
+        <line x1="230" y1="420" x2="290" y2="180" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2.0,2.0" stroke-width=".5"/>
+      </g>
+      <g id="Line_67">
+        <line x1="250" y1="440" x2="490" y2="380" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2.0,2.0" stroke-width=".5"/>
+      </g>
+      <g id="Line_68">
+        <line x1="230" y1="440" x2="290" y2="380" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2.0,2.0" stroke-width=".5"/>
+      </g>
+      <g id="Graphic_24">
+        <rect x="230" y="420" width="20" height="20" fill="white"/>
+        <rect x="230" y="420" width="20" height="20" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_70">
+        <rect x="510" y="284" width="106.59375" height="23" fill="white"/>
+        <text transform="translate(515 286)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" x="0" y="15">Physical pixel</tspan>
+        </text>
+      </g>
+      <g id="Line_69">
+        <line x1="510" y1="295.27473" x2="459.8999" y2="295.06298" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_73">
+        <rect x="520" y="220" width="98.58594" height="23" fill="white"/>
+        <text transform="translate(525 222)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" x="0" y="15">Logical pixel</tspan>
+        </text>
+      </g>
+      <g id="Line_72">
+        <line x1="520" y1="230.92812" x2="459.89933" y2="230.23086" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_76">
+        <line x1="100" y1="520" x2="890.1" y2="520" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_75">
+        <rect x="473.4175" y="505.5" width="54.52344" height="29" fill="white"/>
+        <text transform="translate(478.4175 510.5)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" x="0" y="15">X Axis</tspan>
+        </text>
+      </g>
+      <g id="Line_78">
+        <line x1="80" y1="500" x2="80" y2="109.9" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_77">
+        <rect x="65.5" y="272.6096" width="29" height="54.10156" fill="white"/>
+        <text transform="translate(70.5 321.71118) rotate(-90)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" x="0" y="15">Y Axis</tspan>
+        </text>
+      </g>
+      <g id="Group_126">
+        <g id="Group_116">
+          <g id="Line_125">
+            <line x1="490" y1="200" x2="290" y2="200" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+          </g>
+          <g id="Line_124">
+            <line x1="490" y1="220" x2="290" y2="220" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+          </g>
+          <g id="Line_123">
+            <line x1="490" y1="240" x2="290" y2="240" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+          </g>
+          <g id="Line_122">
+            <line x1="490" y1="260" x2="290" y2="260" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+          </g>
+          <g id="Line_121">
+            <line x1="490" y1="280" x2="290" y2="280" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+          </g>
+          <g id="Line_120">
+            <line x1="490" y1="300" x2="290" y2="300" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+          </g>
+          <g id="Line_119">
+            <line x1="490" y1="320" x2="290" y2="320" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+          </g>
+          <g id="Line_118">
+            <line x1="490" y1="340" x2="290" y2="340" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+          </g>
+          <g id="Line_117">
+            <line x1="490" y1="360" x2="290" y2="360" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+          </g>
+        </g>
+        <g id="Group_105">
+          <g id="Line_115">
+            <line x1="490" y1="190" x2="290" y2="190" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+          </g>
+          <g id="Line_114">
+            <line x1="490" y1="210" x2="290" y2="210" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+          </g>
+          <g id="Line_113">
+            <line x1="490" y1="230" x2="290" y2="230" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+          </g>
+          <g id="Line_112">
+            <line x1="490" y1="250" x2="290" y2="250" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+          </g>
+          <g id="Line_111">
+            <line x1="490" y1="270" x2="290" y2="270" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+          </g>
+          <g id="Line_110">
+            <line x1="490" y1="290" x2="290" y2="290" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+          </g>
+          <g id="Line_109">
+            <line x1="490" y1="310" x2="290" y2="310" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+          </g>
+          <g id="Line_108">
+            <line x1="490" y1="330" x2="290" y2="330" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+          </g>
+          <g id="Line_107">
+            <line x1="490" y1="350" x2="290" y2="350" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+          </g>
+          <g id="Line_106">
+            <line x1="490" y1="370" x2="290" y2="370" stroke="blue" stroke-opacity=".25" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+          </g>
+        </g>
+      </g>
+      <g id="Graphic_74">
+        <rect x="430" y="220" width="20" height="20" fill="white"/>
+        <rect x="430" y="220" width="20" height="20" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Graphic_71">
+        <rect x="440" y="290" width="10" height="10" fill="white"/>
+        <rect x="440" y="290" width="10" height="10" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_127">
+        <line x1="871.5621" y1="120" x2="888.4416" y2="108.7224" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_128">
+        <line x1="125.76059" y1="482" x2="111.3946" y2="492.0381" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_129">
+        <line x1="708" y1="430" x2="790.5859" y2="430" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_130">
+        <text transform="translate(705 442)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="12" fill="#2d3340" x="19.4375" y="11">72 points</tspan>
+        </text>
+      </g>
+      <g id="Graphic_131">
+        <text transform="translate(705 295)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="128" fill="#2d3340" x="2.390625" y="119">A</tspan>
+        </text>
+      </g>
+      <g id="Graphic_132">
+        <text transform="translate(115 115)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="20" fill="#2d3340" x="0" y="19">Canvas</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

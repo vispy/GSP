@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" viewBox="65 35 900 500" width="900" height="500">
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black" opacity=".5">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-9 -4 10 8" markerWidth="10" markerHeight="8" color="black" opacity=".5">
+      <g>
+        <path d="M -8 0 L 0 3 L 0 -3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_3" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_4" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-9 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M -8 0 L 0 3 L 0 -3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="Canvas_1" stroke="none" stroke-opacity="1" stroke-dasharray="none" fill-opacity="1" fill="none">
+    <title>Canvas 1</title>
+    <rect fill="white" x="65" y="35" width="900" height="500"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_2">
+        <rect x="100" y="100" width="800" height="400" stroke="black" stroke-opacity=".5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_3">
+        <line x1="109.9" y1="80" x2="890.1" y2="80" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-opacity=".5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_9">
+        <rect x="459.00733" y="65.5" width="83.34375" height="29" fill="white"/>
+        <text transform="translate(464.00733 70.5)" fill="#2d3340" fill-opacity=".5">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" fill-opacity=".5" x="0" y="15">800 Pixels</tspan>
+        </text>
+      </g>
+      <g id="Line_11">
+        <line x1="920" y1="490.1" x2="920" y2="109.9" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-opacity=".5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_10">
+        <rect x="905.5" y="257.98852" width="29" height="83.34375" fill="white"/>
+        <text transform="translate(910.5 336.33227) rotate(-90)" fill="#2d3340" fill-opacity=".5">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" fill-opacity=".5" x="0" y="15">400 Pixels</tspan>
+        </text>
+      </g>
+      <g id="Line_14">
+        <line x1="109.9" y1="50" x2="890.1" y2="50" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-opacity=".5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_13">
+        <rect x="466.19967" y="35.5" width="70.078125" height="29" fill="white"/>
+        <text transform="translate(471.19967 40.5)" fill="#2d3340" fill-opacity=".5">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" fill-opacity=".5" x="0" y="15">8 Inches</tspan>
+        </text>
+      </g>
+      <g id="Line_16">
+        <line x1="950" y1="490.1" x2="950" y2="109.9" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-opacity=".5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_15">
+        <rect x="935.5" y="264.62133" width="29" height="70.078125" fill="white"/>
+        <text transform="translate(940.5 329.69946) rotate(-90)" fill="#2d3340" fill-opacity=".5">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" fill-opacity=".5" x="0" y="15">4 Inches</tspan>
+        </text>
+      </g>
+      <g id="Graphic_19">
+        <rect x="130" y="430" width="74.21143" height="22" fill="white"/>
+        <text transform="translate(132 432)" fill="#2d3340">
+          <tspan font-family="Roboto Mono" font-size="13" fill="#2d3340" x="0" y="14">(100,100)</tspan>
+        </text>
+      </g>
+      <g id="Line_76">
+        <line x1="100" y1="520" x2="890.1" y2="520" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-opacity=".5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_75">
+        <rect x="473.4175" y="505.5" width="54.52344" height="29" fill="white"/>
+        <text transform="translate(478.4175 510.5)" fill="#2d3340" fill-opacity=".5">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" fill-opacity=".5" x="0" y="15">X Axis</tspan>
+        </text>
+      </g>
+      <g id="Line_78">
+        <line x1="80" y1="500" x2="80" y2="109.9" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-opacity=".5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_77">
+        <rect x="65.5" y="272.6096" width="29" height="54.10156" fill="white"/>
+        <text transform="translate(70.5 321.71118) rotate(-90)" fill="#2d3340" fill-opacity=".5">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" fill-opacity=".5" x="0" y="15">Y Axis</tspan>
+        </text>
+      </g>
+      <g id="Line_128">
+        <line x1="175.931" y1="430" x2="191.30133" y2="410.84217" marker-end="url(#FilledArrow_Marker_3)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_132">
+        <rect x="200" y="200" width="300" height="200" fill="white"/>
+        <rect x="200" y="200" width="300" height="200" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_20">
+        <circle cx="200" cy="400" r="4.00000639160758" fill="black"/>
+      </g>
+      <g id="Line_134">
+        <line x1="520" y1="390.1" x2="520" y2="209.9" marker-end="url(#FilledArrow_Marker_3)" marker-start="url(#FilledArrow_Marker_4)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_133">
+        <rect x="505.5" y="258.15832" width="29" height="83.34375" fill="white"/>
+        <text transform="translate(510.5 336.50207) rotate(-90)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" x="0" y="15">200 Pixels</tspan>
+        </text>
+      </g>
+      <g id="Line_136">
+        <line x1="209.9" y1="180" x2="490.1" y2="180" marker-end="url(#FilledArrow_Marker_3)" marker-start="url(#FilledArrow_Marker_4)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_135">
+        <rect x="308.58283" y="165.5" width="83.34375" height="29" fill="white"/>
+        <text transform="translate(313.58283 170.5)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="16" fill="#2d3340" x="0" y="15">300 Pixels</tspan>
+        </text>
+      </g>
+      <g id="Graphic_137">
+        <text transform="translate(215 215)" fill="#2d3340">
+          <tspan font-family="Roboto" font-size="20" fill="#2d3340" x="0" y="19">Viewport</tspan>
+        </text>
+      </g>
+      <g id="Graphic_138">
+        <text transform="translate(115 115)" fill="#2d3340" fill-opacity=".5">
+          <tspan font-family="Roboto" font-size="20" fill="#2d3340" fill-opacity=".5" x="0" y="19">Canvas</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
