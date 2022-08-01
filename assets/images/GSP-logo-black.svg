@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="24" height="24">
+  <defs/>
+  <g id="Canvas_1" stroke-dasharray="none" stroke="none" fill-opacity="1" stroke-opacity="1" fill="none">
+    <title>Canvas 1</title>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_40">
+        <text transform="translate(0 2.5)" fill="black">
+          <tspan font-family="Roboto" font-size="16" fill="black" x=".8671875" y="15">{   }</tspan>
+        </text>
+      </g>
+      <g id="Group_52">
+        <g id="Graphic_47">
+          <path d="M 12 7 L 7 9.5 L 12 12 L 17 9.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".75"/>
+        </g>
+        <g id="Graphic_48">
+          <path d="M 7 9.5 L 12 12 L 12 18.25 L 7 15.75 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".75"/>
+        </g>
+        <g id="Graphic_49">
+          <path d="M 12 12 L 17 9.5 L 17 15.75 L 12 18.25 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".75"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

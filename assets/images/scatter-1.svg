@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="486.4 88.975 352.5 353.95686" width="352.5" height="353.95686">
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-9 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M -8 0 L 0 3 L 0 -3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="Canvas_1" stroke="none" stroke-dasharray="none" stroke-opacity="1" fill="none" fill-opacity="1">
+    <title>Canvas 1</title>
+    <rect fill="white" x="486.4" y="88.975" width="352.5" height="353.95686"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Group_215">
+        <g id="Line_155">
+          <line x1="704" y1="89.6" x2="704" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Line_156">
+          <line x1="768" y1="89.6" x2="768" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Line_158">
+          <line x1="576" y1="89.6" x2="576" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Line_157">
+          <line x1="640" y1="89.6" x2="640" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Line_159">
+          <line x1="512" y1="89.6" x2="512" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Line_160">
+          <line x1="518.4" y1="89.6" x2="518.4" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_161">
+          <line x1="524.8" y1="89.6" x2="524.8" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_162">
+          <line x1="531.2" y1="89.6" x2="531.2" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_163">
+          <line x1="537.6" y1="89.6" x2="537.6" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_164">
+          <line x1="544" y1="89.6" x2="544" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_165">
+          <line x1="550.4" y1="89.6" x2="550.4" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_166">
+          <line x1="556.8" y1="89.6" x2="556.8" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_167">
+          <line x1="563.2" y1="89.6" x2="563.2" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_168">
+          <line x1="569.6" y1="89.6" x2="569.6" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_186">
+          <line x1="582.4" y1="89.6" x2="582.4" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_185">
+          <line x1="588.8" y1="89.6" x2="588.8" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_184">
+          <line x1="595.2" y1="89.6" x2="595.2" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_183">
+          <line x1="601.6" y1="89.6" x2="601.6" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_182">
+          <line x1="608" y1="89.6" x2="608" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_181">
+          <line x1="614.4" y1="89.6" x2="614.4" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_180">
+          <line x1="620.8" y1="89.6" x2="620.8" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_179">
+          <line x1="627.2" y1="89.6" x2="627.2" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_178">
+          <line x1="633.6" y1="89.6" x2="633.6" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_195">
+          <line x1="646.4" y1="89.6" x2="646.4" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_194">
+          <line x1="652.8" y1="89.6" x2="652.8" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_193">
+          <line x1="659.2" y1="89.6" x2="659.2" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_192">
+          <line x1="665.6" y1="89.6" x2="665.6" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_191">
+          <line x1="672" y1="89.6" x2="672" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_190">
+          <line x1="678.4" y1="89.6" x2="678.4" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_189">
+          <line x1="684.8" y1="89.6" x2="684.8" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_188">
+          <line x1="691.2" y1="89.6" x2="691.2" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_187">
+          <line x1="697.6" y1="89.6" x2="697.6" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_204">
+          <line x1="710.4" y1="89.6" x2="710.4" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_203">
+          <line x1="716.8" y1="89.6" x2="716.8" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_202">
+          <line x1="723.2" y1="89.6" x2="723.2" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_201">
+          <line x1="729.6" y1="89.6" x2="729.6" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_200">
+          <line x1="736" y1="89.6" x2="736" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_199">
+          <line x1="742.4" y1="89.6" x2="742.4" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_198">
+          <line x1="748.8" y1="89.6" x2="748.8" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_197">
+          <line x1="755.2" y1="89.6" x2="755.2" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_196">
+          <line x1="761.6" y1="89.6" x2="761.6" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_214">
+          <line x1="832" y1="89.6" x2="832" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Line_213">
+          <line x1="774.4" y1="89.6" x2="774.4" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_212">
+          <line x1="780.8" y1="89.6" x2="780.8" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_211">
+          <line x1="787.2" y1="89.6" x2="787.2" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_210">
+          <line x1="793.6" y1="89.6" x2="793.6" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_209">
+          <line x1="800" y1="89.6" x2="800" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_208">
+          <line x1="806.4" y1="89.6" x2="806.4" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_207">
+          <line x1="812.8" y1="89.6" x2="812.8" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_206">
+          <line x1="819.2" y1="89.6" x2="819.2" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+        <g id="Line_205">
+          <line x1="825.6" y1="89.6" x2="825.6" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+        </g>
+      </g>
+      <g id="Line_267">
+        <line x1="838.4" y1="288" x2="512" y2="288" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_266">
+        <line x1="838.4" y1="352" x2="512" y2="352" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_265">
+        <line x1="838.4" y1="161" x2="512" y2="161" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_264">
+        <line x1="838.4" y1="225" x2="512" y2="225" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_263">
+        <line x1="838.4" y1="96" x2="512" y2="96" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_262">
+        <line x1="838.4" y1="102.4" x2="512" y2="102.4" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_261">
+        <line x1="838.4" y1="108.8" x2="512" y2="108.8" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_260">
+        <line x1="838.4" y1="115.2" x2="512" y2="115.2" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_259">
+        <line x1="838.4" y1="121.6" x2="512" y2="121.6" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_258">
+        <line x1="838.4" y1="128" x2="512" y2="128" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_257">
+        <line x1="838.4" y1="134.4" x2="512" y2="134.4" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_256">
+        <line x1="838.4" y1="140.8" x2="512" y2="140.8" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_255">
+        <line x1="838.4" y1="147.2" x2="512" y2="147.2" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_254">
+        <line x1="838.4" y1="153.6" x2="512" y2="153.6" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_253">
+        <line x1="838.4" y1="166.4" x2="512" y2="166.4" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_252">
+        <line x1="838.4" y1="172.8" x2="512" y2="172.8" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_251">
+        <line x1="838.4" y1="179.2" x2="512" y2="179.2" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_250">
+        <line x1="838.4" y1="185.6" x2="512" y2="185.6" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_249">
+        <line x1="838.4" y1="192" x2="512" y2="192" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_248">
+        <line x1="838.4" y1="198.4" x2="512" y2="198.4" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_247">
+        <line x1="838.4" y1="204.8" x2="512" y2="204.8" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_246">
+        <line x1="838.4" y1="211.2" x2="512" y2="211.2" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_245">
+        <line x1="838.4" y1="217.6" x2="512" y2="217.6" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_244">
+        <line x1="838.4" y1="230.4" x2="512" y2="230.4" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_243">
+        <line x1="838.4" y1="236.8" x2="512" y2="236.8" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_242">
+        <line x1="838.4" y1="243.2" x2="512" y2="243.2" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_241">
+        <line x1="838.4" y1="249.6" x2="512" y2="249.6" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_240">
+        <line x1="838.4" y1="256" x2="512" y2="256" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_239">
+        <line x1="838.4" y1="262.4" x2="512" y2="262.4" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_238">
+        <line x1="838.4" y1="268.8" x2="512" y2="268.8" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_237">
+        <line x1="838.4" y1="275.2" x2="512" y2="275.2" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_236">
+        <line x1="838.4" y1="281.6" x2="512" y2="281.6" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_235">
+        <line x1="838.4" y1="294.4" x2="512" y2="294.4" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_234">
+        <line x1="838.4" y1="300.8" x2="512" y2="300.8" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_233">
+        <line x1="838.4" y1="307.2" x2="512" y2="307.2" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_232">
+        <line x1="838.4" y1="313.6" x2="512" y2="313.6" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_231">
+        <line x1="838.4" y1="320" x2="512" y2="320" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_230">
+        <line x1="838.4" y1="326.4" x2="512" y2="326.4" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_229">
+        <line x1="838.4" y1="332.8" x2="512" y2="332.8" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_228">
+        <line x1="838.4" y1="339.2" x2="512" y2="339.2" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_227">
+        <line x1="838.4" y1="345.6" x2="512" y2="345.6" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_226">
+        <line x1="838.4" y1="416" x2="512" y2="416" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_225">
+        <line x1="838.4" y1="358.4" x2="512" y2="358.4" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_224">
+        <line x1="838.4" y1="364.8" x2="512" y2="364.8" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_223">
+        <line x1="838.4" y1="371.2" x2="512" y2="371.2" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_222">
+        <line x1="838.4" y1="377.6" x2="512" y2="377.6" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_221">
+        <line x1="838.4" y1="384" x2="512" y2="384" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_220">
+        <line x1="838.4" y1="390.4" x2="512" y2="390.4" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_219">
+        <line x1="838.4" y1="396.8" x2="512" y2="396.8" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_218">
+        <line x1="838.4" y1="403.2" x2="512" y2="403.2" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_217">
+        <line x1="838.4" y1="409.6" x2="512" y2="409.6" stroke="black" stroke-opacity=".1" stroke-linecap="butt" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Line_4">
+        <line x1="512" y1="416" x2="512" y2="428.8" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_6">
+        <line x1="518.4" y1="416" x2="518.4" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_7">
+        <line x1="524.8" y1="416" x2="524.8" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_8">
+        <line x1="531.2" y1="416" x2="531.2" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_13">
+        <line x1="537.6" y1="416" x2="537.6" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_12">
+        <line x1="544" y1="416" x2="544" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_11">
+        <line x1="550.4" y1="416" x2="550.4" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_10">
+        <line x1="556.8" y1="416" x2="556.8" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_14">
+        <line x1="576" y1="416" x2="576" y2="428.8" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_16">
+        <line x1="563.2" y1="416" x2="563.2" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_15">
+        <line x1="569.6" y1="416" x2="569.6" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_26">
+        <line x1="582.4" y1="416" x2="582.4" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_25">
+        <line x1="588.8" y1="416" x2="588.8" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_24">
+        <line x1="595.2" y1="416" x2="595.2" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_23">
+        <line x1="601.6" y1="416" x2="601.6" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_22">
+        <line x1="608" y1="416" x2="608" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_21">
+        <line x1="614.4" y1="416" x2="614.4" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_20">
+        <line x1="620.8" y1="416" x2="620.8" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_19">
+        <line x1="640" y1="416" x2="640" y2="428.8" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_18">
+        <line x1="627.2" y1="416" x2="627.2" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_17">
+        <line x1="633.6" y1="416" x2="633.6" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_46">
+        <line x1="646.4" y1="416" x2="646.4" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_45">
+        <line x1="652.8" y1="416" x2="652.8" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_44">
+        <line x1="659.2" y1="416" x2="659.2" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_43">
+        <line x1="665.6" y1="416" x2="665.6" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_42">
+        <line x1="672" y1="416" x2="672" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_41">
+        <line x1="678.4" y1="416" x2="678.4" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_40">
+        <line x1="684.8" y1="416" x2="684.8" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_39">
+        <line x1="704" y1="416" x2="704" y2="428.8" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_38">
+        <line x1="691.2" y1="416" x2="691.2" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_37">
+        <line x1="697.6" y1="416" x2="697.6" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_36">
+        <line x1="710.4" y1="416" x2="710.4" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_35">
+        <line x1="716.8" y1="416" x2="716.8" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_34">
+        <line x1="723.2" y1="416" x2="723.2" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_33">
+        <line x1="729.6" y1="416" x2="729.6" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_32">
+        <line x1="736" y1="416" x2="736" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_31">
+        <line x1="742.4" y1="416" x2="742.4" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_30">
+        <line x1="748.8" y1="416" x2="748.8" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_29">
+        <line x1="768" y1="416" x2="768" y2="428.8" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_28">
+        <line x1="755.2" y1="416" x2="755.2" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_27">
+        <line x1="761.6" y1="416" x2="761.6" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_56">
+        <line x1="774.4" y1="416" x2="774.4" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_55">
+        <line x1="780.8" y1="416" x2="780.8" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_54">
+        <line x1="787.2" y1="416" x2="787.2" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_53">
+        <line x1="793.6" y1="416" x2="793.6" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_52">
+        <line x1="800" y1="416" x2="800" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_51">
+        <line x1="806.4" y1="416" x2="806.4" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_50">
+        <line x1="812.8" y1="416" x2="812.8" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_49">
+        <line x1="832" y1="416" x2="832" y2="428.8" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_48">
+        <line x1="819.2" y1="416" x2="819.2" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_47">
+        <line x1="825.6" y1="416" x2="825.6" y2="422.4" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_57">
+        <text transform="translate(509.27365 430.65186)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">0</tspan>
+        </text>
+      </g>
+      <g id="Graphic_59">
+        <text transform="translate(573.27365 430.65186)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">1</tspan>
+        </text>
+      </g>
+      <g id="Graphic_60">
+        <text transform="translate(637.27365 430.65186)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">2</tspan>
+        </text>
+      </g>
+      <g id="Graphic_61">
+        <text transform="translate(701.27365 430.65186)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">3</tspan>
+        </text>
+      </g>
+      <g id="Graphic_62">
+        <text transform="translate(765.27365 430.65186)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">4</tspan>
+        </text>
+      </g>
+      <g id="Graphic_63">
+        <text transform="translate(829.2737 430.65186)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">5</tspan>
+        </text>
+      </g>
+      <g id="Line_64">
+        <line x1="512" y1="416" x2="838.4" y2="416" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_124">
+        <line x1="512" y1="95.875" x2="499.2" y2="95.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_123">
+        <line x1="512" y1="102.275" x2="505.6" y2="102.275" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_122">
+        <line x1="512" y1="108.675" x2="505.6" y2="108.675" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_121">
+        <line x1="512" y1="115.075" x2="505.6" y2="115.075" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_120">
+        <line x1="512" y1="121.475" x2="505.6" y2="121.475" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_119">
+        <line x1="512" y1="127.875" x2="505.6" y2="127.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_118">
+        <line x1="512" y1="134.275" x2="505.6" y2="134.275" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_117">
+        <line x1="512" y1="140.675" x2="505.6" y2="140.675" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_116">
+        <line x1="512" y1="159.875" x2="499.2" y2="159.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_115">
+        <line x1="512" y1="147.075" x2="505.6" y2="147.075" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_114">
+        <line x1="512" y1="153.475" x2="505.6" y2="153.475" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_113">
+        <line x1="512" y1="166.275" x2="505.6" y2="166.275" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_112">
+        <line x1="512" y1="172.675" x2="505.6" y2="172.675" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_111">
+        <line x1="512" y1="179.075" x2="505.6" y2="179.075" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_110">
+        <line x1="512" y1="185.475" x2="505.6" y2="185.475" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_109">
+        <line x1="512" y1="191.875" x2="505.6" y2="191.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_108">
+        <line x1="512" y1="198.275" x2="505.6" y2="198.275" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_107">
+        <line x1="512" y1="204.675" x2="505.6" y2="204.675" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_106">
+        <line x1="512" y1="223.875" x2="499.2" y2="223.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_105">
+        <line x1="512" y1="211.075" x2="505.6" y2="211.075" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_104">
+        <line x1="512" y1="217.475" x2="505.6" y2="217.475" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_103">
+        <line x1="512" y1="230.275" x2="505.6" y2="230.275" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_102">
+        <line x1="512" y1="236.675" x2="505.6" y2="236.675" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_101">
+        <line x1="512" y1="243.075" x2="505.6" y2="243.075" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_100">
+        <line x1="512" y1="249.475" x2="505.6" y2="249.475" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_99">
+        <line x1="512" y1="255.875" x2="505.6" y2="255.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_98">
+        <line x1="512" y1="262.275" x2="505.6" y2="262.275" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_97">
+        <line x1="512" y1="268.675" x2="505.6" y2="268.675" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_96">
+        <line x1="512" y1="287.875" x2="499.2" y2="287.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_95">
+        <line x1="512" y1="275.075" x2="505.6" y2="275.075" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_94">
+        <line x1="512" y1="281.475" x2="505.6" y2="281.475" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_93">
+        <line x1="512" y1="294.275" x2="505.6" y2="294.275" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_92">
+        <line x1="512" y1="300.675" x2="505.6" y2="300.675" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_91">
+        <line x1="512" y1="307.075" x2="505.6" y2="307.075" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_90">
+        <line x1="512" y1="313.475" x2="505.6" y2="313.475" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_89">
+        <line x1="512" y1="319.875" x2="505.6" y2="319.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_88">
+        <line x1="512" y1="326.275" x2="505.6" y2="326.275" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_87">
+        <line x1="512" y1="332.675" x2="505.6" y2="332.675" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_86">
+        <line x1="512" y1="351.875" x2="499.2" y2="351.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_85">
+        <line x1="512" y1="339.075" x2="505.6" y2="339.075" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_84">
+        <line x1="512" y1="345.475" x2="505.6" y2="345.475" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_83">
+        <line x1="512" y1="358.275" x2="505.6" y2="358.275" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_82">
+        <line x1="512" y1="364.675" x2="505.6" y2="364.675" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_81">
+        <line x1="512" y1="371.075" x2="505.6" y2="371.075" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_80">
+        <line x1="512" y1="377.475" x2="505.6" y2="377.475" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_79">
+        <line x1="512" y1="383.875" x2="505.6" y2="383.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_78">
+        <line x1="512" y1="390.275" x2="505.6" y2="390.275" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_77">
+        <line x1="512" y1="396.675" x2="505.6" y2="396.675" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_76">
+        <line x1="512" y1="415.875" x2="499.2" y2="415.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_75">
+        <line x1="512" y1="403.075" x2="505.6" y2="403.075" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_74">
+        <line x1="512" y1="409.475" x2="505.6" y2="409.475" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_67">
+        <line x1="512" y1="89.475" x2="512" y2="415.875" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_125">
+        <circle cx="604.8" cy="259.2" r="3.20000516096984" fill="white"/>
+        <circle cx="604.8" cy="259.2" r="3.20000516096984" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_126">
+        <circle cx="585.6" cy="272" r="3.20000516096986" fill="white"/>
+        <circle cx="585.6" cy="272" r="3.20000516096986" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_127">
+        <circle cx="617.6" cy="246.4" r="3.20000516096983" fill="white"/>
+        <circle cx="617.6" cy="246.4" r="3.20000516096983" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_128">
+        <circle cx="630.4" cy="272" r="3.20000516096986" fill="white"/>
+        <circle cx="630.4" cy="272" r="3.20000516096986" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_129">
+        <circle cx="624" cy="284.8" r="3.20000516096985" fill="white"/>
+        <circle cx="624" cy="284.8" r="3.20000516096985" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_130">
+        <circle cx="636.8" cy="291.2" r="3.20000516096983" fill="white"/>
+        <circle cx="636.8" cy="291.2" r="3.20000516096983" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_131">
+        <circle cx="611.2" cy="310.4" r="3.20000516096984" fill="white"/>
+        <circle cx="611.2" cy="310.4" r="3.20000516096984" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_132">
+        <circle cx="579.2" cy="323.2" r="3.20000516096986" fill="white"/>
+        <circle cx="579.2" cy="323.2" r="3.20000516096986" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_133">
+        <circle cx="547.2" cy="380.8" r="3.20000516096986" fill="white"/>
+        <circle cx="547.2" cy="380.8" r="3.20000516096986" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_134">
+        <circle cx="643.2" cy="252.8" r="3.20000516096986" fill="white"/>
+        <circle cx="643.2" cy="252.8" r="3.20000516096986" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_135">
+        <circle cx="732.8" cy="163.2" r="3.20000516096984" fill="white"/>
+        <circle cx="732.8" cy="163.2" r="3.20000516096984" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_136">
+        <circle cx="784" cy="124.8" r="3.20000516096985" fill="white"/>
+        <circle cx="784" cy="124.8" r="3.20000516096985" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_137">
+        <circle cx="720" cy="176" r="3.20000516096982" fill="white"/>
+        <circle cx="720" cy="176" r="3.20000516096982" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_138">
+        <circle cx="713.6" cy="233.6" r="3.20000516096986" fill="white"/>
+        <circle cx="713.6" cy="233.6" r="3.20000516096986" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_139">
+        <circle cx="643.2" cy="227.2" r="3.20000516096984" fill="white"/>
+        <circle cx="643.2" cy="227.2" r="3.20000516096984" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_140">
+        <circle cx="649.6" cy="195.2" r="3.20000516096984" fill="white"/>
+        <circle cx="649.6" cy="195.2" r="3.20000516096984" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_141">
+        <circle cx="668.8" cy="208" r="3.20000516096981" fill="white"/>
+        <circle cx="668.8" cy="208" r="3.20000516096981" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_142">
+        <circle cx="688" cy="201.6" r="3.20000516096981" fill="white"/>
+        <circle cx="688" cy="201.6" r="3.20000516096981" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_143">
+        <circle cx="726.4" cy="201.6" r="3.20000516096986" fill="white"/>
+        <circle cx="726.4" cy="201.6" r="3.20000516096986" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_144">
+        <circle cx="688" cy="278.4" r="3.20000516096982" fill="white"/>
+        <circle cx="688" cy="278.4" r="3.20000516096982" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_145">
+        <text transform="translate(488.4 409.6)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">0</tspan>
+        </text>
+      </g>
+      <g id="Graphic_146">
+        <text transform="translate(488.4 345.6)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">1</tspan>
+        </text>
+      </g>
+      <g id="Graphic_148">
+        <text transform="translate(488.4 281.6)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">2</tspan>
+        </text>
+      </g>
+      <g id="Graphic_149">
+        <text transform="translate(488.4 217.6)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">3</tspan>
+        </text>
+      </g>
+      <g id="Graphic_150">
+        <text transform="translate(488.4 153.6)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">4</tspan>
+        </text>
+      </g>
+      <g id="Graphic_151">
+        <text transform="translate(488.4 89.6)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="6545875e-19" y="10">5</tspan>
+        </text>
+      </g>
+      <g id="Graphic_152">
+        <text transform="translate(795.6 397.32)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="0" y="10">X label</tspan>
+        </text>
+      </g>
+      <g id="Graphic_153">
+        <text transform="translate(520.4 96)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="10" fill="black" x="261835e-17" y="10">Y label</tspan>
+        </text>
+      </g>
+      <g id="Graphic_154">
+        <text transform="translate(520.4 390.1359)" fill="black">
+          <tspan font-family="Helvetica Neue" font-weight="bold" font-size="16" fill="black" x="0" y="16">A</tspan>
+        </text>
+      </g>
+      <g id="Line_419">
+        <line x1="701.0999" y1="278.45288" x2="723.2" y2="278.54208" marker-start="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_420">
+        <text transform="translate(725.2 273.5165)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="8" fill="black" x="5258016e-19" y="8">Annotation</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
