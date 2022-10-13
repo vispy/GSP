@@ -3,15 +3,15 @@
 
 ## Core
 
-- [x] [**Canvas**](../protocol/canvas.md)  *:octicons-tag-24: alpha*{.push-right}
+- [x] [**Canvas**](../protocol/core/canvas.md)  *:octicons-tag-24: alpha*{.push-right}
 
        2D drawing areas, onscreen or offscreen.
 
-- [x] [**Viewport**](../protocol/viewport.md)  *:octicons-tag-24: alpha*{.push-right}
+- [x] [**Viewport**](../protocol/core/viewport.md)  *:octicons-tag-24: alpha*{.push-right}
 
        Subdivision of a canvas
 
-- [x] [**Buffer**](../protocol/buffer.md)  *:octicons-tag-24: alpha*{.push-right}
+- [x] [**Buffer**](../protocol/core/buffer.md)  *:octicons-tag-24: alpha*{.push-right}
 
        Arbitrary one-dimensional data representation 
 

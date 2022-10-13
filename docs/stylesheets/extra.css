@@ -3,7 +3,7 @@
 .doc .md-typeset__table table {
     width: unset;
     border: none;
-    font-size: 1em;
+    font-size: 1em; 
 }
 
 
@@ -11,6 +11,7 @@ th, td {
     border: none;
     border-spacing: 0;
     text-align: left;
+    width: auto;
 }
 
 .md-typeset h3 {
@@ -24,6 +25,12 @@ strong.protocol {
 }
 
 strong.parameters {
+    padding: .1em 1em .1em 1em;
+    color: white;
+    background-color: var(--md-primary-fg-color);
+}
+
+strong.examples, strong.example {
     padding: .1em 1em .1em 1em;
     color: white;
     background-color: var(--md-primary-fg-color);

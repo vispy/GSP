@@ -12,6 +12,7 @@ from . object import Object, OID
 from . command import Command, CID, command
 from . canvas import Canvas
 from . viewport import Viewport
+from . datatype import Datatype
 
 
 def mode(mode="server", reset=True, record=None, output=None):

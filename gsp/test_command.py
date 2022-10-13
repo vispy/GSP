@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
 # Graphic Server Protocol (GSP) — reference implementation
-# Copyright 2022 Nicolas P. Rougier - BSD 2 Clauses licence
+# Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 import gsp
 

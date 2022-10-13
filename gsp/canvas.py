@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
 # Graphic Server Protocol (GSP) — reference implementation
-# Copyright 2022 Nicolas P. Rougier - BSD 2 Clauses licence
+# Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 """
 The Canvas corresponds to a finite two-dimensional drawing area.
@@ -54,7 +54,7 @@ class Canvas(Object):
 
         === "Result"
 
-            ![](../assets/images/Canvas.svg){: style="width:100%"}
+            ![](../../assets/images/Canvas.svg){: style="width:100%"}
         
         **Protocol**{: .protocol}
         

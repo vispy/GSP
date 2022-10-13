@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
 # Graphic Server Protocol (GSP) — reference implementation
-# Copyright 2022 Nicolas P. Rougier - BSD 2 Clauses licence
+# Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 from typing import Union
 from typeguard import typechecked
@@ -53,7 +53,7 @@ class Viewport(Object):
 
         === "Result"
 
-            ![](../assets/images/Viewport.svg){: style="width:100%"}
+            ![](../../assets/images/Viewport.svg){: style="width:100%"}
 
         **Protocol**{: .protocol}
         

@@ -26,8 +26,11 @@ nav:
     - protocol/gsp.md
     - protocol/structures.md
     - Core features:
-      - protocol/canvas.md
-      - protocol/viewport.md
+      - protocol/core/canvas.md
+      - protocol/core/viewport.md
+      - protocol/core/datatype.md
+    - Visuals:
+      - protocol/visual/pixels.md
     - protocol/changelog.md
   - "Implementations" :
       - implementations/matplotlib.md
