@@ -1,5 +1,10 @@
+mkdocs-autorefs
 mkdocs-include-markdown-plugin
 mkdocs-git-revision-date-localized-plugin
 mkdocs-gitbook
 mkdocs-material
+mkdocs-material-extensions
 mkdocstrings[python]
+mkdocs-glightbox
+griffe
+
