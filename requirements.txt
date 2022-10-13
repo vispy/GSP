@@ -1,0 +1,5 @@
+mkdocs-include-markdown-plugin
+mkdocs-git-revision-date-localized-plugin
+mkdocs-gitbook
+mkdocs-material
+mkdocstrings[python]
