@@ -7,8 +7,8 @@ The Canvas corresponds to a finite two-dimensional drawing area.
 """
 from typing import Union
 from typeguard import typechecked
-from . command import command
-from . object import Object, OID
+from gsp.core.command import command
+from gsp.core.object import Object, OID
 
 class Canvas(Object):
     """ """
