@@ -12,4 +12,4 @@ from . object import Object
 from . canvas import Canvas
 from . viewport import Viewport
 from . datatype import Datatype
-from . array import Array
+from . buffer import Buffer

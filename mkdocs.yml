@@ -33,7 +33,7 @@ nav:
       - protocol/core/canvas.md
       - protocol/core/viewport.md
       - protocol/core/datatype.md
-      - protocol/core/array.md
+      - protocol/core/buffer.md
     - Transforms:
       - protocol/transform/MVP.md
     - Visuals:

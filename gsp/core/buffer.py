@@ -9,7 +9,7 @@ from gsp.core.object import OID, Object
 from gsp.core.command import command
 from gsp.core.datatype import Datatype
 
-class Array(Object):
+class Buffer(Object):
 
     @typechecked
     @command("")
@@ -23,7 +23,7 @@ class Array(Object):
 
             ```Pycon
             >>> vec3 = Datatype("f:x / f:y / f:z")
-            >>> array = Array(100, vec3)
+            >>> array = Buffer(100, vec3)
             >>> Command.commands[-1].to_json()
             ```
 
@@ -34,7 +34,7 @@ class Array(Object):
                 "jsonrpc": "2.0",
                 "id": 1,
                 "timestamp": 0,
-                "method": "Array",
+                "method": "Buffer",
 	        "params": {
                     "size": 100,
                     "datatype" : 1,
@@ -73,4 +73,4 @@ class Array(Object):
         self.dtype = dtype
 
     def __repr__(self):
-        return f"Array [id={self.id}]: {self.size},{self.dtype}"
+        return f"Buffer [id={self.id}]: {self.size},{self.dtype}"
