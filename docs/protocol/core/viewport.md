@@ -1,5 +1,5 @@
 
-::: gsp.Viewport
+::: gsp.core.Viewport
     options:
       show_root_heading: yes
     selection:
