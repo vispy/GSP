@@ -7,12 +7,18 @@ The role of the Command class is to facilitate the writing of the reference
 implementation. It is *not* part of the protocol.
 """
 import yaml
+import json
 import inspect
 import itertools
 import numpy as np
 from datetime import datetime
 from functools import wraps
-from gsp.object import Object, OID
+from gsp.core.object import Object, OID
+
+def json_default(obj):
+    if hasattr(obj, 'to_json'):
+        return obj.to_json()
+    raise TypeError(f'Object of type {obj.__class__.__name__} is not JSON serializable')
 
 def get_default_args(func):
     """Retrieve default arguments and their values from a function. """
@@ -147,6 +153,11 @@ class Command:
             if isinstance(value, Object):
                 self.parameters[key] = value.id
 
+    def record(self, classname : str,  methodname : str, parameters : dict):
+        """ Register and record a new method call """
+
+        self.register(classname, methodname, parameters)
+        self.commands.append(self)
 
     def execute(self, globals=None, locals=None):
         """ Execute the command. """
@@ -188,7 +199,7 @@ class Command:
         data = [ { "method" : method,
                    "id" : self.id,
                    "timestamp" : self.timestamp,
-                   "params" : self.parameters } ]
+                   "parameters" : self.parameters } ]
         return yaml.dump(data, default_flow_style=None, sort_keys=False)
 
     def json_dump(self) -> str:
@@ -201,7 +212,7 @@ class Command:
                     "timestamp" : self.timestamp,
                     "method" : method,
                     "parameters" : self.parameters }
-        return str(payload)
+        return json.dumps(payload, default=json_default)
 
     def json_load(self, payload) -> str:
         self.id = payload["id"]
@@ -209,7 +220,7 @@ class Command:
             self.classname, self.methodname = payload["method"].split("/")
         except ValueError:
             self.classname, self.methodname = payload["method"], None
-        self.parameters = payload["params"]
+        self.parameters = payload["parameters"]
         self.timestamp = payload["timestamp"]
 
 if __name__ == "__main__":

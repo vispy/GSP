@@ -9,6 +9,7 @@ implementation. It is *not* part of the protocol.
 import yaml
 import itertools
 
+
 class OID(yaml.YAMLObject):
     """**Object unique identifier**
 
@@ -78,6 +79,9 @@ class OID(yaml.YAMLObject):
     def __repr__(self):
         return "%d" % self.id
 
+    def to_json(self):
+        return self.id
+
     @classmethod
     def to_yaml(cls, representer, node):
         """ Convert OID to a YAML node """
@@ -88,6 +92,7 @@ class OID(yaml.YAMLObject):
     def from_yaml(cls, loader, node):
         """ Convert a YAML node to OID. """
         return cls(node.value)
+
 
     
 class Object:
