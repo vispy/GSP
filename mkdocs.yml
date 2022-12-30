@@ -1,3 +1,7 @@
+# To debug:
+#   griffe dump gsp -o/dev/null -LDEBUG
+#   mkdocs -v
+# See also https://github.com/mkdocstrings/mkdocstrings/issues/451
 site_name: Graphic Server Protocol
 use_directory_urls: false
 repo_url: https://github.com/vispy/GSP
@@ -25,10 +29,13 @@ nav:
     - protocol/base.md
     - protocol/gsp.md
     - protocol/structures.md
-    - Core features:
+    - Core:
       - protocol/core/canvas.md
       - protocol/core/viewport.md
       - protocol/core/datatype.md
+      - protocol/core/array.md
+    - Transforms:
+      - protocol/transform/MVP.md
     - Visuals:
       - protocol/visual/pixels.md
     - protocol/changelog.md
