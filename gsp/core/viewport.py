@@ -5,9 +5,9 @@
 from typing import Union
 from typeguard import typechecked
 
-from . object import OID, Object
-from . command import command
-from . canvas import Canvas
+from gsp.core.object import OID, Object
+from gsp.core.command import command
+from gsp.core.canvas import Canvas
 
 class Viewport(Object):
 
