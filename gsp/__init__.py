@@ -8,11 +8,8 @@ This is the reference implementation of the Graphic Server Protocol (GSP) that
 It allows to issue commands, parse them and build corresponding objects.
 """
 import itertools
-from . object import Object, OID
-from . command import Command, CID, command
-from . canvas import Canvas
-from . viewport import Viewport
-from . datatype import Datatype
+from gsp.core.object import Object, OID
+from gsp.core.command import Command, command, CID
 
 
 def mode(mode="server", reset=True, record=None, output=None):
