@@ -2,11 +2,11 @@
 # Graphic Server Protocol (GSP) — reference implementation
 # Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
+import re
 import numpy as np
 from typing import Union
 from typeguard import typechecked
-from gsp import command
-
+from gsp.core.command import command, Object
 
 """
 """
@@ -30,21 +30,21 @@ class Datatype(Object):
                     isize = np.prod(isize)
                 iname = iname.strip()
                 itype = itype.strip()
-                datatype += "%s:%s:%d;" % (itype,iname,isize)
+                datatype += "%s:%s:%d/" % (itype,iname,isize)
         elif dtype.startswith("("):
             itype, isize = eval(dtype)
             isize = np.prod(isize)
-            datatype += "%s::%d;" % (itype,isize)
+            datatype += "%s::%d/" % (itype,isize)
         else:
-            datatype += "%s;" % (dtype)
-        return datatype
+            datatype += "%s/" % (dtype)
+        return datatype[:-1]
 
     # Convenience method, not part of the protocol
     @classmethod
     def to_numpy(cls, datatype):
         dtype = []
         datatype = datatype.replace(" ", "")
-        for item in datatype.split(";"):
+        for item in datatype.split("/"):
             if not len(item): continue
             item = item.split(":")
             if len(item) == 3:
@@ -70,7 +70,7 @@ class Datatype(Object):
     
     @typechecked
     @command("")
-    def __init__(self, type : str):
+    def __init__(self, dtype : str):
         """Dataype describes the structure of a chunk of memory.
         
         === "Python"
@@ -89,7 +89,7 @@ class Datatype(Object):
                 "timestamp": 0,
                 "method": "Datatype",
 	        "params": {
-                    "type" : f:x / f:y,
+                    "type" : "f:x / f:y",
                 }
 	    }
             ```
@@ -102,15 +102,15 @@ class Datatype(Object):
 
         Parameters:
         
-          type:
+          dtype:
     
             Description of the type (as a `/` separated list of atomic items)
             **→** `type` must fit datatype description.
 
         
         The description of the type is a `/` separated list of atomic items of
-        the form `alias:[name]:[count] / … / alias:[name]:[count]` where `name`
-        is a valid identifier, count is a strictly positive integer and `alias`
+        the form `type:[name]:[count] / … / type:[name]:[count]` where `name`
+        is a valid identifier, count is a strictly positive integer and `type`
         is one of:
         
         Type     | Alias | Description                            | Size    | Comment                            |
@@ -128,22 +128,10 @@ class Datatype(Object):
         datetime | `Y`   | date/time representation               | 64 bits | Offset from 1970-01-01T00:00:00    |
 
 
-        A type can be matched against a Posix regular expression (multiline):
+        A type can be matched against a regular expression:
 
         ```python
-        '''(?:(?P<type>[?bsiBSIefdY])
-             :(?P<name>[[:alpha:]]*)
-             :(?P<count>[[:digit:]]+))+
-           (\s*\/\s*)?'''
-        ```
-        
-        or a Python regular expression (multiline):
-
-        ```python
-        '''((?P<type>[?bsiBSIefdY])
-           :(?P<name>[\w\d]*)
-           :(?P<count>\d+))+
-           (\s*/\s*)?'''
+        r"(?P<type>[?bsiBSIefdY]):(?P<name>[A-Za-z0-9]*):(?P<count>[0-9]+)"
         ```
 
         **Errors**{: .errors}
@@ -159,21 +147,31 @@ class Datatype(Object):
         **Examples**{.examples}
 
         ```python
-        vec2 = Datatype("f:x / f:y")             #   8 bytes total
-        vec3 = Datatype("f:x / f:y / f:z")       #  12 bytes total
-        rgba = Datatype("f:R / f:G / f:B / f:A") #  16 bytes total
-        RGBA = Datatype("B:R / B:G / B:B / B:A") #   4 bytes total
-        mat4 = Datatype("f::16")                 # 512 bytes total
+        vec2 = Datatype("f:x / f:y")
+        vec3 = Datatype("f:x / f:y / f:z")
+        vec4 = Datatype("f:x / f:y / f:z / f:w")
+        mat3x3 = Datatype("f::9")
+        mat4x4 = Datatype("f::16")
         ```
 
         """
         
-        # ((?:(?P<type>[?bsiBSIefdY]):(?P<name>[[:alpha:]]*):(?P<count>[[:digit:]]+))+)(\s*\/\s*)?
-        # "((?:[\?bsiBSIefdY][124]:[[:alpha:]]+:[[:digit:]])+);?"
-
-
         Object.__init__(self)
-        self.type = type
+        self.type = dtype
+
+    @property
+    def size(self):
+        """Size in bytes."""
+        
+        sizes = {"?" : 1, "b" : 1, "B" : 1,
+                 "s" : 2, "S" : 2, "e" : 2,
+                 "i" : 4, "I" : 4, "f" : 4,
+                 "d" : 8, "Y" : 8 }
+        regex = r"(?P<type>[?bsiBSIefdY]):(?P<name>[a-zA-Z0-9]*):(?P<count>[0-9]+)"
+        size = 0
+        for (dtype,name,count) in re.findall(regex, self.type):
+            size += sizes[dtype]*int(count)
+        return size
 
     def __repr__(self):
         """String representation of the type."""
