@@ -5,25 +5,25 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../assets/images/GSP-logo-black.png" rel="icon"/>
+<link href="../../assets/images/GSP-logo-black.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>Rationale - Graphic Server Protocol</title>
-<link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<title>Buffer view - Graphic Server Protocol</title>
+<link href="../../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../css/mkdocstrings.css" rel="stylesheet"/>
-<link href="../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../css/mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="None" data-md-color-primary="None" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#rationale">
+<a class="md-skip" href="#gsp.core.BufferView">
           Skip to content
         </a>
 </div>
@@ -31,8 +31,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Graphic Server Protocol" class="md-header__button md-logo" data-md-component="logo" href=".." title="Graphic Server Protocol">
-<img alt="logo" src="../assets/images/GSP-logo-white.png"/>
+<a aria-label="Graphic Server Protocol" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Graphic Server Protocol">
+<img alt="logo" src="../../assets/images/GSP-logo-white.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Rationale
+              Buffer view
             
           </span>
 </div>
@@ -100,22 +100,22 @@
 <div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../index.html">
+<a class="md-tabs__link" href="../../index.html">
         Home
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="index.html">
+<a class="md-tabs__link" href="../../overview/index.html">
         Overview
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../protocol/base.html">
+<a class="md-tabs__link md-tabs__link--active" href="../base.html">
         Specifications
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../implementations/matplotlib.html">
+<a class="md-tabs__link" href="../../implementations/matplotlib.html">
         Implementations
       </a>
 </li>
@@ -129,8 +129,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Graphic Server Protocol" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Graphic Server Protocol">
-<img alt="logo" src="../assets/images/GSP-logo-white.png"/>
+<a aria-label="Graphic Server Protocol" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Graphic Server Protocol">
+<img alt="logo" src="../../assets/images/GSP-logo-white.png"/>
 </a>
     Graphic Server Protocol
   </label>
@@ -158,12 +158,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../index.html">
+<a class="md-nav__link" href="../../index.html">
         Graphic Server Protocol
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../license.html">
+<a class="md-nav__link" href="../../license.html">
         License
       </a>
 </li>
@@ -183,25 +183,25 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="index.html">
+<a class="md-nav__link" href="../../overview/index.html">
         Graphic Server Protocol
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="how.html">
+<a class="md-nav__link" href="../../overview/how.html">
         How it works?
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="capabilities.html">
+<a class="md-nav__link" href="../../overview/capabilities.html">
         Capabilities
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3">
           Specifications
           <span class="md-nav__icon md-icon"></span>
@@ -213,22 +213,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../protocol/base.html">
+<a class="md-nav__link" href="../base.html">
         Base protocol
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../protocol/gsp.html">
+<a class="md-nav__link" href="../gsp.html">
         Graphic Server Protocol
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../protocol/structures.html">
+<a class="md-nav__link" href="../structures.html">
         Structures
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_4">
           Core
           <span class="md-nav__icon md-icon"></span>
@@ -240,29 +240,47 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../protocol/core/canvas.html">
+<a class="md-nav__link" href="canvas.html">
         Canvas
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../protocol/core/viewport.html">
+<a class="md-nav__link" href="viewport.html">
         Viewport
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../protocol/core/datatype.html">
+<a class="md-nav__link" href="datatype.html">
         Datatype
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../protocol/core/buffer.html">
+<a class="md-nav__link" href="buffer.html">
         Buffer
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../protocol/core/buffer_view.html">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Buffer view
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="buffer_view.html">
         Buffer view
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gsp.core.BufferView">
+    BufferView
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -280,7 +298,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../protocol/transform/MVP.md">
+<a class="md-nav__link" href="../transform/MVP.md">
         None
       </a>
 </li>
@@ -300,7 +318,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../protocol/visual/pixels.html">
+<a class="md-nav__link" href="../visual/pixels.html">
         Pixels
       </a>
 </li>
@@ -308,7 +326,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../protocol/changelog.html">
+<a class="md-nav__link" href="../changelog.html">
         Changelog
       </a>
 </li>
@@ -328,17 +346,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../implementations/matplotlib.html">
+<a class="md-nav__link" href="../../implementations/matplotlib.html">
         Matplotlib
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../implementations/datoviz.html">
+<a class="md-nav__link" href="../../implementations/datoviz.html">
         Datoviz
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../implementations/pygfx.html">
+<a class="md-nav__link" href="../../implementations/pygfx.html">
         Pygfx
       </a>
 </li>
@@ -354,31 +372,98 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gsp.core.BufferView">
+    BufferView
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/vispy/GSP/edit/master/docs/overview/rationale.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/vispy/GSP/edit/master/docs/protocol/core/buffer_view.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="rationale">Rationale</h1>
-<p>If you look closely at a scientific figure (<strong>Fig. 1</strong>), you might observe that it is actually made of a (large) set of elementary components, namely points (or markers), lines, glyphs (text) and polygons (<strong>Fig. 2</strong>) Glyphs, markers and polygons can be further decomposed into triangles such that the elementary components are really points, lines and triangles. When designing a scientific figure, you hardly manipulate these components explicitely. Instead, you use high-level functions that ultimately produce these elementary components. Some of these high-level functions can produce all the elements at once while some other allows you to specify only a subset of these elements.</p>
-<p><a class="glightbox" href="../assets/images/scatter-1.svg"><img align="left" alt="" src="../assets/images/scatter-1.svg" width="50%"/></a></p>
-<p><strong>Figure 1</strong> A regular scatter plot as it could be created by a number of
-scientific libraries, with probably some variations in style.
-<br class="clear"/></p>
-<p>What defines a scientific visualization library is the choice and the definition of these high-level functions. You can choose to have only very high-level functions that allow a user to quickly design a figure (e.g. <a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a>, <a href="https://vega.github.io/vega/">vega</a>, <a href="https://seaborn.pydata.org/">seaborn</a>) or you can give user more control by providing mid-level functions that allows to further tune the figure (e.g. <a href="https://matplotlib.org/">matplotlib</a>, <a href="https://vispy.org/">vispy</a>). In the most extreme case, you might decide to give user a total freedom at the price of complexity (<a href="https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ">TikZ</a>). There is no definitive API because some users will enjoy the magic of a high-level interface that takes most decisions for them, while some other users will want to have a fine control of pretty much everything.</p>
-<p><a class="glightbox" href="../assets/images/scatter-2.svg"><img align="left" alt="" src="../assets/images/scatter-2.svg" width="50%"/></a></p>
-<p><strong>Figure 2</strong> The figure 1 above can be decomposed in a set of markers, lines and glyphs.
-<br class="clear"/></p>
-<p>From a developper point of view, independently of the actual library, the task
-remains the same: the library needs to draw points, lines, markers, glyphs,
-polygons and meshes, taking advantage of some lower-level library or doing
-everything itself. Ultimately, this represent a lot of redundant efforts across
-libraries.</p>
-<p><strong>The graphic server protocol is a proposal to mutualize efforts across libraries, languages and platforms</strong>.</p>
+<h1>Buffer view</h1>
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="gsp.core.BufferView">
+<code class="highlight language-python"><span class="n">BufferView</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Partial view of an existing <code>buffer</code> indexed by <code>key</code>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="gsp.core.BufferView--__tabbed_1_1" name="gsp.core.BufferView--__tabbed_1" type="radio"><input id="gsp.core.BufferView--__tabbed_1_2" name="gsp.core.BufferView--__tabbed_1" type="radio"><div class="tabbed-labels"><label for="gsp.core.BufferView--__tabbed_1_1">Python</label><label for="gsp.core.BufferView--__tabbed_1_2">JSON-RPC</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">struct</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">data</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">"f"</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">vec3</span> <span class="o">=</span> <span class="n">Datatype</span><span class="p">(</span><span class="s2">"f:x/f:y"</span><span class="p">)</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">buffer</span> <span class="o">=</span> <span class="n">Buffer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">vec3</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">view</span> <span class="o">=</span> <span class="n">BufferView</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">{</span><span class="w"> </span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="nt">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BufferView"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="nt">"buffer"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">        </span><span class="nt">"key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"x"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<p><strong class="parameters">Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>buffer</code></td>
+<td>
+<code><a class="autorefs autorefs-internal" title="gsp.core.buffer.Buffer" href="buffer.html#gsp.core.Buffer">Buffer</a></code>
+</td>
+<td><p>Buffer to take view from</p></td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td>
+<code>str</code>
+</td>
+<td><p>Field to be accessed</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong class="errors">Errors</strong></p>
+<ul>
+<li><code>INVALID_REQUEST</code> : Request is malformed</li>
+<li><code>INVALID_METHOD</code>  : Method does not exist or is not available.</li>
+<li><code>INVALID_PARAMS</code>  : A parameter is missing or has an illegal value</li>
+<li><code>INVALID_OBJECT</code>  : A parameter refers to a non-existent object</li>
+</ul>
+<p><strong class="future">Future</strong></p>
+<p>No dicussion for the time being.</p>
+<div class="doc doc-children">
+</div>
+</div>
+</div>
 <hr/>
 <div class="md-source-file">
 <small>
@@ -393,6 +478,34 @@ libraries.</p>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Buffer" class="md-footer__link md-footer__link--prev" href="buffer.html" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Buffer
+            </div>
+</div>
+</a>
+<a aria-label="Next: Pixels" class="md-footer__link md-footer__link--next" href="../visual/pixels.html" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Pixels
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
@@ -410,7 +523,7 @@ libraries.</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "header.autohide", "content.code.annotate", "content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "header.autohide", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>
