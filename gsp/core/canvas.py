@@ -29,9 +29,8 @@ class Canvas(Object):
 
         === "Python"
 
-            ```Pycon
-            >>> canvas = Canvas(800, 400, 100, 2, True)
-            >>> Command.commands[-1].to_json()
+            ```Python
+            canvas = Canvas(800, 400, 100, 2, True)
             ```
 
         === "JSON-RPC"
@@ -120,10 +119,9 @@ class Canvas(Object):
 
         === "Python"
 
-            ```Pycon
-            >>> canvas = Canvas(16, 8, 100, 2, True)
-            >>> canvas.set_size(16,16)
-            >>> Command.commands[-1].to_json()
+            ```Python
+            canvas = Canvas(16, 8, 100, 2, True)
+            canvas.set_size(16,16)
             ```
 
         === "JSON-RPC"
@@ -150,12 +148,6 @@ class Canvas(Object):
 
         Parameters:
 
-          id (int):
-
-            Identification of the object 
-
-            **→** Object must have been created.
-        
           width:
         
             Width of the canvas in logical pixels.
@@ -188,10 +180,9 @@ class Canvas(Object):
 
         === "Python"
 
-            ```Pycon
-            >>> canvas = Canvas(16, 8, 100, 2, True)
-            >>> canvas.set_dpi(100)
-            >>> Command.commands[-1].to_json()
+            ```Python
+            canvas = Canvas(16, 8, 100, 2, True)
+            canvas.set_dpi(100)
             ```
 
         === "JSON-RPC"
@@ -218,12 +209,6 @@ class Canvas(Object):
         
         Parameters:
 
-          id (int):
-
-            Identification of the object 
-
-            **→** Object must have been created.
-        
           dpi:
         
             Dots per inch
@@ -247,10 +232,9 @@ class Canvas(Object):
 
         === "Python"
 
-            ```Pycon
-            >>> canvas = Canvas(16, 8, 100, 2, True)
-            >>> canvas.set_dpr(100)
-            >>> Command.commands[-1].to_json()
+            ```Python
+            canvas = Canvas(16, 8, 100, 2, True)
+            canvas.set_dpr(100)
             ```
 
         === "JSON-RPC"

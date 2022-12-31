@@ -11,20 +11,32 @@ from gsp.core.datatype import Datatype
 
 class Buffer(Object):
 
+    # Convenience method, not part of the protocol
+    @classmethod
+    def from_numpy(cls, Z):
+        import numpy as np
+        
+        if (isinstance(Z, np.ndarray)):
+            return Buffer(Z.size, Datatype.from_numpy(Z.dtype), Z.tobytes())
+        raise ValueError(f"Unknown type for {Z}, cannot convert to Buffer")
+
     @typechecked
     @command("")
-    def __init__(self, size : int,
-                       dtype : Datatype):
+    def __init__(self, count : int,
+                       dtype : Datatype,
+                       data  : bytes):
 
-        """Request the creation of a uni-dimensional array with `size`
-        elements of type `dtype`.
+        """Request the creation of a uni-dimensional buffer with `count`
+        elements of type `dtype` and `data` content.
         
         === "Python"
 
-            ```Pycon
-            >>> vec3 = Datatype("f:x / f:y / f:z")
-            >>> array = Buffer(100, vec3)
-            >>> Command.commands[-1].to_json()
+            ```Python
+            import struct
+            data = [0,0,1,1,2,2]
+            data = struct.pack("f"*len(data), *data)
+            vec3 = Datatype("f:x/f:y")
+            buffer = Buffer(3, vec3, data)
             ```
 
         === "JSON-RPC"
@@ -37,23 +49,33 @@ class Buffer(Object):
                 "method": "Buffer",
 	        "params": {
                     "size": 100,
-                    "datatype" : 1,
+                    "dtype" : 1,
+                    "data" : "AAAAAAAAAAAAIA/AACAPwAAAEAAAABA" 
                 }
 	    }
             ```
+        
+        **Protocol**{: .protocol}
+        
+        | Request type | # Parameters | Asynchronous     | Error handling   |
+        | ------------ | ------------ | ---------------- | ---------------- |
+        | `CREATE`     | 3            | :material-check: | :material-check: |
+
 
         Parameters:
 
-         size:
+         count:
         
             Number of elements
-
-            **→** `size` is strictly positive
 
          dtype:
         
             Element datatype
+
+         data:
         
+            Content of the buffer
+
         
         **Errors**{: .errors}
 
@@ -69,8 +91,9 @@ class Buffer(Object):
         """
         
         Object.__init__(self)
-        self.size = size
+        self.count = count
         self.dtype = dtype
+        self.data = data
 
     def __repr__(self):
-        return f"Buffer [id={self.id}]: {self.size},{self.dtype}"
+        return f"Buffer [id={self.id}]: {self.count},{self.dtype}"

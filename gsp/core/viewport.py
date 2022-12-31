@@ -27,10 +27,9 @@ class Viewport(Object):
         
         === "Python"
 
-            ```Pycon
-            >>> canvas = Canvas(800, 400, 100, 1, False)
-            >>> viewport = Viewport(canvas, 100, 100, 300, 200, 1)
-            >>> Command.commands[-1].to_json()
+            ```Python
+            canvas = Canvas(800, 400, 100, 1, False)
+            viewport = Viewport(canvas, 100, 100, 300, 200, 1)
             ```
 
         === "JSON-RPC"
@@ -123,11 +122,10 @@ class Viewport(Object):
 
         === "Python"
 
-            ```Pycon
-            >>> canvas = Canvas(200, 200, 100, 1, False)
-            >>> viewport = Viewport(canvas, 10, 10, 100, 100, 1)
-            >>> viewport.set_position(0,0)
-            >>> Command.commands[-1].to_json()
+            ```Python
+            canvas = Canvas(200, 200, 100, 1, False)
+            viewport = Viewport(canvas, 10, 10, 100, 100, 1)
+            viewport.set_position(0,0)
             ```
 
         === "JSON-RPC"
@@ -153,12 +151,6 @@ class Viewport(Object):
         | `UPDATE`     | 3            | :material-check: | :material-check: |
 
         Parameters:
-
-          id (int):
-
-            Identification of the viewport.
-
-            **→** Viewport must have been created.
 
           x:
         
@@ -194,11 +186,10 @@ class Viewport(Object):
 
         === "Python"
 
-            ```Pycon
-            >>> canvas = Canvas(200, 200, 100, 1, False)
-            >>> viewport = Viewport(canvas, 10, 10, 100, 100, 1)
-            >>> viewport.set_size(50,50)
-            >>> Command.commands[-1].to_json()
+            ```Python
+            canvas = Canvas(200, 200, 100, 1, False)
+            viewport = Viewport(canvas, 10, 10, 100, 100, 1)
+            viewport.set_size(50,50)
             ```
 
         === "JSON-RPC"
@@ -224,12 +215,6 @@ class Viewport(Object):
         | `UPDATE`     | 3            | :material-check: | :material-check: |
 
         Parameters:
-
-          id (int):
-
-            Identification of the viewport.
-
-            **→** Viewport must have been created.
 
           width:
 

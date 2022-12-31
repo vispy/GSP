@@ -34,6 +34,7 @@ nav:
       - protocol/core/viewport.md
       - protocol/core/datatype.md
       - protocol/core/buffer.md
+      - protocol/core/buffer_view.md
     - Transforms:
       - protocol/transform/MVP.md
     - Visuals:
@@ -86,11 +87,10 @@ plugins:
       custom_templates: docs/templates
       handlers:
         python:
-          selection:
+          options:
             docstring_style: google
             docstring_options:
               ignore_init_summary: no
-          rendering:
             merge_init_into_class: yes
             show_submodules: no
             show_source: no

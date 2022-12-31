@@ -14,10 +14,15 @@ import numpy as np
 from datetime import datetime
 from functools import wraps
 from gsp.core.object import Object, OID
+from base64 import b64encode
+
 
 def json_default(obj):
     if hasattr(obj, 'to_json'):
         return obj.to_json()
+    if isinstance(obj, bytes):
+        return b64encode(obj).decode()
+        
     raise TypeError(f'Object of type {obj.__class__.__name__} is not JSON serializable')
 
 def get_default_args(func):

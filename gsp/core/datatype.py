@@ -37,7 +37,7 @@ class Datatype(Object):
             datatype += "%s::%d/" % (itype,isize)
         else:
             datatype += "%s/" % (dtype)
-        return datatype[:-1]
+        return Datatype(datatype[:-1])
 
     # Convenience method, not part of the protocol
     @classmethod
@@ -71,7 +71,7 @@ class Datatype(Object):
     @typechecked
     @command("")
     def __init__(self, dtype : str):
-        """Dataype describes the structure of a chunk of memory.
+        """Datatype describes the structure of a chunk of memory.
         
         === "Python"
 
@@ -142,7 +142,7 @@ class Datatype(Object):
 
         **Future**{: .future}
 
-        No dicussion at the moment.
+        No dicussion for the time being.
 
         **Examples**{.examples}
 
@@ -157,7 +157,7 @@ class Datatype(Object):
         """
         
         Object.__init__(self)
-        self.type = dtype
+        self.dtype = dtype
 
     @property
     def size(self):
@@ -169,11 +169,11 @@ class Datatype(Object):
                  "d" : 8, "Y" : 8 }
         regex = r"(?P<type>[?bsiBSIefdY]):(?P<name>[a-zA-Z0-9]*):(?P<count>[0-9]+)"
         size = 0
-        for (dtype,name,count) in re.findall(regex, self.type):
+        for (dtype,name,count) in re.findall(regex, self.dtype):
             size += sizes[dtype]*int(count)
         return size
 
     def __repr__(self):
         """String representation of the type."""
         
-        return f"Type [id={self.id}]: {self.type}"
+        return f"Type [id={self.id}]: {self.dtype}"

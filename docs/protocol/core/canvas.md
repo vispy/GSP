@@ -2,7 +2,6 @@
 ::: gsp.core.Canvas
     options:
       show_root_heading: yes
-    selection:
       members:
         - set_size
         - set_width

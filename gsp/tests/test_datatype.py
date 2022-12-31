@@ -45,8 +45,8 @@ def test_numpy_type():
         "mat4x4": Datatype("f::16") }
 
     for key in datatypes.keys():
-        d1 = datatypes[key].type
-        d2 = Datatype.from_numpy(Datatype.to_numpy(d1))
+        d1 = datatypes[key].dtype
+        d2 = Datatype.from_numpy(Datatype.to_numpy(d1)).dtype
         assert d1==d2
     
 
