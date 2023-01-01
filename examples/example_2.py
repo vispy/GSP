@@ -4,14 +4,23 @@
 # -----------------------------------------------------------------------------
 
 if __name__ == '__main__':
-
     import gsp
     import numpy as np
-    from gsp.core import Canvas, Viewport, Buffer, Datatype
 
-    gsp.mode("client", reset=True, record=True, output=False)
+    # GSP client mode
+    # from gsp.core import Canvas, Viewport, Buffer, Datatype
+    # from gsp.visual import Pixels
+    # gsp.mode("client", reset=True, record=True, output=False)
+
+    # GSP direct mode
+    import matplotlib
+    import matplotlib.pyplot as plt
+    from gsp.backend.matplotlib import \
+        Canvas, Viewport, Buffer, Datatype, Pixels
     
-    canvas   = Canvas(512, 512, 100, 1, False)
+    RNG = np.random.default_rng()
+    count = 1_000_000
+    canvas = Canvas(512, 512, 100, 1, False)
     viewport = Viewport(canvas, 0, 0, 512, 512)
 
     # Explicit creation of datatype
@@ -22,7 +31,10 @@ if __name__ == '__main__':
 
     # Implicit creation of datatype
     # -----------------------------
-    vertices = np.random.uniform(0, 512, (100,2)).astype(np.float32)
+    vec3 = np.dtype([("x", np.float32),
+                     ("y", np.float32),
+                     ("z", np.float32)])
+    vertices = (512*RNG.random((count,3), np.float32)).view(vec3)
     vertices = Buffer.from_numpy(vertices)
 
     
@@ -34,13 +46,21 @@ if __name__ == '__main__':
     
     # Implicit creation of datatype
     # -----------------------------
-    colors = np.random.uniform(0, 512, (100,4)).astype(np.float32)
+    rgba = np.dtype([("r", np.float32),
+                     ("g", np.float32),
+                     ("b", np.float32),
+                     ("a", np.float32)])
+    colors = (np.zeros((count,4), np.float32)).view(rgba)
+    colors["a"] = 1
     colors = Buffer.from_numpy(colors)
-
     
-#    scatter = gsp.visual.pixels(viewport, vertices, colors)
-#    canvas.render()
+    scatter = Pixels(viewport, vertices, colors)
 
-    for command in gsp.commands():
-        print(command.yaml_dump())
+
+    # Direct mode
+    plt.show()
+
+    # Client mode
+    # for command in gsp.commands():
+    #     print(command.yaml_dump())
 

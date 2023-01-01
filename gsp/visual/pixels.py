@@ -26,8 +26,8 @@ class Pixels(Object):
         
             canvas = Canvas(512, 512, 100, 1, False)
             viewport = Viewport(canvas, 0, 0, 512, 512)
-            vertices = Buffer.from_numpy(np.random.uniform(0, 512, (100,2)))
-            colors = Buffer.from_numpy(np.random.uniform(0, 512, (100,4)))
+            vertices = Buffer.from_numpy(...)
+            colors = Buffer.from_numpy(...)
             pixels = Pixels(viewport, vertices, colors)
             ```
 

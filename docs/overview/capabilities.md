@@ -17,10 +17,14 @@
 
 ## Visuals
 
-- [x] **Points**  *:octicons-tag-24: alpha*{.push-right}
+- [x] **Pixels**  *:octicons-tag-24: alpha*{.push-right}
 
-       Collection of points with arbitrary size, edge color, edge thickness and
-       fill color.
+       Collection of pixesl with arbitrary positon and color.
+
+- [ ] **Points**  *:octicons-tag-24: alpha*{.push-right .not-done}
+
+       Collection of points with arbitrary position, size, edge color,
+       edge thickness and fill color.
 
 - [ ] **Markers** *:octicons-tag-24: alpha*{.push-right .not-done}
 
