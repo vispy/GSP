@@ -7,4 +7,4 @@ mkdocs-material-extensions
 mkdocstrings[python]
 mkdocs-glightbox
 griffe
-
+typeguard
