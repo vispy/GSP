@@ -14,7 +14,7 @@ class Canvas:
         self.offscreen = offscreen
 
         with default_app().commands() as cmd:
-            self._canvas = cmd.Canvas(width=width, height=height)
+            self._canvas = cmd.Canvas(width=width, height=height, flags=3)
 
     # def render(self, format):
     #     self.figure.canvas.draw()

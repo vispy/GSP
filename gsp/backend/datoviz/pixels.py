@@ -26,7 +26,7 @@ class Pixels:
             n, dtype=[('pos', 'f4', 3), ('color', 'u1', 4), ('size', 'f4')])
         arr['pos'] = np.c_[X, Y, Z * 0]
         arr['color'][:] = C
-        arr['size'][:] = 10.0
+        arr['size'][:] = 1.0
 
         with default_app().commands() as cmd:
             g = cmd.Graphics(1, flags=3)  # default MVP and viewport
@@ -37,3 +37,8 @@ class Pixels:
             with canvas.record() as r:
                 r.viewport(0, 0, 0, 0)  # HACK
                 r.draw(g, 0, n)
+
+        # HACK: VERY IMPORTANT, THIS LINE PREVENTS THE ARRAY FROM BEING GARBAGE COLLECTED
+        # BEFORE IT HAS A CHANCE OF BEING UPLOADED TO THE GPU. OTHERWISE WEIRD DISPLAY ARTIFACTS
+        # MAY OCCUR.
+        self.arr = arr

@@ -15,7 +15,7 @@ if __name__ == '__main__':
     from gsp.backend.datoviz import default_app
 
     RNG = np.random.default_rng()
-    count = 50
+    count = 1_000_000
     canvas = Canvas(512, 512, 100, 1, False)
     viewport = Viewport(canvas, 0, 0, 512, 512)
 
@@ -32,6 +32,13 @@ if __name__ == '__main__':
                      ("z", np.float32)])
     vertices = (512*RNG.random((count, 3), np.float32)).view(vec3)
     vertices = Buffer.from_numpy(vertices)
+
+    # count = 52
+    # vertices = np.zeros((count, 3), dtype=np.float32)
+    # t = np.linspace(-1, 1, count, dtype=np.float32)
+    # vertices[:, 0] = 256 + 256*.75 * np.cos(np.pi*t)
+    # vertices[:, 1] = 256 + 256*.75 * np.sin(np.pi*t)
+    # vertices = vertices.view(vec3)
 
     # Explicit creation of datatype
     # -----------------------------
