@@ -37,7 +37,7 @@ nav:
       - protocol/core/buffer.md
       - protocol/core/buffer_view.md
     - Transforms:
-      - protocol/transform/MVP.md
+      - protocol/transform/matrix.md
     - Visuals:
       - protocol/visual/pixels.md
     - protocol/changelog.md

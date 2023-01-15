@@ -7,15 +7,18 @@ from typeguard import typechecked
 
 from gsp.core.object import OID, Object
 from gsp.core.command import command
+from gsp.core.buffer import Buffer
+from gsp.core.viewport import Viewport
+from gsp.transform.matrix import Matrix
 
 class Pixels(Object):
-
 
     @typechecked
     @command("")
     def __init__(self, viewport : Viewport,
                        vertices : Buffer,
-                       colors   : Buffer ):
+                       colors   : Buffer,
+                       transform : Matrix):
 
         """Request the creation several colored pixels whose positions
         are given by `vertices` and colors by `colors.
@@ -51,7 +54,7 @@ class Pixels(Object):
         
         | Request type | # Parameters | Asynchronous     | Error handling   |
         | ------------ | ------------ | ---------------- | ---------------- |
-        | `CREATE`     | 3            | :material-check: | :material-check: |
+        | `CREATE`     | 4            | :material-check: | :material-check: |
 
 
         Parameters:
@@ -67,6 +70,10 @@ class Pixels(Object):
          colors:
         
             Pixel colors as (r,g,b,a)
+        
+         transform:
+        
+            Transform to be applied to vertices
 
         
         **Errors**{: .errors}
@@ -86,6 +93,7 @@ class Pixels(Object):
         self.viewport = viewport
         self.vertices = vertices
         self.colors = colors
+        self.transform = transform
 
     def __repr__(self):
         return f"Buffer [id={self.id}]: {self.viewport},{self.vertices},{self.colors}"

@@ -61,5 +61,6 @@ class Datatype:
         else:
             return dtype
     
-    def __init__(self, dtype):
-        self.dtype = dtype
+    def __init__(self, description):
+        self.description = description
+        self.dtype = Datatype.to_numpy(description)
