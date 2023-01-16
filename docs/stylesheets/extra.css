@@ -1,22 +1,48 @@
-
+/*
 .doc .md-typeset__table,
 .doc .md-typeset__table table {
     width: unset;
-    border: none;
-    font-size: 1em; 
+    border: none!important;
+    font-size: 1em;
 }
 
-
-th, td {
+.doc .md-typeset__table td {
     border: none;
     border-spacing: 0;
     text-align: left;
     width: auto;
+    border: none!important;
 }
 
-.md-typeset h3 {
-    border-bottom: 1px solid black;
+.md-typeset table:not([class]) td {
+    padding: 0.5em 1.0em 0.5em 0.0em;
 }
+
+.doc .md-typeset__table th {
+    display: none;
+}
+
+.doc .md-typeset__table tr {
+}
+
+                     
+.md-typeset h3 {
+    color: black;
+    border-bottom: 1px solid black;
+    margin:0;
+}
+
+.md-typeset code {
+    background-color: white;
+    padding-left: 0;
+}
+
+.highlight :is(.n, .kp, .p) {
+    color: black;
+    background-color: white;
+    font-weight: 600;
+}
+
 
 strong.protocol {
     padding: .1em 1em .1em 1em;
@@ -25,9 +51,9 @@ strong.protocol {
 }
 
 strong.parameters {
-    padding: .1em 1em .1em 1em;
-    color: white;
-    background-color: var(--md-primary-fg-color);
+    padding: .1em 1em .1em 0em;
+    color: black;
+    background-color: white;
 }
 
 strong.examples, strong.example {
@@ -42,7 +68,7 @@ strong.errors {
     background-color: var(--md-code-hl-special-color);
 }
 
-strong.future {
+strong.future, strong.note {
     padding: .1em 1em .1em 1em;
     color: white;
     background-color: var(--md-primary-fg-color);
@@ -66,8 +92,11 @@ br.clear {
 .not-done {
     color: var(--md-default-fg-color--lightest);
 }
+*/
 
 /* For home page (very specific code to get the warning background) */
+
+/*
 .md-typeset .grid.cards > :is(ul, ol) > li > ul {
   line-height: 1em;
 }
@@ -79,10 +108,10 @@ br.clear {
 .md-typeset .grid.cards li:nth-child(4) hr {
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
-
+*/
 
 /* Copied from documenation (sponsor only) */
-
+/*
 .md-typeset .grid {
  grid-gap:.4rem;
  display:grid;
@@ -245,3 +274,4 @@ details) {
  margin-bottom:0;
  margin-top:0
 }
+*/

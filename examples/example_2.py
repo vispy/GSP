@@ -19,33 +19,37 @@ if __name__ == '__main__':
         from gsp.backend.matplotlib import Canvas, Viewport, Buffer, Datatype
         from gsp.backend.matplotlib.visual import Pixels
         from gsp.backend.matplotlib.transform import Matrix
-                
-    # -------------------------------------------------------------------
-    RNG = np.random.default_rng()
-    count = 10_000
+
+        
+    vec3 = np.dtype([("x", np.float32),
+                     ("y", np.float32),
+                     ("z", np.float32)])
+    rgba = np.dtype([("r", np.float32),
+                     ("g", np.float32),
+                     ("b", np.float32),
+                     ("a", np.float32) ])
+
     canvas = Canvas(512, 512, 100, 1, False)
-    viewport = Viewport(canvas, 10, 10, 512-20, 512-20)
-    
-    vec3 = Datatype("f:x/f:y/f:z")
-    vertices = 2*RNG.random((count,3), np.float32) - 1
-    vertices = Buffer(count, vec3, vertices.tobytes())
-    
-    vec4 = Datatype("f:r/f:g/f:b/f:a")
-    colors = np.zeros((count,4), np.float32)
-    colors[:,3] = 1
-    colors = Buffer(count, vec4, colors.tobytes())
+    viewport = Viewport(canvas, 0, 0, 512, 512)
+
+    n = 10_000
+    positions = np.random.uniform(-1, 1, (n,3)).astype(np.float32)
+    colors = np.random.uniform(0, 1, (n,4)).astype(np.float32)
+    colors[:,-1] = 1
+
+    pixels = Pixels(viewport,
+                    Buffer.from_numpy(positions.view(vec3)),
+                    Buffer.from_numpy(colors.view(rgba)))
 
     from camera import Camera
     camera = Camera("perspective", theta=0, phi=0)
     transform = Matrix(camera.transform.tobytes())
-    
-    scatter = Pixels(viewport, vertices, colors, transform)
-    # -------------------------------------------------------------------
-    
+
     if not direct_mode:
         for command in gsp.commands():
             print(command.yaml_dump())
     else:
+        pixels.render(transform)
         plt.show()
 
 

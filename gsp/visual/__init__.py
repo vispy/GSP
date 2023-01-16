@@ -9,3 +9,4 @@ It allows to issue commands, parse them and build corresponding objects.
 """
 
 from . pixels import Pixels
+from . points import Points

@@ -13,11 +13,11 @@ theme:
   favicon: assets/images/GSP-logo-black.png
   features:
     - navigation.tabs
-    # - navigation.sections
+    - navigation.sections
     - header.autohide
     - content.code.annotate 
     - content.tabs.link
-    # - toc.integrate
+#    - toc.integrate
 nav:
   - "Home":
     - index.md
@@ -37,9 +37,11 @@ nav:
       - protocol/core/buffer.md
       - protocol/core/buffer_view.md
     - Transforms:
-      - protocol/transform/matrix.md
+      - protocol/transform/transform.md
+#      - protocol/transform/matrix.md
     - Visuals:
       - protocol/visual/pixels.md
+      - protocol/visual/points.md
     - protocol/changelog.md
   - "Implementations" :
       - implementations/matplotlib.md
@@ -70,7 +72,7 @@ markdown_extensions:
   
 extra_css:
   - css/mkdocstrings.css
-  - stylesheets/extra.css
+#  - stylesheets/extra.css
 
 plugins:
   - search

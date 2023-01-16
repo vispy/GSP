@@ -68,50 +68,13 @@ class Datatype(Object):
         else:
             return dtype
     
-    @typechecked
     @command("")
     def __init__(self, dtype : str):
-        """Datatype describes the structure of a chunk of memory.
-        
-        === "Python"
-
-            ```Pycon
-            >>> vec2 = Datatype("f:x / f:y")  # 8 bytes total
-            >>> Command.commands[-1].to_json()
-            ```
-
-        === "JSON-RPC"
-
-            ```json
-            { 
-                "jsonrpc": "2.0",
-                "id": 1,
-                "timestamp": 0,
-                "method": "Datatype",
-	        "params": {
-                    "type" : "f:x / f:y",
-                }
-	    }
-            ```
-
-        **Protocol**{: .protocol}
-        
-        | Request type | # Parameters | Asynchronous     | Error handling   |
-        | ------------ | ------------ | ---------------- | ---------------- |
-        | `CREATE`     | 1            | :material-check: | :material-check: |
-
-        Parameters:
-        
-          dtype:
-    
-            Description of the type (as a `/` separated list of atomic items)
-            **→** `type` must fit datatype description.
-
-        
-        The description of the type is a `/` separated list of atomic items of
-        the form `type:[name]:[count] / … / type:[name]:[count]` where `name`
-        is a valid identifier, count is a strictly positive integer and `type`
-        is one of:
+        """A datatype describes the structure of a chunk of
+        memory. The description of the type is a `/` separated list of
+        atomic items of the form `type[:name][:count] / … /
+        type[:name][:count]` where `name` is a valid identifier, count
+        is a strictly positive integer and `type` is one of:
         
         Type     | Alias | Description                            | Size    | Comment                            |
         -------- | ----- | -------------------------------------- | ------- | ---------------------------------- |
@@ -128,32 +91,15 @@ class Datatype(Object):
         datetime | `Y`   | date/time representation               | 64 bits | Offset from 1970-01-01T00:00:00    |
 
 
-        A type can be matched against a regular expression:
+        Parameters:
 
-        ```python
-        r"(?P<type>[?bsiBSIefdY]):(?P<name>[A-Za-z0-9]*):(?P<count>[0-9]+)"
-        ```
+          dtype:
 
-        **Errors**{: .errors}
+            Description of the type
+        
+        **Note**
 
-          - `INVALID_REQUEST` : Request is malformed
-          - `INVALID_METHOD`  : Method does not exist or is not available.
-          - `INVALID_PARAMS`  : A parameter is missing or has an illegal value
-
-        **Future**{: .future}
-
-        No dicussion for the time being.
-
-        **Examples**{.examples}
-
-        ```python
-        vec2 = Datatype("f:x / f:y")
-        vec3 = Datatype("f:x / f:y / f:z")
-        vec4 = Datatype("f:x / f:y / f:z / f:w")
-        mat3x3 = Datatype("f::9")
-        mat4x4 = Datatype("f::16")
-        ```
-
+        - Spaces are non significant
         """
         
         Object.__init__(self)

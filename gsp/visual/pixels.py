@@ -2,91 +2,38 @@
 # Graphic Server Protocol (GSP) — reference implementation
 # Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
-from typing import Union
-from typeguard import typechecked
+from typing import Union, TypeAlias
 
-from gsp.core.object import OID, Object
+Color = list[float,float,float,float]
+
+from gsp.core.object import Object
 from gsp.core.command import command
 from gsp.core.buffer import Buffer
-from gsp.core.viewport import Viewport
-from gsp.transform.matrix import Matrix
 
 class Pixels(Object):
 
     @typechecked
     @command("")
-    def __init__(self, viewport : Viewport,
-                       vertices : Buffer,
-                       colors   : Buffer,
-                       transform : Matrix):
+    def __init__(self, positions: Buffer,
+                       colors   : Union[Buffer, Transform, Color]):
 
-        """Request the creation several colored pixels whose positions
-        are given by `vertices` and colors by `colors.
+        """
+        Set of pixels specified as positions and colors
         
-        === "Python"
-
-            ```Python
-        
-            canvas = Canvas(512, 512, 100, 1, False)
-            viewport = Viewport(canvas, 0, 0, 512, 512)
-            vertices = Buffer.from_numpy(...)
-            colors = Buffer.from_numpy(...)
-            pixels = Pixels(viewport, vertices, colors)
-            ```
-
-        === "JSON-RPC"
-
-            ```json
-            { 
-                "jsonrpc": "2.0",
-                "id": 1,
-                "timestamp": 0,
-                "method": "Pixels",
-	        "params": {
-                    "viewport": 2,
-                    "vertices" : 4,
-                    "colors" : 6
-                }
-	    }
-            ```
-        
-        **Protocol**{: .protocol}
-        
-        | Request type | # Parameters | Asynchronous     | Error handling   |
-        | ------------ | ------------ | ---------------- | ---------------- |
-        | `CREATE`     | 4            | :material-check: | :material-check: |
-
 
         Parameters:
 
-         viewport:
+         positions:
         
-            Viewport to use to display pixels
-
-         vertices:
-        
-            Pixel positions as (x,y,z)
+            Position(s) as (x,y,z)
 
          colors:
         
-            Pixel colors as (r,g,b,a)
-        
-         transform:
-        
-            Transform to be applied to vertices
+            Color(s)  as (r,g,b,a).
 
-        
-        **Errors**{: .errors}
+        **Note**
 
-          - `INVALID_REQUEST` : Request is malformed
-          - `INVALID_METHOD`  : Method does not exist or is not available.
-          - `INVALID_PARAMS`  : A parameter is missing or has an illegal value
-          - `INVALID_OBJECT`  : A parameter refers to a non-existent object
-
-        **Future**{: .future}
-
-        No discussion for the time being.
-
+          - Color corresponds to a list of 4 floats
         """
         
         Object.__init__(self)
@@ -94,6 +41,3 @@ class Pixels(Object):
         self.vertices = vertices
         self.colors = colors
         self.transform = transform
-
-    def __repr__(self):
-        return f"Buffer [id={self.id}]: {self.viewport},{self.vertices},{self.colors}"
