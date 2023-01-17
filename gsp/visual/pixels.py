@@ -2,20 +2,19 @@
 # Graphic Server Protocol (GSP) — reference implementation
 # Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
-from typing import Union, TypeAlias
-
-Color = list[float,float,float,float]
-
+from typing import Union, List
 from gsp.core.object import Object
 from gsp.core.command import command
 from gsp.core.buffer import Buffer
+from gsp.core.viewport import Viewport
+from gsp.transform import Transform
 
 class Pixels(Object):
 
-    @typechecked
     @command("")
-    def __init__(self, positions: Buffer,
-                       colors   : Union[Buffer, Transform, Color]):
+    def __init__(self, viewport : Viewport,
+                       positions: Buffer,
+                       colors   : Union[Buffer, Transform, List[float]]):
 
         """
         Set of pixels specified as positions and colors
@@ -38,6 +37,5 @@ class Pixels(Object):
         
         Object.__init__(self)
         self.viewport = viewport
-        self.vertices = vertices
+        self.positions = positions
         self.colors = colors
-        self.transform = transform

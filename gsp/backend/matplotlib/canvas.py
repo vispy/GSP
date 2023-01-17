@@ -6,12 +6,10 @@ import matplotlib.pyplot as plt
 
 class Canvas:
     
-    def __init__(self, width, height,  dpi, dpr, offscreen):
+    def __init__(self, width, height,  dpi):
         self.width = width
         self.height = height
         self.dpi = dpi
-        self.dpr = dpr
-        self.offscreen = offscreen
         self.figure = plt.figure(frameon=False,
                                  dpi=self.dpi)
         self.figure.set_size_inches(self.width / self.dpi,

@@ -2,23 +2,26 @@
 # Graphic Server Protocol (GSP) — reference implementation
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
+import numpy as np
+
 
 if __name__ == '__main__':
-    import numpy as np
-    direct_mode = True
-    
+
+    direct_mode, n = False, 10
+    direct_mode, n = True, 10_000
+
     if not direct_mode:
         import gsp
         gsp.mode("client", reset=True, record=True, output=False)
         from gsp.core import Canvas, Viewport, Buffer, Datatype
         from gsp.visual import Pixels
-        from gsp.transform import Matrix
+        from gsp.transform import Mat4x4
     else:
         import matplotlib
         import matplotlib.pyplot as plt
         from gsp.backend.matplotlib import Canvas, Viewport, Buffer, Datatype
         from gsp.backend.matplotlib.visual import Pixels
-        from gsp.backend.matplotlib.transform import Matrix
+        from gsp.backend.matplotlib.transform import Mat4x4
 
         
     vec3 = np.dtype([("x", np.float32),
@@ -29,10 +32,9 @@ if __name__ == '__main__':
                      ("b", np.float32),
                      ("a", np.float32) ])
 
-    canvas = Canvas(512, 512, 100, 1, False)
+    canvas = Canvas(512, 512, 100)
     viewport = Viewport(canvas, 0, 0, 512, 512)
 
-    n = 10_000
     positions = np.random.uniform(-1, 1, (n,3)).astype(np.float32)
     colors = np.random.uniform(0, 1, (n,4)).astype(np.float32)
     colors[:,-1] = 1
@@ -43,11 +45,13 @@ if __name__ == '__main__':
 
     from camera import Camera
     camera = Camera("perspective", theta=0, phi=0)
-    transform = Matrix(camera.transform.tobytes())
+    transform = Mat4x4(camera.transform.tobytes())
 
     if not direct_mode:
+        #for command in gsp.commands():
+        #    print(command.yaml_dump())
         for command in gsp.commands():
-            print(command.yaml_dump())
+            print(command.json_dump())
     else:
         pixels.render(transform)
         plt.show()

@@ -3,7 +3,6 @@
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 import numpy as np
-from gsp.backend.matplotlib import glm
         
 class Pixels:
     def __init__(self, viewport, positions, colors):

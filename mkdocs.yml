@@ -38,7 +38,7 @@ nav:
       - protocol/core/buffer_view.md
     - Transforms:
       - protocol/transform/transform.md
-#      - protocol/transform/matrix.md
+      - protocol/transform/mat4x4.md
     - Visuals:
       - protocol/visual/pixels.md
       - protocol/visual/points.md

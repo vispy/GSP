@@ -2,8 +2,7 @@
 # Graphic Server Protocol (GSP) — reference implementation
 # Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
-from typing import Union
-Color = list[float,float,float,float]
+from typing import Union, List
 
 from gsp.core.object import Object
 from gsp.core.command import command
@@ -17,8 +16,8 @@ class Points(Object):
     def __init__(self,
                  position : Buffer,
                  size : Union[Buffer, float], 
-                 fill_color : Union[Buffer, Color],
-                 stroke_color : Union[Buffer, Color],
+                 fill_color : Union[Buffer, List[float]],
+                 stroke_color : Union[Buffer, List[float]],
                  stroke_width : Union[Buffer, float]):
 
         """A set of pixels.

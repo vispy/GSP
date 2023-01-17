@@ -2,7 +2,7 @@ import numpy as np
 from gsp.backend.matplotlib import Buffer
 from gsp.backend.matplotlib import Datatype
 
-class Matrix:
+class Mat4x4:
 
     datatype = Datatype("f::16")
 
