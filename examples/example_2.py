@@ -2,14 +2,20 @@
 # Graphic Server Protocol (GSP) — reference implementation
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
+import logging
 import numpy as np
 
+# import gsp
+# gsp.mode("direct/matplotlib")
+# gsp.mode("client/json")
+logging.basicConfig(format='%(levelname)s: %(message)s',
+                    level=logging.INFO)
 
 if __name__ == '__main__':
 
-    direct_mode, n = False, 10
+    # direct_mode, n = False, 10_000
     direct_mode, n = True, 10_000
-
+    
     if not direct_mode:
         import gsp
         gsp.mode("client", reset=True, record=True, output=False)
@@ -46,12 +52,23 @@ if __name__ == '__main__':
     from camera import Camera
     camera = Camera("perspective", theta=0, phi=0)
     transform = Mat4x4(camera.transform.tobytes())
-
+    pixels.render(transform)
+        
+    
     if not direct_mode:
-        #for command in gsp.commands():
-        #    print(command.yaml_dump())
+        # for command in gsp.commands():
+        #     print(command.yaml_dump())
+        # for command in gsp.commands():
+        #     print(command.json_dump())
+
+        import matplotlib
+        import matplotlib.pyplot as plt
+        from gsp.backend.matplotlib import Canvas, Viewport, Buffer, Datatype
+        from gsp.backend.matplotlib.visual import Pixels
+        from gsp.backend.matplotlib.transform import Mat4x4
         for command in gsp.commands():
-            print(command.json_dump())
+            command.execute( globals(), locals())
+        plt.show()
     else:
         pixels.render(transform)
         plt.show()

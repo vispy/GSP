@@ -39,3 +39,19 @@ class Pixels(Object):
         self.viewport = viewport
         self.positions = positions
         self.colors = colors
+
+    @command("render")
+    def render(self, transform: Transform):
+
+        """
+        Render the visual using given transform.
+        
+
+        Parameters:
+
+         transform:
+        
+            Transform to be applied to position(s)
+        """
+        
+        pass

@@ -11,7 +11,7 @@ class Datatype:
     def from_numpy(cls, dtype):
         """Convert a numpy type into a string representation"""
 
-        datatype = ""
+        literal = ""
         dtype = str(dtype)
         if dtype.startswith("["):
             for item in eval(dtype):
@@ -23,21 +23,21 @@ class Datatype:
                     isize = np.prod(isize)
                 iname = iname.strip()
                 itype = itype.strip()
-                datatype += "%s:%s:%d/" % (itype,iname,isize)
+                literal += "%s:%s:%d/" % (itype,iname,isize)
         elif dtype.startswith("("):
             itype, isize = eval(dtype)
             isize = np.prod(isize)
-            datatype += "%s::%d/" % (itype,isize)
+            literal += "%s::%d/" % (itype,isize)
         else:
-            datatype += "%s/" % (dtype)
-        return Datatype(datatype[:-1])
+            literal += "%s/" % (dtype)
+        return Datatype(literal[:-1])
 
     # Convenience method, not part of the protocol
     @classmethod
-    def to_numpy(cls, datatype):
+    def to_numpy(cls, literal):
         dtype = []
-        datatype = datatype.replace(" ", "")
-        for item in datatype.split("/"):
+        literal = literal.replace(" ", "")
+        for item in literal.split("/"):
             if not len(item): continue
             item = item.split(":")
             if len(item) == 3:
@@ -61,6 +61,6 @@ class Datatype:
         else:
             return dtype
     
-    def __init__(self, description):
-        self.description = description
-        self.dtype = Datatype.to_numpy(description)
+    def __init__(self, literal):
+        self.literal = literal
+        self.dtype = Datatype.to_numpy(literal)

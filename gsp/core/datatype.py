@@ -5,7 +5,6 @@
 import re
 import numpy as np
 from typing import Union
-from typeguard import typechecked
 from gsp.core.command import command, Object
 
 """
@@ -41,10 +40,10 @@ class Datatype(Object):
 
     # Convenience method, not part of the protocol
     @classmethod
-    def to_numpy(cls, datatype):
+    def to_numpy(cls, literal):
         dtype = []
-        datatype = datatype.replace(" ", "")
-        for item in datatype.split("/"):
+        literal = literal.replace(" ", "")
+        for item in literal.split("/"):
             if not len(item): continue
             item = item.split(":")
             if len(item) == 3:
@@ -69,10 +68,10 @@ class Datatype(Object):
             return dtype
     
     @command("")
-    def __init__(self, dtype : str):
+    def __init__(self, literal : str):
         """A datatype describes the structure of a chunk of
-        memory. The description of the type is a `/` separated list of
-        atomic items of the form `type[:name][:count] / … /
+        memory. The literal description of the type is a `/` separated
+        list of atomic items of the form `type[:name][:count] / … /
         type[:name][:count]` where `name` is a valid identifier, count
         is a strictly positive integer and `type` is one of:
         
@@ -93,17 +92,18 @@ class Datatype(Object):
 
         Parameters:
 
-          dtype:
+          format:
 
             Description of the type
         
         **Note**
 
         - Spaces are non significant
+
         """
         
         Object.__init__(self)
-        self.dtype = dtype
+        self.literal = literal
 
     @property
     def size(self):
@@ -115,11 +115,7 @@ class Datatype(Object):
                  "d" : 8, "Y" : 8 }
         regex = r"(?P<type>[?bsiBSIefdY]):(?P<name>[a-zA-Z0-9]*):(?P<count>[0-9]+)"
         size = 0
-        for (dtype,name,count) in re.findall(regex, self.dtype):
+        for (dtype,name,count) in re.findall(regex, self.literal):
             size += sizes[dtype]*int(count)
         return size
 
-    def __repr__(self):
-        """String representation of the type."""
-        
-        return f"Type [id={self.id}]: {self.dtype}"

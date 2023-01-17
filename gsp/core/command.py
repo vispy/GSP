@@ -9,6 +9,7 @@ implementation. It is *not* part of the protocol.
 import yaml
 import json
 import inspect
+import logging
 import itertools
 import numpy as np
 from datetime import datetime
@@ -175,14 +176,18 @@ class Command:
         for key, value in parameters.items():
             if isinstance(value, OID):
                 parameters[key] = Object.objects[value]
-
-        if self.methodname is None:
+                
+        if self.methodname is None or not len(self.methodname):
             # Warning: this call advances the object counter, is it a problem?
+            logging.info("Creation of %s(id=%d)" % (
+                globals[self.classname].__name__, oid))
             object = globals[self.classname](**parameters)
             object.id = oid
             Object.objects[oid] = object
         else:
-            getattr(globals[self.classname], method)(Object.objects[oid], **parameters)
+            logging.info("%s(id=%d) → %s(…)" % (
+                globals[self.classname].__name__, oid, self.methodname))
+            getattr(globals[self.classname], self.methodname)(Object.objects[oid], **parameters)
 
 
     def yaml_load(self, command):

@@ -5,7 +5,7 @@
 from typing import Union
 from typeguard import typechecked
 
-from gsp.core.object import OID, Object
+from gsp.core.object import Object
 from gsp.core.command import command
 from gsp.core.datatype import Datatype
 
@@ -22,7 +22,7 @@ class Buffer(Object):
 
     @command("")
     def __init__(self, count : int,
-                       dtype : Datatype,
+                       datatype : Datatype,
                        data  : bytes):
 
         """Uni-dimensional buffer with `count` elements of type
@@ -34,7 +34,7 @@ class Buffer(Object):
         
             Number of elements
 
-         dtype:
+         datatype:
         
             Element datatype
 
@@ -45,5 +45,5 @@ class Buffer(Object):
         
         Object.__init__(self)
         self.count = count
-        self.dtype = dtype
+        self.datatype = datatype
         self.data = data
