@@ -1,10 +1,10 @@
 # -----------------------------------------------------------------------------
 # Graphic Server Protocol (GSP) — reference implementation
-# Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
+# Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
-from gsp.core.object import Object
-from gsp.core.command import command
-from gsp.core.buffer import Buffer
+from gsp.backend.reference.object import Object
+from gsp.backend.reference.command import command
+from gsp.backend.reference.core.buffer import Buffer
 
 class BufferView(Object):
 
@@ -24,7 +24,6 @@ class BufferView(Object):
          key:
         
             Name of the field to be accessed.
-
         """
         
         Object.__init__(self)

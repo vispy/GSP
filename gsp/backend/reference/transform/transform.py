@@ -1,11 +1,12 @@
 # -----------------------------------------------------------------------------
 # Graphic Server Protocol (GSP) — reference implementation
-# Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
+# Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 # See https://stackoverflow.com/questions/33533148
 from __future__ import annotations
-from gsp.core import Object
-from gsp.core.buffer import Buffer
+from gsp.backend.reference.object import Object
+from gsp.backend.reference.command import command
+from gsp.backend.reference.core import Buffer
 
 
 class Transform(Object):

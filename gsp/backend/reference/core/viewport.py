@@ -2,9 +2,9 @@
 # Graphic Server Protocol (GSP) — reference implementation
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
-from gsp.core.object import Object
-from gsp.core.command import command
-from gsp.core.canvas import Canvas
+from gsp.backend.reference.object import Object
+from gsp.backend.reference.command import command
+from gsp.backend.reference.core.canvas import Canvas
 
 class Viewport(Object):
 

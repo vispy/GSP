@@ -8,7 +8,6 @@ This is the reference implementation of the Graphic Server Protocol (GSP) that
 It allows to issue commands, parse them and build corresponding objects.
 """
 
-from . object import Object
 from . canvas import Canvas
 from . viewport import Viewport
 from . datatype import Datatype

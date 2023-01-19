@@ -1,13 +1,12 @@
 # -----------------------------------------------------------------------------
 # Graphic Server Protocol (GSP) — reference implementation
-# Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
+# Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 """
 The Canvas corresponds to a finite two-dimensional drawing area.
 """
-from typing import Union
-from gsp.core.command import command
-from gsp.core.object import Object, OID
+from gsp.backend.reference import command
+from gsp.backend.reference.object import Object
 
 class Canvas(Object):
     """ """

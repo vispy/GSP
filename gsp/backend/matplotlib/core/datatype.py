@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
-# Graphic Server Protocol (GSP) — reference implementation
-# Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
+# Graphic Server Protocol (GSP) — matplotlib backend
+# Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 import numpy as np
 
@@ -32,12 +32,13 @@ class Datatype:
             literal += "%s/" % (dtype)
         return Datatype(literal[:-1])
 
+    
     # Convenience method, not part of the protocol
     @classmethod
-    def to_numpy(cls, literal):
+    def to_numpy(cls, format):
         dtype = []
-        literal = literal.replace(" ", "")
-        for item in literal.split("/"):
+        format = format.replace(" ", "")
+        for item in format.split("/"):
             if not len(item): continue
             item = item.split(":")
             if len(item) == 3:
@@ -61,6 +62,6 @@ class Datatype:
         else:
             return dtype
     
-    def __init__(self, literal):
-        self.literal = literal
-        self.dtype = Datatype.to_numpy(literal)
+    def __init__(self, format):
+        self.format = format
+        self.dtype = Datatype.to_numpy(format)

@@ -6,9 +6,10 @@
 The role of the Object class is to facilitate the writing of the reference
 implementation. It is *not* part of the protocol.
 """
+import yaml
 import itertools
 
-class OID:
+class OID(yaml.YAMLObject):
     """ Object unique identifier
 
     The object unique identifier (that is technically a simple integer) is used
@@ -38,6 +39,13 @@ class OID:
 
     # Unique identifier
     id = None
+
+    # YAML tag (class attribute)
+    yaml_tag = "!OID"
+
+    # YAML loader (class method)
+    yaml_loader = yaml.SafeLoader
+
     
     def __init__(self, id = None):
         """ Creates a new identifier unless id is provided. """
@@ -64,6 +72,18 @@ class OID:
 
     def to_json(self):
         return self.id
+
+    @classmethod
+    def to_yaml(cls, representer, node):
+        """ Convert OID to a YAML node """
+        return representer.represent_scalar(cls.yaml_tag,
+                                            u'{.id}'.format(node))
+
+    @classmethod
+    def from_yaml(cls, loader, node):
+        """ Convert a YAML node to OID. """
+        return cls(node.value)
+
 
     
 class Object:

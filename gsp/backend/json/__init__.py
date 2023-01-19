@@ -4,15 +4,7 @@
 # -----------------------------------------------------------------------------
 import json
 from base64 import b64encode
-
-import gsp.backend.reference.core as core
-import gsp.backend.reference.visual as visual
-import gsp.backend.reference.transform as transform
-
-from gsp.backend.reference.object import Object
 from gsp.backend.reference.command import Command, command
-from gsp.backend.reference import (mode, objects, commands, process)
-
 
 def json_default(obj):
     if hasattr(obj, 'to_json'):
@@ -24,15 +16,28 @@ def json_default(obj):
 
 
 def json_dump(self):
-    if self.methodname:
-        method = "%s/%s" % (self.classname, self.methodname)
-    else:
+
+    # Convert parameters if necessary
+    parameters = {}
+    for key,value in self.parameters.items():
+        if callable(value):
+            parameters[key] = value()
+        else:
+            parameters[key] = value
+
+    # Check which method has been called
+    if (self.methodname is None or not len(self.methodname)):
         method = self.classname
+    elif "." in self.methodname:
+        method = self.methodname
+    else:
+        method = "%s/%s" % (self.classname, self.methodname)
+        
     payload = { "jsonrpc": "2.0",
                 "id" : int(self.id),
                 "timestamp" : self.timestamp,
                 "method" : method,
-                "parameters" : self.parameters }
+                "parameters" : parameters }
     return json.dumps(payload, default=json_default)
     
 Command.dump = json_dump
@@ -48,4 +53,7 @@ def json_load(self, payload):
 
 Command.load = json_load
 
-
+import gsp.backend.reference.core as core
+import gsp.backend.reference.visual as visual
+import gsp.backend.reference.transform as transform
+from gsp.backend.reference import (mode, objects, commands, process)

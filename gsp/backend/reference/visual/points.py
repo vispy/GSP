@@ -2,23 +2,19 @@
 # Graphic Server Protocol (GSP) — reference implementation
 # Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
-from typing import Union, List
-
-from gsp.core.object import Object
-from gsp.core.command import command
-from gsp.core.buffer import Buffer
-
-
+from gsp.backend.reference.object import Object
+from gsp.backend.reference.command import command
+from gsp.backend.reference.core.buffer import Buffer
 
 class Points(Object):
 
     @command("")
     def __init__(self,
                  position : Buffer,
-                 size : Union[Buffer, float], 
-                 fill_color : Union[Buffer, List[float]],
-                 stroke_color : Union[Buffer, List[float]],
-                 stroke_width : Union[Buffer, float]):
+                 size : Buffer,
+                 fill_color : Buffer,
+                 stroke_color : Buffer,
+                 stroke_width : Buffer):
 
         """A set of pixels.
 

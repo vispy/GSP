@@ -1,20 +1,18 @@
 # -----------------------------------------------------------------------------
 # Graphic Server Protocol (GSP) — reference implementation
-# Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
+# Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
-from typing import Union, List
-from gsp.core.object import Object
-from gsp.core.command import command
-from gsp.core.buffer import Buffer
-from gsp.core.viewport import Viewport
-from gsp.transform import Transform
+from gsp.backend.reference import (Object, command)
+from gsp.backend.reference.core.buffer import Buffer
+from gsp.backend.reference.core.viewport import Viewport
+from gsp.backend.reference.transform import Transform
 
 class Pixels(Object):
 
     @command("")
     def __init__(self, viewport : Viewport,
                        positions: Buffer,
-                       colors   : Union[Buffer, Transform, List[float]]):
+                       colors   : Buffer):
 
         """
         Set of pixels specified as positions and colors

@@ -7,10 +7,9 @@ The role of the Command class is to facilitate the writing of the reference
 implementation. It is *not* part of the protocol.
 """
 
+import yaml
 import inspect
-import logging
 import itertools
-import numpy as np
 from datetime import datetime
 from functools import wraps
 from gsp.backend.reference.object import Object, OID
@@ -121,13 +120,19 @@ def command(method=None, record=None, output=None, convert=None):
     return wrapper
 
 
-class CID:
+class CID(yaml.YAMLObject):
     """
     Command unique identification
     """
 
     # Identifier counter
     counter = itertools.count()
+
+    # YAML tag (class attribute)
+    yaml_tag = "!CID"
+
+    # YAML loader (class method)
+    yaml_loader = yaml.SafeLoader
 
     def __init__(self, id = None):
         """ Creates a new identifier unless id is provided. """
@@ -152,7 +157,19 @@ class CID:
     def __repr__(self):
         return "%d" % self.id
 
+    def to_json(self):
+        return self.id
 
+    @classmethod
+    def to_yaml(cls, representer, node):
+        return representer.represent_scalar(cls.yaml_tag,
+                                            u'{.id}'.format(node))
+
+    @classmethod
+    def from_yaml(cls, loader, node):
+        return cls(node.value)
+
+    
 class Command:
     """ Generic command with a unique id. """
 
@@ -194,22 +211,24 @@ class Command:
         self.commands.append(self)
 
     def dump(self):
-        """ Dump command, backend specific. """
+        pass
+        # """ Dump command, backend specific. """
 
-        parameters = {}
-        for key,value in self.parameters.items():
-            if callable(value):
-                parameters[key] = value()
-            else:
-                parameters[key] = value        
-        if (self.methodname is None or
-            not len(self.methodname) or
-            "." in self.methodname):
-            print("Creation of %s(id=%d): %s" % (
-                self.classname, self.parameters["id"], self.parameters))
-        else:
-            print("%s(id=%d) → %s(…)" % (
-                self.classname, self.parameters["id"], self.methodname))
+        # # First, convert parameters if necessary
+        # parameters = {}
+        # for key,value in self.parameters.items():
+        #     if callable(value):
+        #         parameters[key] = value()
+        #     else:
+        #         parameters[key] = value
+
+        # # Check if we create a new object or simpy call a method
+        # if (self.methodname is None or not len(self.methodname) or "." in self.methodname):
+        #     print("Creation of %s(id=%d): %s" % (
+        #         self.classname, self.parameters["id"]))
+        # else:
+        #     print("%s(id=%d) → %s(…)" % (
+        #         self.classname, self.parameters["id"]))
 
         
     def execute(self, globals=None, locals=None):
