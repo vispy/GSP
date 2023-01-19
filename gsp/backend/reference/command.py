@@ -215,24 +215,8 @@ class Command:
         self.commands.append(self)
 
     def dump(self):
-        pass
-        # """ Dump command, backend specific. """
-
-        # # First, convert parameters if necessary
-        # parameters = {}
-        # for key,value in self.parameters.items():
-        #     if callable(value):
-        #         parameters[key] = value()
-        #     else:
-        #         parameters[key] = value
-
-        # # Check if we create a new object or simpy call a method
-        # if (self.methodname is None or not len(self.methodname) or "." in self.methodname):
-        #     print("Creation of %s(id=%d): %s" % (
-        #         self.classname, self.parameters["id"]))
-        # else:
-        #     print("%s(id=%d) → %s(…)" % (
-        #         self.classname, self.parameters["id"]))
+        """ Dump command is backend specific."""
+        raise NotImplementedError
 
         
     def execute(self, globals=None, locals=None):

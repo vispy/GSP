@@ -52,3 +52,8 @@ class Canvas(Object):
         self.width = width
         self.height = height
         self.dpi = dpi
+
+    @command()
+    def run(self):
+        """ Wait for new commands. """
+        pass
