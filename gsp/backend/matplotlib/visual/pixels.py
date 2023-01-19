@@ -5,7 +5,7 @@
 import numpy as np
         
 class Pixels:
-    
+
     def __init__(self, viewport, positions, colors):
         "Render the visual on viewport using the given transform."
         

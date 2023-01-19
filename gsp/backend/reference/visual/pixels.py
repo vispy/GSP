@@ -9,7 +9,7 @@ from gsp.backend.reference.transform import Transform
 
 class Pixels(Object):
 
-    @command("")
+    @command("visual.Pixels")
     def __init__(self, viewport : Viewport,
                        positions: Buffer,
                        colors   : Buffer):

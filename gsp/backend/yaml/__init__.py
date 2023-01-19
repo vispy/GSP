@@ -3,6 +3,7 @@
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 import yaml
+from gsp.backend.reference.object import Object
 from gsp.backend.reference.command import Command
 from gsp.backend.reference import (mode, objects, commands, process)
 
@@ -26,9 +27,13 @@ def yaml_dump(self):
     for key,value in self.parameters.items():
         if callable(value):
             parameters[key] = value()
+            if isinstance(parameters[key], Object):
+                parameters[key] = parameters[key].id
         else:
             parameters[key] = value
 
+    print(parameters)
+            
     # Check which method has been called
     if (self.methodname is None or not len(self.methodname)):
         method = self.classname
@@ -41,7 +46,7 @@ def yaml_dump(self):
                "id" : self.id,
                "timestamp" : self.timestamp,
                "parameters" : parameters } ]
-    return yaml.dump(data, default_flow_style=None, sort_keys=False)
+#    print(yaml.dump(data, default_flow_style=None, sort_keys=False))
 
 Command.dump = yaml_dump
 

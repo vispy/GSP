@@ -19,6 +19,7 @@ def json_dump(self):
 
     # Convert parameters if necessary
     parameters = {}
+    print(self.parameters)
     for key,value in self.parameters.items():
         if callable(value):
             parameters[key] = value()

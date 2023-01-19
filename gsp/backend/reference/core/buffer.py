@@ -7,7 +7,6 @@ from gsp.backend.reference.command import command
 from gsp.backend.reference.core.datatype import Datatype
 
 class Buffer(Object):
-
     
     @command("core.Buffer")
     def __init__(self, count : int,

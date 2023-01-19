@@ -5,8 +5,9 @@
 from gsp.backend.reference.object import Object
 from gsp.backend.reference.command import command
 from gsp.backend.reference.core import Datatype
+from gsp.backend.reference.transform.transform import Transform
 
-class Mat4x4(Object):
+class Mat4x4(Transform):
 
     datatype = Datatype("f::16")
     """[Datatype][gsp.core.Datatype] for the underlying

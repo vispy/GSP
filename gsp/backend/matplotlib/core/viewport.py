@@ -26,10 +26,11 @@ class Viewport:
         x, y = 0, 0
         w, h = width,height
         d = 0
-        transform = np.array([[w/2, 0, 0, x+w/2],
-                              [0, h/2, 0, y+h/2],
-                              [0, 0, d/2,   d/2],
-                              [0, 0, 0,       1]], dtype=np.float32)
+        self.transform = np.array([[w/2, 0, 0, x+w/2],
+                                   [0, h/2, 0, y+h/2],
+                                   [0, 0, d/2,   d/2],
+                                   [0, 0, 0,       1]], dtype=np.float32)
+
         from gsp.backend.matplotlib.transform import Mat4x4
-        self.transform = Mat4x4(transform)
+        self.transform = Mat4x4(self.transform)
 

@@ -12,8 +12,10 @@ import inspect
 import itertools
 from datetime import datetime
 from functools import wraps
+from gsp.converters import *
 from gsp.backend.reference.object import Object, OID
 from typing import Union, get_origin, get_args
+
 
 def get_default_args(func):
     """Retrieve default arguments and their values from a function. """
@@ -78,7 +80,7 @@ def command(method=None, record=None, output=None, convert=None):
             for key,value in defaults.items():
                 if key not in parameters.keys():
                     parameters[key] = value
-
+                    
             # Check if parameter is of the right type, else, search
             # for a conversion method inside the parameter class.
             for key,value in parameters.items():
@@ -93,16 +95,18 @@ def command(method=None, record=None, output=None, convert=None):
 
                     # Types are not consistent, search for a converter
                     converter ="%s_to_%s" % (parameter_type, annotated_type)
-                    if not hasattr(self, converter):
+
+                    if converter not in globals():
                         converter = None
                         for base in value.__class__.__bases__:
                             converter ="%s_to_%s" % (base.__name__, annotated_type)
-                            if hasattr(self, converter):
+                            if converter in globals():
+                            # if hasattr(self, converter):
                                 break
                             converter = None
                     # Found converter, register it
                     if converter:
-                        converter = getattr(self, converter)
+                        converter = globals()[converter]
                         parameters[key] = Converter(converter ,value)
                     
             classname = self.__class__.__name__
