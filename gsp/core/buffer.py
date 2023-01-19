@@ -20,7 +20,10 @@ class Buffer(Object):
             return Buffer(Z.size, Datatype.from_numpy(Z.dtype), Z.tobytes())
         raise ValueError(f"Unknown type for {Z}, cannot convert to Buffer")
 
-    @command("")
+    
+    @command("core.Buffer")
+#             converters = {"datatype" : [Datatype.from_numpy],
+#                           "data"     : [Buffer.from_numpy]})
     def __init__(self, count : int,
                        datatype : Datatype,
                        data  : bytes):

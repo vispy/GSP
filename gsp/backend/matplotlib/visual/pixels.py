@@ -5,14 +5,18 @@
 import numpy as np
         
 class Pixels:
+    
     def __init__(self, viewport, positions, colors):
+        "Render the visual on viewport using the given transform."
+        
         self.viewport = viewport
         self.positions = positions
         self.colors = colors
         self.scatter = None
 
     def render(self, transform):
-
+        "Render the visual on viewport using the given transform."
+        
         C = self.colors.buffer.view(np.float32).reshape(-1,4)
         V = self.positions.buffer.view(np.float32).reshape(-1,3)
         V = transform(V)
@@ -30,5 +34,3 @@ class Pixels:
         V = self.viewport.transform(V)
         self.scatter.set_offsets(V[:,:2])
         self.scatter.set_facecolors(C)
-
-

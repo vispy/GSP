@@ -25,7 +25,7 @@ if __name__ == '__main__':
     else:
         import matplotlib
         import matplotlib.pyplot as plt
-        from gsp.backend.matplotlib import Canvas, Viewport, Buffer, Datatype
+        from gsp.backend.matplotlib.core import Canvas, Viewport, Buffer, Datatype
         from gsp.backend.matplotlib.visual import Pixels
         from gsp.backend.matplotlib.transform import Mat4x4
 
