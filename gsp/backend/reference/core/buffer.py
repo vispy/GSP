@@ -35,3 +35,4 @@ class Buffer(Object):
         self.count = count
         self.datatype = datatype
         self.data = data
+

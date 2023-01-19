@@ -20,17 +20,17 @@ class Pixels:
         C = self.colors.view(np.float32).reshape(-1,4)
         V = self.positions.view(np.float32).reshape(-1,3)
         V = transform(V)
-
         I = np.argsort(V[:,2])
         V = V[I]
         C = C[I]
-        
         if self.scatter is None:
-            size = 1/self.viewport.canvas.dpi
-            # size = 1
+            size = (72/self.viewport.canvas.dpi)**2
             self.scatter = self.viewport.axes.scatter([], [], size)
             self.scatter.set_antialiaseds(False)
-        
+            self.scatter.set_linewidths(0)
+                
         V = self.viewport.transform(V)
-        self.scatter.set_offsets(V[:,:2])
+        # If we don't round vertices, antialias coverage leaks on
+        # neighbouring pixels
+        self.scatter.set_offsets(np.round(V[:,:2]))
         self.scatter.set_facecolors(C)
