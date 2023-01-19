@@ -8,7 +8,7 @@ from gsp.backend.reference.core.canvas import Canvas
 
 class Viewport(Object):
 
-    @command("")
+    @command("core.Viewport")
     def __init__(self, canvas : Canvas,
                        x :      int,
                        y :      int,

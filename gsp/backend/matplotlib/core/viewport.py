@@ -31,5 +31,5 @@ class Viewport:
                               [0, 0, d/2,   d/2],
                               [0, 0, 0,       1]], dtype=np.float32)
         from gsp.backend.matplotlib.transform import Mat4x4
-        self.transform = Mat4x4(transform.tobytes())
+        self.transform = Mat4x4(transform)
 

@@ -14,6 +14,9 @@ class Canvas:
                                  dpi=self.dpi)
         self.figure.set_size_inches(self.width / self.dpi,
                                     self.height /self.dpi)
+
+    def run(self):
+        plt.show()
         
     def render(self, format):
         self.figure.canvas.draw()

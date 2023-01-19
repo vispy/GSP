@@ -17,8 +17,8 @@ class Pixels:
     def render(self, transform):
         "Render the visual on viewport using the given transform."
         
-        C = self.colors.buffer.view(np.float32).reshape(-1,4)
-        V = self.positions.buffer.view(np.float32).reshape(-1,3)
+        C = self.colors.view(np.float32).reshape(-1,4)
+        V = self.positions.view(np.float32).reshape(-1,3)
         V = transform(V)
 
         I = np.argsort(V[:,2])

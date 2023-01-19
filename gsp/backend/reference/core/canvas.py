@@ -11,7 +11,7 @@ from gsp.backend.reference.object import Object
 class Canvas(Object):
     """ """
         
-    @command("")
+    @command("core.Canvas")
     def __init__(self, width :     int, 
                        height :    int,
                        dpi :       float):

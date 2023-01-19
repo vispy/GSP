@@ -61,7 +61,12 @@ class Datatype:
                 return dtype
         else:
             return dtype
-    
+
+
+    @classmethod
+    def dtype_to_Datatype(dtype):
+        return Datatype.from_numpy(dtype)
+        
     def __init__(self, format):
         self.format = format
         self.dtype = Datatype.to_numpy(format)

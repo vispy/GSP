@@ -8,7 +8,7 @@ from gsp.backend.reference.core.buffer import Buffer
 
 class BufferView(Object):
 
-    @command("")
+    @command("core.BufferView")
     def __init__(self, buffer : Buffer,
                        key : str):
 
