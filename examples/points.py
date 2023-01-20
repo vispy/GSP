@@ -12,17 +12,24 @@ from glm import vec3, rgba
 # from gsp.backend.datoviz import (core, visual, transform)
 from gsp.backend.matplotlib import (core, visual, transform)
 
-n = 10
+n = 10_000
 canvas = core.Canvas(512, 512, 100.0)
 camera = Camera("perspective", theta=10, phi=10)
 viewport = core.Viewport(canvas, 0, 0, 512, 512)
 positions = np.random.uniform(-1, +1, (n,3)).astype(np.float32)
-colors = np.random.uniform(0, 1, (n,4)).astype(np.float32)
-colors[...] = 0,0,0,1
-pixels = visual.Pixels(viewport, positions.view(vec3), colors.view(rgba))
-pixels.render(camera.transform)
+fill_colors = np.zeros((n,4), np.float32)
+fill_colors[...] = 1,1,1,1
+edge_colors = np.zeros((n,4), np.float32)
+edge_colors[...] = 0,0,0,1
+points = visual.Points(viewport,
+                       positions.view(vec3),
+                       25,
+                       fill_colors.view(rgba),
+                       edge_colors.view(rgba),
+                       0.5)
+points.render(camera.transform)
 
 # matplotlib backend specific
-# camera.connect(viewport.axes, pixels.render)
-# canvas.run()
+camera.connect(viewport.axes, "motion",  points.render)
+canvas.run()
 

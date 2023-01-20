@@ -2,7 +2,7 @@
 # Graphic Server Protocol (GSP) — json backend
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
-from gsp.backend.reference.command import Command, command
+from gsp.backend.reference.command import Command, Converter, command
 
 def text_dump(self):
 
@@ -20,8 +20,11 @@ def text_dump(self):
     else:
         print("#%03d: %s(id=%d) → %s(…)" % (
             self.id, self.classname, id, self.methodname))
-    for key in self.parameters.keys():
-        print("      | %s: %s" % (key, type(self.parameters[key]).__name__))
+    for key,value in self.parameters.items():
+        if isinstance(value, Converter):
+            print("      | %s: %s (%s)" % (key, type(value.value).__name__, value.converter.__name__))
+        else:
+            print("      | %s: %s" % (key, type(value).__name__))
         
     
 Command.dump = text_dump

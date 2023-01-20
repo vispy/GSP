@@ -33,8 +33,6 @@ class Camera():
 
         scale: float
           scale factor
-
-        view : array (4x4)
         """
         
         self.trackball = Trackball(theta, phi)
@@ -47,30 +45,36 @@ class Camera():
         self.zoom = 1
         self.zoom_max = 5.0
         self.zoom_min = 0.1
-        self.view = glm.translate(0, 0, -3) @ glm.scale(scale)
+        self.view = glm.translate(0, 0, -5) @ glm.scale(scale)
         if mode == "ortho":
             self.proj = glm.ortho(-1,+1,-1,+1, self.near, self.far)
         else:
             self.proj = glm.perspective(
                 self.aperture, self.aspect, self.near, self.far)
         self.transform = self.proj @ self.view @ self.trackball.model.T
-        # self.transform = self.transform.astype(np.float32)
-        self.updates = []
-        
-    def update(self):
+        self.updates = {"motion"  : [],
+                        "scroll"  : [],
+                        "press"   : [],
+                        "release" : []}
+
+
+    def update(self, event):
         """
         Update all connected objects
         """
 
-        for update in self.updates:
+        for update in self.updates[event]:
             update(self.transform)
         
         
-    def connect(self, axes, update):
+    def connect(self, axes, event, update):
         """
         axes : matplotlib.Axes
            Axes where to connect this camera to
 
+        event: string
+           Which event to connect to (motion, scroll, press, release)
+        
         update: function(transform)
            Function to be called with the new transform to update the scene
            (transform is a 4x4 matrix).
@@ -79,11 +83,11 @@ class Camera():
         self.figure = axes.get_figure()
         self.axes = axes
         # self.update = update
-        if update not in self.updates:
-            self.updates.append(update)
+        if update not in self.updates[event]:
+            self.updates[event].append(update)
         
         self.mouse = None
-        self.cidpress = self.figure.canvas.mpl_connect(
+        self.cidscroll = self.figure.canvas.mpl_connect(
             'scroll_event', self.on_scroll)
         self.cidpress = self.figure.canvas.mpl_connect(
             'button_press_event', self.on_press)
@@ -104,25 +108,30 @@ class Camera():
         """
         Scroll event for zooming in/out
         """
-        if event.inaxes != self.axes:     return
+        if event.inaxes != self.axes:
+            return
         
         if event.button == "up":
             self.zoom  = max(0.9*self.zoom, self.zoom_min)
         elif event.button == "down":
             self.zoom = min(1.1*self.zoom, self.zoom_max)
-        self.axes.set_xlim(-self.zoom,self.zoom)
-        self.axes.set_ylim(-self.zoom,self.zoom)
+        self.axes.set_xlim(-self.zoom, self.zoom)
+        self.axes.set_ylim(-self.zoom, self.zoom)
+        self.update("scroll")
         self.figure.canvas.draw()
 
         
     def on_press(self, event):
         """
-        Press event to initiate a drag
+        Press event (initiate drag)
         """
-        if event.inaxes != self.axes:     return
+        if event.inaxes != self.axes:
+            return
         
         self.mouse = event.button, event.xdata, event.ydata
-
+        self.update("press")
+        self.figure.canvas.draw()
+        
         
     def on_motion(self, event):
         """
@@ -136,21 +145,24 @@ class Camera():
         self.mouse = button, x, y
         self.trackball.drag_to(x, y, dx, dy)
         self.transform = self.proj @ self.view @ self.trackball.model.T
-        self.update()
+        self.update("motion")
         self.figure.canvas.draw()
 
         
     def on_release(self, event):
         """
-        End of drag event
+        Release event (end of drag)
         """
         self.mouse = None
+        self.update("release")
+        self.figure.canvas.draw()
 
         
     def disconnect(self):
         """
         Disconnect camera from the axes
         """
+        self.figure.canvas.mpl_disconnect(self.cidscroll)
         self.figure.canvas.mpl_disconnect(self.cidpress)
         self.figure.canvas.mpl_disconnect(self.cidrelease)
         self.figure.canvas.mpl_disconnect(self.cidmotion)

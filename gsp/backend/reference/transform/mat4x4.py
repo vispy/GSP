@@ -15,7 +15,7 @@ class Mat4x4(Transform):
     4x4 matrix of 32 bits float.
     """
     
-    @command("")
+    @command("transform.Mat4x4")
     def __init__(self,
                  data : bytes):
         """A matrix transform corresponds to a 4x4 matrix that can be
