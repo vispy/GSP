@@ -11,25 +11,30 @@ import itertools
 from gsp.backend.reference.object import Object, OID
 from gsp.backend.reference.command import Command, command, CID
 
-def mode(mode="server", reset=True, record=None, output=None, convert=None):
-    "Set protocol in specified mode (server or client)."
+#def mode(mode="server", reset=True, record=None, output=None, convert=None):
+#    "Set protocol in specified mode (server or client)."
+#    if reset:
 
-    if reset:
-        Object.objects = {}
-        OID.counter = itertools.count()
-        Command.commands = []
-        CID.counter = itertools.count()
+Object.objects = {}
 
-    Command.convert = convert if convert is not None else False
-        
-    if mode == "client":
-        Command.record = record if record is not None else True
-        Command.output = output if output is not None else True
-        Object.record = True
-    else:
-        Command.record = record if record is not None else False
-        Command.output = output if output is not None else False
-        Object.record = False
+OID.counter = itertools.count()
+Command.commands = []
+
+CID.counter = itertools.count()
+# Command.convert = convert if convert is not None else False
+
+#    if mode == "client":
+# Command.record = record if record is not None else True
+# Command.output = output if output is not None else True
+Command.record = True
+Command.output = True
+Object.record = True
+#    else:
+#        Command.record = record if record is not None else False
+#        Command.output = output if output is not None else False
+#        Object.record = False
+
+mode = "client"
 
 def objects():
     """ Dictionnary of objects that have been created. """

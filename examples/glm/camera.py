@@ -2,9 +2,9 @@
 # Copyright (c) 2020 Nicolas P. Rougier. All rights reserved.
 # Distributed under the (new) BSD License.
 # -----------------------------------------------------------------------------
-import glm
 import numpy as np
-from trackball import Trackball
+from . import glm
+from . trackball import Trackball
 
 class Camera():
     """

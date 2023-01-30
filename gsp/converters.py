@@ -28,7 +28,6 @@ def dtype_to_Datatype(dtype):
         datatype += "%s::%d/" % (itype,isize)
     else:
         datatype += "%s/" % (dtype)
-        
     return Datatype(datatype[:-1])
 
 def ndarray_to_Buffer(array):
@@ -49,4 +48,13 @@ def ndarray_to_bytes(array):
         return array.tobytes()
     raise ValueError(f"Unknown type for {array}, cannot convert to bytes")
 
+def vec3_to_Buffer(array):
+    """Convert a numpy vec3 array to Buffer"""
+    
+    return array.gsp_buffer
+
+def vec4_to_Buffer(array):
+    """Convert a numpy vec4 array to Buffer"""
+    
+    return array.gsp_buffer
 

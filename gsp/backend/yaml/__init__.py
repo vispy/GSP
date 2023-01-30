@@ -2,10 +2,10 @@
 # Graphic Server Protocol (GSP) — yaml backend
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
+import gsp
 import yaml
 from gsp.backend.reference.object import Object
-from gsp.backend.reference.command import Command
-from gsp.backend.reference import (mode, objects, commands, process)
+from gsp.backend.reference.command import Command, Converter
 
 def yaml_load(self, command):
     command = yaml.safe_load(data)[0]
@@ -25,14 +25,12 @@ def yaml_dump(self):
     # Convert parameters if necessary
     parameters = {}
     for key,value in self.parameters.items():
-        if callable(value):
+        if isinstance(value, Converter):
             parameters[key] = value()
             if isinstance(parameters[key], Object):
                 parameters[key] = parameters[key].id
         else:
             parameters[key] = value
-
-    print(parameters)
             
     # Check which method has been called
     if (self.methodname is None or not len(self.methodname)):
@@ -46,11 +44,16 @@ def yaml_dump(self):
                "id" : self.id,
                "timestamp" : self.timestamp,
                "parameters" : parameters } ]
-#    print(yaml.dump(data, default_flow_style=None, sort_keys=False))
+    print(yaml.dump(data, default_flow_style=None, sort_keys=False))
 
 Command.dump = yaml_dump
 
 import gsp.backend.reference.core as core
 import gsp.backend.reference.visual as visual
 import gsp.backend.reference.transform as transform
+from gsp.backend.reference import (objects, commands, process)
 
+gsp.mode = "client"
+gsp.core = core
+gsp.visual = visual
+gsp.tranform = transform

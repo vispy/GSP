@@ -5,16 +5,19 @@
 from gsp.backend.reference.object import Object
 from gsp.backend.reference.command import command
 from gsp.backend.reference.core.buffer import Buffer
+from gsp.backend.reference.core.viewport import Viewport
+from gsp.backend.reference.transform import Transform
 
 class Points(Object):
 
     @command("")
     def __init__(self,
+                 viewport : Viewport,
                  position : Buffer,
-                 size : Buffer,
+                 size : float,
                  fill_color : Buffer,
                  stroke_color : Buffer,
-                 stroke_width : Buffer):
+                 stroke_width : float):
 
         """A set of pixels.
 
@@ -50,7 +53,11 @@ class Points(Object):
         Object.__init__(self)
         self.position = position
         self.size = size
-        self.fill_color = fill
-        self.stroke_color = stroke
+        self.fill_color = fill_color
+        self.stroke_color = stroke_color
         self.stroke_width = stroke_width
 
+    @command("render")
+    def render(self,
+               transform : Transform):
+        pass

@@ -95,19 +95,25 @@ def command(method=None, record=None, output=None, convert=None):
 
                     # Types are not consistent, search for a converter
                     converter ="%s_to_%s" % (parameter_type, annotated_type)
-
+                    
                     if converter not in globals():
                         converter = None
                         for base in value.__class__.__bases__:
                             converter ="%s_to_%s" % (base.__name__, annotated_type)
                             if converter in globals():
-                            # if hasattr(self, converter):
                                 break
                             converter = None
                     # Found converter, register it
                     if converter:
                         converter = globals()[converter]
-                        parameters[key] = Converter(converter ,value)
+                        # Delayed conversion
+                        # parameters[key] = Converter(converter ,value)
+
+                        # Immediate conversion
+                        parameters[key] = converter(value)
+                    else:
+                        raise ValueError("Converter missing for %s" % parameter_type)
+
                     
             classname = self.__class__.__name__
             methodname = func.__code__.co_name if method is None else method

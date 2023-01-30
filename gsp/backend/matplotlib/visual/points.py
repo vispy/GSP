@@ -6,7 +6,8 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from gsp.backend.matplotlib.transform import Mat4x4
-     
+
+
 class Points:
     def __init__(self, viewport,
                        positions, sizes, fill_colors,
@@ -27,7 +28,8 @@ class Points:
         EC = self.edge_colors.view(np.float32).reshape(-1,4)
         X, Y = V[:,0], V[:,1]
         S = self.sizes
-        self.scatter = self.viewport.axes.scatter(X, Y)
+
+        self.scatter = self.viewport.axes.scatter(X,Y)
         self.scatter.set_facecolors(FC)
         self.scatter.set_edgecolors(EC)
         self.scatter.set_sizes(S)

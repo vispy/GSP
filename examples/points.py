@@ -3,8 +3,8 @@
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 import numpy as np
-from camera import Camera
-from glm import vec3, rgba
+from glm.camera import Camera
+from glm.types import vec2, vec3, vec4
 
 # from gsp.backend.text import (core, visual, transform)
 # from gsp.backend.yaml import (core, visual, transform)
@@ -16,17 +16,17 @@ n = 10_000
 canvas = core.Canvas(512, 512, 100.0)
 camera = Camera("perspective", theta=10, phi=10)
 viewport = core.Viewport(canvas, 0, 0, 512, 512)
-positions = np.random.uniform(-1, +1, (n,3)).astype(np.float32)
-fill_colors = np.zeros((n,4), np.float32)
-fill_colors[...] = 1,1,1,1
-edge_colors = np.zeros((n,4), np.float32)
-edge_colors[...] = 0,0,0,1
-points = visual.Points(viewport,
-                       positions.view(vec3),
-                       25,
-                       fill_colors.view(rgba),
-                       edge_colors.view(rgba),
-                       0.5)
+
+positions = vec3(n)
+positions.xyz = np.random.uniform(-1, +1, (n,3))
+
+fill_colors = vec4(n)
+fill_colors.rgba = 1,1,1,1
+
+edge_colors = vec4(n)
+edge_colors.rgba = 0,0,0,1
+
+points = visual.Points(viewport, positions, 25.0, fill_colors, edge_colors, 0.5)
 points.render(camera.transform)
 
 # matplotlib backend specific

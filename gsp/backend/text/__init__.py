@@ -2,6 +2,7 @@
 # Graphic Server Protocol (GSP) — json backend
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
+import gsp
 from gsp.backend.reference.command import Command, Converter, command
 
 def text_dump(self):
@@ -10,7 +11,7 @@ def text_dump(self):
 
     # Call pending conversions
     # for key,value in self.parameters.items():
-    #    if callable(value):
+    #    if isinstance(value, Converter):
     #        value()
 
     if (self.methodname is None or
@@ -29,8 +30,12 @@ def text_dump(self):
     
 Command.dump = text_dump
 
-
 import gsp.backend.reference.core as core
 import gsp.backend.reference.visual as visual
 import gsp.backend.reference.transform as transform
 from gsp.backend.reference import (mode, objects, commands, process)
+
+gsp.mode = "client"
+gsp.core = core
+gsp.visual = visual
+gsp.tranform = transform
