@@ -14,6 +14,7 @@ class mtarray(np.ndarray):
         Z = np.ndarray.__new__(cls, *args, **kwargs)
         if gsp.mode == "client":
             Z.gsp_buffer = gsp.core.Buffer(len(Z), Z.ntype, Z.tobytes())
+            Z.gsp_update = False
         return Z
 
     def __array_finalize__(self, obj):
@@ -54,7 +55,11 @@ class mtarray(np.ndarray):
                 start = min(self._dirty[0], start)
                 stop = max(self._dirty[1], stop)
                 self._dirty = start, stop
-
+            if gsp.mode == "client" and not self.gsp_update:
+                data = self.view(np.ubyte)
+                start, stop = self._dirty
+                self.gsp_buffer.set_data(start, data[start:stop].tobytes())
+                
     def _compute_extents(self, Z):
         """Compute extents (start, stop) in bytes in the base array"""
 
@@ -63,7 +68,8 @@ class mtarray(np.ndarray):
             view = Z.__array_interface__['data'][0]
             offset = view - base
             shape = np.array(Z.shape) - 1
-            size = (shape*Z.strides).sum() + Z.itemsize
+            strides = Z.strides[-len(shape):]
+            size = (shape*strides).sum() + Z.itemsize
             return offset, offset+size
         return 0, Z.size*Z.itemsize
 
@@ -122,11 +128,13 @@ class matrix(mtarray):
     to be not modified anymore (e.g. after uploading it somewhere
     else)."""
 
+    shape = None
     mtype = None
-    
+    ntype = None
+        
     def __new__(subtype, shape=1, dtype=float, buffer=None, offset=0,
                 strides=None, order=None, info=None):
-        obj = super().__new__(subtype, shape, subtype.mtype,
+        obj = super().__new__(subtype, 1, subtype.ntype,
                               buffer, offset, strides, order)
         return obj
 
@@ -143,18 +151,13 @@ class vector(mtarray):
 
     swizzle = None
     vtype = None
+    ntype = None
 
     def __new__(subtype, shape, dtype=float, buffer=None, offset=0,
                 strides=None, order=None, info=None):
         obj = super().__new__(subtype, shape, subtype.vtype,
                               buffer, offset, strides, order)
         return obj
-
-    def __array_finalize__(self, obj):
-        if obj is None: return
-        n = self.vtype.shape[0]
-#        if self.shape != (self.size//n,n):
-#            self.shape = (self.size//n,n)
     
     
     def __setattr__(self, key, value):
@@ -163,23 +166,27 @@ class vector(mtarray):
                 value = np.asarray(value)
                 shape = value.shape
                 indices = [swizzle.index(c) for c in key]
+                self.gsp_update = True
                 if not len(shape):
                     for index in indices:
                         self[...,index] = value
-                    return
                 elif shape[-1] == 1:
                     for index in indices:
                         self[...,index] = np.squeeze(value)
-                    return
                 elif shape[-1] == len(key):
                     for index in indices:
                         if self[...,index].size == value[...,index].size:
                             self[...,index] = value[...,index].reshape(self[...,index].shape)
                         else:
                             self[...,index] = value[...,index]
-                    return
                 else:
                     raise IndexError
+                self.gsp_update = False
+                if gsp.mode == "client":
+                    data = self.view(np.ubyte)
+                    start,stop = self._dirty
+                    self.gsp_buffer.set_data(start, data[start:stop].tobytes())
+                return
         super().__setattr__(key, value)
 
         
@@ -197,11 +204,6 @@ class vec2(vector):
     ntype = np.dtype([("x",np.float32),
                       ("y",np.float32)])
 
-def vec2_to_bytes(V):
-    """Convert vec2 numpy array to bytes."""
-    return V.tobytes()
-
-
 class vec3(vector):
     """vec3 numpy array with swizzle capacity and modification tracking."""
     swizzle = "xyz", "rgb"
@@ -209,11 +211,6 @@ class vec3(vector):
     ntype = np.dtype([("x",np.float32),
                       ("y",np.float32),
                       ("z",np.float32)])
-
-def vec3_to_bytes(V):
-    """Convert vec3 numpy array to bytes."""
-    return V.tobytes()
-
 
 class vec4(vector):
     """vec4 numpy array with swizzle capacity and modification tracking."""
@@ -224,36 +221,20 @@ class vec4(vector):
                       ("z",np.float32),
                       ("w",np.float32)])
 
-def vec4_to_bytes(V):
-    """Convert vec4 numpy array to bytes."""
-    return V.tobytes()
-
-
 class mat2x2(matrix):
     """mat2x2 numpy array with modification tracking."""
     mtype = np.dtype((np.float32, (2,2)))
     ntype = np.dtype((np.float32, (2,2)))
-
-def mat2x2_to_bytes(M):
-    """Convert mat2x2 numpy array to bytes."""
-    return M.tobytes()
-
+    shape = (2,2)
+    
 class mat3x3(matrix):
     """mat3x3 numpy array with modification tracking."""
     mtype = np.dtype((np.float32, (3,3)))
     ntype = np.dtype((np.float32, (3,3)))
-    
-def mat3x3_to_bytes(M):
-    """Convert mat3x3 numpy array to bytes."""
-    return M.tobytes()
-
+    shape = (3,3)
+        
 class mat4x4(matrix):
-    """mat4x4 numpy array with modification
-    tracking."""
+    """mat4x4 numpy array with modification tracking."""
     mtype = np.dtype((np.float32, (4,4)))
     ntype = np.dtype((np.float32, (4,4)))
-
-def mat4x4_to_bytes(M):
-    """Convert mat4x4 numpy array to bytes"""
-    return M.tobytes()
-
+    shape = (4,4)

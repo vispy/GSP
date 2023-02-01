@@ -36,3 +36,20 @@ class Buffer(Object):
         self.datatype = datatype
         self.data = data
 
+    @command()
+    def set_data(self, offset: int,
+                       data : bytes):
+
+        """Update buffer content at given offset with new data.
+        
+        Parameters:
+
+         offset:
+        
+            Offeset in bytes where to start update
+
+         data:
+        
+            Content to update with.
+        """
+        pass

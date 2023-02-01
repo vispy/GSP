@@ -112,7 +112,8 @@ def command(method=None, record=None, output=None, convert=None):
                         # Immediate conversion
                         parameters[key] = converter(value)
                     else:
-                        raise ValueError("Converter missing for %s" % parameter_type)
+                        raise ValueError(
+                            "Converter missing for %s to %s" % (parameter_type, annotated_type))
 
                     
             classname = self.__class__.__name__

@@ -6,11 +6,11 @@ from gsp.backend.reference.object import Object
 from gsp.backend.reference.command import command
 from gsp.backend.reference.core.buffer import Buffer
 from gsp.backend.reference.core.viewport import Viewport
-from gsp.backend.reference.transform import Transform
+from gsp.backend.reference.transform import Mat4x4
 
 class Points(Object):
 
-    @command("")
+    @command("visual.Points")
     def __init__(self,
                  viewport : Viewport,
                  position : Buffer,
@@ -59,5 +59,5 @@ class Points(Object):
 
     @command("render")
     def render(self,
-               transform : Transform):
+               transform : Mat4x4):
         pass

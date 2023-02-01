@@ -12,6 +12,7 @@ class Canvas:
         self.dpi = dpi
         self.figure = plt.figure(frameon=False,
                                  dpi=self.dpi)
+        self.figure.patch.set_alpha(0.0)
         self.figure.set_size_inches(self.width / self.dpi,
                                     self.height /self.dpi)
 

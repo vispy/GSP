@@ -2,7 +2,6 @@
 # Graphic Server Protocol (GSP) — yaml backend
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
-import gsp
 import yaml
 from gsp.backend.reference.object import Object
 from gsp.backend.reference.command import Command, Converter
@@ -53,6 +52,7 @@ import gsp.backend.reference.visual as visual
 import gsp.backend.reference.transform as transform
 from gsp.backend.reference import (objects, commands, process)
 
+import gsp
 gsp.mode = "client"
 gsp.core = core
 gsp.visual = visual

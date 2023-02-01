@@ -4,6 +4,7 @@
 # -----------------------------------------------------------------------------
 import numpy as np
 from . import glm
+from . types import mat4x4
 from . trackball import Trackball
 
 class Camera():
@@ -51,12 +52,13 @@ class Camera():
         else:
             self.proj = glm.perspective(
                 self.aperture, self.aspect, self.near, self.far)
-        self.transform = self.proj @ self.view @ self.trackball.model.T
+        # self.transform = np.zeros((4,4), np.float32) # mat4x4(1)
+        self.transform = mat4x4(1)
+        self.transform[...] = self.proj @ self.view @ self.trackball.model.T
         self.updates = {"motion"  : [],
                         "scroll"  : [],
                         "press"   : [],
                         "release" : []}
-
 
     def update(self, event):
         """
@@ -144,7 +146,7 @@ class Camera():
         dx, dy = x-self.mouse[1], y-self.mouse[2]
         self.mouse = button, x, y
         self.trackball.drag_to(x, y, dx, dy)
-        self.transform = self.proj @ self.view @ self.trackball.model.T
+        self.transform[...] = self.proj @ self.view @ self.trackball.model.T
         self.update("motion")
         self.figure.canvas.draw()
 

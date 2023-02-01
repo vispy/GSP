@@ -58,3 +58,9 @@ def vec4_to_Buffer(array):
     
     return array.gsp_buffer
 
+def mat4x4_to_Mat4x4(array):
+    """Convert a numpy mat4x4 array to Buffer"""
+
+    from gsp.backend.reference.transform import Mat4x4
+    return Mat4x4(array.tobytes())
+

@@ -13,6 +13,8 @@ class Viewport:
                                             y / canvas.height,
                                             width / canvas.width,   
                                             height / canvas.height])
+        self.axes.set_aspect(width/height)
+        self.axes.patch.set_alpha(0.0)
         self.axes.autoscale(False)
         # self.axes.set_xlim(0, width)
         # self.axes.set_ylim(0, height)

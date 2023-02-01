@@ -38,7 +38,7 @@ def json_dump(self):
                 "timestamp" : self.timestamp,
                 "method" : method,
                 "parameters" : parameters }
-    return json.dumps(payload, default=json_default)
+    print(json.dumps(payload, default=json_default))
     
 Command.dump = json_dump
 
@@ -57,4 +57,9 @@ import gsp.backend.reference.core as core
 import gsp.backend.reference.visual as visual
 import gsp.backend.reference.transform as transform
 from gsp.backend.reference import (objects, commands, process)
-mode = "client"
+
+import gsp
+gsp.mode = "client"
+gsp.core = core
+gsp.visual = visual
+gsp.tranform = transform
