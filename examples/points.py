@@ -4,12 +4,12 @@
 # -----------------------------------------------------------------------------
 import glm
 import numpy as np
-from gsp.backend.text import (core, visual, transform)
+# from gsp.backend.text import (core, visual, transform)
 # from gsp.backend.yaml import (core, visual, transform)
 # from gsp.backend.json import (core, visual, transform)
 # from gsp.backend.datoviz import (core, visual, transform)
-# import matplotlib as mpl; mpl.use("module://imgcat")
-# from gsp.backend.matplotlib import (core, visual, transform)
+import matplotlib as mpl; mpl.use("module://imgcat")
+from gsp.backend.matplotlib import (core, visual, transform)
 
 canvas = core.Canvas(512, 512, 100.0)
 camera = glm.Camera("perspective", theta=10, phi=10)
@@ -28,6 +28,6 @@ points = visual.Points(viewport, positions, 25.0, fill_colors, edge_colors, 0.5)
 points.render(camera.transform)
 
 # matplotlib backend specific
-#camera.connect(viewport.axes, "motion",  points.render)
-#canvas.run()
+camera.connect(viewport.axes, "motion",  points.render)
+canvas.run()
 

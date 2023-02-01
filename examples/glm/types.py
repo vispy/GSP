@@ -129,12 +129,11 @@ class matrix(mtarray):
     else)."""
 
     shape = None
-    mtype = None
     ntype = None
         
     def __new__(subtype, shape=1, dtype=float, buffer=None, offset=0,
                 strides=None, order=None, info=None):
-        obj = super().__new__(subtype, 1, subtype.ntype,
+        obj = super().__new__(subtype, subtype.shape, np.float32,
                               buffer, offset, strides, order)
         return obj
 
@@ -223,18 +222,15 @@ class vec4(vector):
 
 class mat2x2(matrix):
     """mat2x2 numpy array with modification tracking."""
-    mtype = np.dtype((np.float32, (2,2)))
     ntype = np.dtype((np.float32, (2,2)))
     shape = (2,2)
     
 class mat3x3(matrix):
     """mat3x3 numpy array with modification tracking."""
-    mtype = np.dtype((np.float32, (3,3)))
     ntype = np.dtype((np.float32, (3,3)))
     shape = (3,3)
         
 class mat4x4(matrix):
     """mat4x4 numpy array with modification tracking."""
-    mtype = np.dtype((np.float32, (4,4)))
     ntype = np.dtype((np.float32, (4,4)))
     shape = (4,4)
