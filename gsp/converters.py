@@ -30,6 +30,37 @@ def dtype_to_Datatype(dtype):
         datatype += "%s/" % (dtype)
     return Datatype(datatype[:-1])
 
+def Datatype_to_dtype(datatype):
+    dtype = []
+    datatype = datatype.replace(" ", "")
+    for item in datatype.split("/"):
+        if not len(item): continue
+        item = item.split(":")
+        if len(item) == 3:
+            itype, iname, isize = item
+            if not len(iname):
+                dtype.append((itype, (int(isize),)))
+            else:
+                dtype.append((iname, itype, (int(isize),)))
+        elif len(item) == 2:
+            itype, iname = item
+            dtype.append((iname, itype, (1,)))
+        elif len(item) == 1:
+            itype = item[0]
+            dtype.append((itype, (1,)))
+    if len(dtype) == 1:
+        dtype = dtype[0]
+        if len(dtype) == 3:
+#            print(datatype, dtype[1:])
+            return np.dtype(dtype[1:])
+        else:
+#            print(datatype, dtype)
+            return np.dtype(dtype)
+    else:
+#        print(datatype, dtype)
+        return np.dtype(dtype)
+
+
 def ndarray_to_Buffer(array):
     """Convert a numpy array into a Buffer"""
 

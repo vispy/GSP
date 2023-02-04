@@ -2,60 +2,62 @@
 # Graphic Server Protocol (GSP) — reference implementation
 # Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
+from typing import Union
 from gsp.backend.reference.object import Object
 from gsp.backend.reference.command import command
 from gsp.backend.reference.core.buffer import Buffer
 from gsp.backend.reference.core.viewport import Viewport
 from gsp.backend.reference.transform import Mat4x4
+from gsp.backend.reference.core.size import Size
+from gsp.backend.reference.core.color import Color
 
 class Points(Object):
 
     @command("visual.Points")
     def __init__(self,
-                 viewport : Viewport,
-                 position : Buffer,
-                 size : float,
-                 fill_color : Buffer,
-                 stroke_color : Buffer,
-                 stroke_width : float):
+                 viewport :    Viewport,
+                 positions :   Buffer,
+#                 sizes :       Union[Buffer, Size],
+#                 fill_colors : Union[Buffer, Color],
+#                 edge_colors : Union[Buffer, Color],
+#                 edge_widths : Union[Buffer, Size]):
+                 sizes :       float,
+                 fill_colors : Buffer,
+                 edge_colors : Buffer,
+                 edge_widths : float):
 
         """A set of pixels.
 
         Parameters:
 
-         position:
+         positions:
         
-           Position of the point (pixels)
+           Position of points (pixels)
 
-         size:
+         sizes:
         
-           Diameter of the point (pixels)
+           Diameter of points (pixels)
 
-         fill_color:
+         fill_colors:
         
-           Fill color (red, green, blue, alpha)
+           Fill colors (red, green, blue, alpha)
         
-         stroke_color:
+         edge_colors:
         
-           Stroke color (red, green, blue, alpha)
+           Edge colors (red, green, blue, alpha)
         
-         stroke_width:
+         edge_widths:
         
-           Stroke width (pixels)
-
-
-        **Note**
-
-          - Color corresponds to a list of 4 floats
+           Edge widths (pixels)
 
         """
         
         Object.__init__(self)
-        self.position = position
-        self.size = size
-        self.fill_color = fill_color
-        self.stroke_color = stroke_color
-        self.stroke_width = stroke_width
+        self.positions = positions
+        self.sizes = sizes
+        self.fill_colors = fill_colors
+        self.edge_colors = edge_colors
+        self.edge_widths = edge_widths
 
     @command("render")
     def render(self,

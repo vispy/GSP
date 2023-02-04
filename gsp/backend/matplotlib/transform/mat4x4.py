@@ -24,5 +24,3 @@ class Mat4x4:
         V = V/V[:,3].reshape(-1,1)  # Normalization
         V = V[:,:3]                 # Normalized device coordinates
         return V.reshape(shape)
-
-

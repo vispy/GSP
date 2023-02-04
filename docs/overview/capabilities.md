@@ -1,3 +1,10 @@
+---
+Title:     Graphic Server Protocol (GSP) / Capabilities
+Authors:   Nicolas P. Rougier
+Date:      February 4, 2023
+License:   BSD 2 Clauses licence
+Homepage:  https://vispy.org/GSP
+---
 
 # Capabilities
 
@@ -17,11 +24,11 @@
 
 ## Visuals
 
-- [x] **Pixels**  *:octicons-tag-24: alpha*{.push-right}
+- [x] [**Pixels**](../protocol/visual/pixels.md)  *:octicons-tag-24: alpha*{.push-right}
 
        Collection of pixesl with arbitrary positon and color.
 
-- [ ] **Points**  *:octicons-tag-24: alpha*{.push-right .not-done}
+- [x] [**Points**](../protocol/visual/points.md)  *:octicons-tag-24: alpha*{.push-right .not-done}
 
        Collection of points with arbitrary position, size, edge color,
        edge thickness and fill color.

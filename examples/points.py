@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# Graphic Server Protocol (GSP) -- Points cloud example
+# Graphic Server Protocol (GSP)
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 import glm
@@ -8,7 +8,7 @@ import numpy as np
 # from gsp.backend.yaml import (core, visual, transform)
 # from gsp.backend.json import (core, visual, transform)
 # from gsp.backend.datoviz import (core, visual, transform)
-import matplotlib as mpl; mpl.use("module://imgcat")
+# import matplotlib as mpl; mpl.use("module://imgcat")
 from gsp.backend.matplotlib import (core, visual, transform)
 
 canvas = core.Canvas(512, 512, 100.0)

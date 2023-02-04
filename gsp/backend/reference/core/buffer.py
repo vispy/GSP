@@ -46,7 +46,7 @@ class Buffer(Object):
 
          offset:
         
-            Offeset in bytes where to start update
+            Offset in bytes where to start update
 
          data:
         

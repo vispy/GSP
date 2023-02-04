@@ -4,21 +4,21 @@
 # -----------------------------------------------------------------------------
 import numpy as np
 
-vec2 = np.dtype([("x", np.float32),
-                 ("y", np.float32)])
-vec3 = np.dtype([("x", np.float32),
-                 ("y", np.float32),
-                 ("z", np.float32)])
-vec4 = np.dtype([("x", np.float32),
-                 ("y", np.float32),
-                 ("z", np.float32),
-                 ("w", np.float32)])
-mat3x3 = np.dtype((np.float32, (3,3)))
-mat4x4 = np.dtype((np.float32, (4,4)))
-rgba = np.dtype([("r", np.float32),
-                 ("g", np.float32),
-                 ("b", np.float32),
-                 ("a", np.float32) ])
+# vec2 = np.dtype([("x", np.float32),
+#                  ("y", np.float32)])
+# vec3 = np.dtype([("x", np.float32),
+#                  ("y", np.float32),
+#                  ("z", np.float32)])
+# vec4 = np.dtype([("x", np.float32),
+#                  ("y", np.float32),
+#                  ("z", np.float32),
+#                  ("w", np.float32)])
+# mat3x3 = np.dtype((np.float32, (3,3)))
+# mat4x4 = np.dtype((np.float32, (4,4)))
+# rgba = np.dtype([("r", np.float32),
+#                  ("g", np.float32),
+#                  ("b", np.float32),
+#                  ("a", np.float32) ])
 
 def normalize(X):
     return X/(1e-16+np.sqrt((np.array(X)**2).sum(axis=-1)))[..., np.newaxis]

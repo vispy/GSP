@@ -232,16 +232,22 @@ class Command:
         parameters = self.parameters.copy()
         oid = parameters["id"]
         del parameters["id"]
+
+        print("Class name:", self.classname)
+        print("Method name:", self.methodname)
         
         # Resolve objects references
         for key, value in parameters.items():
             if isinstance(value, OID):
                 parameters[key] = Object.objects[value]
-                
-        if self.methodname is None or not len(self.methodname):
-            # Warning: this call advances the object counter, is it a problem?
-            object = globals[self.classname](**parameters)
+
+        if "." in self.methodname:
+            module,name = self.methodname.split(".")
+            func = getattr(globals[module], name)
+            object = func(**parameters)
             object.id = oid
             Object.objects[oid] = object
+            return object
         else:
-            getattr(globals[self.classname], self.methodname)(Object.objects[oid], **parameters)
+            func = getattr(Object.objects[oid].__class__, self.methodname)
+            return func(Object.objects[oid], **parameters)

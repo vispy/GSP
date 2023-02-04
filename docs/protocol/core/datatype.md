@@ -1,5 +1,12 @@
+---
+Title:     Graphic Server Protocol (GSP) / core / Datatype
+Authors:   Nicolas P. Rougier
+Date:      February 4, 2023
+License:   BSD 2 Clauses licence
+Homepage:  https://vispy.org/GSP
+---
 
-::: gsp.core.Datatype
+::: gsp.backend.reference.core.Datatype
     options:
       show_root_heading: yes
       members:

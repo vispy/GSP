@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
 # Graphic Server Protocol (GSP) — reference implementation
-# Copyright 2022 Vispy Development Team - BSD 2 Clauses licence
+# Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 """Graphic Server Protocol 
 
@@ -13,3 +13,5 @@ from . viewport import Viewport
 from . datatype import Datatype
 from . buffer import Buffer
 from . buffer_view import BufferView
+from . color import Color
+from . size import Size

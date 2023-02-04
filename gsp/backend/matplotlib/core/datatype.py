@@ -5,5 +5,5 @@
 import numpy as np
 
 class Datatype:
-    def __init__(self, dtype):
-        self.dtype = dtype
+    def __init__(self, format):
+        self.format = format
