@@ -40,6 +40,7 @@ nav:
       - protocol/transform/transform.md
       - protocol/transform/operator.md
       - protocol/transform/mat4x4.md
+      - protocol/transform/depth.md
     - Visuals:
       - protocol/visual/pixels.md
       - protocol/visual/points.md
@@ -98,7 +99,7 @@ plugins:
             merge_init_into_class: yes
             show_submodules: no
             show_source: no
-            show_bases: no
+            show_bases: yes
             show_root_full_path: no
   - git-revision-date-localized:
       enable_creation_date: no
