@@ -8,10 +8,12 @@ implementation. It is *not* part of the protocol.
 """
 
 import yaml
+import typing
 import inspect
 import itertools
 from datetime import datetime
 from functools import wraps
+from gsp import log
 from gsp.converters import *
 from gsp.backend.reference.object import Object, OID
 from typing import Union, get_origin, get_args
@@ -57,8 +59,16 @@ def command(method=None, record=None, output=None, convert=None):
 
         @wraps(func)
         def inner(self, *args, **kwargs):
+            
+            no_command = False
+            if "__no_command__" in kwargs:
+                no_command = True
+                del kwargs["__no_command__"]
+                
             keys = func.__code__.co_varnames[1:]
             annotations = func.__annotations__
+            annotations = typing.get_type_hints(func)
+
             values = args
             defaults = get_default_args(func)            
 
@@ -85,48 +95,60 @@ def command(method=None, record=None, output=None, convert=None):
             # for a conversion method inside the parameter class.
             for key,value in parameters.items():
                 if key in annotations.keys():
-                    annotated_type = annotations[key].__name__
-                    parameter_type = parameters[key].__class__.__name__
 
-                    # Types are consistent
-                    # NOTE: Union of types are not yet handled
-                    if annotated_type == parameter_type:
-                        continue
+                    check = False
+                    parameter_type = parameters[key].__class__ #.__name__
+                    if typing.get_origin(annotations[key]) is typing.Union:
+                        annotated_types = list(typing.get_args(annotations[key]))
+                    else:
+                        annotated_types = annotations[key],
 
-                    # Types are not consistent, search for a converter
-                    converter ="%s_to_%s" % (parameter_type, annotated_type)
-                    
-                    if converter not in globals():
-                        converter = None
-                        for base in value.__class__.__bases__:
-                            converter ="%s_to_%s" % (base.__name__, annotated_type)
-                            if converter in globals():
-                                break
+                    for annotated_type in annotated_types:
+                        # Parameter is an instance of one the annotated type
+                        if (annotated_type == parameter_type or
+                            isinstance(parameter_type,annotated_type) or
+                            issubclass(parameter_type,annotated_type)):
+                            check = True
+                            break
+
+                        # Name of the potential converter
+                        converter ="%s_to_%s" % (parameter_type, annotated_type)
+
+                        # converted does not exist, look for parameter bas class
+                        if converter not in globals():
                             converter = None
-                    # Found converter, register it
-                    if converter:
-                        converter = globals()[converter]
-                        # Delayed conversion
-                        # parameters[key] = Converter(converter ,value)
+                            for base in value.__class__.__bases__:
+                                converter ="%s_to_%s" % (base.__name__, annotated_type)
+                                if converter in globals():
+                                    break
+                                converter = None
+                        
+                        # Found converter, register it
+                        if converter:
+                            check = True
+                            converter = globals()[converter]
+                            # Delayed conversion
+                            # parameters[key] = Converter(converter ,value)
 
-                        # Immediate conversion
-                        parameters[key] = converter(value)
+                            # Immediate conversion
+                            parameters[key] = converter(value)
+                    if check:
+                        continue
                     else:
                         raise ValueError(
-                            "Converter missing for %s to %s" % (parameter_type, annotated_type))
+                            "Converter missing for %s to %s" % (parameter_type, annotated_types))
 
-                    
-            classname = self.__class__.__name__
-            methodname = func.__code__.co_name if method is None else method
-            command = Command()
-            command.register(classname, methodname, parameters)
 
-            if record != False and (record or Command.record):
-                Command.commands.append(command)
+            if not no_command:
+                classname = self.__class__.__name__
+                methodname = func.__code__.co_name if method is None else method
+                command = Command()
+                command.register(classname, methodname, parameters)
+                if record != False and (record or Command.record):
+                    Command.commands.append(command)
+                if output != False and (output or Command.output):
+                    command.dump()
 
-            if output != False and (output or Command.output):
-                command.dump()
-                
         return inner
     return wrapper
 
@@ -233,8 +255,8 @@ class Command:
         oid = parameters["id"]
         del parameters["id"]
 
-        print("Class name:", self.classname)
-        print("Method name:", self.methodname)
+        log.debug("Class name:", self.classname)
+        log.debug("Method name:", self.methodname)
         
         # Resolve objects references
         for key, value in parameters.items():

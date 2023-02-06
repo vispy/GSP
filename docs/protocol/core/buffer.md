@@ -11,4 +11,12 @@ Homepage:  https://vispy.org/GSP
       show_root_heading: yes
       members:
         -
+::: gsp.backend.reference.core.BufferView
+    options:
+      show_root_heading: yes
+      members:
 
+::: gsp.backend.reference.core.Datatype
+    options:
+      show_root_heading: yes
+      members:

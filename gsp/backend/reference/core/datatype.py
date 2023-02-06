@@ -47,7 +47,6 @@ class Datatype(Object):
 
     @property
     def size(self):
-        """Size in bytes."""
         
         sizes = {"?" : 1, "b" : 1, "B" : 1,
                  "s" : 2, "S" : 2, "e" : 2,

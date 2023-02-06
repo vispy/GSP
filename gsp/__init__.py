@@ -3,6 +3,8 @@
 # Copyright 2023 VisPy Development team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 
+from . log import log
+
 mode = None
 core = None
 visual = None

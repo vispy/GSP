@@ -33,13 +33,12 @@ nav:
     - Core:
       - protocol/core/canvas.md
       - protocol/core/viewport.md
-      - protocol/core/datatype.md
       - protocol/core/buffer.md
-      - protocol/core/buffer_view.md
       - protocol/core/color.md
       - protocol/core/size.md
     - Transforms:
       - protocol/transform/transform.md
+      - protocol/transform/operator.md
       - protocol/transform/mat4x4.md
     - Visuals:
       - protocol/visual/pixels.md

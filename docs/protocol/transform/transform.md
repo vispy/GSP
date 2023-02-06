@@ -10,4 +10,9 @@ Homepage:  https://vispy.org/GSP
     options:
       show_root_heading: yes
       members:
+        - set_base
+        - set_next
+        - set_buffer
+
+
 

@@ -4,3 +4,4 @@
 # -----------------------------------------------------------------------------
 from . mat4x4 import Mat4x4
 from . transform import Transform
+from . operator import Operator, Add, Sub, Div, Mul

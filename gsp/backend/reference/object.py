@@ -119,6 +119,12 @@ class Object:
         if Object.record:
             Object.objects[self.id] = self
 
+    # def copy(self):
+    #     obj = object.copy()
+    #     obj._id = OID()
+    #     if Object.record:
+    #         Object.objects[obj.id] = obj
+            
     @property
     def id(self):
         return self._id
