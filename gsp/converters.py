@@ -51,13 +51,10 @@ def Datatype_to_dtype(datatype):
     if len(dtype) == 1:
         dtype = dtype[0]
         if len(dtype) == 3:
-#            print(datatype, dtype[1:])
             return np.dtype(dtype[1:])
         else:
-#            print(datatype, dtype)
             return np.dtype(dtype)
     else:
-#        print(datatype, dtype)
         return np.dtype(dtype)
 
 
