@@ -4,6 +4,39 @@
 # -----------------------------------------------------------------------------
 import numpy as np
 
+def dtype_to_str(dt):
+    if dt.names:
+        elements = []
+        for name in dt.names:
+            size = int(np.prod(dt[name].shape))
+            type = dt[name].base.str
+            elements.append (f"{type}:{name}:{size}")
+        return ",".join(elements)
+    else:
+        size = int(np.prod(dt.shape))
+        type = dt.base.str
+        return f"{type}::{size}"
+
+def str_to_dtype(desc):
+    dt = []
+    elements = desc.split(",")
+    for element in elements:
+        type,name,size = element.split(":")
+        if name :
+            if size and int(size) > 1:
+                dt.append((name, type, int(size)))
+            else:
+                dt.append((name, type))
+        else:
+            if size and int(size) > 1:
+                dt.append((type, int(size)))
+            else:
+                dt.append(type)
+    if len(dt) == 1 and not len(name):
+        dt = dt[0]
+    return np.dtype(dt)
+
+
 def dtype_to_Datatype(dtype):
     """Convert a numpy type into a Datatype"""
 

@@ -10,8 +10,6 @@ It allows to issue commands, parse them and build corresponding objects.
 
 from . canvas import Canvas
 from . viewport import Viewport
-from . datatype import Datatype
 from . buffer import Buffer
-from . buffer_view import BufferView
 from . color import Color
 from . size import Size

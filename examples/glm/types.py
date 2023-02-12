@@ -5,14 +5,13 @@
 """ Convenient numpy types that are GSP aware. """
 import gsp
 import numpy as np
-from gsp.converters import dtype_to_Datatype
 
 class mtarray(np.ndarray):
     """Memory Tracked Array"""
 
     def __new__(cls, *args, **kwargs):
         Z = np.ndarray.__new__(cls, *args, **kwargs)
-        if gsp.mode == "client":
+        if gsp.mode.startswith("client"):
             Z.gsp_buffer = gsp.core.Buffer(len(Z), Z.ntype, Z.tobytes())
             Z.gsp_update = False
         return Z
@@ -55,7 +54,7 @@ class mtarray(np.ndarray):
                 start = min(self._dirty[0], start)
                 stop = max(self._dirty[1], stop)
                 self._dirty = start, stop
-            if gsp.mode == "client" and not self.gsp_update:
+            if gsp.mode.startswith("client") and not self.gsp_update:
                 data = self.view(np.ubyte)
                 start, stop = self._dirty
                 self.gsp_buffer.set_data(start, data[start:stop].tobytes())
@@ -181,7 +180,7 @@ class vector(mtarray):
                 else:
                     raise IndexError
                 self.gsp_update = False
-                if gsp.mode == "client":
+                if gsp.mode.startswith("client"):
                     data = self.view(np.ubyte)
                     start,stop = self._dirty
                     self.gsp_buffer.set_data(start, data[start:stop].tobytes())

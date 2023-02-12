@@ -97,7 +97,10 @@ def command(method=None, record=None, output=None, convert=None):
                 if key in annotations.keys():
 
                     check = False
-                    parameter_type = parameters[key].__class__ #.__name__
+                    parameter_type = parameters[key].__class__
+                    if "[" in parameter_type.__name__:
+                        parameter_type = parameters[key].__class__.__base__
+                    
                     if typing.get_origin(annotations[key]) is typing.Union:
                         annotated_types = list(typing.get_args(annotations[key]))
                     else:
@@ -112,7 +115,7 @@ def command(method=None, record=None, output=None, convert=None):
                             break
 
                         # Name of the potential converter
-                        converter ="%s_to_%s" % (parameter_type, annotated_type)
+                        converter ="%s_to_%s" % (parameter_type.__name__, annotated_type.__name__)
 
                         # converted does not exist, look for parameter bas class
                         if converter not in globals():
@@ -255,8 +258,8 @@ class Command:
         oid = parameters["id"]
         del parameters["id"]
 
-        log.debug("Class name:", self.classname)
-        log.debug("Method name:", self.methodname)
+        # log.debug("Class name:", self.classname)
+        # log.debug("Method name:", self.methodname)
         
         # Resolve objects references
         for key, value in parameters.items():

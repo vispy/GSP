@@ -6,7 +6,7 @@ from __future__ import annotations
 from typing import Union
 from gsp.backend.reference.core import Buffer
 from gsp.backend.reference.object import Object
-from gsp.backend.reference.command import command, Command
+from gsp.backend.reference.command import command
 from gsp.backend.reference.transform import Transform
 
 
@@ -23,8 +23,7 @@ class Operator(Transform):
           operator:
 
             Operator description, one of: `+` (addition),
-            `-` (subtraction), `/` (division),
-            `*` (mutliplication), `.` (dot product)
+            `-` (subtraction), `/` (division), `*` (mutliplication),
         
           left:
 
@@ -35,9 +34,7 @@ class Operator(Transform):
             Right operand (transform or buffer)
         """
 
-        Transform.__init__(self,
-                           __no_command__ = True)
-
+        Transform.__init__(self, __no_command__ = True)
         self._operator = operator
         self._left = None
         self._right = None
@@ -119,7 +116,8 @@ class Operator(Transform):
         """Shallow copy"""
         
         transform = super().copy()
-
+        transform.set_operator(self._operator)
+        
         if isinstance(self._left, Transform):
             transform.set_left(self._left.copy())
         else:
@@ -132,6 +130,39 @@ class Operator(Transform):
             
         return transform
     
+    
+class Add(Operator):
+
+    @command("transform.Add")
+    def __init__(self, left = None, right = None):
+        "Arithmetic addition of left and right"
+        
+        Operator.__init__(self, "+", left, right, __no_command__ = True)
+        
+class Sub(Operator):
+
+    @command("transform.Sub")
+    def __init__(self, left = None, right = None):
+        "Arithmetic subtraction of left and right"
+
+        Operator.__init__(self, "-", left, right, __no_command__ = True)
+
+class Mul(Operator):
+
+    @command("transform.Mul")
+    def __init__(self, left = None, right = None):
+        "Arithmetic multiplication of left and right"
+                
+        Operator.__init__(self, "*", left, right, __no_command__ = True)
+
+class Div(Operator):
+
+    @command("transform.Div")
+    def __init__(self, left = None, right = None):
+        "Arithmetic division of left and right"
+
+        Operator.__init__(self, "/", left, right, __no_command__ = True)
+
 
     
     # def __repr__(self):

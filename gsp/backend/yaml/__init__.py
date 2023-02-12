@@ -50,7 +50,7 @@ Command.dump = yaml_dump
 import gsp.backend.reference.core as core
 import gsp.backend.reference.visual as visual
 import gsp.backend.reference.transform as transform
-from gsp.backend.reference import (objects, commands, process)
+from gsp.backend.reference import (objects, commands)
 
 import gsp
 gsp.mode = "client"

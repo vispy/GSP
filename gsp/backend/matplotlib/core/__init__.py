@@ -4,6 +4,5 @@
 # -----------------------------------------------------------------------------
 from . canvas import Canvas
 from . viewport import Viewport
-from . datatype import Datatype
 from . buffer import Buffer
 

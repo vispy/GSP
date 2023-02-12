@@ -15,6 +15,9 @@ from gsp.backend.reference.command import Command, command, CID
 #    "Set protocol in specified mode (server or client)."
 #    if reset:
 
+mode = None
+
+
 Object.objects = {}
 
 OID.counter = itertools.count()
@@ -34,8 +37,6 @@ Object.record = True
 #        Command.output = output if output is not None else False
 #        Object.record = False
 
-mode = "client"
-
 def objects():
     """ Dictionnary of objects that have been created. """
     
@@ -46,8 +47,8 @@ def commands():
     
     return Command.commands
 
-def process(command, globals=None, locals=None):
-    """ Process a given command. """
-    
-    Command.execute(command, globals, locals)
+#def process(command, globals=None, locals=None):
+#    """ Process a given command. """
+#    
+#    Command.execute(command, globals, locals)
 

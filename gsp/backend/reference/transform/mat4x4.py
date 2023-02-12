@@ -4,17 +4,10 @@
 # -----------------------------------------------------------------------------
 from gsp.backend.reference.object import Object
 from gsp.backend.reference.command import command
-from gsp.backend.reference.core import Datatype
-from gsp.backend.reference.transform.transform import Transform
+from gsp.backend.reference.transform import transform
 
-class Mat4x4(Transform):
+class Mat4x4(transform.Transform):
 
-    datatype = Datatype("f::16")
-    """[Datatype][gsp.core.Datatype] for the underlying
-    [buffer][gsp.core.Buffer] hlding the matrix. This correspond to a
-    4x4 matrix of 32 bits float.
-    """
-    
     @command("transform.Mat4x4")
     def __init__(self,
                  data : bytes):
@@ -29,4 +22,4 @@ class Mat4x4(Transform):
         """
 
         Object.__init__(self)
-        self.buffer = (1, self.datatype, data)
+        self._buffer = (1, "f::16", data)

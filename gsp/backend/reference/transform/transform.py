@@ -3,10 +3,10 @@
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 from __future__ import annotations
+from gsp.backend.reference import transform
 from gsp.backend.reference.core import Buffer
 from gsp.backend.reference.object import Object
 from gsp.backend.reference.command import command
-from gsp.backend.reference.transform.operator import Operator
 
 class Transform(Object):
 
@@ -139,14 +139,26 @@ class Transform(Object):
         return transform
 
     def __add__(self, other):
-        return Operator("+", self, other)
+        return transform.Operator("+", self, other)
 
     def __sub__(self, other):
-        return Operator("-", self, other)
+        return transform.Operator("-", self, other)
 
     def __mul__(self, other):
-        return Operator("*", self, other)
+        return transform.Operator("*", self, other)
 
     def __div__(self, other):
-        return Operator("/", self, other)
+        return transform.Operator("/", self, other)
 
+    def __repr__(self):
+        
+        if self._base:
+            s = f"{self.__class__.__name__} (id={self.id}[base={self.base.id}])"
+        else:
+            s = f"{self.__class__.__name__} (id={self.id})"
+            
+        if self._next:
+            s += "(%s)" % repr(self._next)
+        elif self._buffer:
+            s += "(%s)" % repr(self._buffer)
+        return s

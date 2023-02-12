@@ -7,6 +7,7 @@ from gsp.backend.reference.object import Object
 from gsp.backend.reference.command import command
 from gsp.backend.reference.core.buffer import Buffer
 from gsp.backend.reference.core.viewport import Viewport
+from gsp.backend.reference.transform import Transform
 from gsp.backend.reference.transform import Mat4x4
 from gsp.backend.reference.core.size import Size
 from gsp.backend.reference.core.color import Color
@@ -16,14 +17,14 @@ class Points(Object):
     @command("visual.Points")
     def __init__(self,
                  viewport :    Viewport,
-                 positions :   Buffer,
+                 positions :   Union[Transform,Buffer],
 #                 sizes :       Union[Buffer, Size],
 #                 fill_colors : Union[Buffer, Color],
 #                 edge_colors : Union[Buffer, Color],
 #                 edge_widths : Union[Buffer, Size]):
                  sizes :       float,
-                 fill_colors : Buffer,
-                 edge_colors : Buffer,
+                 fill_colors : Union[Transform,Buffer],
+                 edge_colors : Union[Transform,Buffer],
                  edge_widths : float):
 
         """A set of pixels.

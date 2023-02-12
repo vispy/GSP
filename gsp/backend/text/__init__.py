@@ -33,7 +33,7 @@ Command.dump = text_dump
 import gsp.backend.reference.core as core
 import gsp.backend.reference.visual as visual
 import gsp.backend.reference.transform as transform
-from gsp.backend.reference import (mode, objects, commands, process)
+from gsp.backend.reference import (mode, objects, commands)
 
 gsp.mode = "client"
 gsp.core = core
