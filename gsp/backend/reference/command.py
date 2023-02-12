@@ -258,8 +258,8 @@ class Command:
         oid = parameters["id"]
         del parameters["id"]
 
-        # log.debug("Class name:", self.classname)
-        # log.debug("Method name:", self.methodname)
+        # log.debug(f"Class name: {self.classname}")
+        # log.debug(f"Method name: {self.methodname}")
         
         # Resolve objects references
         for key, value in parameters.items():
