@@ -10,30 +10,25 @@ core = None
 visual = None
 transform = None
 
-def use(name):
+def use(backend):
     global mode
-    
-    if name == "text":
-        mode = "client/text"
+
+    mode = backend
+    if backend == "client/text":
         from gsp.backend.text import (core, visual, transform)
-    elif name == "yaml":
-        mode = "client/yaml"
+    elif backend == "client/yaml":
         from gsp.backend.yaml import (core, visual, transform)
-    elif name == "json":
-        mode = "client/json"
+    elif backend == "client/json":
         from gsp.backend.json import (core, visual, transform)
-    elif name == "matplotlib":
-        mode = "matplotlib"
+    elif backend == "matplotlib":
         from gsp.backend.matplotlib import (core, visual, transform)
-    elif name == "matplotlib/iterm":
-        mode = "matplotlib/iterm"
+    elif backend == "matplotlib/iterm":
         import matplotlib as mpl; mpl.use("module://imgcat")
         from gsp.backend.matplotlib import (core, visual, transform)
-    elif name == "datoviz":
-        mode = "datoviz"
+    elif backend == "datoviz":
         from gsp.backend.datoviz import (core, visual, transform)
     else:
-        raise ValueError(f"Unknown backend ({name})")
+        raise ValueError(f"Unknown backend ({backend})")
 
     import inspect
 
