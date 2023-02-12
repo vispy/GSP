@@ -39,6 +39,8 @@ nav:
     - Transforms:
       - protocol/transform/transform.md
       - protocol/transform/operator.md
+      - protocol/transform/accessor.md
+      - protocol/transform/colormap.md
       - protocol/transform/mat4x4.md
       - protocol/transform/depth.md
     - Visuals:
