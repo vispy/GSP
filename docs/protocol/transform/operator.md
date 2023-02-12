@@ -14,3 +14,23 @@ Homepage:  https://vispy.org/GSP
         - set_left
         - set_right
 
+::: gsp.backend.reference.transform.Add
+    options:
+      show_root_heading: yes
+      members:
+
+::: gsp.backend.reference.transform.Sub
+    options:
+      show_root_heading: yes
+      members:
+
+::: gsp.backend.reference.transform.Mul
+    options:
+      show_root_heading: yes
+      members:
+
+::: gsp.backend.reference.transform.Div
+    options:
+      show_root_heading: yes
+      members:
+
