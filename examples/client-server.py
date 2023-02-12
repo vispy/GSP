@@ -11,22 +11,21 @@
 # `points.py` example.
 # -----------------------------------------------------------------------------
 
-import glm
+import gsp, glm
 import numpy as np
 
 # --- Client part -------------------------------------------------------------
-from gsp.backend.text import (core, visual, transform)
+gsp.use("client/text")
 
 canvas = core.Canvas(512, 512, 100.0)
 camera = glm.Camera("perspective", theta=10, phi=10)
 viewport = core.Viewport(canvas, 0, 0, 512, 512)
+colormap = transform.Colormap("magma")
+depth = transform.Depth()
 
 positions = glm.vec3(10_000)
 positions.xyz = np.random.uniform(-1, +1, (len(positions),3))
-
-fill_colors = glm.vec4(len(positions))
-fill_colors.rgba = 1,1,1,1
-
+fill_colors = colormap(depth)
 edge_colors = glm.vec4(len(positions))
 edge_colors.rgba = 0,0,0,1
 
@@ -35,11 +34,7 @@ points.render(camera.transform)
 
 # --- Server part -------------------------------------------------------------
 from gsp.backend.reference import commands, objects
-import matplotlib as mpl; mpl.use("module://imgcat")
-from gsp.backend.matplotlib import (core, visual, transform)
-
-#globals()["core"] = core
-#locals()["core"] = core
+gsp.use("matplotlib/iterm")
 
 for command in commands():
     command.execute(globals(), locals())
