@@ -21,8 +21,10 @@ class Accessor(Transform):
     def evaluate(self, buffers=None):
         if self._next:
             buffer = self._next.evaluate(buffers)
-        else:
+        elif buffer is None:
             buffer = self._buffer
+        else:
+            raise ValueError("Transform is not bound")
             
         if buffer.dtype.names:
             buffer = buffer[self._key]
