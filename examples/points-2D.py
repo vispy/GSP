@@ -7,10 +7,10 @@ import numpy as np
 gsp.use("matplotlib/iterm")
 
 canvas = core.Canvas(512, 512, 100.0)
-camera = glm.Camera(mode="orho")
+camera = glm.Camera(mode="orho", zdist=4.25)
 viewport = core.Viewport(canvas, 0, 0, 512, 512)
 
-positions = glm.vec3(1_000)
+positions = glm.vec3(5_000)
 positions.xyz = np.random.uniform(-1, +1, (len(positions),3))
 positions.z = 1
 

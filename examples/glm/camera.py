@@ -21,7 +21,7 @@ class Camera():
     variable.
     """
     
-    def __init__(self, mode="perspective", theta=0, phi=0, scale=1):
+    def __init__(self, mode="perspective", theta=0, phi=0, zdist=5.0, scale=1):
         """
         mode : str
           camera mode ("ortho" or "perspective")
@@ -31,6 +31,9 @@ class Camera():
 
         phi: float
           angle around x axis (degrees)
+
+        zdist : float
+          Distance of the camera on the z-axis
 
         scale: float
           scale factor
@@ -46,7 +49,7 @@ class Camera():
         self.zoom = 1
         self.zoom_max = 5.0
         self.zoom_min = 0.1
-        self.view = glm.translate(0, 0, -4.25) @ glm.scale(scale)
+        self.view = glm.translate(0, 0, -zdist) @ glm.scale(scale)
         if mode == "ortho":
             self.proj = glm.ortho(-1,+1,-1,+1, self.near, self.far)
         else:

@@ -14,7 +14,11 @@ class Points:
                        edge_colors, edge_widths):
 
         self.viewport = viewport
-        self.positions = np.asarray(positions)
+
+        if isinstance(positions, Buffer):
+            self.positions = np.asarray(positions)
+        else:
+            self.positions = positions
 
         if not isinstance(sizes, np.ndarray):
             self.sizes = sizes * np.ones(len(self.positions), np.float32)

@@ -3,6 +3,7 @@
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 import numpy as np
+from gsp.backend.matplotlib.core import Buffer
 from gsp.backend.matplotlib.transform import Mat4x4
         
 class Pixels:
@@ -11,9 +12,15 @@ class Pixels:
         "Build the visual on viewport using the given properties"
         
         self.viewport = viewport
-        self.positions = positions
-        self.colors = colors
-
+        if isinstance(positions, Buffer):
+            self.positions = np.asarray(positions)
+        else:
+            self.positions = positions
+        if isinstance(colors, Buffer):
+            self.colors = np.asarray(colors)
+        else:
+            self.colors = colors
+            
         # Even with antialias off, marker coverage leaks on
         # neighbouring pixels if the position is not an exact divider
         # of viewport size (in pixels). We could round vertices at
@@ -27,13 +34,9 @@ class Pixels:
 
         
     def render(self, transform):
-        "Render the visual on viewport using the given transform."
-
-        self.transform.M = transform        
-        C = self.colors.view(np.float32).reshape(-1,4)
+        self.transform.set_data(transform)
+        FC = self.colors.view(np.float32).reshape(-1,4)
         V = self.positions.view(np.float32).reshape(-1,3)
         V = self.transform(V)
-        I = np.argsort(-V[:,2])
-        V, C = V[I], C[I]
         self.scatter.set_offsets(V[:,:2])
-        self.scatter.set_facecolors(C)
+        self.scatter.set_facecolors(FC)

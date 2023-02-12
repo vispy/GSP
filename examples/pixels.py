@@ -3,26 +3,22 @@
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 import numpy as np
-from camera import Camera
-from glm import vec3, rgba
+import gsp, glm
 
-# from gsp.backend.text import (core, visual, transform)
-# from gsp.backend.yaml import (core, visual, transform)
-# from gsp.backend.json import (core, visual, transform)
-# from gsp.backend.datoviz import (core, visual, transform)
-from gsp.backend.matplotlib import (core, visual, transform)
+gsp.use("matplotlib/iterm")
 
-n = 10
 canvas = core.Canvas(512, 512, 100.0)
-camera = Camera("perspective", theta=10, phi=10)
+camera = glm.Camera("perspective", theta=10, phi=10)
 viewport = core.Viewport(canvas, 0, 0, 512, 512)
-positions = np.random.uniform(-1, +1, (n,3)).astype(np.float32)
-colors = np.random.uniform(0, 1, (n,4)).astype(np.float32)
-colors[...] = 0,0,0,1
-pixels = visual.Pixels(viewport, positions.view(vec3), colors.view(rgba))
+
+positions = glm.vec3(50_000)
+positions.xyz = np.random.uniform(-1, +1, (len(positions),3))
+
+colors = glm.vec4(len(positions))
+colors.rgba = 0,0,0,1
+
+pixels = visual.Pixels(viewport, positions, colors)
 pixels.render(camera.transform)
 
-# matplotlib backend specific
-# camera.connect(viewport.axes, pixels.render)
-# canvas.run()
+canvas.run()
 
