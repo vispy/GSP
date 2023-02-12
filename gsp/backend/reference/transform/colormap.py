@@ -9,7 +9,7 @@ from gsp.backend.reference.transform import Transform
 
 class Colormap(Transform):
 
-    @command("transform.colormap")
+    @command("transform.Colormap")
     def __init__(self, colormap : str = None):
         """Colormap transform allows to map a scalar to a color
 
