@@ -46,13 +46,12 @@ class Camera():
         self.zoom = 1
         self.zoom_max = 5.0
         self.zoom_min = 0.1
-        self.view = glm.translate(0, 0, -5) @ glm.scale(scale)
+        self.view = glm.translate(0, 0, -4.25) @ glm.scale(scale)
         if mode == "ortho":
             self.proj = glm.ortho(-1,+1,-1,+1, self.near, self.far)
         else:
             self.proj = glm.perspective(
                 self.aperture, self.aspect, self.near, self.far)
-        # self.transform = np.zeros((4,4), np.float32) # mat4x4(1)
         self.transform = mat4x4(1)
         self.transform[...] = self.proj @ self.view @ self.trackball.model.T
         self.updates = {"motion"  : [],
