@@ -15,20 +15,19 @@ gsp.use("matplotlib")
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512)
 camera = glm.Camera("perspective", theta=-20, phi=2.5)
+colormap = transform.Colormap("magma")
+depth = transform.Depth()
 
-mesh = meshio.read("data/bunny-1024.obj")
+mesh = meshio.read("data/bunny-4096.obj")
 verts = 2*glm.fit_unit_cube(mesh.points).astype(np.float32)
 faces = mesh.cells[0].data
 
-fill_colors = glm.vec4(len(faces))
-fill_colors.rgba = 1,1,1,.85
+fill_colors = colormap(depth)
 edge_colors = glm.vec4(len(faces))
 edge_colors.rgba = 0,0,0,1
 
 mesh = visual.Mesh(viewport, verts, faces,
                    fill_colors, edge_colors, 0.25)
-
-# Render
 mesh.render(camera.transform)
 
 # Interaction with mouse (matplotlib backends only)

@@ -1,53 +1,120 @@
 # -----------------------------------------------------------------------------
-# Graphic Server Protocol (GSP) — reference implementation
-# Copyright 2022 Nicolas P. Rougier - BSD 2 Clauses licence
+# Graphic Server Protocol (GSP)
+# Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
-import gsp
+import pytest
 import numpy as np
-from gsp.core import Datatype
+from gsp.converters import str_to_dtype
+from gsp.converters import dtype_to_str
 
-def test_simple_type():
-    gsp.mode("client", reset=True)
-    datatype = Datatype("f:x:1/f:y:1/f:z:1/f:w:1")
-    assert repr(datatype) ==  "Type [id=1]: f:x:1/f:y:1/f:z:1/f:w:1"
+def test_dtype_to_str_float():
 
-def test_size():
-    gsp.mode("client", reset=True)
-    datatype = Datatype("f:x:1/f:y:1/f:z:1/f:w:1")
-    assert datatype.size == 16
+    dt_str = "<f4::1"
+    dt_numpy  = np.dtype(np.float32)
+    assert(dt_str == dtype_to_str(dt_numpy))
 
-def test_numpy_type():
+    dt_str = "<f4::1"
+    dt_numpy = np.dtype("<f4")
+    assert(dt_str == dtype_to_str(dt_numpy))
 
-    gsp.mode("client", reset=True)
-    datatypes = {
-        "RGB":  Datatype("u:r:1/u:g:1/u:b:1"),
-        "RGBA": Datatype("u:r:1/u:g:1/u:b:1/u:a:1"),
-        "ARGB": Datatype("u:a:1/u:r:1/u:g:1/u:b:1"),
-        
-        "rgb":  Datatype("f:r:1/f:g:1/f:b:1"),
-        "rgba": Datatype("f:r:1/f:g:1/f:b:1/f:a:1"),
-        "argb": Datatype("f:a:1/f:r:1/f:g:1/f:b:1"),
+    dt_str = "<f4::1"
+    dt_numpy = np.dtype("f")
+    assert(dt_str == dtype_to_str(dt_numpy))
 
-        "ivec2": Datatype("i::2"),
-        "ivec3": Datatype("i::3"),
-        "ivec4": Datatype("i::4"),
+    dt_str = "<f4:x:1"
+    dt_numpy = np.dtype([("x", np.float32)])
+    assert(dt_str == dtype_to_str(dt_numpy))
 
-        "vec2": Datatype("f::2"),
-        "vec3": Datatype("f::3"),
-        "vec4": Datatype("f::4"),
-                  
-        "xy":   Datatype("f:x:1/f:y:1"),
-        "xyz":  Datatype("f:x:1/f:y:1/f:z:1"),
-        "xyzw": Datatype("f:x:1/f:y:1/f:z:1/f:w:1"),
+    dt_str = "<f4::4"
+    dt_numpy = np.dtype((np.float32,4))
+    assert(dt_str == dtype_to_str(dt_numpy))
 
-        "mat2x2": Datatype("f::4"),
-        "mat3x3": Datatype("f::9"),
-        "mat4x4": Datatype("f::16") }
+    dt_str = "<f4::16"
+    dt_numpy = np.dtype((np.float32,(4,4)))
+    assert(dt_str == dtype_to_str(dt_numpy))
 
-    for key in datatypes.keys():
-        d1 = datatypes[key].dtype
-        d2 = Datatype.from_numpy(Datatype.to_numpy(d1)).dtype
-        assert d1==d2
-    
+def test_str_to_dtype_float():
 
-    
+    dt_str = "f::"
+    dt_numpy = np.dtype(np.float32)
+    assert(dt_numpy == str_to_dtype(dt_str))
+
+    dt_str = "f4::"
+    dt_numpy =  np.dtype(np.float32)
+    assert(dt_numpy == str_to_dtype(dt_str))
+
+    dt_str = "<f4::"
+    dt_numpy = np.dtype(np.float32)
+    assert(dt_numpy == str_to_dtype(dt_str))
+
+    dt_str = "<f4::1"
+    dt_numpy = np.dtype(np.float32)
+    assert(dt_numpy == str_to_dtype(dt_str))
+
+    dt_str = "<f4::16"
+    dt_numpy = np.dtype((np.float32,16))
+    assert(dt_numpy == str_to_dtype(dt_str))
+
+    dt_str = "<f4:x:"
+    dt_numpy = np.dtype([("x", np.float32)])
+    assert(dt_numpy == str_to_dtype(dt_str))
+
+def test_dtype_to_str_vec2():
+
+    dt_str = "<f4:x:1,<f4:y:1"
+    dt_numpy = np.dtype([("x", np.float32),
+                         ("y", np.float32)])
+    assert(dt_str == dtype_to_str(dt_numpy))
+
+def test_str_to_dtype_vec2():
+
+    dt_str = "<f4:x:,<f4:y:"
+    dt_numpy = np.dtype([("x", np.float32),
+                         ("y", np.float32)])
+    assert(dt_numpy == str_to_dtype(dt_str))
+
+def test_dtype_to_str_vec3():
+
+    dt_str = "<f4:x:1,<f4:y:1,<f4:z:1"
+    dt_numpy = np.dtype([("x", np.float32),
+                         ("y", np.float32),
+                         ("z", np.float32)])
+    assert(dt_str == dtype_to_str(dt_numpy))
+
+def test_str_to_dtype_vec3():
+
+    dt_str = "<f4:x:,<f4:y:,<f4:z:"
+    dt_numpy = np.dtype([("x", np.float32),
+                         ("y", np.float32),
+                         ("z", np.float32)])
+    assert(dt_numpy == str_to_dtype(dt_str))
+
+def test_dtype_to_str_vec4():
+
+    dt_str = "<f4:x:1,<f4:y:1,<f4:z:1,<f4:w:1"
+    dt_numpy = np.dtype([("x", np.float32),
+                         ("y", np.float32),
+                         ("z", np.float32),
+                         ("w", np.float32)])
+    assert(dt_str == dtype_to_str(dt_numpy))
+
+def test_str_to_dtype_vec4():
+
+    dt_str = "<f4:x:,<f4:y:,<f4:z:,<f4:w:"
+    dt_numpy = np.dtype([("x", np.float32),
+                         ("y", np.float32),
+                         ("z", np.float32),
+                         ("w", np.float32)])
+    assert(dt_numpy == str_to_dtype(dt_str))
+
+def test_dtype_to_str_mat4x4():
+    dt_str = "<f4::16"
+    dt_numpy = np.dtype((np.float32, (4,4)))
+    assert(dtype_to_str(dt_numpy) == dt_str)
+
+# @pytest.mark.xfail
+def test_str_to_dtype_mat4x4():
+    dt_str = "<f4::16"
+    dt_numpy = np.dtype((np.float32, (4,4)))
+    assert(str_to_dtype(dt_str) == dt_numpy)
+

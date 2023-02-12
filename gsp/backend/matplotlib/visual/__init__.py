@@ -4,3 +4,4 @@
 # -----------------------------------------------------------------------------
 from . pixels import Pixels
 from . points import Points
+from . mesh import Mesh

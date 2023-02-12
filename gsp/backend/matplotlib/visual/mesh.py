@@ -12,7 +12,7 @@ from gsp.backend.matplotlib.transform import Mat4x4, Transform
 
 class Mesh:
     def __init__(self, viewport, vertices, faces,
-                       fill_colors, edge_colors, edge_widths=0.5,
+                       fill_colors, edge_colors, edge_width=0.5,
                        mode = None):
 
         self._viewport = viewport
@@ -21,7 +21,7 @@ class Mesh:
         self._faces = faces
         self._fill_colors = fill_colors
         self._edge_colors = edge_colors
-        self._edge_widths = edge_widths
+        self._edge_width = edge_width
         self._collection = PolyCollection([], clip_on=False, snap=False)
         self._viewport.axes.add_collection(self._collection, autolim=False)
         self._transform = Mat4x4(np.zeros(16,np.float32))
@@ -103,7 +103,7 @@ class Mesh:
         I = np.argsort(Z)
         
         self._collection.set_verts(T[I,:])
-        self._collection.set_linewidths(0.5)
+        self._collection.set_linewidths(self._edge_width)
         self._collection.set_facecolors(FC[I,:])
         self._collection.set_edgecolors(EC[I,:])
         self._collection.set_antialiased(True)
