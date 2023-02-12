@@ -13,6 +13,9 @@ class Colormap(Transform):
         Transform.__init__(self)
         self._colormap = colormap
 
+    def set_colormap(self, colormap = None):
+        self._colormap = colormap
+
     def copy(self):
         transform = Transform.copy(self)
         transform._colormap = self._colormap
