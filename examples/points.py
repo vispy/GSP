@@ -15,14 +15,11 @@ canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512)
 camera = glm.Camera("perspective", theta=10, phi=10)
 colormap = transform.Colormap("magma")
-D, X, Y = transform.Depth(), transform.X(), transform.Y()
+depth = transform.Depth()
 
 positions = glm.vec3(10_000)
 positions.xyz = np.random.uniform(-1, +1, (len(positions),3))
-
-fill_colors = colormap(D)
-# fill_colors = colormap(X(positions) + Y(positions))
-
+fill_colors = colormap(depth)
 edge_colors = glm.vec4(len(positions))
 edge_colors.rgba = 0,0,0,1
 
