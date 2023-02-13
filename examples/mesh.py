@@ -3,7 +3,6 @@
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 import gsp, glm
-import numpy as np
 gsp.use("matplotlib")
 
 canvas   = core.Canvas(512, 512, 100.0)

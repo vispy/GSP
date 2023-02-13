@@ -8,7 +8,7 @@
 # -----------------------------------------------------------------------------
 import gsp, glm
 import numpy as np
-gsp.use("matplotlib")
+gsp.use("matplotlib/iterm")
 
 canvas   = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512)

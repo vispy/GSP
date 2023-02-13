@@ -22,7 +22,7 @@ class Mesh:
         self._fill_colors = fill_colors
         self._edge_colors = edge_colors
         self._edge_width = edge_width
-        self._collection = PolyCollection([], clip_on=False, snap=False)
+        self._collection = PolyCollection([], clip_on=True, snap=False)
         self._viewport.axes.add_collection(self._collection, autolim=False)
         self._transform = Mat4x4(np.zeros(16,np.float32))
 
