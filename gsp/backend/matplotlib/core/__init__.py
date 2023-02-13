@@ -5,4 +5,5 @@
 from . canvas import Canvas
 from . viewport import Viewport
 from . buffer import Buffer
+from . color import Color
 

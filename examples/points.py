@@ -8,7 +8,7 @@
 # -----------------------------------------------------------------------------
 import gsp, glm
 import numpy as np
-gsp.use("matplotlib/iterm")
+gsp.use("matplotlib")
 
 # Creation of the canvas
 canvas = core.Canvas(512, 512, 100.0)

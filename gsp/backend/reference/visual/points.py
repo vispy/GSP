@@ -17,15 +17,11 @@ class Points(Object):
     @command("visual.Points")
     def __init__(self,
                  viewport :    Viewport,
-                 positions :   Union[Transform,Buffer],
-#                 sizes :       Union[Buffer, Size],
-#                 fill_colors : Union[Buffer, Color],
-#                 edge_colors : Union[Buffer, Color],
-#                 edge_widths : Union[Buffer, Size]):
-                 sizes :       float,
-                 fill_colors : Union[Transform,Buffer],
-                 edge_colors : Union[Transform,Buffer],
-                 edge_widths : float):
+                 positions :   Union[Buffer, Transform],
+                 sizes :       Union[Buffer, Transform, Size, float],
+                 fill_colors : Union[Buffer, Transform, Color],
+                 edge_colors : Union[Buffer, Transform, Color],
+                 edge_widths : Union[Buffer, Transform, Size, float]):
 
         """A set of pixels.
 
@@ -54,13 +50,12 @@ class Points(Object):
         """
         
         Object.__init__(self)
-        self.positions = positions
-        self.sizes = sizes
-        self.fill_colors = fill_colors
-        self.edge_colors = edge_colors
-        self.edge_widths = edge_widths
+        self._positions = positions
+        self._sizes = sizes
+        self._fill_colors = fill_colors
+        self._edge_colors = edge_colors
+        self._edge_widths = edge_widths
 
     @command("render")
-    def render(self,
-               transform : Mat4x4):
+    def render(self, transform : Mat4x4):
         pass

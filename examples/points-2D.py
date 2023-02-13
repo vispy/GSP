@@ -4,10 +4,10 @@
 # -----------------------------------------------------------------------------
 import gsp, glm
 import numpy as np
-gsp.use("matplotlib/iterm")
+gsp.use("matplotlib")
 
 canvas = core.Canvas(512, 512, 100.0)
-camera = glm.Camera(mode="orho", zdist=4.25)
+camera = glm.Camera(mode="ortho")
 viewport = core.Viewport(canvas, 0, 0, 512, 512)
 
 positions = glm.vec3(5_000)
@@ -24,6 +24,6 @@ points = visual.Points(viewport, positions, 25.0, fill_colors, edge_colors, 0.5)
 points.render(camera.transform)
 
 # matplotlib backend specific
-# camera.connect(viewport.axes, "motion",  points.render)
+camera.connect(viewport.axes, "motion",  points.render)
 canvas.run()
 

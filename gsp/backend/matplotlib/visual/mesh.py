@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.collections import PolyCollection
-from gsp.backend.matplotlib.core import Buffer
+from gsp.backend.matplotlib.core import Buffer, Color
 from gsp.backend.matplotlib.transform import Mat4x4, Transform
 
 
@@ -48,7 +48,7 @@ class Mesh:
 
     def render(self, transform):
 
-        # Update internal transform with given transform
+        # Update internal transform with given one
         self._transform.set_data(transform)
 
         # Get vertices
@@ -69,7 +69,7 @@ class Mesh:
         T = self._transform(vertices)[faces]
         Z = -T[:,:,2].mean(axis=1)
 
-        # Check which mode to use
+        # Check which mode to use (front, back or both)
         index = None
         if self._mode == "front":
             index, _ = self.frontback(T)
@@ -80,7 +80,9 @@ class Mesh:
 
         # Fill colors
         FC = self._fill_colors
-        if isinstance(FC, Transform):
+        if isinstance(FC, (list, tuple, Color)):
+            FC = FC
+        elif isinstance(FC, Transform):
             FC = FC.evaluate({"depth": Z, "index": index})
         elif index is not None:
             FC = np.asarray(FC)[index]
@@ -89,7 +91,9 @@ class Mesh:
 
         # Edge colors
         EC = self._edge_colors
-        if isinstance(EC, Transform):
+        if isinstance(EC, (list, tuple, Color)):
+            EC = EC
+        elif isinstance(EC, Transform):
             EC = EC.evaluate({"depth": Z, "index": index})
         elif index is not None:
             EC = np.asarray(EC)[index]
@@ -105,6 +109,12 @@ class Mesh:
         self._collection.set_verts(T[I,:])
         self._collection.set_linewidths(self._edge_width)
         self._collection.set_antialiased(self._edge_width > 0)
-        self._collection.set_facecolors(FC[I,:])
-        self._collection.set_edgecolors(EC[I,:])
+        if isinstance(FC, np.ndarray):
+            self._collection.set_facecolors(FC[I,:])
+        else:
+            self._collection.set_facecolors(FC)
+        if isinstance(EC, np.ndarray):
+            self._collection.set_edgecolors(EC[I,:])
+        else:
+            self._collection.set_edgecolors(EC)
 

@@ -39,7 +39,6 @@ class Camera():
           scale factor
         """
         
-        self.trackball = Trackball(theta, phi)
         self.aperture = 35
         self.aspect = 1
         self.near = 1
@@ -49,14 +48,18 @@ class Camera():
         self.zoom = 1
         self.zoom_max = 5.0
         self.zoom_min = 0.1
-        self.view = glm.translate(0, 0, -zdist) @ glm.scale(scale)
+        self.transform = mat4x4(1)
+        
         if mode == "ortho":
             self.proj = glm.ortho(-1,+1,-1,+1, self.near, self.far)
+            self.trackball = None
+            self.transform[...] = self.proj
         else:
+            self.trackball = Trackball(theta, phi)
             self.proj = glm.perspective(
                 self.aperture, self.aspect, self.near, self.far)
-        self.transform = mat4x4(1)
-        self.transform[...] = self.proj @ self.view @ self.trackball.model.T
+            self.view = glm.translate(0, 0, -zdist) @ glm.scale(scale)
+            self.transform[...] = self.proj @ self.view @ self.trackball.model.T
         self.updates = {"motion"  : [],
                         "scroll"  : [],
                         "press"   : [],
@@ -104,7 +107,8 @@ class Camera():
             phi = self.trackball.phi
             theta = self.trackball.theta
             return "Θ : %.1f, ɸ: %.1f" % (theta, phi)
-        self.axes.format_coord = format_coord
+        if self.trackball is not None:
+            self.axes.format_coord = format_coord
                 
 
         
@@ -143,11 +147,12 @@ class Camera():
         """
         if self.mouse is None:            return
         if event.inaxes != self.axes:     return
+        if self.trackball is None:        return
         
         button, x, y = event.button, event.xdata, event.ydata
         dx, dy = x-self.mouse[1], y-self.mouse[2]
         self.mouse = button, x, y
-        self.trackball.drag_to(x, y, dx, dy)
+        self.trackball.drag_to(x, y, dx, dy)        
         self.transform[...] = self.proj @ self.view @ self.trackball.model.T
         self.update("motion")
         self.figure.canvas.draw()
