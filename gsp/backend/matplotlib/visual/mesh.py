@@ -104,6 +104,7 @@ class Mesh:
         
         self._collection.set_verts(T[I,:])
         self._collection.set_linewidths(self._edge_width)
+        self._collection.set_antialiased(self._edge_width > 0)
         self._collection.set_facecolors(FC[I,:])
         self._collection.set_edgecolors(EC[I,:])
-        self._collection.set_antialiased(True)
+
