@@ -7,8 +7,7 @@
 # is drawn over. The result is a black outline.
 # -----------------------------------------------------------------------------
 import gsp, glm
-import numpy as np
-gsp.use("matplotlib/iterm")
+gsp.use("matplotlib")
 
 canvas   = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512)
@@ -17,18 +16,21 @@ colormap = transform.Colormap("magma")
 depth    = transform.Depth()
 
 V,F = glm.mesh("data/bunny-4096.obj")
-EC = core.Color(0,0,0,1)
+black = core.Color(0,0,0,1)
+white = core.Color(1,1,1,1)
 FC = colormap(depth)
 
-outline = visual.Mesh(viewport, V, F, EC, EC, 3)
-outline.render(camera.transform)
-
-mesh = visual.Mesh(viewport, V, F, FC, EC, 0.1)
+outline1 = visual.Mesh(viewport, V, F, black, black, 6)
+outline1.render(camera.transform)
+outline2 = visual.Mesh(viewport, V, F, white, white, 3)
+outline2.render(camera.transform)
+mesh = visual.Mesh(viewport, V, F, FC, black, 0.1)
 mesh.render(camera.transform)
 
 # Interaction with mouse (matplotlib backends only)
 if gsp.mode.startswith("matplotlib"):
-    camera.connect(viewport.axes, "motion",  outline.render)
+    camera.connect(viewport.axes, "motion",  outline1.render)
+    camera.connect(viewport.axes, "motion",  outline2.render)
     camera.connect(viewport.axes, "motion",  mesh.render)
     canvas.run()
 
