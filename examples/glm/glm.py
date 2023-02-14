@@ -10,7 +10,7 @@ def mesh(filename):
 
     mesh = meshio.read(filename)
     verts = 2*fit_unit_cube(mesh.points).astype(np.float32)
-    faces = mesh.cells[0].data.astype(np.uint64)
+    faces = mesh.cells[0].data.astype(np.uint32)
     return verts, faces
 
 

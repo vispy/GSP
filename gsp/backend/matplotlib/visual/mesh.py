@@ -11,13 +11,13 @@ from gsp.backend.matplotlib.transform import Mat4x4, Transform
 
 
 class Mesh:
-    def __init__(self, viewport, vertices, faces,
+    def __init__(self, viewport, verts, faces,
                        fill_colors, edge_colors, edge_width=0.5,
                        mode = None):
 
         self._viewport = viewport
         self._mode = mode
-        self._vertices = vertices
+        self._verts = verts
         self._faces = faces
         self._fill_colors = fill_colors
         self._edge_colors = edge_colors
@@ -25,6 +25,26 @@ class Mesh:
         self._collection = PolyCollection([], clip_on=True, snap=False)
         self._viewport.axes.add_collection(self._collection, autolim=False)
         self._transform = Mat4x4(np.zeros(16,np.float32))
+
+
+    def set_mode(self, mode):
+        self._mode = mode
+        
+    def set_verts(self, verts):
+        self._verts = verts
+        
+    def set_faces(self, faces):
+        self._faces = faces
+        
+    def set_fill_colors(self, fill_colors):
+        self._fill_colors = fill_colors
+
+    def set_edge_colors(self, edge_colors):
+        self._edge_colors = edge_colors
+
+    def set_edge_colors(self, edge_colors):
+        self._edge_colors = edge_colors
+        
 
     def frontback(self, T):
         """
@@ -51,22 +71,22 @@ class Mesh:
         # Update internal transform with given one
         self._transform.set_data(transform)
 
-        # Get vertices
-        if isinstance(self._vertices, Transform):
-            vertices = self._vertices.evaluate()
+        # Get verts
+        if isinstance(self._verts, Transform):
+            verts = self._verts.evaluate()
         else:
-            vertices = np.asarray(self._vertices)
-        vertices = vertices.view(np.float32).reshape(-1,3)
+            verts = np.asarray(self._verts)
+        verts = verts.view(np.float32).reshape(-1,3)
         
         # Get faces
         if isinstance(self._faces, Transform):
             faces = self._faces.evaluate()
         else:
             faces = np.asarray(self._faces)
-        faces = faces.view(np.int64).reshape(-1,3)
+        faces = faces.view(np.int32).reshape(-1,3)
         
         # Compute tranformed triangles (T) and their (mean) depth (Z)
-        T = self._transform(vertices)[faces]
+        T = self._transform(verts)[faces]
         Z = -T[:,:,2].mean(axis=1)
 
         # Check which mode to use (front, back or both)

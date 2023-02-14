@@ -1,6 +1,8 @@
 
 # Graphic Server Protocol
 
+The Graphic Server Protocol (GSP) is meant to be an API between hardware and software, targeted at developpers who do not want to dive into the arcane of [OpenGL](https://www.opengl.org/), [Metal](https://developer.apple.com/metal/) or [Vulkan](https://www.vulkan.org/). The overall goal of GPS is not to provide a generic graphics API but to address instead scientific visualization, which requires a fewer number of objects and concepts.
+
 * [Core](#core)  
 * [Transform](#transform)  
 * [Visual](#visual)
@@ -13,7 +15,6 @@ Core objects
 * [x] [core.Viewport]() - define a region over a drawing surface
 * [x] [core.Buffer]() - encapsulate raw data of any type  
 * [ ] [core.Texture]() - define a 1D, 2D or 3D Buffer
-* [x] [core.Unit]() - define a length, area or volume
 * [x] [core.Color]() - define a color
 * [ ] [core.Font]() - define a font specification
 * [ ] [core.Style]() - define a drawing style

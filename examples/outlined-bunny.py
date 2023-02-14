@@ -20,17 +20,19 @@ black = core.Color(0,0,0,1)
 white = core.Color(1,1,1,1)
 FC = colormap(depth)
 
-outline1 = visual.Mesh(viewport, V, F, black, black, 6)
-outline1.render(camera.transform)
-outline2 = visual.Mesh(viewport, V, F, white, white, 3)
-outline2.render(camera.transform)
+outer = visual.Mesh(viewport, V, F, black, black, 6)
+outer.render(camera.transform)
+
+inner = visual.Mesh(viewport, V, F, white, white, 3)
+inner.render(camera.transform)
+
 mesh = visual.Mesh(viewport, V, F, FC, black, 0.1)
 mesh.render(camera.transform)
 
 # Interaction with mouse (matplotlib backends only)
 if gsp.mode.startswith("matplotlib"):
-    camera.connect(viewport.axes, "motion",  outline1.render)
-    camera.connect(viewport.axes, "motion",  outline2.render)
+    camera.connect(viewport.axes, "motion",  outer.render)
+    camera.connect(viewport.axes, "motion",  inner.render)
     camera.connect(viewport.axes, "motion",  mesh.render)
     canvas.run()
 

@@ -1,5 +1,6 @@
 import io
 import matplotlib as mpl
+# mpl.rcParams['toolbar'] = 'None'
 import numpy as np
 # matplotlib.use('agg')
 import matplotlib.pyplot as plt
