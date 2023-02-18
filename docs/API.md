@@ -1,7 +1,7 @@
 
 # Graphic Server Protocol
 
-The Graphic Server Protocol (GSP) is meant to be an API between hardware and software, targeted at developpers who do not want to dive into the arcane of [OpenGL](https://www.opengl.org/), [Metal](https://developer.apple.com/metal/) or [Vulkan](https://www.vulkan.org/). The overall goal of GPS is not to provide a generic graphics API but to address instead scientific visualization, which requires a fewer number of objects and concepts.
+The Graphic Server Protocol (GSP) is meant to be an API between hardware and software, targeted at developpers who do not want to dive into the arcane of [OpenGL](https://www.opengl.org/), [Metal](https://developer.apple.com/metal/) or [Vulkan](https://www.vulkan.org/). The overall goal of GPS is not to provide a general graphics API but rather to address only scientific visualization, which requires a fewer number of objects and concepts, with specific requirements on rendering quality though.
 
 * [Core](#core)  
 * [Transform](#transform)  
@@ -13,7 +13,8 @@ Core objects
 
 * [x] [core.Canvas]() - create a drawing surface
 * [x] [core.Viewport]() - define a region over a drawing surface
-* [x] [core.Buffer]() - encapsulate raw data of any type  
+* [ ] (core.Data]() - encapsulate raw data (any type)
+* [x] [core.Buffer]() - a structured view on raw data
 * [ ] [core.Texture]() - define a 1D, 2D or 3D Buffer
 * [x] [core.Color]() - define a color
 * [ ] [core.Font]() - define a font specification
@@ -37,7 +38,6 @@ Visual objects
 
 ### Two dimensions
 
-* [ ] [visual.Quads]() - create a collection of quads
 * [ ] [visual.Triangles]() - create a collection of triangles
 * [ ] [visual.Polygons]() - create a collection of polygons
 * [ ] [visual.Glyphs]() - create a collection of glyphs
@@ -63,7 +63,7 @@ Transformations allows to transform a Buffer and can be composed with other tran
 * [x] [transform.Mul]() - Multiplication
 * [x] [transform.Div]() - Division
 
-### Geometry / color accessors
+### Geometry / Color accessors
 
 * [x] [transform.X]() / [transform.R]() - First component
 * [x] [transform.Y]() / [transform.G]() - Second component
@@ -112,8 +112,8 @@ Transformations allows to transform a Buffer and can be composed with other tran
 ### Miscellaneous
 
 * [x] [transform.Colormap]() - map a scalar to a color
-* [ ] [transform.Light]() - modifies a color according to a light
-
+* [ ] [transform.Light]() - modify a color according to a light
+* [ ] [transform.Join]() - join several transforms
 
 
   

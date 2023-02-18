@@ -34,7 +34,7 @@ points.render(camera.transform)
 
 # --- Server part -------------------------------------------------------------
 from gsp.backend.reference import commands, objects
-gsp.use("matplotlib/iterm")
+gsp.use("matplotlib")
 
 for command in commands():
     command.execute(globals(), locals())

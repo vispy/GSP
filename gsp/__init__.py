@@ -22,9 +22,6 @@ def use(backend):
         from gsp.backend.json import (core, visual, transform)
     elif backend == "matplotlib":
         from gsp.backend.matplotlib import (core, visual, transform)
-    elif backend == "matplotlib/iterm":
-        import matplotlib as mpl; mpl.use("module://imgcat")
-        from gsp.backend.matplotlib import (core, visual, transform)
     elif backend == "datoviz":
         from gsp.backend.datoviz import (core, visual, transform)
     else:

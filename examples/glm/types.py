@@ -11,7 +11,7 @@ class mtarray(np.ndarray):
 
     def __new__(cls, *args, **kwargs):
         Z = np.ndarray.__new__(cls, *args, **kwargs)
-        if gsp.mode.startswith("client"):
+        if gsp.mode and gsp.mode.startswith("client"):
             Z.gsp_buffer = gsp.core.Buffer(len(Z), Z.ntype, Z.tobytes())
             Z.gsp_update = False
         return Z
@@ -54,7 +54,7 @@ class mtarray(np.ndarray):
                 start = min(self._dirty[0], start)
                 stop = max(self._dirty[1], stop)
                 self._dirty = start, stop
-            if gsp.mode.startswith("client") and not self.gsp_update:
+            if gsp.mode and gsp.mode.startswith("client") and not self.gsp_update:
                 data = self.view(np.ubyte)
                 start, stop = self._dirty
                 self.gsp_buffer.set_data(start, data[start:stop].tobytes())

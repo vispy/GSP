@@ -1,8 +1,7 @@
 import io
 import matplotlib as mpl
-# mpl.rcParams['toolbar'] = 'None'
 import numpy as np
-# matplotlib.use('agg')
+# mpl.use('agg')
 import matplotlib.pyplot as plt
 
 class Canvas:
@@ -20,13 +19,11 @@ class Canvas:
     def run(self):
         plt.show()
         
-    def render(self, format):
+    def render(self, format="raw"):
         self.figure.canvas.draw()
         with io.BytesIO() as output:
-            self.figure.savefig(output, format='raw')
+            self.figure.savefig(output, format=format)
             output.seek(0)
             data = np.frombuffer(output.getvalue(), dtype=np.uint8)
-        return data.reshape(self.ratio * self.height,
-                            self.ratio * self.width,
-                            -1)
+        return data.reshape(self.height, self.width, -1)
 

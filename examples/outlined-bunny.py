@@ -9,6 +9,7 @@
 import gsp, glm
 gsp.use("matplotlib")
 
+interactive = 1
 canvas   = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512)
 camera   = glm.Camera("perspective", theta=-10, phi=1.5)
@@ -29,8 +30,13 @@ inner.render(camera.transform)
 mesh = visual.Mesh(viewport, V, F, FC, black, 0.1)
 mesh.render(camera.transform)
 
-# Interaction with mouse (matplotlib backends only)
-if gsp.mode.startswith("matplotlib"):
+# Terminal output: matplotlib backend + imgcat (OSX/iterm)
+if not interactive:
+    from imgcat import imgcat
+    imgcat(canvas.figure)
+
+# Interactive: matplotlib backends only
+elif interactive:
     camera.connect(viewport.axes, "motion",  outer.render)
     camera.connect(viewport.axes, "motion",  inner.render)
     camera.connect(viewport.axes, "motion",  mesh.render)
