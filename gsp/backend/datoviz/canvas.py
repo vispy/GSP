@@ -1,8 +1,24 @@
+# -------------------------------------------------------------------------------------------------
+# Imports
+# -------------------------------------------------------------------------------------------------
+
 import io
 import numpy as np
 
-from .app import default_app
+# from datoviz.app import App
+from . import default_app
 
+
+# -------------------------------------------------------------------------------------------------
+# Constants
+# -------------------------------------------------------------------------------------------------
+
+APP = default_app()
+
+
+# -------------------------------------------------------------------------------------------------
+# Canvas
+# -------------------------------------------------------------------------------------------------
 
 class Canvas:
 
@@ -13,8 +29,10 @@ class Canvas:
         self.dpr = dpr
         self.offscreen = offscreen
 
-        with default_app().commands() as cmd:
-            self._canvas = cmd.Canvas(width=width, height=height, flags=3)
+        self._canvas = APP.canvas(width=width, height=height, flags=3)
+
+    def view(self, offset=(0, 0), shape=(0, 0)):
+        return self._canvas.view(offset, shape)
 
     # def render(self, format):
     #     self.figure.canvas.draw()

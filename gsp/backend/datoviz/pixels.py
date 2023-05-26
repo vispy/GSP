@@ -1,44 +1,53 @@
+# -------------------------------------------------------------------------------------------------
+# Imports
+# -------------------------------------------------------------------------------------------------
+
 import numpy as np
 
 from .app import default_app
 
 
+# -------------------------------------------------------------------------------------------------
+# Constants
+# -------------------------------------------------------------------------------------------------
+
+APP = default_app()
+
+
+# -------------------------------------------------------------------------------------------------
+# Pixels
+# -------------------------------------------------------------------------------------------------
+
 class Pixels:
     def __init__(self, viewport, vertices, colors):
+        count = len(vertices.buffer)
+
+        self._pixel = APP.pixel(count)
+
+        # HACK: renormalization
+        w, h = viewport.extent[2:]
+
+        x = vertices.buffer['x']
+        y = vertices.buffer['y']
+        x = -1 + 2 * x / w
+        y = -1 + 2 * y / h
+
+        pos = np.c_[x, y, np.zeros(count)].astype(np.float32)
+
+        r = colors.buffer['r']
+        g = colors.buffer['g']
+        b = colors.buffer['b']
+        a = colors.buffer['a']
+        col = np.c_[r, g, b, a].astype(np.float32)
+        col = (255 * col).astype(np.uint8)
+
         self.viewport = viewport
         self.vertices = vertices
         self.colors = colors
 
-        vertices = vertices.buffer.view(np.float32).reshape(-1, 3)  # (n, 3)
-        X, Y, Z = vertices[:, 0], vertices[:, 1], vertices[:, 2]  # (n,)
-        C = colors.buffer.view(np.float32).reshape(-1, 4)  # (n, 4)
+        # Set the pixel arrays.
+        self._pixel.position(pos)
+        self._pixel.color(col)
 
-        canvas = viewport.canvas._canvas
-        x, y, w, h = viewport.extent
-
-        # HACK
-        X = -1 + 2*X/w
-        Y = -1 + 2*Y/h
-        C = (255 * C).astype(np.uint8)
-
-        n = len(X)
-        arr = np.zeros(
-            n, dtype=[('pos', 'f4', 3), ('color', 'u1', 4), ('size', 'f4')])
-        arr['pos'] = np.c_[X, Y, Z * 0]
-        arr['color'][:] = C
-        arr['size'][:] = 1.0
-
-        with default_app().commands() as cmd:
-            g = cmd.Graphics(1, flags=3)  # default MVP and viewport
-
-            vb = cmd.VertexBuffer(arr)
-            g.set_vertex_buffer(vb)
-
-            with canvas.record() as r:
-                r.viewport(0, 0, 0, 0)  # HACK
-                r.draw(g, 0, n)
-
-        # HACK: VERY IMPORTANT, THIS LINE PREVENTS THE ARRAY FROM BEING GARBAGE COLLECTED
-        # BEFORE IT HAS A CHANCE OF BEING UPLOADED TO THE GPU. OTHERWISE WEIRD DISPLAY ARTIFACTS
-        # MAY OCCUR.
-        self.arr = arr
+        # Add the visual to the viewport.
+        self.viewport._view.add(self._pixel)
