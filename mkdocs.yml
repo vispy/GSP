@@ -1,0 +1,85 @@
+# To debug:
+#   griffe dump gsp -o/dev/null -LDEBUG
+#   mkdocs -v
+# See also https://github.com/mkdocstrings/mkdocstrings/issues/451
+site_name: Graphic Server Protocol 
+use_directory_urls: false
+repo_url: https://github.com/vispy/gsp
+remote_name: origin # For mkdocs gh-deploy
+docs_dir: 'docs'
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - navigation.tabs
+    - navigation.tabs.sticky
+extra_css:
+  - stylesheets/extra.css
+    
+markdown_extensions:
+  - def_list
+  - attr_list
+  - md_in_html
+  - admonition
+  - codehilite
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
+plugins:
+# - section-index
+  - search
+  # See https://github.com/pawamoy/markdown-exec
+  - markdown-exec
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            annotations_path: brief
+            docstring_style: numpy
+            group_by_category: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            docstring_section_style: table # list spacy
+            docstring_options:
+              ignore_init_summary: true
+              show_root_toc_entry: false
+            merge_init_into_class: true
+            show_submodules: yes
+            show_root_heading: true
+            show_source: true
+            show_bases: false
+            show_root_full_path: false
+            show_signature_annotations: yes
+            separate_signature: yes
+
+nav:
+ - Overview:
+   - index.md
+ - Specifications:
+   - api/protocol.md
+   - Core:
+     - api/core/canvas.md

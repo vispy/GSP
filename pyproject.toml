@@ -1,0 +1,42 @@
+# See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+ 
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gsp"
+version = "2024.7.1"
+dependencies = [
+  "numpy",
+  "matplotlib",
+  "pyyaml",
+  "mkdocs",
+  "mkdocs-material",
+  "mkdocstrings[python]",
+]
+requires-python = ">=3.8"
+
+authors = [
+  {name = "Nicolas P. Rougier", email = "nicolas.rougier@inria.fr"}
+]
+maintainers = [
+  {name = "Nicolas P. Rougier", email = "nicolas.rougier@inria.fr"}
+]
+
+description = "Graphic Server Protocol"
+readme = "README"
+license = {file = "LICENSE"}
+keywords = ["scientific", "graphics", "visualization", "dataviz",
+            "vispy", "matplotlib", "vulkan", "gpu", "3d"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+[project.urls]
+# Homepage = "https://vispy.org/gsp"
+# Documentation = "https://readthedocs.org"
+Repository = "https://github.com/vispy/gsp.git"
+Bug-Tracker = "https://github.com/vispy/gsp/issues"
+Changelog = "https://github.com/me/spam/blob/master/CHANGELOG"

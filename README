@@ -1,0 +1,38 @@
+
+Graphic Server Protocol
+    gsp
+      io
+        command.py
+        convert.py
+        yaml.py
+        json.py
+        text.py
+      core
+      visual
+      transform
+      backend
+       - matplotlib
+       - datoviz
+
+# Dump information on available engines
+gsp.info()
+
+# Interactive session
+gsp.use("datoviz")
+gsp.use("matplotlib")
+
+# Remote session
+gsp.use("yaml/192.168.0.1:8000")
+gsp.use("json/192.168.0.1:8000")
+
+# Record session to a file
+gsp.save("session.yaml")
+gsp.save("session.json")
+
+# Load session from a file
+gsp.load("session.yaml")
+gsp.load("session.json")
+
+# Run session from a file
+gsp.run("session.yaml", engine="matplotlib", output="session.pdf")
+gsp.run("session.json", engine="datoviz", output="session.png")
