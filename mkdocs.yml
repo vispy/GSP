@@ -83,3 +83,4 @@ nav:
    - Core:
      - api/core/canvas.md
      - api/core/viewport.md
+     - api/core/data.md

@@ -2,5 +2,6 @@
 # Authors: Nicolas P .Rougier <nicolas.rougier@inria.fr>
 # License: BSD 3 clause
 
+from . data import Data
 from . canvas import Canvas
 from . viewport import Viewport
