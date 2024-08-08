@@ -3,3 +3,4 @@
 # License: BSD 3 clause
 
 from . canvas import Canvas
+from . viewport import Viewport
