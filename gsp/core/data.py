@@ -23,7 +23,7 @@ class Data(Object):
     mkdocs(print,
     '''
     from gsp.core.data import Data
-    data = Data(nbytes=512)
+    data = Data(nbytes=512, struct=[("color", 1, "u4")])
     ''')
     ```
     """
@@ -47,22 +47,18 @@ class Data(Object):
             the provided structure.
         struct :
             Description of the internal structure of the data as a
-            list of (count, dtype) items.
+            list of (`name` (str), `type` (str), `count` (int)) items.
 
-            with `dtype` one of:
+            with:
 
-            Type       | Data type      | Signed                    | Bits
-            ---------- | -------------- | ------------------------- | ----
-            np.int8    | signed byte    | signed, two's complement  | 8
-            np.uint8   | unsigned byte  | unsigned                  | 8
-            np.int16   | signed short   | signed, two's complement  | 16
-            np.uint16  | unsigned short | unsigned                  | 16
-            np.int32   | signed int     | signed                    | 32
-            np.uint32  | unsigned int   | unsigned                  | 32
-            np.int64   | signed long    | signed                    | 64
-            np.uint64  | unsigned long  | unsigned                  | 64
-            np.float32 | float          | signed                    | 32
-            np.float64 | double         | signed                    | 64
+            Type        | Kind                             |
+            ----------- | -------------------------------- |
+             `i[1,2,4]` | signed integer (8,16, 32 bits)   |
+             `u[1,2,4]` | unsigned integer (8,16, 32 bits) |
+             `f[2,4,8]` | float (16, 32, 64 bits)          |
+             `m`        | timedelta (64 bits)              |
+             `M`        | datetime (64 bits)               |
+             `U[n]`     | unicode string (n x 16 bits)     |
         """
         Object.__init__(self)
 
