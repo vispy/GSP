@@ -25,7 +25,7 @@ maintainers = [
 ]
 
 description = "Graphic Server Protocol"
-readme = "README"
+readme = "README.md"
 license = {file = "LICENSE"}
 keywords = ["scientific", "graphics", "visualization", "dataviz",
             "vispy", "matplotlib", "vulkan", "gpu", "3d"]

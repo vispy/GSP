@@ -80,6 +80,6 @@ nav:
  - Overview:
    - index.md
  - Specifications:
-   - api/protocol.md
    - Core:
      - api/core/canvas.md
+     - api/core/viewport.md
