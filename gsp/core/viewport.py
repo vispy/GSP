@@ -2,8 +2,6 @@
 # Graphic Server Protocol (GSP) — reference implementation
 # Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
-from typing import Tuple
-
 from gsp import Object
 from gsp.io.command import command
 from gsp.core.canvas import Canvas
@@ -80,8 +78,7 @@ class Viewport(Object):
 
         Parameters
         ----------
-
-        target : str
+        target:
             Filename of the target
         """
         pass
