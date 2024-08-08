@@ -37,19 +37,12 @@ class Canvas(Object):
 
         Parameters
         ----------
-
-        width : int
-
+        width:
             Width of the drawing area in pixels.
-
-        height : int
-
+        height:
             Height of the drawing area in pixels.
-
-        dpi : float
-
+        dpi:
             Dots per inch
-
         """
         Object.__init__(self)
 
@@ -72,8 +65,7 @@ class Canvas(Object):
 
         Parameters
         ----------
-
-        target : str
+        target:
             Filename of the target
         """
         pass
