@@ -37,6 +37,11 @@ def dump_command(command, stream=sys.stdout):
     s += "     - TIMESTAMP: %s" % date.strftime("%Y-%m-%dT%H:%M:%S.%f") + dim(" (datetime)\n")
     s += dim("   PARAMETERS\n")
     for key,value in command.parameters.items():
+
+        # Immediate conversion for lisibility in the documentation
+        if isinstance(value, Converter):
+            value = str(value()) + " (converted)"
+
         if key == "id":
             s += "     - OBJECT_ID: %s" % value + dim(" (int)\n")
         else:
