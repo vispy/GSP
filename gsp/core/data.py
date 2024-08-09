@@ -4,6 +4,7 @@
 from gsp import Object
 from gsp.io.command import command, register
 
+# This allows to specify an empty list as default arg
 @register("NoneType", "list")
 def NoneType_to_list(value):
     return list()
@@ -23,7 +24,7 @@ class Data(Object):
     mkdocs(print,
     '''
     from gsp.core.data import Data
-    data = Data(nbytes=512, struct=[("color", 1, "u4")])
+    data = Data(nbytes=512, dtype=[("color", 1, "u4")])
     ''')
     ```
     """
@@ -31,7 +32,7 @@ class Data(Object):
     @command("core.Data")
     def __init__(self, uri : str = "",
                        nbytes : int = 0,
-                       struct : list = None):
+                       dtype : list = None):
         """
         Data represents a block of raw binary data, with an
         optional structure.
@@ -42,10 +43,10 @@ class Data(Object):
             Uniform Resource Identifier from where to fetch data.
         nbytes :
             Number of bytes in the data. This is used to create data
-            ex-nihilo if no uri has been provided. If a struct is
+            ex-nihilo if no uri has been provided. If a dtype is
             provided, the nbytes is discarded in favor of the size of
             the provided structure.
-        struct :
+        dtype :
             Description of the internal structure of the data as a
             list of (`name` (str), `type` (str), `count` (int)) items.
 
