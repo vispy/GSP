@@ -29,9 +29,9 @@ class Canvas(Object):
     """
 
     @command("core.Canvas")
-    def __init__(self, width : int = 512,
-                       height : int = 512,
-                       dpi : float = 100.0):
+    def __init__(self, width : int,
+                       height : int,
+                       dpi : float):
         """
         Create a new Canvas
 
@@ -48,7 +48,7 @@ class Canvas(Object):
 
 
     @command("render")
-    def render(self, target : str = None):
+    def render(self, target : str):
         """
         Render the canvas the to specified target. If no target is
         specified, return a raw image as bytes.

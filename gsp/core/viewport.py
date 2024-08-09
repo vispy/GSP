@@ -30,11 +30,11 @@ class Viewport(Object):
 
     @command("core.Viewport")
     def __init__(self, canvas : Canvas,
-                       x : int = 0,
-                       y : int = 0,
-                       width : int = 1.0,
-                       height : int = 1.0,
-                       color : tuple = (1,1,1,1)):
+                       x : int,
+                       y : int,
+                       width : int,
+                       height : int,
+                       color : tuple):
         """
         A viewport is a rectangular two-dimensional surface.
 
@@ -59,8 +59,8 @@ class Viewport(Object):
         Object.__init__(self)
 
 
-    @command("render")
-    def render(self, target : str = None):
+    @command()
+    def render(self, target : str):
         """
         Render the viewport to the specified target. If no target is
         specified, return a raw image as bytes.
