@@ -66,10 +66,24 @@ class Data(Object):
 
     @command()
     def set_data(self,
-                 offset : int = 0,
-                 data : bytes = None):
+                 offset : int,
+                 data : bytes):
 
         """Update data content at given offset with new data.
+
+        ```python exec="yes"
+        from gsp.io import mkdocs
+        mkdocs(print,
+        '''
+        import numpy as np
+        from gsp.core.data import Data
+
+        nbytes = 2*np.float32(0).nbytes
+        data = Data(nbytes=nbytes, dtype=["f4"])
+        data.set_data(0, bytes(nbytes))
+        ''')
+        ```
+
 
         Parameters
         ----------
@@ -78,6 +92,4 @@ class Data(Object):
         data:
             Content to update with.
         """
-
-        buffer = np.asanyarray(self).view(np.ubyte)
-        buffer[offset:offset+len(data)] = np.frombuffer(data, np.ubyte)
+        pass
