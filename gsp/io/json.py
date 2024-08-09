@@ -4,6 +4,7 @@
 import io
 import sys
 import json
+import base64
 from .. object import Object, OID
 from . command import CommandQueue, Command, Converter, CID
 
@@ -12,7 +13,7 @@ def default(obj):
     if hasattr(obj, 'to_json'):
         return obj.to_json()
     elif isinstance(obj, bytes):
-        return b64encode(obj).decode()
+        return base64.b64encode(obj).decode()
 
     raise TypeError(f'Object of type {obj.__class__.__name__} is not JSON serializable')
 
