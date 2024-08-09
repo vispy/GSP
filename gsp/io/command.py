@@ -13,6 +13,7 @@ import itertools
 from base64 import b64encode
 from datetime import datetime
 from functools import wraps
+from types import UnionType
 from typing import Union, get_origin, get_args
 
 from .. log import log
