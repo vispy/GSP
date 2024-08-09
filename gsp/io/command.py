@@ -199,8 +199,8 @@ def command(name=None):
                     if "[" in parameter_type.__name__:
                         parameter_type = parameters[key].__class__.__base__
 
-                    if typing.get_origin(annotations[key]) is typing.Union:
-                        annotated_types = list(typing.get_args(annotations[key]))
+                    if get_origin(annotations[key]) is UnionType:
+                        annotated_types = list(get_args(annotations[key]))
                     else:
                         annotated_types = annotations[key],
 
