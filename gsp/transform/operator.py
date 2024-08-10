@@ -13,14 +13,14 @@ class Operator(Transform):
                        right : Transform | Buffer = None):
         """Arithmetic operator to compose two transforms
 
-        Parameters:
+        Parameters
         ----------
-        operator:
+        operator :
             Operator description, one of: `+` (addition),
             `-` (subtraction), `/` (division), `*` (mutliplication),
-        left:
+        left :
             Left operand (transform or buffer)
-        right:
+        right :
             Right operand (transform or buffer)
         """
 
@@ -82,7 +82,7 @@ class Operator(Transform):
     def set_right(self,
                   right : Transform):
         """
-        Set left operand
+        Set right operand
 
         Parameters
         ----------

@@ -7,7 +7,7 @@ from . transform import Transform
 # from . faces import Faces
 # from . depth import Depth
 # from . colormap import Colormap
-from . operator import Add, Sub, Mul, Div
+from . operator import Operator, Add, Sub, Mul, Div
 # from . screen import Screen, ScreenX, ScreenY, ScreenZ
 # from . accessor import X, Y, Z, W, R, G, B, A
 # from . measure import Measure, Pixel, Inch, Point

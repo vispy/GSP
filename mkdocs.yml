@@ -85,3 +85,6 @@ nav:
      - api/core/viewport.md
      - api/core/data.md
      - api/core/buffer.md
+   - Transform:
+     - api/transform/transform.md
+     - api/transform/operators.md

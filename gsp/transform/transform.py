@@ -21,14 +21,15 @@ class Transform(Object):
 
         Parameters
         ----------
-        base : Transform
+
+        base :
             The base transform this transform is based on. When non
             null, all transform parameters are read from the base.
-        next : Transform
+        next :
             A transformation can be chained with another transform
             (`next`). In such case, the **`next` transform is applied
             first** and result is passed to the current transform.
-        buffer : Buffer
+        buffer :
             Buffer on which to apply the transform. When non null, the
             transformation is bound and cannot be modified anymore.
         """
