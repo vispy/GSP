@@ -7,6 +7,7 @@ implementation. It is *not* part of the protocol.
 """
 
 import sys
+import types
 import typing
 import inspect
 import itertools
@@ -209,6 +210,10 @@ def command(name=None):
                         if (annotated_type == parameter_type or
                             isinstance(parameter_type,annotated_type) or
                             issubclass(parameter_type,annotated_type)):
+                            check = True
+                            break
+
+                        if parameter_type == types.NoneType:
                             check = True
                             break
 
