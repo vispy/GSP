@@ -16,7 +16,7 @@ class Bar(Foo):
         Foo.__init__(self, value)
 
 def test_io_recording():
-    """ Foo if commands are recorded """
+    """ Test if commands are recorded """
 
     Object.objects = {}
     queue = CommandQueue()
