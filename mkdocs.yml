@@ -88,3 +88,4 @@ nav:
    - Transform:
      - api/transform/transform.md
      - api/transform/operators.md
+     - api/transform/accessors.md
