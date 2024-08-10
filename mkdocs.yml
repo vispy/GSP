@@ -70,7 +70,7 @@ plugins:
             merge_init_into_class: true
             show_submodules: yes
             show_root_heading: true
-            show_source: true
+            show_source: false
             show_bases: false
             show_root_full_path: false
             show_signature_annotations: yes
@@ -89,3 +89,4 @@ nav:
      - api/transform/transform.md
      - api/transform/operators.md
      - api/transform/accessors.md
+     - api/transform/measures.md

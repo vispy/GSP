@@ -54,3 +54,13 @@ def test_transform_accessor():
     assert(transform.G())
     assert(transform.B())
     assert(transform.A())
+
+def test_transform_measure():
+
+    assert(transform.Pixel())
+    assert(transform.Point())
+    assert(transform.Inch())
+    assert(transform.Millimeter())
+    assert(transform.Centimeter())
+    assert(transform.Meter())
+    assert(transform.Kilometer())
