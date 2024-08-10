@@ -6,4 +6,5 @@ from . log import log
 from . object import Object
 from . io import command, convert, register
 
-from . core import canvas
+from . core import Canvas, Viewport
+from . transform import Transform
