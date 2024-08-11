@@ -1,6 +1,7 @@
 # Package: Graphic Server Protocol / Matplotlib
 # Authors: Nicolas P .Rougier <nicolas.rougier@inria.fr>
 # License: BSD 3 clause
+from gsp.io.command import command
 from gsp.transform import Transform
 
 class Screen(Transform):
