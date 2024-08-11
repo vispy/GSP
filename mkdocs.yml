@@ -92,3 +92,4 @@ nav:
      - api/transform/operators.md
      - api/transform/accessors.md
      - api/transform/measures.md
+     - api/transform/depth.md
