@@ -100,3 +100,4 @@ nav:
      - api/transform/screen.md
      - api/transform/colormap.md
      - api/transform/faces.md
+     - api/transform/light.md
