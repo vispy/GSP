@@ -25,7 +25,9 @@ markdown_extensions:
   - codehilite
   - pymdownx.details
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      check_paths: true
+      base_path: ["docs/snippets", "."]
   - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true

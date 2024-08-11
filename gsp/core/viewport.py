@@ -17,14 +17,8 @@ class Viewport(Object):
         Future implementation will allows viewports to have an
         arbitrary rotation.
 
-    ```python exec="yes"
-    from gsp.io import mkdocs
-    mkdocs(print,
-    '''
-    from gsp.core import Canvas, Viewport
-    canvas = Canvas(512, 512, 100.0)
-    viewport = Viewport(canvas, 0, 0, 512, 512, (0,0,0,1))
-    ''')
+    ```bash
+    python docs/snippets/Viewport_init.py
     ```
     """
 
@@ -65,15 +59,8 @@ class Viewport(Object):
         Render the viewport to the specified target. If no target is
         specified, return a raw image as bytes.
 
-        ```python exec="yes"
-        from gsp.io import mkdocs
-        mkdocs(print,
-        '''
-        from gsp.core import Canvas, Viewport
-        canvas = Canvas(512, 512, 100.0)
-        viewport = Viewport(canvas, 0, 0, 512, 512, (0,0,0,1))
-        viewport.render("png")
-        ''')
+        ```bash
+        python docs/snippets/Viewport_render.py
         ```
 
         Parameters

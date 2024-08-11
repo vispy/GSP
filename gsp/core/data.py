@@ -19,14 +19,10 @@ class Data(Object):
     no uri has been provided, an empty data is created ex-nihilo, just
     in time. Data can be modified and is tracked for any modification.
 
-    ```python exec="yes"
-    from gsp.io import mkdocs
-    mkdocs(print,
-    '''
-    from gsp.core.data import Data
-    data = Data(nbytes=512, dtype=[("color", 1, "u4")])
-    ''')
+    ```bash
+    python docs/snippets/Data_init.py
     ```
+
     """
 
     @command("core.Data")
@@ -71,19 +67,9 @@ class Data(Object):
 
         """Update data content at given offset with new data.
 
-        ```python exec="yes"
-        from gsp.io import mkdocs
-        mkdocs(print,
-        '''
-        import numpy as np
-        from gsp.core.data import Data
-
-        nbytes = 2*np.float32(0).nbytes
-        data = Data(nbytes=nbytes, dtype=["f4"])
-        data.set_data(0, bytes(nbytes))
-        ''')
+        ```bash
+        python docs/snippets/Data_set_data.py
         ```
-
 
         Parameters
         ----------

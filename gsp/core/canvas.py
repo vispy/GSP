@@ -18,13 +18,10 @@ class Canvas(Object):
         - The `(0,0)` coordinates corresponds to the bottom left corner.
         - A typographical point is 1/72 inch.
 
-    ```python exec="yes"
-    from gsp.io import mkdocs
-    mkdocs(print,
-    '''
-    from gsp.core.canvas import Canvas
-    canvas = Canvas(512, 512, 100.0)
-    ''')
+
+
+    ```bash
+    python docs/snippets/Canvas_init.py
     ```
     """
 
@@ -53,14 +50,8 @@ class Canvas(Object):
         Render the canvas the to specified target. If no target is
         specified, return a raw image as bytes.
 
-        ```python exec="yes"
-        from gsp.io import mkdocs
-        mkdocs(print,
-        '''
-        from gsp.core.canvas import Canvas
-        canvas = Canvas(512, 512, 100.0)
-        canvas.render("png")
-        ''')
+        ```bash
+        python docs/snippets/Canvas_render.py
         ```
 
         Parameters
