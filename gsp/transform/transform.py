@@ -14,10 +14,10 @@ class Transform(Object):
                        next : Transform = None,
                        buffer : Buffer = None):
         """
-        A Transform allows to apply an arbitratry transformation to
-        a buffer. Any transform can be bound to a specific buffer and
-        used in place of a Buffer where needed. Several transforms can
-        be chained or composed together.
+        A Transform allows to apply an arbitratry transformation
+        to a buffer. Any transform can be bound to a specific buffer
+        and used in place of a Buffer where needed. Several transforms
+        can be chained or composed together.
 
         Parameters
         ----------

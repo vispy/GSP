@@ -9,7 +9,7 @@ from . measure import Millimeter, Centimeter, Meter, Kilometer
 from . depth import Depth
 from . screen import Screen, ScreenX, ScreenY, ScreenZ
 from . colormap import Colormap
+from . faces import Faces
 
 # from . mat4 import Mat4
 # from . light import Light
-# from . faces import Faces
