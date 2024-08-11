@@ -98,3 +98,4 @@ nav:
      - api/transform/measures.md
      - api/transform/depth.md
      - api/transform/screen.md
+     - api/transform/colormap.md
