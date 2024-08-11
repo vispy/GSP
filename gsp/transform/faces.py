@@ -5,13 +5,13 @@ from gsp.io.command import command
 from gsp.transform import Transform
 
 class Faces(Transform):
+    """
+    Faces transform is a JIT transform that return the faces
+    buffer when it exists.
+    """
 
     @command("transform.Faces")
     def __init__(self):
-        """
-        Faces transform is a JIT transform that return the faces
-        buffer when it exists.
-        """
 
         Transform.__init__(self, __no_command__ = True)
 

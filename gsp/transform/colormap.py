@@ -6,6 +6,9 @@ from gsp.io.command import command
 from gsp.transform import Transform
 
 class Colormap(Transform):
+    """
+    Colormap transform allows to map a scalar to a color
+    """
 
     @command("transform.Colormap")
     def __init__(self,
