@@ -5,6 +5,7 @@ from gsp.transform import Transform
 
 class Screen(Transform):
 
+    @command("transform.Screen")
     def __init__(self, buffer : str = "positions"):
         """
         Screen transform is a JIT transform that return screen
@@ -46,6 +47,7 @@ class ScreenX(Screen):
     ScreenX transform is a JIT transform that return x screen coordinates.
     """
 
+    @command("transform.ScreenX")
     def __init__(self, buffer : str = "positions"):
         Screen.__init__(self, buffer, __no_command__ = True)
 
@@ -57,6 +59,7 @@ class ScreenY(Screen):
     ScreenY transform is a JIT transform that return y screen coordinates.
     """
 
+    @command("transform.ScreenY")
     def __init__(self, buffer : str = "positions"):
         Screen.__init__(self, buffer, __no_command__ = True)
 
@@ -69,6 +72,7 @@ class ScreenZ(Screen):
     screen coordinates.
     """
 
+    @command("transform.ScreenZ")
     def __init__(self, buffer : str = "positions"):
         Screen.__init__(self, buffer, __no_command__ = True)
 
