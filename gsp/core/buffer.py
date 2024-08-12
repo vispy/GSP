@@ -15,49 +15,31 @@ class Buffer(Object):
     Buffer represents a structured view on some Data or
     Buffer. Buffer can be a partial or whole view on the underlying
     source.
-
-
-    ```python exec="yes"
-    from gsp.io import mkdocs
-    mkdocs(print,
-    '''
-    from gsp.core.buffer import Buffer
-    buffer = Buffer(128, [("color", 4, "u1")])
-    ''')
-    ```
     """
 
     @command("core.Buffer")
     def __init__(self, count : int,
-                       dtype : list):
+                       dtype : np.dtype,
+                       data : memoryview):
         """
         Create a new Buffer.
 
         Parameters
         ----------
-        count :
+        count:
             Number of item
-        dtype : str
+        dtype:
             Type of the item
+        data:
+            Content of of the buffer
         """
         Object.__init__(self)
 
     @command()
     def set_data(self, offset : int,
-                       data : bytes):
+                       data : memoryview):
 
         """Update buffer content at given offset with new data.
-
-        ```python exec="yes"
-        from gsp.io import mkdocs
-        mkdocs(print,
-        '''
-        import numpy as np
-        from gsp.core.buffer import Buffer
-        buffer = Buffer(2, ["f4"])
-        buffer.set_data(0, bytes(2*np.float32(0).nbytes))
-        ''')
-        ```
 
         Parameters
         ----------
