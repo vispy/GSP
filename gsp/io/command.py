@@ -205,6 +205,8 @@ def command(name=None):
                     else:
                         annotated_types = annotations[key],
 
+                    base_types = inspect.getmro(value.__class__)
+
                     for annotated_type in annotated_types:
                         # Parameter is an instance of one the annotated type
                         if (annotated_type == parameter_type or
@@ -212,21 +214,22 @@ def command(name=None):
                             issubclass(parameter_type,annotated_type)):
                             check = True
                             break
-
-                        if parameter_type == types.NoneType:
+                        elif parameter_type == types.NoneType:
                             check = True
                             break
 
-                        # Found converter, register it
-                        converter = get_converter(parameter_type, annotated_type)
-                        if converter:
-                            check = True
-                            # if queue._immediate:
-                            # Immediate conversion
-                            # parameters[key] = converter(value)
-                            # else:
-                            # Delayed conversion
-                            parameters[key] = Converter(converter ,value)
+                        # Search converters for any base type
+                        for base_type in base_types:
+                            # Found converter, register it
+                            converter = get_converter(base_type, annotated_type)
+                            if converter:
+                                check = True
+                                # if queue._immediate:
+                                # Immediate conversion
+                                # parameters[key] = converter(value)
+                                # else:
+                                # Delayed conversion
+                                parameters[key] = Converter(converter ,value)
 
                     if check:
                         continue
