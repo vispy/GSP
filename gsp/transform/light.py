@@ -8,12 +8,12 @@ from gsp.transform import Transform
 from gsp.io.command import command
 
 
-@command("transform.Light")
 class Light(Transform):
     """
     Light transform allows to modify faces color according to light parameters
     """
 
+    @command("transform.Light")
     def __init__(self,
                  direction : list         = (1,1,1),
                  ambient_color : Color    = (1,0,0,0.2),
