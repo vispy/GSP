@@ -30,13 +30,13 @@ class tracked(np.ndarray):
     interesting. However, you can modify the tracker to mirror a CPU array
     in GPU, by uploading the new data to the GPU in the `set_data` method.
     """
-    
+
     __tracker_class__ = None
-    
+
     def __new__(cls, *args, **kwargs):
         obj = np.ndarray.__new__(cls, *args, **kwargs)
         if cls.__tracker_class__ is not None:
-            obj._tracker = cls.__tracker_class__(obj.shape, obj.dtype)
+            obj._tracker = cls.__tracker_class__(obj)
         return obj
 
     def __array_finalize__(self, obj):
@@ -47,7 +47,7 @@ class tracked(np.ndarray):
         self._dirty = self._extents
         self._tracker = getattr(obj, '_tracker', None)
         if self._tracker is None and self.__tracker_class__ is not None:
-            self._tracker = self.__tracker_class__(self.shape, self.dtype)
+            self._tracker = self.__tracker_class__(obj)
 
     def clear(self):
         """ Clear dirty region"""
@@ -69,7 +69,7 @@ class tracked(np.ndarray):
 
     def _update(self, start, stop):
         """ Update dirty region """
-        
+
         if isinstance(self.base, tracked):
             self.base._update(start, stop)
         else:
@@ -79,7 +79,7 @@ class tracked(np.ndarray):
                 start = min(self._dirty[0], start)
                 stop = max(self._dirty[1], stop)
                 self._dirty = start, stop
-                
+
     def _compute_extents(self, Z):
         """Compute extents (start, stop) in bytes in the base array"""
 
@@ -96,13 +96,13 @@ class tracked(np.ndarray):
     def __getitem__(self, key):
         Z = np.ndarray.__getitem__(self, key)
         if not hasattr(Z, 'shape') or Z.shape == ():
-            return Z        
+            return Z
         Z._extents = self._compute_extents(Z)
         return Z
 
     def __setitem__(self, key, value):
         Z = np.ndarray.__getitem__(self, key)
-        
+
         if Z.shape == ():
             # This test for the case of [...,index] notation. Since we
             # know the result is a scalar, we can safely remove the
@@ -112,14 +112,14 @@ class tracked(np.ndarray):
             key = tuple(np.mod(np.array(key), self.shape))
             offset = np.ravel_multi_index(key, self.shape, mode='wrap')*self.itemsize
             self._update(offset, offset+self.itemsize)
-                    
+
         # Test for fancy indexing
         elif (Z.base is not self and (isinstance(key, list) or
                (hasattr(key, '__iter__') and
                 any(isinstance(k, (list,np.ndarray)) for k in key)))):
             raise NotImplementedError("Fancy indexing not supported")
         else:
-            Z._extents = self._compute_extents(Z)            
+            Z._extents = self._compute_extents(Z)
             self._update(Z._extents[0], Z._extents[1])
         np.ndarray.__setitem__(self, key, value)
 
@@ -150,5 +150,3 @@ class tracked(np.ndarray):
     def __idiv__(self, other):
         self._update(self._extents[0], self._extents[1])
         return np.ndarray.__idiv__(self, other)
-
-

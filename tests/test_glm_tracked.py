@@ -9,8 +9,9 @@ from gsp.glm import mat2, mat3, mat4
 from gsp.glm import vec2, vec3, vec4
 
 class Tracker:
-    def __init__(self, shape, dtype):
-        self._array = np.empty(shape, dtype=dtype)
+    def __init__(self, ndarray):
+        if ndarray is not None:
+            self._array = np.empty(ndarray.shape, dtype=ndarray.dtype)
     def set_data(self, offset, bytes):
         V = self._array.view(np.ubyte).ravel()
         V[offset:offset+len(bytes)] = np.frombuffer(bytes, dtype=np.ubyte)
