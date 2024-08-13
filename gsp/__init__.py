@@ -4,7 +4,19 @@
 
 from . log import log
 from . object import Object
-from . io import command, convert, register
 
-from . core import Canvas, Viewport
-from . transform import Transform
+from . import core
+from . import transform
+
+
+def use(backend):
+    if backend == "matplotlib":
+        from . matplotlib import core
+        from . import transform
+    else:
+        from . import core
+        from . import transform
+
+    import inspect
+    inspect.stack()[1][0].f_globals["core"] = core
+    inspect.stack()[1][0].f_globals["transform"] = transform
