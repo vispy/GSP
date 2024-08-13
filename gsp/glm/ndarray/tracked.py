@@ -43,7 +43,10 @@ class tracked(np.ndarray):
 
         if not isinstance(obj, tracked):
             self.__class__.__init__(self)
-        self._extents = 0, self.size*self.itemsize
+        if obj is None:
+            self._extents = 0, self.size*self.itemsize
+        else:
+            self._extents = self._compute_extents(obj)
         self._dirty = self._extents
         self._tracker = getattr(obj, '_tracker', None)
         if self._tracker is None and self.__tracker_class__ is not None:
@@ -93,6 +96,23 @@ class tracked(np.ndarray):
             return offset, offset+size
         return 0, Z.size*Z.itemsize
 
+    # def _compute_extents(self, Z):
+    #     """Compute extents (start, stop) in bytes in the base array"""
+
+    #     if Z.base is not None:
+    #         base = Z
+    #         while base.base is not None:
+    #             base = base.base
+    #         base = base.__array_interface__['data'][0]
+    #         view = Z.__array_interface__['data'][0]
+    #         offset = view - base
+    #         shape = np.array(Z.shape) - 1
+    #         strides = Z.strides[-len(shape):]
+    #         size = (shape*strides).sum() + Z.itemsize
+    #         return offset, offset + int(size)
+    #     return 0, Z.size*Z.itemsize
+
+
     def __getitem__(self, key):
         Z = np.ndarray.__getitem__(self, key)
         if not hasattr(Z, 'shape') or Z.shape == ():
@@ -102,7 +122,6 @@ class tracked(np.ndarray):
 
     def __setitem__(self, key, value):
         Z = np.ndarray.__getitem__(self, key)
-
         if Z.shape == ():
             # This test for the case of [...,index] notation. Since we
             # know the result is a scalar, we can safely remove the
@@ -119,7 +138,9 @@ class tracked(np.ndarray):
                 any(isinstance(k, (list,np.ndarray)) for k in key)))):
             raise NotImplementedError("Fancy indexing not supported")
         else:
+            # print("---", Z.dtype, Z.shape, Z.base)
             Z._extents = self._compute_extents(Z)
+            print("---", Z._extents)
             self._update(Z._extents[0], Z._extents[1])
         np.ndarray.__setitem__(self, key, value)
 

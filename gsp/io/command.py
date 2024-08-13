@@ -218,7 +218,7 @@ def command(name=None):
                             check = True
                             break
 
-                        # Search converters for any base type
+                        # Search for possible converters in any base type
                         for base_type in base_types:
                             # Found converter, register it
                             converter = get_converter(base_type, annotated_type)

@@ -7,6 +7,7 @@ from gsp.glm import ndarray
 from gsp.glm import vlist
 from gsp.glm import mat2, mat3, mat4
 from gsp.glm import vec2, vec3, vec4
+from gsp.glm import as_vec2, as_vec3, as_vec4
 
 class Tracker:
     def __init__(self, ndarray):
@@ -87,12 +88,31 @@ def test_fancy_tracking():
 
 def test_partial_tracking():
     Z1 = np.zeros(10)
-    Z2 = Z1[1:-1].view(ndarray.tracked)
+    Z2 = Z1[2:-1].view(ndarray.tracked)
     Z2[...] = 0
     Z2[0] = 1
     Z2[-1] = 2
-    Z2[3:8] = 3
+    Z2[3:] = 3
     assert( np.array_equal(Z2, np.asarray(Z2._tracker)) )
+
+def test_structured_non_tracked_array():
+    Z = np.zeros(5, dtype=[("position", np.float32, 3),
+                           ("color",    np.ubyte,   4)])
+    P, C = as_vec3(Z["position"]), as_vec4(Z["color"])
+    P.xyz = 1,2,3
+    C.rgba = 1,2,3,4
+    assert( np.array_equal(P, np.asarray(P._tracker)) )
+    assert( np.array_equal(C, np.asarray(C._tracker)) )
+
+@pytest.mark.skip(reason="To be fixed")
+def test_structured_tracked_array():
+    Z = np.zeros(5, dtype=[("position", np.float32, 3),
+                           ("color",    np.ubyte,   4)]).view(ndarray.tracked)
+    P, C = as_vec3(Z["position"]), as_vec4(Z["color"])
+    P.xyz = 1,2,3
+    C.rgba = 1,2,3,4
+    assert( np.array_equal(P, np.asarray(P._tracker)) )
+    assert( np.array_equal(C, np.asarray(C._tracker)) )
 
 def test_view():
     Z = np.zeros(10).view(ndarray.tracked)
