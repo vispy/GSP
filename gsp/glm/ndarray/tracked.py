@@ -138,17 +138,22 @@ class tracked(np.ndarray):
                 any(isinstance(k, (list,np.ndarray)) for k in key)))):
             raise NotImplementedError("Fancy indexing not supported")
         else:
-            # print("---", Z.dtype, Z.shape, Z.base)
             Z._extents = self._compute_extents(Z)
-            print("---", Z._extents)
             self._update(Z._extents[0], Z._extents[1])
         np.ndarray.__setitem__(self, key, value)
 
         if self._tracker:
-            data = self.view(np.ubyte).ravel()
+            base = self
+            while base.base is not None and isinstance(base.base, tracked):
+                base = base.base
+            data = base.view(np.ubyte).ravel()
             start, stop = self._dirty
-            self._tracker.set_data(start, data[start:stop].tobytes())
-            self.clear()
+            if base is not self:
+                base._tracker.set_data(start, data[start:stop].tobytes())
+                base.clear()
+            else:
+                self._tracker.set_data(start, data[start:stop].tobytes())
+                self.clear()
 
     def __getslice__(self, start, stop):
         return self.__getitem__(slice(start, stop))
