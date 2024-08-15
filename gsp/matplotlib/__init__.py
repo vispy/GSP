@@ -16,6 +16,12 @@ from gsp.glm.vec234 import *
 from gsp.glm.mat234 import *
 from gsp.io import register
 
+
+@register("tuple", "Color")
+def tuple_to_Color(obj):
+    return Color(*obj)
+
+
 @register("tracked", "Buffer")
 def tracked_to_Buffer(obj):
     return obj.gsp_buffer

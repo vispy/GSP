@@ -79,6 +79,9 @@ class Object:
             Object.objects[newid] = self
         self._id = newid
 
+    def __hash__(self):
+        return self._id
+
     def __eq__(self, other):
         if not type(self) == type(other):
             return False

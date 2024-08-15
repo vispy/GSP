@@ -11,5 +11,6 @@ from . glm import *
 from . vlist import *
 from . vec234 import *
 from . mat234 import *
+from . ndarray.vectors import vec2_t, vec3_t, vec4_t
 from . shapes import sphere, cube
 from . trackball import Trackball

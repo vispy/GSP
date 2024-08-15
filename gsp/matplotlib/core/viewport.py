@@ -32,8 +32,8 @@ class Viewport(core.Viewport):
         self._axes.patch.set_color(self._color)
         self._axes.autoscale(False)
 
-        # self._axes.set_xlim(-1, 1)
-        # self._axes.set_ylim(-1, 1)
+        self._axes.set_xlim(-1, 1)
+        self._axes.set_ylim(-1, 1)
 
         self._axes.get_xaxis().set_visible(False)
         self._axes.get_yaxis().set_visible(False)

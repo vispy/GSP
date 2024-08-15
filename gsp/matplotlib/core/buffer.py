@@ -9,6 +9,8 @@ from gsp import core
 
 class Buffer(core.Buffer):
 
+    __doc__ = core.Viewport.__doc__
+
     @command("core.Buffer")
     def __init__(self, count : int,
                        dtype : np.dtype,

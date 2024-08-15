@@ -19,7 +19,7 @@ class Screen(Transform):
             This buffer must have been built by a visual.
         """
 
-        Transform.__init__(self,  __no_command__ = True)
+        Transform.__init__(self, __no_command__ = True)
         self._buffer = buffer
 
     def __call__(self):

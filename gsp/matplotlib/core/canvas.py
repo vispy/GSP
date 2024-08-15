@@ -17,8 +17,7 @@ class Canvas(core.Canvas):
                        height : int,
                        dpi : float):
 
-        super().__init__(width, height, dpi,
-                         __no_command__ = True)
+        super().__init__(width, height, dpi)
 
         if isinstance(width, transform.Transform):
             width = width.evaluate(variables = { "dpi": dpi })
