@@ -28,7 +28,7 @@ class Viewport(Object):
                        y : int,
                        width : int,
                        height : int,
-                       color : tuple):
+                       color : list):
         """
         A viewport is a rectangular two-dimensional surface.
 
@@ -46,7 +46,7 @@ class Viewport(Object):
             Width of the viewport in pixels.
         height:
             Height of the viewport in pixels.
-        color: Color
+        color:
             Background color of the viewport
         """
 

@@ -69,8 +69,8 @@ print(Object.objects[1])
 print()
 print("3. Commands load & execution")
 
-yaml.save(queue, "foo.yaml")
-json.save(queue, "foo.json")
+yaml.save("foo.yaml", queue)
+json.save("foo.json", queue)
 
 Object.objects = {}
 queue = yaml.load("foo.yaml")

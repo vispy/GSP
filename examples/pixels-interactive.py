@@ -12,10 +12,14 @@ import numpy as np
 from gsp import glm
 
 canvas = core.Canvas(512, 512, 100.0)
-viewport = core.Viewport(canvas, 0, 0, 512, 512, (1,1,1,1))
-P = glm.vec3(250_000)
-P.xyz = np.random.uniform(-1, +1, (len(P),3))
-pixels = visual.Pixels(P, colors=(0,0,0,1))
+viewport = core.Viewport(canvas, 0, 0, 512, 512, [1,1,1,1])
+n = 100_000
+P = glm.as_vec3(np.random.uniform(-1, +1, (n,3)))
+pixels = visual.Pixels(P, colors=[0,0,0,1])
+
+# gsp.save("session.json")
+# queue = gsp.load("session.json")
+# queue.run(globals(), locals())
 
 # Run the camera
 from camera import Camera

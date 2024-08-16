@@ -52,9 +52,10 @@ def dump(queue=None, filename=None):
                 dump_command(command, stream)
 
 
-def save(queue, filename):
-    """ Save command queue to a file """
+def save(filename, queue = None):
+    """ Save queue command queue to a file """
 
+    queue = queue or CommandQueue.get_default()
     dump(queue, filename)
 
 

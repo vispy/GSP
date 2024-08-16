@@ -175,16 +175,24 @@ def command(name=None):
 
             # Parameters
             for key,value in zip(keys,values):
+                # We change the name of the parameter to indicate it is an ID
+                # This will be used later whne executing a command queue
+                if isinstance(value, Object):
+                    key = key + "(id)"
                 parameters[key] = value
 
             # Named parameters
             for key,value in zip(kwargs.keys(), kwargs.values()):
                 if key not in parameters.keys():
+                    if isinstance(value, Object):
+                        key = key + "(id)"
                     parameters[key] = value
 
             # Default parameters
             for key,value in defaults.items():
                 if key not in parameters.keys():
+                    if isinstance(value, Object):
+                        key = key + "(id)"
                     parameters[key] = value
 
             # Get default command queue
@@ -229,7 +237,7 @@ def command(name=None):
                                 # parameters[key] = converter(value)
                                 # else:
                                 # Delayed conversion
-                                parameters[key] = Converter(converter ,value)
+                                parameters[key] = Converter(converter, value)
 
                     if check:
                         continue
@@ -272,23 +280,18 @@ class CID(int):
 class Command:
     """ Generic command with a unique id. """
 
-    def __init__(self,  classname,  methodname, parameters, annotations):
+    def __init__(self,  classname,  methodname, parameters, annotations = None):
         """ Build a new command with a unique command id (cid)
 
         Parameters
         ----------
-
         classname : string
             Name of the class
-
         methodname : string
             Name of the method
-
         parameters : dict
             Dictionnary of parameters
-
         annotations : dict
-
             Annoated type of the called method
 
         Examples
@@ -311,9 +314,11 @@ class Command:
         self.classname = classname
         self.methodname = methodname
         self.parameters = parameters
+
         for key, value in parameters.items():
             if isinstance(value, Object):
                 self.parameters[key] = value.id
+
         self.annotations = annotations
 
 
@@ -361,11 +366,23 @@ class Command:
         del parameters["id"]
 
         # Resolve objects references
+        _parameters = {}
         for key, value in parameters.items():
-            if isinstance(value, OID):
+            if key.endswith("(id)"):
+                _parameters[key[:-4]] = Object.objects[value]
+            elif isinstance(value, OID):
                 parameters[key] = Object.objects[value]
             elif isinstance(value, Converter):
-                parameters[key] = value()
+                _parameters[key] = value()
+            else:
+                _parameters[key] = value
+        parameters = _parameters
+
+        # for key, value in parameters.items():
+        #     if isinstance(value, OID):
+        #         parameters[key] = Object.objects[value]
+        #     elif isinstance(value, Converter):
+        #         parameters[key] = value()
 
         if "." in self.methodname:
             module, name = self.methodname.split(".")

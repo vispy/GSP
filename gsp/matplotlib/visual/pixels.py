@@ -24,6 +24,7 @@ class Pixels(visual.Pixels):
         depending on the screen size.
     """)
 
+    @command("visual.Pixels")
     def __init__(self, positions : Transform | Buffer,
                        colors : Transform | Buffer | Color):
         super().__init__(positions, colors, __no_command__ = True)

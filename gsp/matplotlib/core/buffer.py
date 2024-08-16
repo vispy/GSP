@@ -28,6 +28,9 @@ class Buffer(core.Buffer):
         # buffer[offset:offset+len(data)] = np.frombuffer(data, np.ubyte)
         pass
 
+    def __len__(self):
+        return self._count
+
     def __array__(self):
         if self._array is None:
             if self._data is not None:

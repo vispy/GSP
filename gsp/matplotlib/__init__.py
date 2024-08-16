@@ -16,15 +16,37 @@ from gsp.glm.vec234 import *
 from gsp.glm.mat234 import *
 from gsp.io import register
 
+@register("str", "memoryview")
+def str_to_memoryview(obj):
+    return memoryview(bytes(obj))
 
-@register("tuple", "Color")
-def tuple_to_Color(obj):
-    return Color(*obj)
+@register("list", "Color")
+def list_to_Color(obj):
+    return core.Color(*obj)
 
+@register("Color", "list")
+def Color_to_list(obj):
+    return obj._color.tolist()
+
+@register("list", "tuple")
+def list_to_tuple(obj):
+    return tuple(obj)
+
+@register("tuple", "list")
+def tuple_to_list(obj):
+    return list(obj)
+
+@register("int", "Canvas")
+def int_to_Object(obj):
+    return Object.objects[obj]
+
+@register("ndarray", "Matrix")
+def ndarray_to_Matrix(obj):
+    return Matrix(obj)
 
 @register("tracked", "Buffer")
 def tracked_to_Buffer(obj):
-    return obj.gsp_buffer
+    return obj._tracker.gsp_buffer
 
 class Tracker:
     def __init__(self, ndarray):

@@ -16,7 +16,7 @@ class Viewport(core.Viewport):
                        y : int,
                        width : int,
                        height : int,
-                       color : tuple):
+                       color : list):
 
         super().__init__(canvas, x, y, width, height, color)
 

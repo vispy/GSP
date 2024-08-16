@@ -31,7 +31,7 @@ class CustomFormatter(logging.Formatter):
 
 
 log = logging.getLogger("GSP")
-log.setLevel(logging.WARNING)
+log.setLevel(logging.INFO)
 
 _handler = logging.StreamHandler()
 _handler.setLevel(logging.DEBUG)
