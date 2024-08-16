@@ -25,7 +25,7 @@ Keywords: command, queue, yaml, json
 
 from gsp import Object
 from gsp.log import log
-from gsp.io import yaml, json
+from gsp.io import json
 from gsp.io.convert import register
 from gsp.io.command import Command, CommandQueue, command
 
@@ -69,11 +69,10 @@ print(Object.objects[1])
 print()
 print("3. Commands load & execution")
 
-yaml.save("foo.yaml", queue)
 json.save("foo.json", queue)
 
 Object.objects = {}
-queue = yaml.load("foo.yaml")
+queue = yaml.load("foo.json")
 for command in queue:
     log.info("%s" % command)
 

@@ -82,26 +82,6 @@ def test_conversion_unregister():
     def float_to_int(value):
         return int(value)
 
-def test_io_to_yaml():
-    """ Test export to YAML """
-
-    import io
-    import yaml
-    import gsp.io.yaml
-
-    unregister("float", "int")
-
-    @register("float", "int")
-    def float_to_int(value):
-        return 2*int(value)
-
-    queue = CommandQueue()
-    foo = Foo(123.0)
-    result = gsp.io.yaml.dump()
-    command = yaml.safe_load(result)[0]
-    assert command["method"] == "Foo/__init__"
-    assert command["parameters"]["value"] == 123*2
-
 def test_io_to_json():
     """ Test export to JSON """
 
