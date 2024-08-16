@@ -4,11 +4,6 @@
 import numpy as np
 from enum import IntEnum
 
-class Type:
-    """
-    Types specific to the procotol
-    """
-
 class Measure:
     """
     Representation of a measure
@@ -30,6 +25,28 @@ class Measure:
 
         self._value = value
         self._unit = unit
+
+
+class Matrix:
+    """
+    Representation of 4x4 float matrix.
+    """
+
+    def __init__(self, data : tuple | list | np.ndarray):
+        """
+        Representation of 4x4 float matrix.
+
+        Parameters
+        ----------
+
+        data:
+            The 16 values of the matrix
+        """
+
+        self._data = np.frombuffer(data, dtype=np.float32)
+
+    def __array__(self):
+        return self._data
 
 
 class Color:
@@ -72,6 +89,7 @@ class Color:
 
     def __len__(self):
         return len(self._color)
+
 
 
 class Marker(IntEnum):

@@ -4,10 +4,9 @@
 
 import numpy as np
 from gsp import Object
-from gsp.core import Buffer
-from gsp.io.command import command
-from gsp.core import Viewport, Buffer
 from gsp.transform import Transform
+from gsp.core import Viewport, Buffer, Matrix
+from gsp.io.command import command
 
 
 class Visual(Object):
@@ -15,7 +14,6 @@ class Visual(Object):
     Generic Visual
     """
 
-    @command("visual.Visual")
     def __init__(self):
         """ Generic visual """
 
@@ -82,7 +80,10 @@ class Visual(Object):
         return np.atleast_1d(value)
 
     @command()
-    def render(self, viewport, model=None, view=None, proj=None):
+    def render(self, viewport : Viewport,
+                     model : Matrix = None,
+                     view : Matrix = None,
+                     proj : Matrix =None):
         """
         Render the visual on viewport using the given model,
         view, proj matrices

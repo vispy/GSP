@@ -3,7 +3,6 @@
 # Copyright 2023 Nicolas P. Rougier - BSD 2 Clauses licence
 # -----------------------------------------------------------------------------
 import numpy as np
-from . ndarray import mat4
 
 def mesh(filename):
     """
@@ -78,7 +77,7 @@ def viewport(x, y, w, h, d, dtype=np.float32, transpose=False):
 
     Returns:
 
-        (mat4): Viewport matrix
+        Viewport matrix
     """
 
     M = np.array([[w/2, 0, 0, x+w/2],
@@ -86,9 +85,9 @@ def viewport(x, y, w, h, d, dtype=np.float32, transpose=False):
                   [0, 0, d/2,   d/2],
                   [0, 0, 0,       1]], dtype=dtype)
     if transpose:
-        return np.transpose(M).view(mat4)
+        return np.transpose(M)
     else:
-        return M.view(mat4)
+        return M
 
 
 
@@ -124,7 +123,7 @@ def frustum(left, right, bottom, top, znear, zfar, dtype=np.float32, transpose=F
 
     Returns:
 
-        (mat4): View frustum matrix
+        View frustum matrix
     """
 
     M = np.zeros((4, 4), dtype=dtype)
@@ -137,9 +136,9 @@ def frustum(left, right, bottom, top, znear, zfar, dtype=np.float32, transpose=F
     M[3, 2] = -1.0
 
     if transpose:
-        return np.transpose(M).view(mat4)
+        return np.transpose(M)
     else:
-        return M.view(mat4)
+        return M
 
 
 def perspective(fovy, aspect, znear, zfar, dtype=np.float32, transpose=False):
@@ -167,7 +166,7 @@ def perspective(fovy, aspect, znear, zfar, dtype=np.float32, transpose=False):
 
     Returns:
 
-        (mat4): Perspective projection matrix
+        Perspective projection matrix
     """
 
     h = np.tan(0.5*np.radians(fovy)) * znear
@@ -206,7 +205,7 @@ def ortho(left, right, bottom, top, znear, zfar, dtype=np.float32, transpose=Fal
 
     Returns:
 
-        (mat4): Orthographic projection matrix
+        Orthographic projection matrix
     """
 
     M = np.zeros((4, 4), dtype=dtype)
@@ -219,9 +218,9 @@ def ortho(left, right, bottom, top, znear, zfar, dtype=np.float32, transpose=Fal
     M[2, 3] = -(zfar + znear) / float(zfar - znear)
 
     if transpose:
-        return np.transpose(M).view(mat4)
+        return np.transpose(M)
     else:
-        return M.view(mat4)
+        return M
 
 def lookat(eye=(0,0,4.5), center=(0,0,0), up=(0,0,1), dtype=np.float32, transpose=False):
     """
@@ -247,7 +246,7 @@ def lookat(eye=(0,0,4.5), center=(0,0,0), up=(0,0,1), dtype=np.float32, transpos
 
     Returns:
 
-        (mat4): View matrix
+        View matrix
     """
 
     eye = np.array(eye)
@@ -262,7 +261,7 @@ def lookat(eye=(0,0,4.5), center=(0,0,0), up=(0,0,1), dtype=np.float32, transpos
         [X[0], X[1], X[2], -np.dot(X, eye)],
         [Y[0], Y[1], Y[2], -np.dot(Y, eye)],
         [Z[0], Z[1], Z[2], -np.dot(Z, eye)],
-        [0, 0, 0, 1]], dtype=dtype).view(mat4)
+        [0, 0, 0, 1]], dtype=dtype)
 
 
 def scale(scale, dtype=np.float32, transpose=False):
@@ -281,7 +280,7 @@ def scale(scale, dtype=np.float32, transpose=False):
 
     Returns:
 
-        (mat4): Scaling matrix
+        Scaling matrix
     """
 
     x,y,z = np.array(scale)
@@ -291,9 +290,9 @@ def scale(scale, dtype=np.float32, transpose=False):
                   [0, 0, 0, 1]], dtype=dtype)
 
     if transpose:
-        return np.transpose(S).view(mat4)
+        return np.transpose(S)
     else:
-        return S.view(mat4)
+        return S
 
 
 def fit(vertices):
@@ -332,7 +331,7 @@ def translate(translate, dtype=np.float32, transpose=False):
 
     Returns:
 
-        (mat4): Translation matrix
+        Translation matrix
     """
 
     x, y, z = np.array(translate)
@@ -342,9 +341,9 @@ def translate(translate, dtype=np.float32, transpose=False):
                   [0, 0, 0, 1]], dtype=dtype)
 
     if transpose:
-        return np.transpose(T).view(mat4)
+        return np.transpose(T)
     else:
-        return T.view(mat4)
+        return T
 
 
 def center(vertices):
@@ -380,7 +379,7 @@ def xrotate(theta=0, dtype=np.float32, transpose=False):
 
     Returns:
 
-        (mat4): Rotation matrix
+        Rotation matrix
     """
 
     t = np.radians(theta)
@@ -391,9 +390,9 @@ def xrotate(theta=0, dtype=np.float32, transpose=False):
                    [0, 0,  0, 1]], dtype=dtype)
 
     if transpose:
-        return np.transpose(R).view(mat4)
+        return np.transpose(R)
     else:
-        return R.view(mat4)
+        return R
 
 
 def yrotate(theta=0, dtype=np.float32, transpose=False):
@@ -412,7 +411,7 @@ def yrotate(theta=0, dtype=np.float32, transpose=False):
 
     Returns:
 
-        (mat4): Rotation matrix
+        Rotation matrix
     """
 
     t = np.radians(theta)
@@ -423,9 +422,9 @@ def yrotate(theta=0, dtype=np.float32, transpose=False):
                   [ 0, 0, 0, 1]], dtype=dtype)
 
     if transpose:
-        return np.transpose(R).view(mat4)
+        return np.transpose(R)
     else:
-        return R.view(mat4)
+        return R
 
 
 def zrotate(theta=0, dtype=np.float32, transpose=False):
@@ -444,7 +443,7 @@ def zrotate(theta=0, dtype=np.float32, transpose=False):
 
     Returns:
 
-        (mat4): Rotation matrix
+        Rotation matrix
     """
 
     t = np.radians(theta)
@@ -455,9 +454,9 @@ def zrotate(theta=0, dtype=np.float32, transpose=False):
                   [ 0,  0, 0, 1]], dtype=dtype)
 
     if transpose:
-        return np.transpose(R).view(mat4)
+        return np.transpose(R)
     else:
-        return R.view(mat4)
+        return R
 
 
 def rotate(theta, axis, dtype=np.float32, transpose=False):
@@ -479,7 +478,7 @@ def rotate(theta, axis, dtype=np.float32, transpose=False):
 
     Returns:
 
-        (mat4): Rotation matrix
+        Rotation matrix
     """
 
     t = np.radians(theta)
@@ -495,9 +494,9 @@ def rotate(theta, axis, dtype=np.float32, transpose=False):
                    [0,0,0,1]], dtype=dtype)
 
     if transpose:
-        return np.transpose(R).view(mat4)
+        return np.transpose(R)
     else:
-        return R.view(mat4)
+        return R
 
 
 
@@ -521,7 +520,7 @@ def align(U, V, dtype=np.float32, transpose=False):
 
     Returns:
 
-        (mat4): Rotation matrix
+        Rotation matrix
     """
 
     a, b = normalize(U), normalize(V)
@@ -536,9 +535,9 @@ def align(U, V, dtype=np.float32, transpose=False):
     R[3, 3] = 1
 
     if transpose:
-        return np.transpose(R).view(mat4)
+        return np.transpose(R)
     else:
-        return R.view(mat4)
+        return R
 
 
 def frontback(T):
