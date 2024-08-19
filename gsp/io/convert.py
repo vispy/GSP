@@ -3,12 +3,12 @@
 # License: BSD 3 clause
 import numpy as np
 
-# Registered converters with keys equal to (src_type, dst_type)
 converters = {}
-
+""" Registered converters with keys equal to (src_type, dst_type) """
 
 class Converter:
-    """This class is used to postpone the conversion of a parameter of
+    """
+    This class is used to postpone the conversion of a parameter of
     a command.
 
     This allows to writes function with types compatible with the
@@ -17,7 +17,6 @@ class Converter:
     necessary to avoid passing large data from one function to the
     other. For example, numpy arrays ca be kept as such and converted
     to bytes only when it is needed by the protocol (dump functions).
-
     """
 
     def __init__(self, converter, value):
@@ -28,22 +27,10 @@ class Converter:
         return self.converter(self.value)
 
 
-def unregister(src_types, dst_type):
+def unregister(src_types : str | tuple[str,...],
+               dst_type : str):
     """
-    Unregister converters from `src_type`  to `dst_type`
-
-    Parameters
-    ----------
-    src_types: string or tuple of strings
-        Source type ("*" means any type)
-
-    dst_type: string
-        Destination type
-
-    Usage example
-    -------------
-
-    unregister("*", "int")
+    Unregister converters from `src_types` to `dst_type`.
     """
 
     if isinstance(src_types,(list,tuple)):
@@ -56,26 +43,11 @@ def unregister(src_types, dst_type):
             del converters[(src_type, dst_type)]
 
 
-def register(src_types, dst_type):
+def register(src_types : str | tuple[str,...],
+             dst_type : str):
     """
-    Function decorator that registers a converter from `src_type`
+    Function decorator that registers a converter from `src_types`
     to `dst_type`
-
-    Parameters
-    ----------
-    src_types: string or tuple of strings
-        Source type ("*" means any type)
-
-    dst_type: string
-        Destination type
-
-    Usage example
-    -------------
-
-    @register("*", "int")
-    def any_to_int(value):
-        return int(value)
-    convert(4.5, "int)
     """
 
     def inner(func):
@@ -108,22 +80,20 @@ def is_registered(src_type, dst_type):
             or converters.get(("*", dst_type), None))
 
 
-def get_converter(value, dst_type):
+def get_converter(value : object,
+                  dst_type : str):
     """
     Get a converter to convert value to dst_type.
 
     Parameters
     ----------
-
-    value: type, str or any object
+    value:
          Source value or type
-
-     dst_type: str
+    dst_type:
          Destination type
 
     Return
     ------
-
     A convert function or None
     """
 
@@ -158,18 +128,11 @@ def get_converter(value, dst_type):
     return None
 
 
-def convert(value, dst_type):
+def convert(value : object,
+            dst_type : str):
     """
-    Convert value to dst_type is there exists a converter
-
-    Parameters
-    ----------
-
-    value: any type
-         Source value
-
-     dst_type: str
-         Destination type
+    Return a converter from `value` type to `dst_type`, if there
+    exists such a converter.
     """
 
     try:

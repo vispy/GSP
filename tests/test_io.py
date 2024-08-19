@@ -3,7 +3,8 @@
 # License: BSD 3 clause
 import pytest
 from gsp import Object
-from gsp.io import register, unregister, command, CommandQueue
+from gsp.io.convert import register, unregister
+from gsp.io.command import command, Command, CommandQueue
 
 class Foo(Object):
     @command()
@@ -19,7 +20,9 @@ def test_io_recording():
     """ Test if commands are recorded """
 
     Object.objects = {}
-    queue = CommandQueue()
+    queue = CommandQueue("active")
+    queue.readonly = False
+
     Foo(1), Foo(2), Foo(3)
     assert(len(Object.objects) == 3)
     assert(len(queue) == 3)
@@ -28,19 +31,21 @@ def test_io_no_recording():
     """ Test if commands are not recorded """
 
     Object.objects = {}
-    queue = CommandQueue()
+    queue = CommandQueue("active").empty()
     queue.readonly = True
 
     Foo(1), Foo(2), Foo(3)
-
     assert(len(Object.objects) == 3)
     assert(len(queue) == 0)
+
 
 def test_io_queue_execution():
     """ Test if commands can be executed """
 
     Object.objects = {}
     queue = CommandQueue()
+    queue.readonly = False
+
     foo = Foo(123)
     queue.run(globals(), locals())
     foo = Object.objects[foo.id]
@@ -59,7 +64,9 @@ def test_conversion():
     def float_to_int(value):
         return int(value) + 1
 
-    queue = CommandQueue()
+    queue = CommandQueue("active").empty()
+    queue.readonly = False
+
     foo = Foo(123.0)
     Object.objects = {}
     queue.run(globals(), locals())
@@ -95,16 +102,19 @@ def test_io_to_json():
     def float_to_int(value):
         return 4*int(value)
 
-    queue = CommandQueue()
+    queue = CommandQueue("test").empty()
+    queue.readonly = False
+
     foo = Foo(123.0)
-    result = gsp.io.json.dump()
+    result = gsp.io.json.dump(queue)
     commands = json.loads(result)["commands"][0]
+
     assert commands["method"] == "Foo/__init__"
     assert commands["parameters"]["value"] == 123*4
 
 
 def test_io_inheritance():
-    """ Foo if commands are recorded """
+    """ Test if commands are recorded """
 
     unregister("float", "int")
 
@@ -112,9 +122,10 @@ def test_io_inheritance():
     def float_to_int(value):
         return int(value)
 
-    queue = CommandQueue()
-    bar = Bar(123.0)
+    queue = CommandQueue("active").empty()
+    queue.readonly = False
 
+    bar = Bar(123.0)
     Object.objects = {}
     queue.run(globals(), locals())
     barload = Object.objects[bar.id]

@@ -73,7 +73,7 @@ plugins:
             docstring_options:
               ignore_init_summary: false
               show_root_toc_entry: false
-            merge_init_into_class: false
+            merge_init_into_class: true
             show_submodules: yes
             show_root_heading: true
             show_source: false
@@ -86,8 +86,12 @@ plugins:
 nav:
  - Overview:
    - index.md
+ - Implementations:
+   - Python:
+     - python/command.md
+     - python/memory.md
+     - python/glm.md
  - Specifications:
-   - General
    - Core:
      - api/core/canvas.md
      - api/core/viewport.md

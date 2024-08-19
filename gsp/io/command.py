@@ -21,60 +21,109 @@ from .. object import Object, OID
 from . convert import Converter, get_converter, register
 
 
-class CommandQueue:
+__record__ = True
+""" Global variable controlling whether commands are build and recorded. """
+
+def record(state : bool = False):
+    """
+    Activate (state=True) or deactivate (state=False) global
+    command recording (for all command queues).
+    """
+    global __record__
+
+    if state:
+        __record__ = True
+        log.info("Command recording is now ON")
+    else:
+        __record__ = False
+        log.info("Command recording is now OFF")
+
+        return __record__
+
+def queue(name = "default"):
+    """
+    Return a new or existing command queue.
+    """
+
+    return CommandQueue(name)
+
+
+class NamedSingleton(type):
+    """
+    NamedSingleton class is a metaclass that can be inherited in
+    order to produce uniue objects of a given class, where name is
+    used to identify them
+    """
+
+    _instances = {}
+
+    def __call__(cls, name="default", *args, **kwargs):
+        if name == "active" or name is None:
+            if CommandQueue.active is None:
+                CommandQueue.active = super(NamedSingleton, cls).__call__("default", *args, **kwargs)
+            return CommandQueue.active
+        if name not in cls._instances.keys():
+            cls._instances[name] = super(NamedSingleton, cls).__call__(name, *args, **kwargs)
+        return cls._instances[name]
+
+
+class CommandQueue(metaclass = NamedSingleton):
     """
     A command queue allows to store a list of Command that can be
     ran later.
     """
 
-    # The default queue
-    _default = None
+    name = "default"
+    readonly = False
+    commands = None
+    active = None
 
-    def __init__(self, default=True, readonly=False):
+    def __init__(self, name : str = "default"):
         """
-        Create a new empty command queue.
-
         Parameters
         ----------
-
-        default : bool
-
-            Make this queue the default one.
+        name:
+            Name of the queue
         """
 
-        self._commands = []
-        self.readonly = readonly
-        if default:
-            CommandQueue._default = self
+        self.commands = []
+        self.name = name
+        self.readonly = False
+        CommandQueue.active = self
 
+
+    def __str__(self):
+
+        s = f"CommandQueue({self.name}, "
+        if CommandQueue.active == self:
+            s += f"active, "
+        else:
+            s += f"not active, "
+        if self.readonly:
+            s += f' read-only) : {len(self)} command(s)\n'
+        else:
+            s += f' read-write) : {len(self)} command(s)\n'
+        for command in self.commands:
+            s +=   "  - " + str(command)
+        return s
 
     def empty (self):
         """ Empty the queue """
 
-        self._commands = []
+        self.commands = []
+        return self
 
 
     def __len__(self):
         """ Length of command queue. """
 
-        return len(self._commands)
+        return len(self.commands)
 
 
     def __getitem__(self, index):
         """ Get command at provided index. """
 
-        return self._commands[index]
-
-
-    @classmethod
-    def get_default(cls):
-        """
-        Return the default queue
-        """
-
-        if CommandQueue._default is None:
-            CommandQueue._default = CommandQueue()
-        return CommandQueue._default
+        return self.commands[index]
 
 
     def run(self,  globals=None, locals=None):
@@ -97,7 +146,7 @@ class CommandQueue:
 
         readonly = self.readonly
         self.readonly = True
-        for command in self._commands:
+        for command in self.commands:
             command.execute(globals, locals)
         self.readonly = readonly
 
@@ -121,9 +170,10 @@ class CommandQueue:
         """
 
         if not self.readonly:
-            self._commands.append(command)
+            self.commands.append(command)
             return True
         return False
+
 
 def get_default_args(func):
     """Retrieve default arguments and their values from a function. """
@@ -135,28 +185,19 @@ def get_default_args(func):
         if v.default is not inspect.Parameter.empty }
 
 
-# Global variable controlling whether commands are build and recorded
-__command_record__ = True
 
 def command(name=None):
     """
-    Function decorator that create a command when the function is called and
-    optionally record it and/or write it to stdout. The name of the method it
-    decorates can be overriden with the method argument.
-
-    Parameters
-    ----------
-
-    name : string
-
-        Alternative name of the command. If not provided, the actual
-        name is used
+    Function decorator that creates a command when the function is
+    called and optionally record it. The name of the method can
+    can be overriden with the provided name.
     """
 
     def wrapper(func):
 
         @wraps(func)
         def inner(self, *args, **kwargs):
+            global __record__
 
             no_command = False
             if "__no_command__" in kwargs:
@@ -165,9 +206,10 @@ def command(name=None):
 
             result = func(self, *args, **kwargs)
 
-            if not __command_record__:
+            if not __record__:
                 return result
 
+            queue = CommandQueue("active")
             keys = func.__code__.co_varnames[1:]
             annotations = func.__annotations__
             annotations = typing.get_type_hints(func)
@@ -199,9 +241,6 @@ def command(name=None):
                     if isinstance(value, Object):
                         key = key + "(id)"
                     parameters[key] = value
-
-            # Get default command queue
-            queue = CommandQueue.get_default()
 
             # Check if parameter is of the right type, else, search
             # for a conversion method inside the parameter class.

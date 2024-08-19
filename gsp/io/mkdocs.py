@@ -17,7 +17,7 @@ class mkdocs():
         self.formats = formats
 
     def __enter__(self):
-        CommandQueue.get_default().empty()
+        CommandQueue("active").empty()
         Object.objects = {}
         CID.counter = itertools.count()
         OID.counter = itertools.count()

@@ -48,13 +48,16 @@ def dump_command(command, stream=sys.stdout):
             else:
                 value = str(value) + " (converted)"
 
-        if key.endswith("(id)"):
-            key = key[:-4]
-
         if key == "id":
             s += "     - OBJECT_ID: %s" % value + dim(" (int)\n")
         else:
-            vtype = command.annotations[key]
+            if key.endswith("(id)"):
+                key = key[:-4]
+                vtype = command.annotations[key]
+                key += "_ID"
+            else:
+                vtype = command.annotations[key]
+
             if hasattr(vtype, "__name__"):
                 vtype = vtype.__name__
             else:
@@ -73,9 +76,9 @@ def dump_command(command, stream=sys.stdout):
 def dump(queue=None, filename=None):
     """ Save command queue to a file """
 
-    queue = queue or CommandQueue.get_default()
+    queue = queue or CommandQueue("active")
     commands = ""
-    for command in queue._commands:
+    for command in queue.commands:
         commands += dump_command(command, stream=None)
         commands += "\n"
 

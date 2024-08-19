@@ -7,7 +7,7 @@ import json
 import base64
 import numpy as np
 from .. object import Object
-from . command import CommandQueue, Command, Converter, CID
+from . command import CommandQueue, Command
 
 def default(obj):
     from .. core.types import Color
@@ -60,9 +60,9 @@ def dump_command(command, stream=sys.stdout):
 def dump(queue=None, filename=None):
     """ Save command queue to a file """
 
-    queue = queue or CommandQueue.get_default()
+    queue = queue or CommandQueue("active")
     commands = []
-    for command in queue._commands:
+    for command in queue.commands:
         commands.append(dump_command(command, stream=None))
     payload = { "jsonrpc": "2.0", "commands" : commands }
 
@@ -76,18 +76,18 @@ def dump(queue=None, filename=None):
 def save(filename, queue = None ):
     """ Save command queue to a file """
 
-    queue = queue or CommandQueue.get_default()
+    queue = queue or CommandQueue()
     dump(queue, filename)
 
 
-def load(filename):
+def load(filename, queue = None):
     """ Load commands from JSON file into the default command queue """
 
     with open(filename) as stream:
         commands = json.load(stream)["commands"]
 
     # Get default command queue
-    queue = CommandQueue.get_default()
+    queue = queue or CommandQueue()
     queue.empty()
 
     for command in commands:
