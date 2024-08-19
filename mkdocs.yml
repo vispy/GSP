@@ -71,21 +71,23 @@ plugins:
             show_symbol_type_toc: true
             docstring_section_style: table # list spacy
             docstring_options:
-              ignore_init_summary: true
+              ignore_init_summary: false
               show_root_toc_entry: false
-            merge_init_into_class: true
+            merge_init_into_class: false
             show_submodules: yes
             show_root_heading: true
             show_source: false
             show_bases: false
             show_root_full_path: false
             show_signature_annotations: yes
+            inherited_members: true
             separate_signature: yes
 
 nav:
  - Overview:
    - index.md
  - Specifications:
+   - General
    - Core:
      - api/core/canvas.md
      - api/core/viewport.md
@@ -101,3 +103,5 @@ nav:
      - api/transform/colormap.md
      - api/transform/faces.md
      - api/transform/light.md
+   - Visual:
+     - api/visual/pixels.md
