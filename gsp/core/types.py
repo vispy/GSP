@@ -3,6 +3,10 @@
 # License: BSD 3 clause
 import numpy as np
 from enum import IntEnum
+from collections import namedtuple
+
+
+Color = namedtuple('Color', ['r', 'g', 'b', 'a'])
 
 class Measure:
     """
@@ -49,46 +53,46 @@ class Matrix:
         return self._data
 
 
-class Color:
-    """ Representation of a color in the sRGB colorspace. """
+# class Color:
+#     """ Representation of a color in the sRGB colorspace. """
 
-    def __init__(self, red :   float,
-                       green : float,
-                       blue :  float,
-                       alpha : float):
-        """
-        Representation of a color in the sRGB colorspace.
+#     def __init__(self, red :   float,
+#                        green : float,
+#                        blue :  float,
+#                        alpha : float):
+#         """
+#         Representation of a color in the sRGB colorspace.
 
-        Parameters
-        ----------
+#         Parameters
+#         ----------
 
-        red:
+#         red:
 
-            Normalized value for the red channel
+#             Normalized value for the red channel
 
-        green:
+#         green:
 
-            Normalized value for the green channel
+#             Normalized value for the green channel
 
-        blue:
+#         blue:
 
-            Normalized value for the blue channel
+#             Normalized value for the blue channel
 
-        alpha:
+#         alpha:
 
-            Normalized value for he alpha channel.
-        """
+#             Normalized value for he alpha channel.
+#         """
 
-        self._color = np.array([red, green, blue, alpha])
+#         self._color = np.array([red, green, blue, alpha])
 
-    def __array__(self):
-        return self._color
+#     def __array__(self):
+#         return self._color
 
-    def __getitem__(self, index):
-        return self._color[index]
+#     def __getitem__(self, index):
+#         return self._color[index]
 
-    def __len__(self):
-        return len(self._color)
+#     def __len__(self):
+#         return len(self._color)
 
 
 

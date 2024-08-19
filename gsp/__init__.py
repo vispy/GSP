@@ -5,9 +5,43 @@
 from . log import log
 from . object import Object
 
+from . import io
 from . import core
 from . import visual
 from . import transform
+
+@io.register("str", "memoryview")
+def str_to_memoryview(obj):
+    return memoryview(bytes(obj))
+
+@io.register("list", "Color")
+def list_to_Color(obj):
+    return core.Color(*obj)
+
+@io.register("tuple", "Color")
+def tuple_to_Color(obj):
+    return core.Color(*obj)
+
+@io.register("Color", "list")
+def Color_to_list(obj):
+    return obj._color.tolist()
+
+@io.register("Color", "tuple")
+def Color_to_tuple(obj):
+    return tuple(obj._color.tolist())
+
+@io.register("list", "tuple")
+def list_to_tuple(obj):
+    return tuple(obj)
+
+@io.register("tuple", "list")
+def tuple_to_list(obj):
+    return list(obj)
+
+@io.register("int", "Canvas")
+def int_to_Object(obj):
+    return Object.objects[obj]
+
 
 def use(backend):
     """

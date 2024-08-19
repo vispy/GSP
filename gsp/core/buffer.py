@@ -20,7 +20,7 @@ class Buffer(Object):
     @command("core.Buffer")
     def __init__(self, count : int,
                        dtype : np.dtype,
-                       data : memoryview):
+                       data : memoryview | bytes = None):
         """
         Create a new Buffer.
 
@@ -34,6 +34,9 @@ class Buffer(Object):
             Content of of the buffer
         """
         Object.__init__(self)
+        self._count = count
+        self._dtype = dtype
+        self._data = data
 
     @command()
     def set_data(self, offset : int,
@@ -49,3 +52,6 @@ class Buffer(Object):
             Content to update with.
         """
         pass
+
+    def __len__(self):
+        return self._count

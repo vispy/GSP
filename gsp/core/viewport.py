@@ -5,6 +5,7 @@
 from gsp import Object
 from gsp.io.command import command
 from gsp.core.canvas import Canvas
+from gsp.core.types import Color
 
 class Viewport(Object):
     """
@@ -28,7 +29,7 @@ class Viewport(Object):
                        y : int,
                        width : int,
                        height : int,
-                       color : list):
+                       color : Color | list | tuple):
         """
         A viewport is a rectangular two-dimensional surface.
 

@@ -3,6 +3,8 @@
 # License: BSD 3 clause
 import io
 import sys
+from types import UnionType
+from typing import Union, get_args, get_origin
 from datetime import datetime
 from .. object import Object, OID
 from . command import CommandQueue, Command, Converter, CID
@@ -40,7 +42,14 @@ def dump_command(command, stream=sys.stdout):
 
         # Immediate conversion for lisibility in the documentation
         if isinstance(value, Converter):
-            value = str(value()) + " (converted)"
+            value = value()
+            if isinstance(value, Object):
+                value = value.id
+            else:
+                value = str(value) + " (converted)"
+
+        if key.endswith("(id)"):
+            key = key[:-4]
 
         if key == "id":
             s += "     - OBJECT_ID: %s" % value + dim(" (int)\n")
@@ -49,7 +58,10 @@ def dump_command(command, stream=sys.stdout):
             if hasattr(vtype, "__name__"):
                 vtype = vtype.__name__
             else:
-                vtype = str(vtype)
+                if isinstance(vtype, UnionType):
+                    vtype = " | ".join([str(v.__name__) for v in get_args(vtype)])
+                else:
+                    vtype = str(vtype)
             s +="     - %s: %s" % (key.upper(), value)
             s += dim(" (%s)\n" % (vtype))
 

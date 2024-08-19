@@ -14,7 +14,7 @@ class Buffer(core.Buffer):
     @command("core.Buffer")
     def __init__(self, count : int,
                        dtype : np.dtype,
-                       data : memoryview = None):
+                       data : memoryview | bytes = None):
         super().__init__(count, dtype, data, __no_command__ = True)
         self._count = count
         self._dtype = dtype
@@ -22,14 +22,12 @@ class Buffer(core.Buffer):
         self._array = None
 
     @command()
-    def set_data(self, offset, data):
+    def set_data(self, offset : int,
+                       data : memoryview | bytes):
         # Be careful with set_data when the underlying data is already tracked
         # buffer = np.asanyarray(self).view(np.ubyte)
         # buffer[offset:offset+len(data)] = np.frombuffer(data, np.ubyte)
         pass
-
-    def __len__(self):
-        return self._count
 
     def __array__(self):
         if self._array is None:

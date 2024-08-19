@@ -11,7 +11,6 @@ import types
 import typing
 import inspect
 import itertools
-from base64 import b64encode
 from datetime import datetime
 from functools import wraps
 from types import UnionType
@@ -136,6 +135,9 @@ def get_default_args(func):
         if v.default is not inspect.Parameter.empty }
 
 
+# Global variable controlling whether commands are build and recorded
+__command_record__ = True
+
 def command(name=None):
     """
     Function decorator that create a command when the function is called and
@@ -161,14 +163,17 @@ def command(name=None):
                 no_command = True
                 del kwargs["__no_command__"]
 
+            result = func(self, *args, **kwargs)
+
+            if not __command_record__:
+                return result
+
             keys = func.__code__.co_varnames[1:]
             annotations = func.__annotations__
             annotations = typing.get_type_hints(func)
 
             values = args
             defaults = get_default_args(func)
-
-            func(self, *args, **kwargs)
 
             # Add self (identifying by id) to parameters
             parameters = {"id": self.id}
@@ -253,6 +258,7 @@ def command(name=None):
                 queue.push(command)
                 log.info("%s" % command)
 
+            return result
         return inner
     return wrapper
 
