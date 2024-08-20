@@ -18,7 +18,12 @@ class Buffer(core.Buffer):
         super().__init__(count, dtype, data, __no_command__ = True)
         self._count = count
         self._dtype = dtype
-        self._data = data
+
+        if isinstance(data, str):
+            import base64
+            self._data = base64.b64decode(data)
+        else:
+            self._data = data
         self._array = None
 
     @command()

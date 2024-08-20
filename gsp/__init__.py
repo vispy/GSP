@@ -91,12 +91,10 @@ def load(filename, format=None):
     """
 
     import pathlib
-    from gsp.io import json
-    from gsp.io.command import CommandQueue
+    from gsp.io import queue, json
 
     Object.objects = {}
-    queue = CommandQueue.get_default()
-    queue.empty()
+    queue = queue("active").empty()
 
     format = format or pathlib.Path(filename).suffix[1:]
     if format in ["json"]:

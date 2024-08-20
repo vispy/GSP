@@ -58,8 +58,6 @@ class Pixels(Visual):
 
         super().__init__()
 
-        n = len(positions)
-
         # These variables are available prior to rendering
         self._in_variables = {
             "positions" : positions,
@@ -70,6 +68,7 @@ class Pixels(Visual):
         # These variables exists only during rendering and are
         # available on server side only. We have thus to make
         # sure they are not tracked.
+        n = len(positions)
         self._out_variables = {
             "screen[positions]" : np.empty((n,3), np.float32),
             "depth[positions]" : np.empty(n, np.float32)

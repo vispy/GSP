@@ -28,7 +28,7 @@ class Tracker:
     def __init__(self, ndarray):
         if ndarray is not None:
             self.ndarray = ndarray
-            self.gsp_buffer = Buffer(ndarray.size, ndarray.dtype, ndarray.data)
+            self.gsp_buffer = Buffer(len(ndarray), ndarray.dtype, ndarray.data)
             self.gsp_buffer.set_data(0, ndarray.tobytes())
 
     def set_data(self, offset, bytes):
