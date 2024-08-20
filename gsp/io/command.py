@@ -42,7 +42,9 @@ def record(state : bool = False):
 
 def queue(name = "default"):
     """
-    Return a new or existing command queue.
+    Return a new or existing command queue. There is a special
+    name "active" that relates to the current command queue. Each time
+    a queue is created, it becomes automatically the active one.
     """
 
     return CommandQueue(name)
@@ -78,12 +80,13 @@ class CommandQueue(metaclass = NamedSingleton):
     commands = None
     active = None
 
-    def __init__(self, name : str = "default"):
+    def __init__(self, name : str = "active"):
         """
         Parameters
         ----------
         name:
-            Name of the queue
+            Name of the queue. The default queue is the "active" one,
+            that is, the latest created one.
         """
 
         self.commands = []
@@ -94,17 +97,17 @@ class CommandQueue(metaclass = NamedSingleton):
 
     def __str__(self):
 
-        s = f"CommandQueue({self.name}, "
+        s = f'CommandQueue("{self.name}", '
         if CommandQueue.active == self:
             s += f"active, "
         else:
             s += f"not active, "
         if self.readonly:
-            s += f' read-only) : {len(self)} command(s)\n'
+            s += f'read-only) : {len(self)} command(s)\n'
         else:
-            s += f' read-write) : {len(self)} command(s)\n'
+            s += f'read-write) : {len(self)} command(s)\n'
         for command in self.commands:
-            s +=   "  - " + str(command)
+            s +=   "  - " + str(command) + "\n"
         return s
 
     def empty (self):

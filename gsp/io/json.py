@@ -76,7 +76,7 @@ def dump(queue=None, filename=None):
 def save(filename, queue = None ):
     """ Save command queue to a file """
 
-    queue = queue or CommandQueue()
+    queue = queue or CommandQueue("active")
     dump(queue, filename)
 
 
@@ -87,7 +87,7 @@ def load(filename, queue = None):
         commands = json.load(stream)["commands"]
 
     # Get default command queue
-    queue = queue or CommandQueue()
+    queue = queue or CommandQueue("active")
     queue.empty()
 
     for command in commands:

@@ -3,7 +3,7 @@
 # License: BSD 3 clause
 
 from . mkdocs import mkdocs
-from . command import record, command
+from . command import queue, record, command
 from . convert import convert, register, unregister
 from . command import CID, Command, CommandQueue
 
