@@ -102,10 +102,8 @@ nav:
      - api/transform/operators.md
      - api/transform/accessors.md
      - api/transform/measures.md
-     - api/transform/depth.md
-     - api/transform/screen.md
+     - api/transform/out.md
      - api/transform/colormap.md
-     - api/transform/faces.md
      - api/transform/light.md
    - Visual:
      - api/visual/pixels.md

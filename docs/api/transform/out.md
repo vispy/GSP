@@ -1,3 +1,3 @@
-::: gsp.transform.Depth
+::: gsp.transform.Out
     options:
       members:
