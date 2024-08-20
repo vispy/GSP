@@ -54,6 +54,14 @@ class Pixels(visual.Pixels):
             canvas.mpl_connect('resize_event',
                                lambda event: self.render(viewport))
 
+        # If render has been called without model/view/proj, we don't
+        # render Such call is only used to declare that this visual is
+        # to be rendered on that viewport.
+        if self._transform is None:
+            # Restore tracking
+            glm.ndarray.tracked.__tracker_class__ = tracker
+            return
+
         collection = self._viewports[viewport]
         positions = self.eval_variable("positions")
         positions = positions.reshape(-1,3)

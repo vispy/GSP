@@ -83,7 +83,7 @@ class Visual(Object):
     def render(self, viewport : Viewport,
                      model : Matrix = None,
                      view : Matrix = None,
-                     proj : Matrix =None):
+                     proj : Matrix = None):
         """
         Render the visual on viewport using the given model,
         view, proj matrices
@@ -108,5 +108,9 @@ class Visual(Object):
         if proj is not None:
             self._proj = proj
 
-        self._transform = self._proj @ self._view @ self._model
+        try:
+            self._transform = self._proj @ self._view @ self._model
+        except:
+            self._transform = None
+
         self.set_variable("viewport", viewport)
