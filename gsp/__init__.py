@@ -50,6 +50,8 @@ def use(backend):
     """
 
     import inspect
+    from . import glm
+    import numpy as np
 
     if backend == "matplotlib":
         from . import transform
@@ -62,6 +64,8 @@ def use(backend):
         from . import core
         from . import transform
 
+    inspect.stack()[1][0].f_globals["np"] = np
+    inspect.stack()[1][0].f_globals["glm"] = glm
     inspect.stack()[1][0].f_globals["core"] = core
     inspect.stack()[1][0].f_globals["transform"] = transform
     inspect.stack()[1][0].f_globals["visual"] = visual
