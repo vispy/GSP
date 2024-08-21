@@ -64,9 +64,8 @@ class Pixels(visual.Pixels):
 
         collection = self._viewports[viewport]
         positions = self.eval_variable("positions")
-        positions = positions.reshape(-1,3)
+        # positions = positions.reshape(-1,3)
         positions = glm.to_vec3(glm.to_vec4(positions) @ self._transform.T)
-
         sort_indices = np.argsort(positions[:,2])
 
         collection.set_offsets(positions[sort_indices,:2])

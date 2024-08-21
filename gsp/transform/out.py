@@ -35,8 +35,8 @@ class Out(Transform):
 
         Parameters
         ----------
-        out_variables :
-            Dictionary of out_variables produced by a visual
+        variables :
+            Dictionary of out variables produced by a visual
         """
 
         if "." in self.name:
