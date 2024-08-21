@@ -46,19 +46,20 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tabbed:
       alternate_style: true 
+  - toc:
+      permalink: true
 
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-
 plugins:
 # - section-index
-  - search
-  # See https://github.com/pawamoy/markdown-exec
+#  - search
   - markdown-exec
   - autorefs
+  - search
   - mkdocstrings:
       default_handler: python
       handlers:
@@ -86,6 +87,8 @@ plugins:
 nav:
  - Overview:
    - index.md
+ - Gallery:
+   - gallery-zero.md
  - Implementations:
    - Python:
      - python/command.md

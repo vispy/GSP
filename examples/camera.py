@@ -72,6 +72,14 @@ class Camera():
         self.update("motion")
         plt.show()
 
+    def save(self, filename):
+        """
+        Save current camera output to filename
+        """
+
+        self.update("motion")
+        plt.savefig(filename)
+
 
     def update(self, event):
         """
