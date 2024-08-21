@@ -2,11 +2,12 @@
 # Authors: Nicolas P .Rougier <nicolas.rougier@inria.fr>
 # License: BSD 3 clause
 """
-Pixels visual (2d)
+Pixels visual (2D)
 ==================
 
-This example show the Pixels visual where pixels are spread
-randomly inside a square that can be zoomed using the mouse.
+This example shows the Pixels visual where pixels are spread randomly
+inside a square that can be zoomed using the mouse and an orthographic
+camera.
 """
 import gsp
 gsp.use("matplotlib")

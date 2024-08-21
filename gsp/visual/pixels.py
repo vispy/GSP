@@ -25,8 +25,7 @@ class Pixels(Visual):
         in [ attribute | uniform ] vec4 colors; // in("colors")
 
         // Rendering stage 2
-        out attribute vec2 screen;              // out("screen[positions]")
-        out attribute float depth;              // out("depth[positions]")
+        out attribute vec3 screen;              // out("screen[positions]")
 
         // Rendering stage 3
         out attribute vec4 colors;              // out("colors")
@@ -71,5 +70,4 @@ class Pixels(Visual):
         n = len(positions)
         self._out_variables = {
             "screen[positions]" : np.empty((n,3), np.float32),
-            "depth[positions]" : np.empty(n, np.float32)
         }

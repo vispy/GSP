@@ -67,8 +67,10 @@ class Pixels(visual.Pixels):
         # positions = positions.reshape(-1,3)
         positions = glm.to_vec3(glm.to_vec4(positions) @ self._transform.T)
         sort_indices = np.argsort(positions[:,2])
-
         collection.set_offsets(positions[sort_indices,:2])
+
+        self.set_variable("screen[positions]", positions)
+
         colors = self.eval_variable("colors")
         if colors is not None:
             if isinstance(colors, np.ndarray) and len(colors) == len(positions):
@@ -76,8 +78,6 @@ class Pixels(visual.Pixels):
             else:
                 collection.set_facecolors(colors)
 
-        self.set_variable("screen[positions]", positions)
-        self.set_variable("depth[positions]", positions[:,2])
 
         # Restore tracking
         glm.ndarray.tracked.__tracker_class__ = tracker

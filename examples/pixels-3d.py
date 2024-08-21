@@ -2,11 +2,12 @@
 # Authors: Nicolas P .Rougier <nicolas.rougier@inria.fr>
 # License: BSD 3 clause
 """
-Pixels visual (3d, interactive)
-===============================
+Pixels visual (3D)
+==================
 
-This example show the **Pixels** visual where pixels are spread
-randomly inside a cube that can be rotated and zoomed using the mouse.
+This example shows the Pixels visual where pixels are spread
+randomly inside a cube that can be rotated and zoomed using the mouse
+and a perspective camera.
 """
 import gsp
 gsp.use("matplotlib")

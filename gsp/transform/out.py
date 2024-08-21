@@ -12,7 +12,7 @@ class Out(Transform):
     """
 
     @command("transform.Out")
-    def __init__(self, name : str):
+    def __init__(self, name : str = None):
         """
         Build the transform
 
@@ -28,6 +28,20 @@ class Out(Transform):
 
     def __call__(self):
         raise ValueError("Out transform cannot be composed")
+
+    def copy(self):
+        """
+        Copy the transform
+        """
+
+        transform = self.__class__()
+        transform.set_buffer(self._buffer)
+        transform.set_base(self.base)
+        transform.name = self.name
+        if self._next:
+            transform.set_next(self._next.copy())
+        return transform
+
 
     def evaluate(self, variables : dict):
         """
@@ -53,8 +67,8 @@ class Out(Transform):
         if name in variables.keys():
             variable = variables[name]
             if index is not None:
-                return variable[field][index]
+                return variable[..., index]
             else:
-                return variable[field]
+                return variable
         else:
             raise ValueError(f"Variable {name} not found")
