@@ -9,18 +9,22 @@
       
       
       
+        <link rel="prev" href="../gallery-zero.html">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="memory.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>Command - Graphic Server Protocol</title>
+        <title>Code instrumentation - Graphic Server Protocol</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
       
       
 
@@ -39,15 +43,15 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/_markdown_exec_pyodide.css">
+      <link rel="stylesheet" href="../assets/_markdown_exec_pyodide.css">
     
-      <link rel="stylesheet" href="../../assets/_markdown_exec_ansi.css">
+      <link rel="stylesheet" href="../assets/_markdown_exec_ansi.css">
     
-      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gsp.io.command.CommandQueue" class="md-skip">
+        <a href="#code-instrumentation" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +86,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Graphic Server Protocol" class="md-header__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
+    <a href=".." title="Graphic Server Protocol" class="md-header__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -102,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Command
+              Code instrumentation
             
           </span>
         </div>
@@ -179,7 +183,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../index.html" class="md-tabs__link">
+        <a href="../index.html" class="md-tabs__link">
           
   
   Overview
@@ -197,7 +201,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../gallery-zero.html" class="md-tabs__link">
+        <a href="../gallery-zero.html" class="md-tabs__link">
           
   
   Gallery
@@ -211,17 +215,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../python/command.html" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="command.html" class="md-tabs__link">
           
   
   Implementations
@@ -248,7 +256,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../core/canvas.html" class="md-tabs__link">
+        <a href="../api/core/canvas.html" class="md-tabs__link">
           
   
   Specifications
@@ -290,7 +298,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Graphic Server Protocol" class="md-nav__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
+    <a href=".." title="Graphic Server Protocol" class="md-nav__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -358,7 +366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -424,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gallery-zero.html" class="md-nav__link">
+      <a href="../gallery-zero.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -449,23 +457,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -476,7 +489,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Implementations
@@ -487,6 +500,8 @@
                 
   
   
+    
+  
   
   
     
@@ -496,11 +511,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -514,7 +529,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             Python
@@ -525,10 +540,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../python/command.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Code instrumentation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="command.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -537,6 +572,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#command-related-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command related functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gsp.io.command.queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;queue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gsp.io.command.record" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;record
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gsp.io.command.command" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversion-related-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion related functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gsp.io.convert.register" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;register
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gsp.io.convert.unregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;unregister
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gsp.io.convert.convert" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;convert
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -549,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/memory.html" class="md-nav__link">
+      <a href="memory.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -570,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/glm.html" class="md-nav__link">
+      <a href="glm.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -682,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/canvas.html" class="md-nav__link">
+      <a href="../api/core/canvas.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -703,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/viewport.html" class="md-nav__link">
+      <a href="../api/core/viewport.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -724,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/data.html" class="md-nav__link">
+      <a href="../api/core/data.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -745,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../core/buffer.html" class="md-nav__link">
+      <a href="../api/core/buffer.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -812,7 +939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/transform.html" class="md-nav__link">
+      <a href="../api/transform/transform.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -833,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/operators.html" class="md-nav__link">
+      <a href="../api/transform/operators.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -854,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/accessors.html" class="md-nav__link">
+      <a href="../api/transform/accessors.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -875,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/measures.html" class="md-nav__link">
+      <a href="../api/transform/measures.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -896,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/out.html" class="md-nav__link">
+      <a href="../api/transform/out.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -917,7 +1044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/colormap.html" class="md-nav__link">
+      <a href="../api/transform/colormap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -938,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/light.html" class="md-nav__link">
+      <a href="../api/transform/light.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1005,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visual/pixels.html" class="md-nav__link">
+      <a href="../api/visual/pixels.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1051,6 +1178,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1059,18 +1188,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gsp.io.command.CommandQueue" class="md-nav__link">
+  <a href="#command-related-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;CommandQueue
+      Command related functions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#gsp.io.command.Command" class="md-nav__link">
+  <a href="#gsp.io.command.queue" class="md-nav__link">
     <span class="md-ellipsis">
-      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;Command
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;queue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gsp.io.command.record" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;record
     </span>
   </a>
   
@@ -1080,6 +1218,42 @@
   <a href="#gsp.io.command.command" class="md-nav__link">
     <span class="md-ellipsis">
       <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversion-related-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversion related functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gsp.io.convert.register" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;register
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gsp.io.convert.unregister" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;unregister
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gsp.io.convert.convert" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;convert
     </span>
   </a>
   
@@ -1103,196 +1277,81 @@
   
 
 
-  <h1>Command</h1>
+<h1 id="code-instrumentation">Code instrumentation<a class="headerlink" href="#code-instrumentation" title="Permanent link">&para;</a></h1>
+<p>The Python implementation of the protocol relies on the automatic code
+instrumentation that is implemented through the
+<a href="#gsp.io.command.command">command</a> function decorator. This decorator
+registers all necessary information when a method is called and offers
+convenient conversion functions. This works by inspecting the declared
+type of a method (using <a href="https://peps.python.org/pep-3107/">function
+annotations</a>) and checking of the
+provided type has the right type. If this is not the case, the command
+search for a converter among those registered.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="exec-10--__tabbed_1_1" name="exec-10--__tabbed_1" type="radio" /><input id="exec-10--__tabbed_1_2" name="exec-10--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="exec-10--__tabbed_1_1">Code instrumentation</label><label for="exec-10--__tabbed_1_2">Output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">gsp</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nd">@gsp</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">,</span> <span class="s2">&quot;int&quot;</span><span class="p">)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">def</span> <span class="nf">float_to_int</span><span class="p">(</span><span class="n">value</span><span class="p">):</span> <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="n">gsp</span><span class="o">.</span><span class="n">Object</span><span class="p">):</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="nd">@gsp</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;CREATE&quot;</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span> <span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="n">gsp</span><span class="o">.</span><span class="n">Object</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">foos</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">Foo</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">gsp</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">queue</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-pycon highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">CommandQueue(&quot;default&quot;, active, read-write) : 2 command(s)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">  - Command #1: Foo(id=1)/CREATE(…)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="go">  - Command #2: Foo(id=2)/CREATE(…)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="command-related-functions">Command related functions<a class="headerlink" href="#command-related-functions" title="Permanent link">&para;</a></h2>
 
-<div class="doc doc-object doc-class">
+
+<div class="doc doc-object doc-function">
 
 
+<h2 id="gsp.io.command.queue" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">queue</span>
 
-<h2 id="gsp.io.command.CommandQueue" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">CommandQueue</span>
 
-
-<a href="#gsp.io.command.CommandQueue" class="headerlink" title="Permanent link">&para;</a></h2>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">CommandQueue</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;active&#39;</span><span class="p">)</span>
+<a href="#gsp.io.command.queue" class="headerlink" title="Permanent link">&para;</a></h2>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">queue</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
 </span></code></pre></div>
 
     <div class="doc doc-contents first">
 
-
-      <p>A command queue allows to store a list of Command that can be
-ran later.</p>
-
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td><code>name</code></td>
-            <td>
-                  <code>str</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Name of the queue. The default queue is the "active" one,
-that is, the latest created one.</p>
-              </div>
-            </td>
-            <td>
-                  <code>&#39;active&#39;</code>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-  </div>
+      <p>Return a new or existing command queue. There is a special
+name "active" that relates to the current command queue. Each time
+a queue is created, it becomes automatically the active one.</p>
 
     </div>
 
 </div>
 
-<div class="doc doc-object doc-class">
+<div class="doc doc-object doc-function">
 
 
+<h2 id="gsp.io.command.record" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">record</span>
 
-<h2 id="gsp.io.command.Command" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">Command</span>
 
-
-<a href="#gsp.io.command.Command" class="headerlink" title="Permanent link">&para;</a></h2>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">Command</span><span class="p">(</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">classname</span><span class="p">,</span> <span class="n">methodname</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span><span class="kc">None</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span>
+<a href="#gsp.io.command.record" class="headerlink" title="Permanent link">&para;</a></h2>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">record</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </span></code></pre></div>
 
     <div class="doc doc-contents first">
 
-
-      <p>Generic command with a unique id.</p>
-
-      <p>Build a new command with a unique command id (cid)</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td><code>classname</code></td>
-            <td>
-                  <code>string</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Name of the class</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code>methodname</code></td>
-            <td>
-                  <code>string</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Name of the method</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code>parameters</code></td>
-            <td>
-                  <code>dict</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Dictionnary of parameters</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code>annotations</code></td>
-            <td>
-                  <code>dict</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Annoated type of the called method</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-<p><span class="doc-section-title">Examples:</span></p>
-    <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="n">Object</span><span class="p">):</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span> <span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">command</span> <span class="o">=</span> <span class="n">Command</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;__init__&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">foo</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
-</span></code></pre></div>
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-  </div>
+      <p>Activate (state=True) or deactivate (state=False) global
+command recording (for all command queues).</p>
 
     </div>
 
@@ -1314,6 +1373,66 @@ that is, the latest created one.</p>
       <p>Function decorator that creates a command when the function is
 called and optionally record it. The name of the method can
 can be overriden with the provided name.</p>
+
+    </div>
+
+</div><h2 id="conversion-related-functions">Conversion related functions<a class="headerlink" href="#conversion-related-functions" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="gsp.io.convert.register" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">register</span>
+
+
+<a href="#gsp.io.convert.register" class="headerlink" title="Permanent link">&para;</a></h2>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">register</span><span class="p">(</span><span class="n">src_types</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">dst_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents first">
+
+      <p>Function decorator that registers a converter from <code>src_types</code>
+to <code>dst_type</code></p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="gsp.io.convert.unregister" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">unregister</span>
+
+
+<a href="#gsp.io.convert.unregister" class="headerlink" title="Permanent link">&para;</a></h2>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">unregister</span><span class="p">(</span><span class="n">src_types</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">dst_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents first">
+
+      <p>Unregister converters from <code>src_types</code> to <code>dst_type</code>.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="gsp.io.convert.convert" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">convert</span>
+
+
+<a href="#gsp.io.convert.convert" class="headerlink" title="Permanent link">&para;</a></h2>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">convert</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">dst_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents first">
+
+      <p>Return a converter from <code>value</code> type to <code>dst_type</code>, if there
+exists such a converter.</p>
 
     </div>
 
@@ -1364,14 +1483,14 @@ can be overriden with the provided name.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="../../assets/_markdown_exec_pyodide.js"></script>
+        <script src="../assets/_markdown_exec_pyodide.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
