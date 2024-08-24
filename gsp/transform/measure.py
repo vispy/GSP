@@ -45,8 +45,7 @@ class Measure(Transform):
 
     @command("transform.Measure")
     def __init__(self):
-        Transform.__init__(self,
-                           __no_command__ = True)
+        super.__init__(__no_command__ = True)
 
 
     def evaluate(self, variables):
@@ -96,7 +95,7 @@ class Measure(Transform):
         return scale * value
 
     def __mul__(self, other):
-        if isinstance(other, (int,tuple,np.ndarray)):
+        if isinstance(other, (int,float,tuple,np.ndarray)):
             return self(other)
         return Transform.__mul__(self, other)
 

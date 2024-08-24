@@ -88,7 +88,8 @@ nav:
  - Overview:
    - index.md
  - Gallery:
-   - gallery-zero.md
+   - gallery/canvas-viewport.md
+   - gallery/pixels-points-markers.md
  - Implementations:
    - Python:
      - python/command.md

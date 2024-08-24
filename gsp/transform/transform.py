@@ -66,7 +66,7 @@ class Transform(Object):
         self._next = next
 
     @command()
-    def set_buffer(self, buffer : Transform = None):
+    def set_buffer(self, buffer : Transform | float | int = None):
         """Bind the transform to the given buffer.
 
         Parameters

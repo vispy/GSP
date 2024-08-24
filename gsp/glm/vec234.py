@@ -72,6 +72,21 @@ def to_vec2(other, dtype  = None):
 
     raise TypeError("Cannot convert %s to vec2" % other)
 
+
+def float(count = None) -> np.ndarray:
+    """1-component vectors of single precision floats (32 bits)
+
+    Args:
+
+        count (int): Number of vectors to create
+
+    Returns:
+
+        (np.ndarray): (count,1) shaped array with dtype np.float32
+    """
+    return ndarray.scalar(count, dtype=np.float32)
+
+
 def bvec2(count = None):
     """2-components vectors of unsigned bytes (8 bits)
 

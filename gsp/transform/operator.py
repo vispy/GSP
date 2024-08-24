@@ -9,15 +9,15 @@ class Operator(Transform):
 
     @command("transform.Operator")
     def __init__(self, operator : str,
-                       left : Transform | Buffer = None,
-                       right : Transform | Buffer = None):
+                       left : Transform | Buffer | int | float = None,
+                       right : Transform | Buffer | int | float = None):
         """Arithmetic operator to compose two transforms
 
         Parameters
         ----------
         operator :
             Operator description, one of: `+` (addition),
-            `-` (subtraction), `/` (division), `*` (mutliplication),
+            `-` (subtraction), `/` (division), `*` (multiplication),
         left :
             Left operand (transform or buffer)
         right :
@@ -67,7 +67,7 @@ class Operator(Transform):
 
     @command()
     def set_left(self,
-                 left : Transform):
+                 left : Transform | Buffer | float | int):
         """Set left operand
 
         Parameters
@@ -80,7 +80,7 @@ class Operator(Transform):
 
     @command()
     def set_right(self,
-                  right : Transform):
+                  right : Transform | Buffer | float | int):
         """
         Set right operand
 
@@ -139,8 +139,8 @@ class Operator(Transform):
 class Add(Operator):
 
     @command("transform.Add")
-    def __init__(self, left : Transform | Buffer = None,
-                       right : Transform | Buffer = None):
+    def __init__(self, left : Transform | Buffer | float | int = None,
+                       right : Transform | Buffer | float | int = None):
         """
         Arithmetic addition of left and right
         """
@@ -155,8 +155,8 @@ class Add(Operator):
 class Sub(Operator):
 
     @command("transform.Sub")
-    def __init__(self, left : Transform | Buffer = None,
-                       right : Transform | Buffer = None):
+    def __init__(self, left : Transform | Buffer | float | int = None,
+                       right : Transform | Buffer | float | int = None):
         """
         Arithmetic subtraction of left and right
         """
@@ -170,8 +170,8 @@ class Sub(Operator):
 class Mul(Operator):
 
     @command("transform.Mul")
-    def __init__(self, left : Transform | Buffer = None,
-                       right : Transform | Buffer = None):
+    def __init__(self, left : Transform | Buffer | float | int = None,
+                       right : Transform | Buffer | float | int = None):
         """
         Arithmetic multiplication of left and right
         """
@@ -185,8 +185,8 @@ class Mul(Operator):
 class Div(Operator):
 
     @command("transform.Div")
-    def __init__(self,left : Transform | Buffer = None,
-                      right : Transform | Buffer = None):
+    def __init__(self,left : Transform | Buffer | float | int = None,
+                      right : Transform | Buffer | float | int = None):
         """
         Arithmetic division of left and right
         """

@@ -3,7 +3,7 @@
 # License: BSD 3 clause
 
 from . pixels import Pixels
-# from . points import Points
+from . points import Points
 # from . markers import Markers
 # from . segments import Segments
 # from . paths import Paths
