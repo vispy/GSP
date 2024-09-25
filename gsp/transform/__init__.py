@@ -1,5 +1,5 @@
 # Package: Graphic Server Protocol
-# Authors: Nicolas P .Rougier <nicolas.rougier@inria.fr>
+# Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
 from . transform import Transform
 from . operator import Operator, Add, Sub, Mul, Div

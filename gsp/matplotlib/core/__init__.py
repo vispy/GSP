@@ -1,5 +1,5 @@
 # Package: Graphic Server Protocol / Matplotlib
-# Authors: Nicolas P .Rougier <nicolas.rougier@inria.fr>
+# Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
 
 #from . data import Data

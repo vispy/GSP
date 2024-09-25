@@ -18,10 +18,10 @@ dependencies = [
 requires-python = ">=3.8"
 
 authors = [
-  {name = "Nicolas P. Rougier", email = "nicolas.rougier@inria.fr"}
+  {name = "Nicolas P. Rougier", email = "nicolas.rougier@gmail.com"}
 ]
 maintainers = [
-  {name = "Nicolas P. Rougier", email = "nicolas.rougier@inria.fr"}
+  {name = "Nicolas P. Rougier", email = "nicolas.rougier@gmail.com"}
 ]
 
 description = "Graphic Server Protocol"

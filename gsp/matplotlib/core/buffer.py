@@ -1,5 +1,5 @@
 # Package: Graphic Server Protocol / Matplotlib
-# Authors: Nicolas P .Rougier <nicolas.rougier@inria.fr>
+# Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
 from __future__ import annotations # Solve circular references with typing
 import numpy as np

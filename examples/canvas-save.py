@@ -1,5 +1,5 @@
 # Package: Graphic Server Protocol / Matplotlib
-# Authors: Nicolas P .Rougier <nicolas.rougier@inria.fr>
+# Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
 """
 This example shows how to create a canvas and save it to a file.

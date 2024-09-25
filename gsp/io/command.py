@@ -1,5 +1,5 @@
 # Package: Graphic Server Protocol
-# Authors: Nicolas P .Rougier <nicolas.rougier@inria.fr>
+# Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
 """
 The role of the Command class is to facilitate the writing of the reference
