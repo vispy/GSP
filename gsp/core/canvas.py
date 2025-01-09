@@ -20,7 +20,7 @@ class Canvas(Object):
 
 
 
-    ```bash
+    ```bash exec="1"
     python docs/snippets/Canvas_init.py
     ```
     """

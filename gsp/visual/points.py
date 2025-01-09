@@ -15,13 +15,13 @@ class Points(Visual):
     viewer such that their rendered shape is a disc, independentely of
     any transform.
 
-        ??? note "IN/OUT variables "
+    ??? note "IN/OUT variables "
         ```glsl
 
         // Rendering stage 1
         in uniform vec4 viewport;                    // in("viewport")
         in attribute [ vec2 | vec3 ] positions;      // in("positions")
-        in [ attribute | uniform ] float sizes;       // in("sizes")
+        in [ attribute | uniform ] float sizes;      // in("sizes")
         in [ attribute | uniform ] vec4 fill_colors; // in("fill_colors")
         in [ attribute | uniform ] vec4 line_colors; // in("line_colors")
         in [ attribute | uniform ] vec4 line_widths; // in("line_widths")
@@ -35,9 +35,13 @@ class Points(Visual):
         out attribute vec4  line_colors;       // out("line_colors")
         out attribute float line_widths;       // out("line_widths")
         ```
+
+    ```bash exec="1"
+    python docs/snippets/Points_init.py
+    ```
     """
 
-    @command("visual.Pixels")
+    @command("visual.Points")
     def __init__(self, positions   : Transform | Buffer,
                        sizes       : Transform | Buffer | float,
                        fill_colors : Transform | Buffer | Color,

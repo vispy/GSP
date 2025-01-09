@@ -92,11 +92,11 @@ class Visual(Object):
         ----------
         viewport : Viewport
             Viewport where to render the visual
-        model : mat4
+        model : Matrix
             Model matrix to use for rendering
-        view : mat4
+        view : Matrix
             View matrix to use for rendering
-        proj : mat4
+        proj : Matrix
             Projection matrix to use for rendering
         """
 

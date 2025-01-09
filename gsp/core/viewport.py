@@ -18,7 +18,7 @@ class Viewport(Object):
         Future implementation will allows viewports to have an
         arbitrary rotation.
 
-    ```bash
+    ```bash exec="1"
     python docs/snippets/Viewport_init.py
     ```
     """

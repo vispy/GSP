@@ -42,6 +42,7 @@ class Colormap(Transform):
         colormap:
             Name of the colormap
         """
+        pass
 
     def copy(self):
         """

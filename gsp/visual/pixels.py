@@ -31,7 +31,7 @@ class Pixels(Visual):
         out attribute vec4 colors;              // out("colors")
         ```
 
-    ```bash
+    ```bash exec="1"
     python docs/snippets/Pixels_init.py
     ```
     """
