@@ -111,3 +111,5 @@ nav:
      - api/transform/light.md
    - Visual:
      - api/visual/pixels.md
+     - api/visual/points.md
+     - api/visual/markers.md

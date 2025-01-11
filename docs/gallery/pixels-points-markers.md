@@ -89,3 +89,26 @@
 
 
 
+## Markers
+
+!!! example ""
+
+    ![Makers (2D)](../images/markers-2d.png){ align=left width=20% style="clear: both;"}
+    ### Markers (2D) { style="margin: 0; line-height: 1.0; " }
+
+    This example shows the Markers visual with different sizes and angles and can
+    be zoomed using the mouse and an orthographic camera.
+
+    **:octicons-light-bulb-16: Keyword**: markers, matplotlib, orthographic  
+    **:simple-github: Code**: [markers-2d.py](https://github.com/vispy/GSP/blob/master/examples/markers-2d.py)
+
+    ---
+
+    ![Makers (3D)](../images/markers-3d.png){ align=left width=20% style="clear: both;"}
+    ### Markers (3D) { style="margin: 0; line-height: 1.0; " }
+
+    This example shows the Markers visual with different sizes and angles and can
+    be zoomed using the mouse and a perspecive camera.
+
+    **:octicons-light-bulb-16: Keyword**: markers, matplotlib, orthographic  
+    **:simple-github: Code**: [markers-3d.py](https://github.com/vispy/GSP/blob/master/examples/markers-3d.py)
