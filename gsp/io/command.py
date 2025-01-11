@@ -290,8 +290,8 @@ def command(name=None):
                         continue
                     else:
                         raise ValueError(
-                            "No converter found for converting %s to %s."
-                            % (parameter_type, annotated_types))
+                            "No converter found for converting '%s' (%s) to %s."
+                            % (key, parameter_type, annotated_types))
 
             if not no_command and not queue.readonly:
                 classname = self.__class__.__name__

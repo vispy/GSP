@@ -34,6 +34,8 @@ def vec4_t(dtype):
 class scalar(tracked):
     """Array of scalars (tracked)"""
 
+    swizzle = "x", "r"
+
     def __new__(subtype, count=None, dtype=np.float32, buffer=None,
                 offset=0, strides=None, order=None, info=None):
         if count is None:

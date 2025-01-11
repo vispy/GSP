@@ -7,6 +7,9 @@ from collections import namedtuple
 
 
 Color = namedtuple('Color', ['r', 'g', 'b', 'a'])
+Vec2 = namedtuple('Vec2', ['x', 'y'])
+Vec3 = namedtuple('Vec3', ['x', 'y', 'z'])
+Vec4 = namedtuple('Vec3', ['x', 'y', 'z', 'w'])
 
 class Measure:
     """
