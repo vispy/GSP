@@ -33,6 +33,9 @@ class Pixels(visual.Pixels):
     def render(self, viewport, model=None, view=None, proj=None):
 
         super().render(viewport, model, view, proj)
+        model = model if model is not None else self._model
+        view = view if view is not None else self._view
+        proj = proj if proj is not None else self._proj
 
         # Disable tracking for newly created glm.ndarray (or else,
         # this will create GSP buffers)

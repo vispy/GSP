@@ -48,7 +48,6 @@ black = [0.0, 0.0, 0.0, 1.0]
 grey  = [0.5, 0.5, 0.5, 1.0]
 white = [1.0, 1.0, 1.0, 1.0]
 
-
 def use(backend):
     """
     Specify a backend to use by importing core, transform and
