@@ -20,6 +20,26 @@ from gsp.io import register
 def ndarray_to_Matrix(obj):
     return Matrix(obj)
 
+@register("list", "Buffer")
+def list_to_Buffer(obj):
+    # WARN: Do we need to keep track of obj/Buffer such as not create
+    #       several buffers pointing at the same underlying object?
+    #       In the current implementation, Buffer is created each time
+    #       this convertes is called such that if the obj has been
+    #       mofidied, it shoudl be ok
+    Z = glm.ndarray.tracked(obj)
+    return Z._tracker.gsp_buffer
+
+@register("ndarray", "Buffer")
+def ndarray_to_Buffer(obj):
+    # WARN: Do we need to keep track of obj/Buffer such as not create
+    #       several buffers pointing at the same underlying object?
+    #       In the current implementation, Buffer is created each time
+    #       this convertes is called such that if the obj has been
+    #       mofidied, it shoudl be ok
+    Z = glm.ndarray.tracked(obj)
+    return Z._tracker.gsp_buffer
+
 @register("tracked", "Buffer")
 def tracked_to_Buffer(obj):
     return obj._tracker.gsp_buffer
