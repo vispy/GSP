@@ -77,6 +77,11 @@ class Visual(Object):
             value = value.evaluate(self._in_variables | self._out_variables)
         elif isinstance(value, (Buffer,np.ndarray)):
             value = np.asanyarray(value)
+        elif isinstance(value, (float, int, str)):
+            return value
+        elif value is None:
+            return None
+
         return np.atleast_1d(value)
 
     @command()
