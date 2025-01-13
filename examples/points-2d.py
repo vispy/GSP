@@ -11,9 +11,7 @@ using the mouse and an orthographic camera.
 import gsp
 gsp.use("matplotlib")
 
-black = [0,0,0,1]
-white = [1,1,1,1]
-
+black, white = [0,0,0,1], [1,1,1,1]
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512, white)
 

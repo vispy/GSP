@@ -34,7 +34,7 @@ class Markers(Visual):
         out attribute int types;               // out("types")
         out attribute float sizes;             // out("sizes")
         out attribute vec3 axis;               // out("axis")
-        out attribute vec3 axis;               // out("angles")
+        out attribute vec3 angles;             // out("angles")
         out attribute vec4 fill_colors;        // out("fill_colors")
         out attribute vec4 line_colors;        // out("line_colors")
         out attribute float line_widths;       // out("line_widths")
