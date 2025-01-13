@@ -60,9 +60,9 @@ class Viewport(core.Viewport):
         canvas = self._canvas
         size = canvas.size
 
-        # Measure transorm cannot know if we evaluate along x or y
+        # Measure transform cannot know if we evaluate along x or y
         # axis and this is a problem when value such a "1.0" is used
-        # in a measure expression. Does 1.0 referes to widht or
+        # in a measure expression. Does 1.0 referes to width or
         # height? To force evaluation on a given axis we feed it
         # with a uniform size along x or y, depending on context.
         #
