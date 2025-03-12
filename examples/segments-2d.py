@@ -5,10 +5,10 @@
 Segments visual (2D)
 ====================
 
-This example shows the Segment visual where segments are spread randomly
-inside a square that can be zoomed using the mouse and an orthographic
-camera.
+This example shows the Segment visual where a set of 2D segments with
+increasing line widths are displayed.
 """
+
 import gsp
 gsp.use("matplotlib")
 

@@ -58,7 +58,7 @@ plugins:
 # - section-index
 #  - search
   - markdown-exec
-  - autorefs
+  - autorefs    
   - search
   - mkdocstrings:
       default_handler: python
@@ -70,10 +70,9 @@ plugins:
             group_by_category: true
             show_symbol_type_heading: true
             show_symbol_type_toc: true
-            docstring_section_style: table # list spacy
+            docstring_section_style: table
             docstring_options:
               ignore_init_summary: false
-              show_root_toc_entry: false
             merge_init_into_class: true
             show_submodules: yes
             show_root_heading: true
@@ -101,6 +100,7 @@ nav:
      - api/core/viewport.md
      - api/core/data.md
      - api/core/buffer.md
+     - api/core/types.md
    - Transform:
      - api/transform/transform.md
      - api/transform/operators.md
@@ -113,3 +113,5 @@ nav:
      - api/visual/pixels.md
      - api/visual/points.md
      - api/visual/markers.md
+     - api/visual/segments.md
+     - api/visual/paths.md

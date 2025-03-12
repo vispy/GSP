@@ -41,7 +41,7 @@ class Segments(Visual):
     ```
     """
 
-    @command("visual.Markers")
+    @command("visual.Segments")
     def __init__(self, positions   : Transform | Buffer,
                        line_caps   : Transform | Buffer | LineCap,
                        line_colors : Transform | Buffer | Color,
@@ -77,11 +77,14 @@ class Segments(Visual):
         # These variables exists only during rendering and are
         # available on server side only. We have thus to make
         # sure they are not tracked.
+        if isinstance(positions, Transform):
+            positions = positions.evaluate({"dpi":100})
         n = len(positions)
+
         self._out_variables = {
             "screen[positions]" : np.empty((n,2,3), np.float32),
             "screen[segments]" :  np.empty(n, np.float32),
-            "line_caps" :         np.empty(n, np.uint8),
+            "line_caps" :         np.empty((n,2), np.uint8),
             "line_colors" :       np.empty((n,4), np.float32),
             "line_widths" :       np.empty(n, np.float32),
         }

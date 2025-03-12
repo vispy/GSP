@@ -6,6 +6,6 @@ from . pixels import Pixels
 from . points import Points
 from . markers import Markers
 from . segments import Segments
-# from . paths import Paths
+from . paths import Paths
 # from . image import Image
 # from . mesh import Mesh
