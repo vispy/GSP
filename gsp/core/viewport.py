@@ -1,11 +1,15 @@
-# -----------------------------------------------------------------------------
-# Graphic Server Protocol (GSP) — reference implementation
-# Copyright 2023 Vispy Development Team - BSD 2 Clauses licence
-# -----------------------------------------------------------------------------
+# Package: Graphic Server Protocol
+# Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
+# License: BSD 3 clause
+from __future__ import annotations
+
 from gsp import Object
 from gsp.io.command import command
-from gsp.core.canvas import Canvas
 from gsp.core.types import Color
+from gsp.core.canvas import Canvas
+
+# from gsp.transform import Transform
+class Transform: pass
 
 class Viewport(Object):
     """
@@ -25,11 +29,11 @@ class Viewport(Object):
 
     @command("core.Viewport")
     def __init__(self, canvas : Canvas,
-                       x : int,
-                       y : int,
-                       width : int,
-                       height : int,
-                       color : Color | list | tuple):
+                       x : Transform | float | int,
+                       y : Transform | float | int,
+                       width : Transform | float | int,
+                       height : Transform | float | int,
+                       color : Color):
         """
         A viewport is a rectangular two-dimensional surface.
 

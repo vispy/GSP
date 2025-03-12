@@ -1,10 +1,11 @@
 # Package: Graphic Server Protocol / Matplotlib
 # Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
-from __future__ import annotations
+# from __future__ import annotations
 import numpy as np
 from gsp import core
-from gsp import transform
+from gsp.core import Color
+from gsp.transform import Transform
 from . canvas import Canvas
 
 class Viewport(core.Viewport):
@@ -12,11 +13,11 @@ class Viewport(core.Viewport):
     __doc__ = core.Viewport.__doc__
 
     def __init__(self, canvas : Canvas,
-                       x : int,
-                       y : int,
-                       width : int,
-                       height : int,
-                       color : list):
+                       x : Transform | int | float,
+                       y : Transform | int | float,
+                       width : Transform | int | float,
+                       height : Transform | int | float,
+                       color : Color):
 
         super().__init__(canvas, x, y, width, height, color)
 
@@ -27,7 +28,7 @@ class Viewport(core.Viewport):
         self._extent = x, y, width, height
         self._axes = canvas._figure.add_axes([0,0,1,1])
         self._axes.zoom = 1.0
-        # self._update()
+        self._update()
 
         self._axes.patch.set_color(self._color)
         self._axes.autoscale(False)
@@ -68,37 +69,46 @@ class Viewport(core.Viewport):
         #
         # Another solution would be to have explicit constants such
         # as transform.canvas.width(), transform.viewport.width(), etc.
-        if isinstance(x, transform.Transform):
+        if isinstance(x, Transform):
             x = x.evaluate(variables = {"canvas": canvas,
                                         "size" : (size[0], size[0])})
+        elif isinstance(x, float):
+            x = x
         elif isinstance(x, int):
             x = x / size[0]
         else:
             pass
 
-        if isinstance(y, transform.Transform):
+        if isinstance(y, Transform):
             y = y.evaluate(variables = { "canvas": canvas,
                                          "size" : (size[1], size[1])})
+        elif isinstance(y, float):
+            y = y
         elif isinstance(y, int):
             y = y / size[1]
         else:
             pass
 
-        if isinstance(width, transform.Transform):
+        if isinstance(width, Transform):
             width = width.evaluate(variables = { "canvas": canvas,
                                                  "size" : (size[0], size[0])})
+        elif isinstance(width, float):
+            width = width
         elif isinstance(width, int):
             width = width / size[0]
         else:
             pass
 
-        if isinstance(height, transform.Transform):
+        if isinstance(height, Transform):
             height = height.evaluate(variables = { "canvas": canvas,
                                                    "size" : (size[1], size[1])})
+        elif isinstance(height, float):
+            height = height
         elif isinstance(height, int):
             height = height / size[1]
         else:
             pass
+
 
         # Set position and size
         self._axes.set_position([x, y, width, height])
