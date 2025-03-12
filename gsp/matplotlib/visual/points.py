@@ -94,7 +94,7 @@ class Points(visual.Points):
         if isinstance(sizes, np.ndarray) and (len(sizes) == len(positions)):
             collection.set_sizes(sizes[sort_indices])
         else:
-            collection.set_sizes(sizes)
+            collection.set_sizes([sizes]*len(positions))
 
         # Restore tracking
         glm.ndarray.tracked.__tracker_class__ = tracker
