@@ -26,5 +26,5 @@ points = visual.Points(positions, 25.0, fill_colors, gsp.black, 0.25)
 from camera import Camera
 camera = Camera("perspective", theta=-50, phi=-40)
 camera.connect(viewport, "motion",  points.render)
-camera.save("output/points-colormap.png")
+# camera.save("output/points-colormap.png")
 camera.run()

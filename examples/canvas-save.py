@@ -11,4 +11,4 @@ import gsp
 gsp.use("matplotlib")
 
 canvas = core.Canvas(512, 512, 100.0)
-canvas.render("./output/canvas-save.png")
+# canvas.render("./output/canvas-save.png")

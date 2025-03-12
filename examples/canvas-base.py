@@ -14,5 +14,5 @@ gsp.use("matplotlib")
 cm = transform.Centimeter()
 canvas = core.Canvas(10*cm, 10*cm, 100.0)
 
-plt.savefig("output/canvas-base.png")
+# plt.savefig("output/canvas-base.png")
 plt.show()
