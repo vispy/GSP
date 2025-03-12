@@ -79,7 +79,8 @@ class Measure(Transform):
         elif self._buffer is not None:
             value = self._buffer
         else:
-            raise ValueError("Transform is not bound")
+            value = 1.0
+            # raise ValueError("Transform is not bound")
 
         value = np.asanyarray(value)
 

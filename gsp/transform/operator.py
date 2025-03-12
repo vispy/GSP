@@ -41,6 +41,14 @@ class Operator(Transform):
             self._right = right
 
     @property
+    def bound(self):
+        """
+        Indicate if this transform is bound
+        """
+
+        return self.left.bound and self.right.bound
+
+    @property
     def operator(self):
         return self._operator
 
