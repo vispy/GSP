@@ -9,22 +9,22 @@
       
       
       
-        <link rel="prev" href="data.html">
+        <link rel="prev" href="../index.html">
       
       
-        <link rel="next" href="types.html">
+        <link rel="next" href="pixels-points-markers.html">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
-        <title>Buffer - Graphic Server Protocol</title>
+        <title>Canvas and viewport - Graphic Server Protocol</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.76a95c52.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.76a95c52.min.css">
       
       
 
@@ -43,15 +43,15 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/_markdown_exec_pyodide.css">
+      <link rel="stylesheet" href="../assets/_markdown_exec_pyodide.css">
     
-      <link rel="stylesheet" href="../../assets/_markdown_exec_ansi.css">
+      <link rel="stylesheet" href="../assets/_markdown_exec_ansi.css">
     
-      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gsp.core.buffer.Buffer" class="md-skip">
+        <a href="#canvas-and-viewport" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +86,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Graphic Server Protocol" class="md-header__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
+    <a href=".." title="Graphic Server Protocol" class="md-header__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Buffer
+              Canvas and viewport
             
           </span>
         </div>
@@ -183,7 +183,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../index.html" class="md-tabs__link">
+        <a href="../index.html" class="md-tabs__link">
           
   
   Overview
@@ -197,11 +197,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../gallery/canvas-viewport.html" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="canvas-viewport.html" class="md-tabs__link">
           
   
   Gallery
@@ -225,7 +227,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../python/command.html" class="md-tabs__link">
+        <a href="../python/command.html" class="md-tabs__link">
           
   
   Implementations
@@ -242,21 +244,17 @@
         
   
   
-    
-  
   
     
     
       
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="canvas.html" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../api/core/canvas.html" class="md-tabs__link">
           
   
   Specifications
@@ -298,7 +296,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Graphic Server Protocol" class="md-nav__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
+    <a href=".." title="Graphic Server Protocol" class="md-nav__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -366,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -391,23 +389,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -418,7 +421,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Gallery
@@ -429,10 +432,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../gallery/canvas-viewport.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Canvas and viewport
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="canvas-viewport.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -441,6 +464,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canvas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Canvas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canvas-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canvas (base)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -453,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gallery/pixels-points-markers.html" class="md-nav__link">
+      <a href="pixels-points-markers.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -557,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/command.html" class="md-nav__link">
+      <a href="../python/command.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -578,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/memory.html" class="md-nav__link">
+      <a href="../python/memory.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -599,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/glm.html" class="md-nav__link">
+      <a href="../python/glm.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -632,28 +699,23 @@
       
   
   
-    
   
   
-  
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -664,7 +726,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Specifications
@@ -675,8 +737,6 @@
                 
   
   
-    
-  
   
   
     
@@ -686,11 +746,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
         
           
           <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
@@ -704,7 +764,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_1">
             <span class="md-nav__icon md-icon"></span>
             Core
@@ -718,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="canvas.html" class="md-nav__link">
+      <a href="../api/core/canvas.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -739,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="viewport.html" class="md-nav__link">
+      <a href="../api/core/viewport.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="data.html" class="md-nav__link">
+      <a href="../api/core/data.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -778,28 +838,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Buffer
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="buffer.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../api/core/buffer.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -808,48 +850,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#gsp.core.buffer.Buffer" class="md-nav__link">
-    <span class="md-ellipsis">
-      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;Buffer
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label=" Buffer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gsp.core.buffer.Buffer.set_data" class="md-nav__link">
-    <span class="md-ellipsis">
-      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;set_data
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -862,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="types.html" class="md-nav__link">
+      <a href="../api/core/types.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -929,7 +929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/transform.html" class="md-nav__link">
+      <a href="../api/transform/transform.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -950,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/operators.html" class="md-nav__link">
+      <a href="../api/transform/operators.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -971,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/accessors.html" class="md-nav__link">
+      <a href="../api/transform/accessors.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -992,7 +992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/measures.html" class="md-nav__link">
+      <a href="../api/transform/measures.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1013,7 +1013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/out.html" class="md-nav__link">
+      <a href="../api/transform/out.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1034,7 +1034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/colormap.html" class="md-nav__link">
+      <a href="../api/transform/colormap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1055,7 +1055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transform/light.html" class="md-nav__link">
+      <a href="../api/transform/light.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1122,7 +1122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visual/pixels.html" class="md-nav__link">
+      <a href="../api/visual/pixels.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1143,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visual/points.html" class="md-nav__link">
+      <a href="../api/visual/points.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1164,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visual/markers.html" class="md-nav__link">
+      <a href="../api/visual/markers.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1185,7 +1185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visual/segments.html" class="md-nav__link">
+      <a href="../api/visual/segments.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1206,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visual/paths.html" class="md-nav__link">
+      <a href="../api/visual/paths.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1252,6 +1252,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1260,19 +1262,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gsp.core.buffer.Buffer" class="md-nav__link">
+  <a href="#canvas" class="md-nav__link">
     <span class="md-ellipsis">
-      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;Buffer
+      Canvas
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" Buffer">
+    <nav class="md-nav" aria-label="Canvas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gsp.core.buffer.Buffer.set_data" class="md-nav__link">
+  <a href="#canvas-base" class="md-nav__link">
     <span class="md-ellipsis">
-      <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;set_data
+      Canvas (base)
     </span>
   </a>
   
@@ -1301,190 +1303,16 @@
   
 
 
-  <h1>Buffer</h1>
-
-<p><a href="" id="Buffer"></a>
-</p>
-
-
-<div class="doc doc-object doc-class">
-
-
-
-<h2 id="gsp.core.buffer.Buffer" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">Buffer</span>
-
-
-<a href="#gsp.core.buffer.Buffer" class="headerlink" title="Permanent link">&para;</a></h2>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">Buffer</span><span class="p">(</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">dtype</span><span class="p">:</span> <span class="n">dtype</span><span class="p">,</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">data</span><span class="p">:</span> <span class="nb">memoryview</span> <span class="o">|</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">)</span>
-</span></code></pre></div>
-
-    <div class="doc doc-contents first">
-
-
-        <p>Buffer represents a structured view on some Data or
-Buffer. Buffer can be a partial or whole view on the underlying
-source.</p>
-
-        <p>Create a new Buffer.</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>count</code>
-            </td>
-            <td>
-                  <code><span title="int">int</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Number of item</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>dtype</code>
-            </td>
-            <td>
-                  <code><span title="numpy.dtype">dtype</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Type of the item</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>data</code>
-            </td>
-            <td>
-                  <code><span title="memoryview">memoryview</span> | <span title="bytes">bytes</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Content of of the buffer</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="gsp.core.buffer.Buffer.set_data" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">set_data</span>
-
-
-<a href="#gsp.core.buffer.Buffer.set_data" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">set_data</span><span class="p">(</span><span class="n">offset</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">memoryview</span><span class="p">)</span>
-</span></code></pre></div>
-
-    <div class="doc doc-contents ">
-
-        <p>Update buffer content at given offset with new data.</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>offset</code>
-            </td>
-            <td>
-                  <code><span title="int">int</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Offset in bytes where to start update</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>data</code>
-            </td>
-            <td>
-                  <code><span title="memoryview">memoryview</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Content to update with.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-    </div>
-
-</div>
-
-
-
-  </div>
-
-    </div>
-
+<h1 id="canvas-and-viewport">Canvas and viewport<a class="headerlink" href="#canvas-and-viewport" title="Permanent link">&para;</a></h1>
+<h2 id="canvas">Canvas<a class="headerlink" href="#canvas" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p><img align="left" alt="Canvas (base)" src="../images/canvas-base.png" style="clear: both;" width="20%" /></p>
+<h3 id="canvas-base" style="margin: 0; line-height: 1.0; ">Canvas (base)<a class="headerlink" href="#canvas-base" title="Permanent link">&para;</a></h3>
+<p>This example shows how to create a canvas with a size specified using
+some units (centimeter) and how t enter the event loop (matplotlib).</p>
+<p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> Keyword</strong>: pixels, matplotlib, orthographic<br />
+<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> Code</strong>: <a href="https://github.com/vispy/GSP/blob/master/examples/canvas-base.py">canvas-base.py</a></p>
+<hr />
 </div>
 
 
@@ -1532,14 +1360,14 @@ source.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="../../assets/_markdown_exec_pyodide.js"></script>
+        <script src="../assets/_markdown_exec_pyodide.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

@@ -9,22 +9,22 @@
       
       
       
-        <link rel="prev" href="index.html">
+        <link rel="prev" href="canvas-viewport.html">
       
       
-        <link rel="next" href="python/command.html">
+        <link rel="next" href="../python/command.html">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
-        <title>Zero dimension - Graphic Server Protocol</title>
+        <title>Pixels, Points and Markers - Graphic Server Protocol</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.76a95c52.min.css">
       
       
 
@@ -43,15 +43,15 @@
       
     
     
-      <link rel="stylesheet" href="assets/_markdown_exec_pyodide.css">
+      <link rel="stylesheet" href="../assets/_markdown_exec_pyodide.css">
     
-      <link rel="stylesheet" href="assets/_markdown_exec_ansi.css">
+      <link rel="stylesheet" href="../assets/_markdown_exec_ansi.css">
     
-      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#zero-dimension" class="md-skip">
+        <a href="#pixels-points-and-markers" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +86,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Graphic Server Protocol" class="md-header__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
+    <a href=".." title="Graphic Server Protocol" class="md-header__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Zero dimension
+              Pixels, Points and Markers
             
           </span>
         </div>
@@ -160,7 +160,7 @@
         <a href="https://github.com/vispy/gsp" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -183,7 +183,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="index.html" class="md-tabs__link">
+        <a href="../index.html" class="md-tabs__link">
           
   
   Overview
@@ -203,7 +203,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="gallery-zero.html" class="md-tabs__link">
+        <a href="canvas-viewport.html" class="md-tabs__link">
           
   
   Gallery
@@ -227,7 +227,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="python/command.html" class="md-tabs__link">
+        <a href="../python/command.html" class="md-tabs__link">
           
   
   Implementations
@@ -254,7 +254,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/core/canvas.html" class="md-tabs__link">
+        <a href="../api/core/canvas.html" class="md-tabs__link">
           
   
   Specifications
@@ -296,7 +296,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Graphic Server Protocol" class="md-nav__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
+    <a href=".." title="Graphic Server Protocol" class="md-nav__button md-logo" aria-label="Graphic Server Protocol" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -309,7 +309,7 @@
       <a href="https://github.com/vispy/gsp" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -364,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -432,6 +432,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="canvas-viewport.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Canvas and viewport
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -448,18 +469,18 @@
           
   
   <span class="md-ellipsis">
-    Zero dimension
+    Pixels, Points and Markers
   </span>
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="gallery-zero.html" class="md-nav__link md-nav__link--active">
+      <a href="pixels-points-markers.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Zero dimension
+    Pixels, Points and Markers
   </span>
   
 
@@ -481,6 +502,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pixels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pixels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pixels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#pixels-2d" class="md-nav__link">
     <span class="md-ellipsis">
       Pixels (2D)
@@ -488,8 +519,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#pixels-3d" class="md-nav__link">
     <span class="md-ellipsis">
       Pixels (3D)
@@ -497,8 +528,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#pixels-colors" class="md-nav__link">
     <span class="md-ellipsis">
       Pixels (colors)
@@ -506,13 +537,93 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#pixels-colormap" class="md-nav__link">
     <span class="md-ellipsis">
       Pixels (colormap)
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#points-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points (2D)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points (3D)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-colormap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points (Colormap)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Markers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#markers-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markers (2D)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markers-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markers (3D)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -615,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/command.html" class="md-nav__link">
+      <a href="../python/command.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -636,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/memory.html" class="md-nav__link">
+      <a href="../python/memory.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -657,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/glm.html" class="md-nav__link">
+      <a href="../python/glm.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -769,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/core/canvas.html" class="md-nav__link">
+      <a href="../api/core/canvas.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -790,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/core/viewport.html" class="md-nav__link">
+      <a href="../api/core/viewport.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -811,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/core/data.html" class="md-nav__link">
+      <a href="../api/core/data.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -832,11 +943,32 @@
   
   
     <li class="md-nav__item">
-      <a href="api/core/buffer.html" class="md-nav__link">
+      <a href="../api/core/buffer.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Buffer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/core/types.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Types
   </span>
   
 
@@ -899,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/transform/transform.html" class="md-nav__link">
+      <a href="../api/transform/transform.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -920,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/transform/operators.html" class="md-nav__link">
+      <a href="../api/transform/operators.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -941,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/transform/accessors.html" class="md-nav__link">
+      <a href="../api/transform/accessors.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -962,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/transform/measures.html" class="md-nav__link">
+      <a href="../api/transform/measures.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -983,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/transform/out.html" class="md-nav__link">
+      <a href="../api/transform/out.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1004,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/transform/colormap.html" class="md-nav__link">
+      <a href="../api/transform/colormap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1025,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/transform/light.html" class="md-nav__link">
+      <a href="../api/transform/light.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1092,11 +1224,95 @@
   
   
     <li class="md-nav__item">
-      <a href="api/visual/pixels.html" class="md-nav__link">
+      <a href="../api/visual/pixels.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Pixels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/visual/points.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Points
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/visual/markers.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/visual/segments.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Segments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/visual/paths.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Paths
   </span>
   
 
@@ -1148,6 +1364,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pixels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pixels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pixels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#pixels-2d" class="md-nav__link">
     <span class="md-ellipsis">
       Pixels (2D)
@@ -1155,8 +1381,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#pixels-3d" class="md-nav__link">
     <span class="md-ellipsis">
       Pixels (3D)
@@ -1164,8 +1390,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#pixels-colors" class="md-nav__link">
     <span class="md-ellipsis">
       Pixels (colors)
@@ -1173,13 +1399,93 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#pixels-colormap" class="md-nav__link">
     <span class="md-ellipsis">
       Pixels (colormap)
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#points-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points (2D)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points (3D)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-colormap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points (Colormap)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Markers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#markers-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markers (2D)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markers-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markers (3D)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1201,38 +1507,78 @@
   
 
 
-<h1 id="zero-dimension">Zero dimension<a class="headerlink" href="#zero-dimension" title="Permanent link">&para;</a></h1>
+<h1 id="pixels-points-and-markers">Pixels, Points and Markers<a class="headerlink" href="#pixels-points-and-markers" title="Permanent link">&para;</a></h1>
+<h2 id="pixels">Pixels<a class="headerlink" href="#pixels" title="Permanent link">&para;</a></h2>
 <div class="admonition example">
-<p><img align="left" alt="Pixels (2D)" src="images/pixels-2d.png" style="clear: both;" width="20%" /></p>
-<h2 id="pixels-2d" style="margin: 0; line-height: 1.0; ">Pixels (2D)<a class="headerlink" href="#pixels-2d" title="Permanent link">&para;</a></h2>
+<p><img align="left" alt="Pixels (2D)" src="../images/pixels-2d.png" style="clear: both;" width="20%" /></p>
+<h3 id="pixels-2d" style="margin: 0; line-height: 1.0; ">Pixels (2D)<a class="headerlink" href="#pixels-2d" title="Permanent link">&para;</a></h3>
 <p>This example shows the Pixels visual where pixels are spread randomly inside
 a square that can be zoomed using the mouse and an orthographic camera.</p>
 <p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> Keyword</strong>: pixels, matplotlib, orthographic<br />
 <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> Code</strong>: <a href="https://github.com/vispy/GSP/blob/master/examples/pixels-2d.py">pixels-2d.py</a></p>
-</div>
-<div class="admonition example">
-<p><img align="left" alt="Pixels (3D)" src="images/pixels-3d.png" style="clear: both;" width="20%" /></p>
-<h2 id="pixels-3d" style="margin: 0; line-height: 1.0; ">Pixels (3D)<a class="headerlink" href="#pixels-3d" title="Permanent link">&para;</a></h2>
+<hr />
+<p><img align="left" alt="Pixels (3D)" src="../images/pixels-3d.png" style="clear: both;" width="20%" /></p>
+<h3 id="pixels-3d" style="margin: 0; line-height: 1.0; ">Pixels (3D)<a class="headerlink" href="#pixels-3d" title="Permanent link">&para;</a></h3>
 <p>This example show the Pixels visual where pixels are spread randomly inside a cube that
 can be rotated and zoomed using the mouse and a perspective camera</p>
 <p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> Keyword</strong>: pixels, matplotlib, perspective<br />
 <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> Code</strong>: <a href="https://github.com/vispy/GSP/blob/master/examples/pixels-3d.py">pixels-3d.py</a></p>
-</div>
-<div class="admonition example">
-<p><img align="left" alt="Pixels (color)" src="images/pixels-colors.png" style="clear: both;" width="20%" /></p>
-<h2 id="pixels-colors" style="margin: 0; line-height: 1.0; ">Pixels (colors)<a class="headerlink" href="#pixels-colors" title="Permanent link">&para;</a></h2>
+<hr />
+<p><img align="left" alt="Pixels (color)" src="../images/pixels-colors.png" style="clear: both;" width="20%" /></p>
+<h3 id="pixels-colors" style="margin: 0; line-height: 1.0; ">Pixels (colors)<a class="headerlink" href="#pixels-colors" title="Permanent link">&para;</a></h3>
 <p>This example show the Pixels visual where pixels are spread randomly inside a cube
 and colored according to their position.</p>
 <p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> Keyword</strong>: pixels, colors<br />
 <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> Code</strong>: <a href="https://github.com/vispy/GSP/blob/master/examples/pixels-colors.py">pixels-colors.py</a></p>
-</div>
-<div class="admonition example">
-<p><img align="left" alt="Pixels (colormap)" src="images/pixels-colormap.png" style="clear: both;" width="20%" /></p>
-<h2 id="pixels-colormap" style="margin: 0; line-height: 1.0; ">Pixels (colormap)<a class="headerlink" href="#pixels-colormap" title="Permanent link">&para;</a></h2>
+<hr />
+<p><img align="left" alt="Pixels (colormap)" src="../images/pixels-colormap.png" style="clear: both;" width="20%" /></p>
+<h3 id="pixels-colormap" style="margin: 0; line-height: 1.0; ">Pixels (colormap)<a class="headerlink" href="#pixels-colormap" title="Permanent link">&para;</a></h3>
 <p>This example shows the Pixels visual where pixels are colored according to
 screen coordinates (x,y) or depth (z) using a colormap.</p>
 <p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> Keyword</strong>: pixels, colormap, transform, screen<br />
 <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> Code</strong>: <a href="https://github.com/vispy/GSP/blob/master/examples/pixels-colormap.py">pixels-colormap.py</a></p>
+</div>
+<h2 id="points">Points<a class="headerlink" href="#points" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p><img align="left" alt="Point (2D)" src="../images/points-2d.png" style="clear: both;" width="20%" /></p>
+<h3 id="points-2d" style="margin: 0; line-height: 1.0; ">Points (2D)<a class="headerlink" href="#points-2d" title="Permanent link">&para;</a></h3>
+<p>This example shows the Points visual with different sizes can be zoomed
+using the mouse and an orthographic camera.</p>
+<p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> Keyword</strong>: points, matplotlib, orthographic<br />
+<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> Code</strong>: <a href="https://github.com/vispy/GSP/blob/master/examples/points-2d.py">points-3d.py</a></p>
+<hr />
+<p><img align="left" alt="Point (3D)" src="../images/points-3d.png" style="clear: both;" width="20%" /></p>
+<h3 id="points-3d" style="margin: 0; line-height: 1.0; ">Points (3D)<a class="headerlink" href="#points-3d" title="Permanent link">&para;</a></h3>
+<p>This example shows the Points visual with different sizes can be
+roated and zoomed using the mouse and a perspective camera. Points
+size and linewidth are updated according to zoom level.</p>
+<p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> Keyword</strong>: points, matplotlib, perspective, zoom<br />
+<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> Code</strong>: <a href="https://github.com/vispy/GSP/blob/master/examples/points-3d.py">points-3d.py</a></p>
+<hr />
+<p><img align="left" alt="Point (colormap)" src="../images/points-colormap.png" style="clear: both;" width="20%" /></p>
+<h3 id="points-colormap" style="margin: 0; line-height: 1.0; ">Points (Colormap)<a class="headerlink" href="#points-colormap" title="Permanent link">&para;</a></h3>
+<p>This example shows the Points visual where point colors are set
+according to their depth (screen coordinate) and a colormap (magma).
+This results in dynamic colors where most front points are alwyas
+painted with the same color.</p>
+<p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> Keyword</strong>: points, matplotlib, transform, colormap<br />
+<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> Code</strong>: <a href="https://github.com/vispy/GSP/blob/master/examples/points-colormap.py">points-colormap.py</a></p>
+</div>
+<h2 id="markers">Markers<a class="headerlink" href="#markers" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p><img align="left" alt="Makers (2D)" src="../images/markers-2d.png" style="clear: both;" width="20%" /></p>
+<h3 id="markers-2d" style="margin: 0; line-height: 1.0; ">Markers (2D)<a class="headerlink" href="#markers-2d" title="Permanent link">&para;</a></h3>
+<p>This example shows the Markers visual with different sizes and angles and can
+be zoomed using the mouse and an orthographic camera.</p>
+<p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> Keyword</strong>: markers, matplotlib, orthographic<br />
+<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> Code</strong>: <a href="https://github.com/vispy/GSP/blob/master/examples/markers-2d.py">markers-2d.py</a></p>
+<hr />
+<p><img align="left" alt="Makers (3D)" src="../images/markers-3d.png" style="clear: both;" width="20%" /></p>
+<h3 id="markers-3d" style="margin: 0; line-height: 1.0; ">Markers (3D)<a class="headerlink" href="#markers-3d" title="Permanent link">&para;</a></h3>
+<p>This example shows the Markers visual with different sizes and angles and can
+be zoomed using the mouse and a perspecive camera.</p>
+<p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg></span> Keyword</strong>: markers, matplotlib, orthographic<br />
+<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> Code</strong>: <a href="https://github.com/vispy/GSP/blob/master/examples/markers-3d.py">markers-3d.py</a></p>
 </div>
 
 
@@ -1280,14 +1626,14 @@ screen coordinates (x,y) or depth (z) using a colormap.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="assets/_markdown_exec_pyodide.js"></script>
+        <script src="../assets/_markdown_exec_pyodide.js"></script>
       
-        <script src="javascripts/mathjax.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
