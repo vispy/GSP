@@ -12,7 +12,9 @@ class Colormap(Transform):
 
     @command("transform.Colormap")
     def __init__(self,
-                 colormap : str = None):
+                 colormap : str = None,
+                 vmin : float = None,
+                 vmax : float = None):
         """
         Colormap transform allows to map a scalar to a color
 
@@ -24,9 +26,17 @@ class Colormap(Transform):
         ----------
         colormap:
             Name of the colormap
+
+        vmin :
+            Minimum value or None for dynamic minimum
+
+        vmax :
+            Maximum value or None for dynamic maximum
         """
         Transform.__init__(self, __no_command__ = True)
         self._colormap = colormap
+        self._vmin = vmin
+        self._vmax = vmax
 
     @command()
     def set_colormap(self, colormap : str ):
@@ -51,6 +61,8 @@ class Colormap(Transform):
 
         transform = Transform.copy(self)
         transform._colormap = self._colormap
+        transform._vmin = self._vmin
+        transform._vmax = self._vmax
         return transform
 
 
@@ -67,5 +79,6 @@ class Colormap(Transform):
         else:
             value = self._buffer
         cmap = plt.get_cmap(self._colormap)
-        norm = mpl.colors.Normalize(vmin=value.min(), vmax=value.max())
+        norm = mpl.colors.Normalize(vmin=self._vmin or value.min(),
+                                    vmax=self._vmax or value.max())
         return cmap(norm(value))
