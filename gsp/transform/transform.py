@@ -173,6 +173,10 @@ class Transform(Object):
         from gsp.transform import Sub
         return Sub(self, other)
 
+    def __neg__(self):
+        from gsp.transform import Mul
+        return Mul(self, -1.0)
+
     def __rsub__(self, other):
         from gsp.transform import Sub
         return Sub(other, self)
@@ -180,6 +184,10 @@ class Transform(Object):
     def __mul__(self, other):
         from gsp.transform import Mul
         return Mul(self, other)
+
+    def __rmul__(self, other):
+        from gsp.transform import Mul
+        return Mul(other, self)
 
     def __truediv__(self, other):
         from gsp.transform import Div
