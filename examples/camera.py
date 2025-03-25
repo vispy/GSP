@@ -20,7 +20,7 @@ class Camera():
     variable.
     """
 
-    def __init__(self, mode="perspective", theta=0, phi=0, zdist=5.0, scale=1):
+    def __init__(self, mode="perspective", theta=0, phi=0, zoom = 1.0, zdist=5.0, scale=1):
         """
         mode : str
           camera mode ("ortho" or "perspective")
@@ -30,6 +30,9 @@ class Camera():
 
         phi: float
           angle around x axis (degrees)
+
+        zoom : float
+          Zoom level           
 
         zdist : float
           Distance of the camera on the z-axis
@@ -44,7 +47,7 @@ class Camera():
         self.far = 100
         self.mode = mode
         self.scale = scale
-        self.zoom = 1
+        self.zoom = zoom
         self.zoom_max = 5.0
         self.zoom_min = 0.1
 
@@ -127,6 +130,14 @@ class Camera():
             return "Θ : %.1f, ɸ: %.1f" % (theta, phi)
         if self.trackball is not None:
             self.axes.format_coord = format_coord
+
+        xlim = self.axes.get_xlim()[1]
+        ylim = self.axes.get_ylim()[1]
+        aspect = ylim/xlim
+        self.axes.zoom = self.zoom
+        self.axes.set_xlim(-self.zoom, self.zoom)
+        self.axes.set_ylim(-self.zoom*aspect, self.zoom*aspect)
+        self.figure.canvas.draw()
 
 
     def on_scroll(self, event):
