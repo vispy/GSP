@@ -5,7 +5,7 @@
 import numpy as np
 from gsp import Object
 from gsp.transform import Transform
-from gsp.core import Viewport, Buffer, Matrix
+from gsp.core import Viewport, List, Buffer, Matrix
 from gsp.io.command import command
 
 
@@ -75,8 +75,10 @@ class Visual(Object):
         value = self.get_variable(name)
         if isinstance(value, Transform):
             value = value.evaluate(self._in_variables | self._out_variables)
-        elif isinstance(value, (Buffer,np.ndarray)):
+        elif isinstance(value, (Buffer, np.ndarray)):
             value = np.asanyarray(value)
+        elif isinstance(value, (List, list)):
+            return value
         elif isinstance(value, (float, int, str)):
             return value
         elif value is None:
