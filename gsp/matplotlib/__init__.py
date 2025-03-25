@@ -30,6 +30,16 @@ def list_to_Buffer(obj):
     Z = glm.ndarray.tracked(obj)
     return Z._tracker.gsp_buffer
 
+@register("list", "List")
+def list_to_List(obj):
+    count = [len(sublist) for sublist in obj]
+    count = glm.ndarray.tracked(count)
+    items = [item for sublist in obj for item in sublist]
+    items = glm.ndarray.tracked(items)
+
+    return List(items, count)
+
+
 @register("ndarray", "Buffer")
 def ndarray_to_Buffer(obj):
     # WARN: Do we need to keep track of obj/Buffer such as not create
