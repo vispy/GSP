@@ -54,4 +54,6 @@ class Buffer(Object):
         pass
 
     def __len__(self):
+        """Return the number of elements in the buffer"""
+        
         return self._count

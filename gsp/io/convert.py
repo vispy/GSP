@@ -15,7 +15,7 @@ class Converter:
     required type while the actual conversion to the required type
     will be done just in time (depending on the convert flag). This is
     necessary to avoid passing large data from one function to the
-    other. For example, numpy arrays ca be kept as such and converted
+    other. For example, numpy arrays can be kept as such and converted
     to bytes only when it is needed by the protocol (dump functions).
     """
 

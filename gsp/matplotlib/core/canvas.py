@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 from gsp import core
 from gsp import transform
-
+    
 class Canvas(core.Canvas):
 
     __doc__ = core.Canvas.__doc__

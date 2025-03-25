@@ -9,7 +9,7 @@ from gsp import core
 
 class Buffer(core.Buffer):
 
-    __doc__ = core.Viewport.__doc__
+    __doc__ = core.Buffer.__doc__
 
     @command("core.Buffer")
     def __init__(self, count : int,
