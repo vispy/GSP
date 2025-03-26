@@ -2,12 +2,13 @@
 # Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
 """
-Pixels visual (3D)
-==================
+Paths visual (3D)
+=================
 
-This example shows the Pixels visual where pixels are spread
-randomly inside a cube that can be rotated and zoomed using the mouse
-and a perspective camera.
+This example shows the Paths visual using a wireframe cube whose edges
+width and color are dependent on the depth. The cube can be rotated
+and zoomed using the mouse and a perspective camera.
+
 """
 import gsp
 gsp.use("matplotlib")
