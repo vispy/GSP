@@ -101,10 +101,9 @@ class Paths(Visual):
     path/style             | int     | P    | Line style     |
 
 
-    ```bash exec="0"
+    ```bash exec="1"
     python docs/snippets/Paths_init.py
     ```
-
     """
 
     @command("visual.Paths")
