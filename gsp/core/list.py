@@ -11,8 +11,12 @@ from gsp.io.command import command, register
 
 class List(Object):
 
-    """
-    List represents a partitioned Buffer with elements of different sizes.
+    """A List represents a partitioned Buffer with elements of
+    (possibly) different sizes. It is created using a regular data
+    Buffer (any type) and a second item Buffer (integer type) whose
+    size correspond to the number of elements and whose content
+    describes the size of each. Elements are made of consecutive
+    data in the data Buffer.
     """
 
     @command("core.List")
@@ -29,7 +33,7 @@ class List(Object):
             Partition of the buffer
         """
         Object.__init__(self)
-        self._data = buffer
+        self._data = data
         self._itemsizes = itemsizes
 
         
