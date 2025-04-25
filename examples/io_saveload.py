@@ -72,7 +72,7 @@ print("3. Commands load & execution")
 json.save("foo.json", queue)
 
 Object.objects = {}
-queue = yaml.load("foo.json")
+queue = json.load("foo.json")
 for command in queue:
     log.info("%s" % command)
 
