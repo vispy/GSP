@@ -128,6 +128,10 @@ class Paths(Visual):
             Paths line colors (vec4)
         line_widths : Transform | Buffer | Measure
             Paths line width (float)
+        line_joins : Transform | Buffer | LineJoin
+            Paths line join (int)
+        line_caps : Transform | Buffer | LineCap
+            Paths line caps (int,int)
         """
 
         super().__init__()

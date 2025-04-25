@@ -40,9 +40,21 @@ class Paths(visual.Paths):
         tracker = glm.ndarray.tracked.__tracker_class__
         glm.ndarray.tracked.__tracker_class__ = None
 
+
+        # 1. First things first, how many paths?
+
+        # 2. Second thing to check, can we use a single collection?
+
+        # 3. Third do we need to initialize / re-initialize ?
+        
+        
         # Create the collection if necessary
         if viewport not in self._viewports:
-            collection = LineCollection([], clip_on=True, snap=False, capstyle="round")
+            line_caps = self.eval_variable("line_caps")
+            line_caps = { LineCap.butt:  "butt",
+                          LineCap.round: "round",
+                          LineCap.cap:   "projecting"}[line_caps]            
+            collection = LineCollection([], clip_on=True, snap=False, capstyle=line_caps)
             self._viewports[viewport] = collection
             viewport._axes.add_collection(collection, autolim=False)
 
