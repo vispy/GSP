@@ -1,5 +1,0 @@
-- this folder contains a camera.py and a download.py
-  - they are both duplicated from ```./examples/libs``` 
-  - remove the duplication
-- DONE projection_matrix.py and transformation_matrix.py are likely already in GSP
-  - use the one in GSP
