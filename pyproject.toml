@@ -11,9 +11,15 @@ dependencies = [
   "numpy",
   "matplotlib",
   "pyyaml",
+
+  # Needed for testing
+  "pytest", 
+
+  # Needed for documentation
   "mkdocs",
   "mkdocs-material",
   "mkdocstrings[python]",
+  "markdown-exec", # markdown-exec - Needed by mkdocs build
 ]
 requires-python = ">=3.8"
 
