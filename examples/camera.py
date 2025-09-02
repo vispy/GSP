@@ -3,8 +3,9 @@
 # License: BSD 3 clause
 
 import numpy as np
-from gsp import glm
+from gsp import glm, core, log
 import matplotlib.pyplot as plt
+import time
 
 class Camera():
     """
@@ -20,7 +21,7 @@ class Camera():
     variable.
     """
 
-    def __init__(self, mode="perspective", theta=0, phi=0, zoom = 1.0, zdist=5.0, scale=1):
+    def __init__(self, mode="perspective", theta=0, phi=0, zoom = 1.0, zdist=5.0, scale=1, log_fps_enabled=False):
         """
         mode : str
           camera mode ("ortho" or "perspective")
@@ -39,6 +40,9 @@ class Camera():
 
         scale: float
           scale factor
+
+        log_fps_enabled: bool
+          If True, log the frames per second (FPS) during rendering. Good for performance monitoring.
         """
 
         self.aperture = 35
@@ -50,6 +54,7 @@ class Camera():
         self.zoom = zoom
         self.zoom_max = 5.0
         self.zoom_min = 0.1
+        self.log_fps_enabled = log_fps_enabled
 
         if mode == "ortho":
             self.proj = glm.ortho(-1,+1,-1,+1, self.near, self.far)
@@ -92,11 +97,22 @@ class Camera():
         for update in self.updates[event]:
             update(self.viewport, self.model, self.view, self.proj)
 
-
-    def connect(self, viewport, event, update):
+    def canvas_draw(self):
         """
-        axes : matplotlib.Axes
-           Axes where to connect this camera to
+        Draw the canvas. And measure the time taken to render if log_fps_enabled is True.
+        """
+        time_start = time.time()
+        self.figure.canvas.draw()
+        time_end = time.time()
+        render_time = time_end - time_start
+        if self.log_fps_enabled:
+            fps = 1 / render_time
+            log.info(f"Canvas drawn in {fps:.2f} fps")
+
+    def connect(self, viewport: core.Viewport, event: str, update):
+        """
+        viewport: core.Viewport
+           The viewport to connect the camera to
 
         event: string
            Which event to connect to (motion, scroll, press, release)
@@ -137,7 +153,7 @@ class Camera():
         self.axes.zoom = self.zoom
         self.axes.set_xlim(-self.zoom, self.zoom)
         self.axes.set_ylim(-self.zoom*aspect, self.zoom*aspect)
-        self.figure.canvas.draw()
+        self.canvas_draw()
 
 
     def on_scroll(self, event):
@@ -159,7 +175,7 @@ class Camera():
         self.axes.set_xlim(-self.zoom, self.zoom)
         self.axes.set_ylim(-self.zoom*aspect, self.zoom*aspect)
         self.update("scroll")
-        self.figure.canvas.draw()
+        self.canvas_draw()
 
 
     def on_press(self, event):
@@ -171,7 +187,7 @@ class Camera():
 
         self.mouse = event.button, event.xdata, event.ydata
         self.update("press")
-        self.figure.canvas.draw()
+        self.canvas_draw()
 
 
     def on_motion(self, event):
@@ -188,7 +204,7 @@ class Camera():
         self.trackball.drag_to(x, y, dx, dy)
         self.model = self.trackball.model.T
         self.update("motion")
-        self.figure.canvas.draw()
+        self.canvas_draw()
 
 
     def on_release(self, event):
@@ -197,7 +213,7 @@ class Camera():
         """
         self.mouse = None
         self.update("release")
-        self.figure.canvas.draw()
+        self.canvas_draw()
 
 
     def disconnect(self):
