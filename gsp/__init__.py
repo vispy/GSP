@@ -10,9 +10,9 @@ from . import core
 from . import visual
 from . import transform
 
-# minimal version of python is 3.13 - check it is respected. if not, then exit with an error message
+# minimal version of python is 3.11 - check it is respected. if not, then exit with an error message
 import sys
-if sys.version_info < (3, 13):
+if sys.version_info < (3, 11):
     print("Python 3.13 or higher is required.")
     sys.exit(1)
 

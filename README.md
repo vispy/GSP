@@ -5,7 +5,7 @@ The Graphic Server Protocol (GSP) defines the protocol used between a visualizat
 
 ## How to install the project
 
-Note that GSP requires Python 3.13 or higher.
+Note that GSP requires Python 3.11 or higher.
 
 Potentially create a virtual environment
 
