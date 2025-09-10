@@ -64,7 +64,7 @@ def dump(queue=None, filename=None):
     commands = []
     for command in queue.commands:
         commands.append(dump_command(command, stream=None))
-    payload = { "jsonrpc": "2.0", "commands" : commands }
+    payload = { "gsp_version": "1.0", "commands" : commands }
 
     if filename is None:
         return json.dumps(payload, indent=2, default=default)
