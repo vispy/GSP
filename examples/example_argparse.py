@@ -3,7 +3,7 @@ import gsp
 import argparse
 import sys
 
-from .camera import Camera
+from camera import Camera
 from gsp.visual.visual import Visual
 
 class ExampleArgsParse:

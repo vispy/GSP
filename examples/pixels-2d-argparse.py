@@ -16,7 +16,7 @@ def main(core: gsp.core, visual: gsp.visual) -> tuple[gsp.core.viewport.Canvas, 
 ####################################################
 
 if __name__ == "__main__":
-    from .example_argparse import ExampleArgsParse
+    from example_argparse import ExampleArgsParse
 
     # Parse command line arguments
     gsp_core, gsp_visual = ExampleArgsParse.parse(
