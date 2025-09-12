@@ -8,40 +8,7 @@ from gsp.visual.visual import Visual
 from typing import Callable
 
 
-def parse_args(
-    example_description: str | None = None,
-) -> tuple[
-    gsp.core,   # type: ignore
-    gsp.visual, # type: ignore
-    Callable[
-        [gsp.core.viewport.Canvas, list[gsp.core.viewport.Viewport], list[Visual]], None
-    ],
-]:
-    """
-    Parse command line arguments and return the appropriate gsp core and visual modules.
-    It returns also a function to render the result of the example.
-
-    It depends if the user wants to generate a command file or use matplotlib for rendering.
-
-    Args:
-        example_description (str | None): Description of the example to show in the inline help message
-
-    Returns:
-        tuple[gsp.core, gsp.visual, Callable]: The gsp core and visual modules, and a function to render the result of the example.
-    """
-    core, visual = __ExampleLauncher.parse_args(example_description=example_description)
-
-    def render_func(
-        canvas: gsp.core.viewport.Canvas,
-        viewports: list[gsp.core.viewport.Viewport],
-        visuals: list[Visual],
-    ) -> None:
-        __ExampleLauncher.render(canvas, viewports[0], visuals)
-
-    return core, visual, render_func
-
-
-class __ExampleLauncher:
+class _ExampleLauncher:
 
     @staticmethod
     def parse_args(example_description: str | None = None) -> tuple[gsp.core, gsp.visual]:  # type: ignore
@@ -56,9 +23,9 @@ class __ExampleLauncher:
             tuple[gsp.core, gsp.visual]: The gsp core and visual modules.
         """
 
-        args = __ExampleLauncher.__parse_args(example_description=example_description)
+        args = _ExampleLauncher.__parse_args(example_description=example_description)
 
-        if args.command == "command_file":
+        if args.command == "commands":
             gsp_core = gsp.core
             gsp_visual = gsp.visual
         elif args.command == "matplotlib_image" or args.command == "matplotlib_camera":
@@ -89,7 +56,7 @@ class __ExampleLauncher:
             visuals (list[Visual]): The list of visuals to render.
         """
 
-        args = __ExampleLauncher.__parse_args()
+        args = _ExampleLauncher.__parse_args()
 
         # get the __file__ of the calling script
         example_filename = getattr(sys.modules.get("__main__"), "__file__", None)
@@ -98,7 +65,7 @@ class __ExampleLauncher:
         example_basename = os.path.basename(example_filename).replace(".py", "")
         __dirname__ = os.path.dirname(os.path.abspath(example_filename))
 
-        if args.command == "command_file":
+        if args.command == "commands":
 
             print(
                 "Command file generation trigger exception at the moment, it depends on https://github.com/vispy/GSP/issues/14 ."
@@ -167,8 +134,8 @@ class __ExampleLauncher:
         argument_parser.add_argument(
             "command",
             nargs="?",
-            help="Define the command to execute. 'command_file' will generate a command file. 'matplotlib_image' will show the image using matplotlib. 'matplotlib_camera' will use a matplotlib camera to navigate the scene.",
-            choices=["command_file", "matplotlib_image", "matplotlib_camera"],
+            help="Define the command to execute. 'commands' will generate a command file. 'matplotlib_image' will show the image using matplotlib. 'matplotlib_camera' will use a matplotlib camera to navigate the scene.",
+            choices=["commands", "matplotlib_image", "matplotlib_camera"],
             default="matplotlib_camera",
         )
         argument_parser.add_argument(
@@ -196,3 +163,36 @@ class __ExampleLauncher:
         args = argument_parser.parse_args()
 
         return args
+    
+
+def parse_args(
+    example_description: str | None = None,
+) -> tuple[
+    gsp.core,   # type: ignore
+    gsp.visual, # type: ignore
+    Callable[
+        [gsp.core.viewport.Canvas, list[gsp.core.viewport.Viewport], list[Visual]], None
+    ],
+]:
+    """
+    Parse command line arguments and return the appropriate gsp core and visual modules.
+    It returns also a function to render the result of the example.
+
+    It depends if the user wants to generate a command file or use matplotlib for rendering.
+
+    Args:
+        example_description (str | None): Description of the example to show in the inline help message
+
+    Returns:
+        tuple[gsp.core, gsp.visual, Callable]: The gsp core and visual modules, and a function to render the result of the example.
+    """
+    core, visual = _ExampleLauncher.parse_args(example_description=example_description)
+
+    def render_func(
+        canvas: gsp.core.viewport.Canvas,
+        viewports: list[gsp.core.viewport.Viewport],
+        visuals: list[Visual],
+    ) -> None:
+        _ExampleLauncher.render(canvas, viewports[0], visuals)
+
+    return core, visual, render_func

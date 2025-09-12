@@ -1,6 +1,6 @@
 import numpy as np
 import gsp
-from .launcher import parse_args
+from examples.launcher import parse_args
 
 ##############################################
 # Parse command line arguments
