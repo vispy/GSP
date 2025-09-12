@@ -6,7 +6,7 @@ import sys
 from .camera import Camera
 from gsp.visual.visual import Visual
 
-class ExampleParser:
+class ExampleLauncher:
 
     @staticmethod
     def parse_args(example_description: str | None = None) -> tuple[gsp.core, gsp.visual]: # type: ignore
@@ -21,7 +21,7 @@ class ExampleParser:
             tuple[gsp.core, gsp.visual, gsp.transform]: The gsp core, visual and transform modules.
         """
 
-        args = ExampleParser.__parse_args(example_description=example_description)
+        args = ExampleLauncher.__parse_args(example_description=example_description)
 
         if args.command == "command_file":
             gsp_core = gsp.core
@@ -57,7 +57,7 @@ class ExampleParser:
             visuals (list[Visual]): The list of visuals to render.
         """
 
-        args = ExampleParser.__parse_args()
+        args = ExampleLauncher.__parse_args()
 
         # get the __file__ of the calling script
         example_filename = getattr(sys.modules.get("__main__"), "__file__", None)
