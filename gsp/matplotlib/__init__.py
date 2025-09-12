@@ -6,6 +6,9 @@ from . core.canvas import Canvas
 from . core.viewport import Viewport
 from . core.buffer import Buffer
 
+from . import core
+from . import visual
+
 
 # This part ensures tracked array have an accompanying
 # gsp buffer that keep track of updates.
