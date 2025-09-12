@@ -3,22 +3,25 @@ import gsp
 import argparse
 import sys
 
-from camera import Camera
+from .camera import Camera
 from gsp.visual.visual import Visual
 
-class ExampleArgsParse:
+class ExampleParser:
 
     @staticmethod
-    def parse(example_description: str | None = None) -> tuple:
+    def parse_args(example_description: str | None = None) -> tuple[gsp.core, gsp.visual]: # type: ignore
         """
         Parse command line arguments and return the appropriate gsp core and visual modules.
         It depends if the user wants to generate a command file or use matplotlib for rendering.
 
         Args:
-            example_description (str | None): Description of the example to show in the help message.
+            example_description (str | None): Description of the example to show in the inline help message.
+
+        Returns:
+            tuple[gsp.core, gsp.visual, gsp.transform]: The gsp core, visual and transform modules.
         """
 
-        args = ExampleArgsParse.__parse_args(example_description=example_description)
+        args = ExampleParser.__parse_args(example_description=example_description)
 
         if args.command == "command_file":
             gsp_core = gsp.core
@@ -54,7 +57,7 @@ class ExampleArgsParse:
             visuals (list[Visual]): The list of visuals to render.
         """
 
-        args = ExampleArgsParse.__parse_args()
+        args = ExampleParser.__parse_args()
 
         # get the __file__ of the calling script
         example_filename = getattr(sys.modules.get("__main__"), "__file__", None)
@@ -88,7 +91,6 @@ class ExampleArgsParse:
 
                 # TODO send matplotlib as namespace in command_queue.run
                 command_queue.run(globals(), locals())
-                # print(f"object: {gsp.Object.objects[1]}")
 
                 import matplotlib.pyplot as plt
 
@@ -111,6 +113,9 @@ class ExampleArgsParse:
 
     @staticmethod
     def __parse_args(example_description: str | None = None) -> argparse.Namespace:
+        """
+        Parse command line arguments.
+        """
 
         # If no description is provided, get one based on the calling script name
         if example_description is None:
@@ -119,31 +124,31 @@ class ExampleArgsParse:
             example_description = f"Example using GSP called {example_basename}."
 
         # define the command line arguments
-        arg_parser = argparse.ArgumentParser(
+        argument_parser = argparse.ArgumentParser(
             description=example_description,
             formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         )
-        arg_parser.add_argument(
+        argument_parser.add_argument(
             "command",
             nargs="?",
             help="Define the command to execute. 'command_file' will generate a command file. 'matplotlib_image' will show the image using matplotlib. 'matplotlib_camera' will use a matplotlib camera to navigate the scene.",
             choices=["command_file", "matplotlib_image", "matplotlib_camera"],
             default="matplotlib_camera",
         )
-        arg_parser.add_argument(
+        argument_parser.add_argument(
             "-c",
             "--camera_mode",
             help="Define the matplotlib camera mode. Valid IIF the command is 'matplotlib_camera'.",
             choices=["ortho", "perspective"],
             default="perspective",
         )
-        arg_parser.add_argument(
+        argument_parser.add_argument(
             "-cyc",
             "--command_file_cycle",
             help="If true, after generating a command file, it will be re-loaded and executed.",
             action="store_true",
         )
-        arg_parser.add_argument(
+        argument_parser.add_argument(
             "-l",
             "--log_level",
             help="Set the logging level for `GSP.log()` .",
@@ -152,6 +157,6 @@ class ExampleArgsParse:
         )
 
         # parse the arguments
-        args = arg_parser.parse_args()
+        args = argument_parser.parse_args()
 
         return args
