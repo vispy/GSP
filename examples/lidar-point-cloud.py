@@ -10,7 +10,7 @@ import gsp
 from gsp.matplotlib import core, visual
 gsp.use("matplotlib")
 
-import libs.asset_downloader as asset_downloader
+import examples.common.asset_downloader as asset_downloader
 from camera import Camera
 
 ###############################################################################
