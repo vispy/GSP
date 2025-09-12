@@ -9,6 +9,8 @@ from . import io
 from . import core
 from . import visual
 from . import transform
+from . import glm
+from . import matplotlib
 
 @io.register("str", "memoryview")
 def str_to_memoryview(obj):
