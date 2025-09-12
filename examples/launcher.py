@@ -5,11 +5,46 @@ import sys
 
 from .camera import Camera
 from gsp.visual.visual import Visual
+from typing import Callable
 
-class ExampleLauncher:
+
+def parse_args(
+    example_description: str | None = None,
+) -> tuple[
+    gsp.core,   # type: ignore
+    gsp.visual, # type: ignore
+    Callable[
+        [gsp.core.viewport.Canvas, list[gsp.core.viewport.Viewport], list[Visual]], None
+    ],
+]:
+    """
+    Parse command line arguments and return the appropriate gsp core and visual modules.
+    It returns also a function to render the result of the example.
+
+    It depends if the user wants to generate a command file or use matplotlib for rendering.
+
+    Args:
+        example_description (str | None): Description of the example to show in the inline help message
+
+    Returns:
+        tuple[gsp.core, gsp.visual, Callable]: The gsp core and visual modules, and a function to render the result of the example.
+    """
+    core, visual = __ExampleLauncher.parse_args(example_description=example_description)
+
+    def render_func(
+        canvas: gsp.core.viewport.Canvas,
+        viewports: list[gsp.core.viewport.Viewport],
+        visuals: list[Visual],
+    ) -> None:
+        __ExampleLauncher.render(canvas, viewports[0], visuals)
+
+    return core, visual, render_func
+
+
+class __ExampleLauncher:
 
     @staticmethod
-    def parse_args(example_description: str | None = None) -> tuple[gsp.core, gsp.visual]: # type: ignore
+    def parse_args(example_description: str | None = None) -> tuple[gsp.core, gsp.visual]:  # type: ignore
         """
         Parse command line arguments and return the appropriate gsp core and visual modules.
         It depends if the user wants to generate a command file or use matplotlib for rendering.
@@ -18,18 +53,15 @@ class ExampleLauncher:
             example_description (str | None): Description of the example to show in the inline help message.
 
         Returns:
-            tuple[gsp.core, gsp.visual, gsp.transform]: The gsp core, visual and transform modules.
+            tuple[gsp.core, gsp.visual]: The gsp core and visual modules.
         """
 
-        args = ExampleLauncher.__parse_args(example_description=example_description)
+        args = __ExampleLauncher.__parse_args(example_description=example_description)
 
         if args.command == "command_file":
             gsp_core = gsp.core
             gsp_visual = gsp.visual
-        elif (
-            args.command == "matplotlib_image"
-            or args.command == "matplotlib_camera"
-        ):
+        elif args.command == "matplotlib_image" or args.command == "matplotlib_camera":
             gsp_core = gsp.matplotlib.core
             gsp_visual = gsp.matplotlib.visual
         else:
@@ -42,7 +74,7 @@ class ExampleLauncher:
         return gsp_core, gsp_visual
 
     @staticmethod
-    def show(
+    def render(
         canvas: gsp.core.viewport.Canvas,
         viewport: gsp.core.viewport.Viewport,
         visuals: list[Visual],
@@ -57,7 +89,7 @@ class ExampleLauncher:
             visuals (list[Visual]): The list of visuals to render.
         """
 
-        args = ExampleLauncher.__parse_args()
+        args = __ExampleLauncher.__parse_args()
 
         # get the __file__ of the calling script
         example_filename = getattr(sys.modules.get("__main__"), "__file__", None)
@@ -68,7 +100,9 @@ class ExampleLauncher:
 
         if args.command == "command_file":
 
-            print("Command file generation trigger exception at the moment, it depends on https://github.com/vispy/GSP/issues/14 .")
+            print(
+                "Command file generation trigger exception at the moment, it depends on https://github.com/vispy/GSP/issues/14 ."
+            )
 
             commands_filename = f"{__dirname__}/output/{example_basename}.commands.json"
             gsp.save(commands_filename)
@@ -80,6 +114,8 @@ class ExampleLauncher:
                 # reset objects - TODO make it cleaner - call a function e.g. .clear() ?
                 gsp.Object.objects = {}
 
+                # gsp.Object.clear()
+
                 # load commands from file
                 command_queue = gsp.io.json.load(commands_filename)
 
@@ -87,7 +123,7 @@ class ExampleLauncher:
                     gsp.log.info("%s" % command)
 
                 # KEY: REQUIRED FOR THE GLOBALS - Super dirty!!!
-                gsp.use("matplotlib")
+                # gsp.use("matplotlib")
 
                 # TODO send matplotlib as namespace in command_queue.run
                 command_queue.run(globals(), locals())

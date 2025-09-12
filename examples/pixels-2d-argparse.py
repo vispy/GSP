@@ -1,12 +1,12 @@
 import numpy as np
 import gsp
-from .example_launcher import ExampleLauncher
+from .launcher import parse_args
 
 ##############################################
 # Parse command line arguments
 #
 
-core, visual = ExampleLauncher.parse_args()
+core, visual, render = parse_args()
 
 ##############################################
 # Create a GSP scene
@@ -23,4 +23,4 @@ pixels.render(viewport)
 # Show or save the result
 #
 
-ExampleLauncher.show(canvas, viewport, [pixels])
+render(canvas, [viewport], [pixels])
