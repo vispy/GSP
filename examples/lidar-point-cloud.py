@@ -14,9 +14,6 @@ import examples.common.asset_downloader as asset_downloader
 from camera import Camera
 
 
-# Load the LIDAR data for the point cloud
-#
-
 def load_npz_point_cloud(
     point_cloud_npz_filename: str,
 ) -> tuple[np.ndarray, np.ndarray]:
@@ -44,10 +41,6 @@ def load_npz_point_cloud(
 point_cloud_npz_filename = asset_downloader.download_data("misc/lidar.npz")
 point_positions, point_colors = load_npz_point_cloud(point_cloud_npz_filename)
 print(f"Loaded LIDAR data with {len(point_positions)} points.")
-
-
-# Crop geometry of the point cloud
-#
 
 def point_cloud_crop(
     point_positions: np.ndarray,
@@ -112,8 +105,6 @@ point_positions, point_colors = point_cloud_crop(
 print(f"Cropped LIDAR data to {len(point_positions)} points.")
 
 
-# Downsample the point cloud
-#
 
 def point_cloud_downsample(
     point_positions: np.ndarray,
@@ -151,10 +142,6 @@ point_positions, point_colors = point_cloud_downsample(
 
 print(f"Downsampling - Keeping {len(point_positions)} points after downsampling.")
 
-
-
-# Display the point cloud
-#
 
 canvas_width = 256
 canvas_height = 256
