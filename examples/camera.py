@@ -21,7 +21,7 @@ class Camera():
     variable.
     """
 
-    def __init__(self, mode="perspective", theta=0, phi=0, zoom = 1.0, zdist=5.0, scale=1, log_fps_enabled=False):
+    def __init__(self, mode="perspective", theta=0, phi=0, zoom = 1.0, zdist=5.0, scale=1, log_fps=False):
         """
         mode : str
           camera mode ("ortho" or "perspective")
@@ -41,7 +41,7 @@ class Camera():
         scale: float
           scale factor
 
-        log_fps_enabled: bool
+        log_fps: bool
           If True, log the frames per second (FPS) during rendering. Good for performance monitoring.
         """
 
@@ -54,7 +54,7 @@ class Camera():
         self.zoom = zoom
         self.zoom_max = 5.0
         self.zoom_min = 0.1
-        self.log_fps_enabled = log_fps_enabled
+        self.log_fps = log_fps
 
         if mode == "ortho":
             self.proj = glm.ortho(-1,+1,-1,+1, self.near, self.far)
@@ -99,13 +99,16 @@ class Camera():
 
     def canvas_draw(self):
         """
-        Draw the canvas. And measure the time taken to render if log_fps_enabled is True.
+        Draw the canvas. And measure the time taken to render if log_fps is True.
         """
-        time_start = time.time()
+        if self.log_fps:
+            time_start = time.time()
+    
         self.figure.canvas.draw()
-        time_end = time.time()
-        render_time = time_end - time_start
-        if self.log_fps_enabled:
+    
+        if self.log_fps:
+            time_end = time.time()
+            render_time = time_end - time_start
             fps = 1 / render_time
             log.info(f"Canvas drawn in {fps:.2f} fps")
 
