@@ -15,6 +15,16 @@ test_verbose:
 
 ##########################################################################
 
+lint_checker: lint_checker_src lint_checker_examples
+
+lint_checker_src:
+	pyright gsp/**/*.py
+
+lint_checker_examples:
+	pyright examples/**/*.py
+
+##########################################################################
+
 examples_output_force_commit:
 	git add -f examples/output
 	git commit -m "Force commit of recent examples/output images"
@@ -26,10 +36,6 @@ examples_output_force_commit:
 doc_build:
 	# Build the documentation using MkDocs
 	mkdocs build
-
-doc_deploy:
-	# Deploy the documentation to GitHub Pages
-	mkdocs gh-deploy
 
 doc_open: doc_build
 	# Open the documentation in the default web browser
