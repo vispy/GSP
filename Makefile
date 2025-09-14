@@ -37,6 +37,10 @@ doc_build:
 	# Build the documentation using MkDocs
 	mkdocs build
 
+doc_deploy:
+	# Deploy the documentation to GitHub Pages
+	mkdocs gh-deploy
+
 doc_open: doc_build
 	# Open the documentation in the default web browser
 	open site/index.html
