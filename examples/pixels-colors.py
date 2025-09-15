@@ -18,7 +18,7 @@ P = glm.as_vec3(np.random.uniform(-1, +1, (n,3)))
 C = (P+1)/2
 pixels = visual.Pixels(P, C)
 
-from camera import Camera
+from common.camera import Camera
 camera = Camera("perspective", theta=50, phi=50)
 camera.connect(viewport, "motion",  pixels.render)
 camera.save("output/pixels-colors.png")

@@ -23,7 +23,7 @@ positions[...] = np.random.uniform(-1, +1, (len(positions),3))
 fill_colors = colormap(depth)
 points = visual.Points(positions, 25.0, fill_colors, gsp.black, 0.25)
 
-from camera import Camera
+from common.camera import Camera
 camera = Camera("perspective", theta=-50, phi=-40)
 camera.connect(viewport, "motion",  points.render)
 # camera.save("output/points-colormap.png")
