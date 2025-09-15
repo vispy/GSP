@@ -10,8 +10,8 @@ import gsp
 from gsp.matplotlib import core, visual
 gsp.use("matplotlib")
 
-import examples.common.asset_downloader as asset_downloader
-from examples.common.camera import Camera
+import common.asset_downloader as asset_downloader
+from common.camera import Camera
 
 
 def load_npz_point_cloud(

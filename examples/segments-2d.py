@@ -27,7 +27,7 @@ segments = visual.Segments(P,
                            line_colors = black,
                            line_widths=line_widths)
 
-from examples.common.camera import Camera
+from common.camera import Camera
 camera = Camera("ortho")
 camera.connect(viewport, "motion",  segments.render)
 # camera.save("output/segments-2d.png")
