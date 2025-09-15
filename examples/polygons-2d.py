@@ -36,7 +36,7 @@ polys = visual.Polygons(P, I,
                         line_styles = gsp.core.LineStyle.solid,
                         line_joins = gsp.core.LineJoin.round)
 
-from camera import Camera
+from examples.common.camera import Camera
 camera = Camera("ortho")
 camera.connect(viewport, "motion",  polys.render)
 # camera.save("output/polygons-2d.png")

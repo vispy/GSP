@@ -27,7 +27,7 @@ sizes[...] = np.linspace(0.05, 12.0,n)**2
 
 points = visual.Points(P, sizes, black, black, 0.0)
 
-from camera import Camera
+from examples.common.camera import Camera
 camera = Camera("ortho")
 camera.connect(viewport, "motion",  points.render)
 camera.save("output/points-2d.png")

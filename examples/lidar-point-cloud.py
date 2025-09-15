@@ -11,7 +11,7 @@ from gsp.matplotlib import core, visual
 gsp.use("matplotlib")
 
 import examples.common.asset_downloader as asset_downloader
-from camera import Camera
+from examples.common.camera import Camera
 
 
 def load_npz_point_cloud(
