@@ -9,8 +9,8 @@ This example shows the Pixels visual where pixels are spread
 randomly inside a cube that can be rotated and zoomed using the mouse
 and a perspective camera.
 """
-import gsp
-gsp.use("matplotlib")
+from gsp_matplotlib import core, visual, glm
+import numpy as np
 
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512, [1,1,1,1])

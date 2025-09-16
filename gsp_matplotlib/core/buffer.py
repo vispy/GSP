@@ -3,9 +3,9 @@
 # License: BSD 3 clause
 from __future__ import annotations # Solve circular references with typing
 import numpy as np
-from ...gsp.io.command import command, register
+from gsp.io.command import command, register
 
-from ...gsp import core
+from gsp import core
 
 class Buffer(core.Buffer):
 

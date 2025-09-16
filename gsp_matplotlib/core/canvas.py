@@ -6,8 +6,8 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
-from ...gsp import core
-from ...gsp import transform
+from gsp import core
+from gsp import transform
     
 class Canvas(core.Canvas):
 

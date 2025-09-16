@@ -14,7 +14,7 @@ from . import glm
 from .glm.vlist import *
 from .glm.vec234 import *
 from .glm.mat234 import *
-from ..gsp.io import register
+from gsp.io import register
 
 @register("ndarray", "Matrix")
 def ndarray_to_Matrix(obj):

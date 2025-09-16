@@ -3,8 +3,8 @@
 # License: BSD 3 clause
 
 import numpy as np
-from gsp.gsp import core, log
-from gsp.gsp_matplotlib import glm
+from gsp import core, log
+from gsp_matplotlib import glm
 import matplotlib.pyplot as plt
 import time
 

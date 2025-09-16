@@ -13,9 +13,9 @@ converted just in time.
 
 Keywords: io, command, inheritance
 """
-from gsp.gsp.object import Object
-from gsp.gsp.io import json
-from gsp.gsp.io.command import command, register
+from gsp.object import Object
+from gsp.io import json
+from gsp.io.command import command, register
 
 class Foo(Object):
     """Foo documentation"""

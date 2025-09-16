@@ -4,10 +4,10 @@
 
 import numpy as np
 from .. import glm
-from ...gsp import visual
-from ...gsp.io.command import command
-from ...gsp.transform import Transform
-from ...gsp.core import Viewport, Buffer, Color
+from gsp import visual
+from gsp.io.command import command
+from gsp.transform import Transform
+from gsp.core import Viewport, Buffer, Color
 
 class Pixels(visual.Pixels):
 

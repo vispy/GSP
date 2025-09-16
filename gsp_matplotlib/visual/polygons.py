@@ -4,28 +4,28 @@
 
 import numpy as np
 from .. import glm
-from ...gsp import visual
-from ...gsp.io.command import command
-from ...gsp.transform import Transform
-from ...gsp.core import Viewport, List, Buffer, Color, Measure, LineCap, LineStyle, LineJoin
+from gsp import visual
+from gsp.io.command import command
+from gsp.transform import Transform
+from gsp.core import Viewport, List, Buffer, Color, Measure, LineStyle, LineJoin
 
-from matplotlib.collections import LineCollection
+from matplotlib.collections import PolyCollection
 
-class Paths(visual.Paths):
+class Polygons(visual.Polygons):
 
-    __doc__ = visual.Paths.__doc__
+    __doc__ = visual.Polygons.__doc__
 
-    @command("visual.Paths")
+    @command("visual.Polygons")
     def __init__(self, positions    : Transform | Buffer,
                        indices      : Transform | Buffer | List | int,
+                       fill_colors  : Transform | Buffer | Color,
                        line_colors  : Transform | Buffer | Color,
                        line_widths  : Transform | Buffer | float,
                        line_styles  : Transform | Buffer | LineStyle,
-                       line_joins   : Transform | Buffer | LineJoin,
-                       line_caps    : Transform | Buffer | LineCap):
+                       line_joins   : Transform | Buffer | LineJoin):
         
-        super().__init__(positions, indices, line_colors,  line_widths,
-                         line_styles, line_joins, line_caps, __no_command__ = True)
+        super().__init__(positions, indices, fill_colors, line_colors,
+                         line_widths, line_styles, line_joins, __no_command__ = True)
 
 
     def render(self, viewport=None, model=None, view=None, proj=None):
@@ -41,7 +41,7 @@ class Paths(visual.Paths):
         glm.ndarray.tracked.__tracker_class__ = None
 
 
-        # 1. First things first, how many paths?
+        # 1. First things first, how many polygons?
 
         # 2. Second thing to check, can we use a single collection?
 
@@ -50,11 +50,7 @@ class Paths(visual.Paths):
         
         # Create the collection if necessary
         if viewport not in self._viewports:
-            line_caps = self.eval_variable("line_caps")
-            line_caps = { LineCap.butt:  "butt",
-                          LineCap.round: "round",
-                          LineCap.cap:   "projecting"}[line_caps]            
-            collection = LineCollection([], clip_on=True, snap=False, capstyle=line_caps)
+            collection = PolyCollection([], clip_on=True, snap=False)
             self._viewports[viewport] = collection
             viewport._axes.add_collection(collection, autolim=False)
 
@@ -81,43 +77,58 @@ class Paths(visual.Paths):
         # Here we consider all the case of indices shape
         indices = self.eval_variable("indices")
 
-        # Integer means paths of equal size, consecutive vertices
+        # Integer means polygons of equal size, consecutive vertices
         if isinstance(indices, (int)):
             size  = indices
             count = len(positions) // size
-            paths = [positions[i*size:(i+1)*size] for i in np.arange(count)]
+            polygons = [positions[i*size:(i+1)*size] for i in np.arange(count)]
 
         # Buffer / array means path of different sizes, consecutive vertices
         elif isinstance(indices, (Buffer, np.ndarray)):
             start = 0
             end = 0
-            paths = []
+            polygons = []
             for size in indices:
                 end += size
-                paths.append (positions[start:end])
+                polygons.append (positions[start:end])
                 start = end
 
         # List / list means indirect vertices
         elif isinstance(indices, (List, list, glm.vlist)):
-            paths = []
+            polygons = []
             for index in indices:
-                paths.append (positions[index].reshape(-1,3))
+                polygons.append (positions[index].reshape(-1,3))
                 
-        # We sort paths according to the mean depth of vertices composing the path
+        # We sort polygons according to the mean depth of vertices composing the path
         # (we could used instead minimum or maximum depth among all the vertices)
-        depth = [-p[...,2].mean() for p in paths]
+        depth = [-p[...,2].mean() for p in polygons]
         sort_indices = np.argsort(depth)
 
         self.set_variable("screen[positions]", positions.reshape(-1,3))
-        self.set_variable("screen[paths]", [np.mean(path, axis=0) for path in paths])
-        paths = [paths[i][...,:2] for i in sort_indices]
-        collection.set_paths(paths)
+        self.set_variable("screen[polygons]", [np.mean(path, axis=0) for path in polygons])
+        polygons = [polygons[i][...,:2] for i in sort_indices]
+        collection.set_paths(polygons)
+
+        # Fil colors
+        fill_colors = self.eval_variable("fill_colors")
+        if isinstance(fill_colors, np.ndarray):
+            # Number of color == number of polygons
+            if len(fill_colors) == len(polygons):
+                collection.set_facecolors(fill_colors[sort_indices])
+            # Number of colors == number of vertices
+            elif len(fill_colors) == len(positions):
+                raise NotImplementedError("Per vertex line color is not available")
+            else:
+                collection.set_facecolors(fill_colors)
+        # Unique fill color
+        else:
+            collection.set_facecolors(fill_colors)
 
         # Line colors
         line_colors = self.eval_variable("line_colors")
         if isinstance(line_colors, np.ndarray):
-            # Number of color == number of paths
-            if len(line_colors) == len(paths):
+            # Number of color == number of polygons
+            if len(line_colors) == len(polygons):
                 collection.set_edgecolors(line_colors[sort_indices])
             # Number of colors == number of vertices
             elif len(line_colors) == len(positions):
@@ -131,8 +142,8 @@ class Paths(visual.Paths):
         # Line_widths
         line_widths = self.eval_variable("line_widths")
         if isinstance(line_widths, np.ndarray):
-            # Number of widths == number of paths
-            if len(line_widths) == len(paths):
+            # Number of widths == number of polygons
+            if len(line_widths) == len(polygons):
                 collection.set_linewidths(line_widths[sort_indices].ravel())
             # Number of colors == number of vertices
             elif len(line_widths) == len(positions):

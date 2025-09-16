@@ -4,24 +4,25 @@
 
 import numpy as np
 from .. import glm
-from ...gsp import visual
-from ...gsp.io.command import command
-from ...gsp.transform import Transform
-from ...gsp.core import Viewport, Buffer, Color
+from gsp import visual
+from gsp.io.command import command
+from gsp.transform import Transform
+from gsp.core import Viewport, Buffer, Color, LineCap
 
+import matplotlib.patheffects as path_effects
+from matplotlib.collections import LineCollection
 
-class Points(visual.Points):
+class Segments(visual.Segments):
 
-    __doc__ = visual.Points.__doc__
+    __doc__ = visual.Segments.__doc__
 
     @command("visual.Points")
     def __init__(self, positions   : Transform | Buffer,
-                       sizes       : Transform | Buffer | float,
-                       fill_colors : Transform | Buffer | Color,
+                       line_caps   : Transform | Buffer | LineCap,
                        line_colors : Transform | Buffer | Color,
                        line_widths : Transform | Buffer | float):
 
-        super().__init__(positions, sizes, fill_colors, line_colors,
+        super().__init__(positions, line_caps, line_colors,
                          line_widths, __no_command__ = True)
 
 
@@ -39,9 +40,7 @@ class Points(visual.Points):
 
         # Create the collection if necessary
         if viewport not in self._viewports:
-            collection = viewport._axes.scatter([],[])
-            collection.set_antialiaseds(True)
-            collection.set_linewidths(0)
+            collection = LineCollection([], clip_on=True, snap=False, capstyle="round")
             self._viewports[viewport] = collection
             viewport._axes.add_collection(collection, autolim=False)
 
@@ -63,20 +62,16 @@ class Points(visual.Points):
         positions = self.eval_variable("positions")
         positions = positions.reshape(-1,3)
         positions = glm.to_vec3(glm.to_vec4(positions) @ self._transform.T)
+        positions = positions.reshape(-1,2,3)
 
         # Invert depth buffer values before sorting
         # This in place inversion is important for subsequent transforms
-        positions[:,2] = 1 - positions[:,2]
-        sort_indices = np.argsort(positions[:,2])
-        collection.set_offsets(positions[sort_indices,:2])
+        depth = -positions[:,:,2].mean(axis=1)
+        sort_indices = np.argsort(depth)
+
+        collection.set_segments(positions[sort_indices][...,:2])
         self.set_variable("screen[positions]", positions)
-
-
-        fill_colors = self.eval_variable("fill_colors")
-        if isinstance(fill_colors, np.ndarray) and (len(fill_colors) == len(positions)):
-            collection.set_facecolors(fill_colors[sort_indices])
-        else:
-            collection.set_facecolors(fill_colors)
+        self.set_variable("screen[segments]", depth)
 
         line_colors = self.eval_variable("line_colors")
         if isinstance(line_colors, np.ndarray) and (len(line_colors) == len(positions)):
@@ -89,12 +84,6 @@ class Points(visual.Points):
             collection.set_linewidths(line_widths[sort_indices])
         else:
             collection.set_linewidths(line_widths)
-
-        sizes = self.eval_variable("sizes")
-        if isinstance(sizes, np.ndarray) and (len(sizes) == len(positions)):
-            collection.set_sizes(sizes[sort_indices])
-        else:
-            collection.set_sizes([sizes]*len(positions))
 
         # Restore tracking
         glm.ndarray.tracked.__tracker_class__ = tracker

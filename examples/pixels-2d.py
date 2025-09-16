@@ -9,11 +9,7 @@ This example shows the Pixels visual where pixels are spread randomly
 inside a square that can be zoomed using the mouse and an orthographic
 camera.
 """
-import gsp
-# gsp.use("matplotlib")
-
-from gsp.gsp_matplotlib import core, visual
-from gsp.gsp_matplotlib import glm
+from gsp_matplotlib import core, visual, glm
 import numpy as np
 
 canvas = core.Canvas(512, 512, 100.0)

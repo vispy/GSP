@@ -3,9 +3,9 @@
 # License: BSD 3 clause
 # from __future__ import annotations
 import numpy as np
-from ...gsp import core
-from ...gsp.core import Color
-from ...gsp.transform import Transform
+from gsp import core
+from gsp.core import Color
+from gsp.transform import Transform
 from . canvas import Canvas
 
 class Viewport(core.Viewport):
