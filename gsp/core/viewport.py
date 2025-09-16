@@ -3,10 +3,10 @@
 # License: BSD 3 clause
 from __future__ import annotations
 
-from ..object import Object
-from ..io.command import command
-from ..core.types import Color
-from ..core.canvas import Canvas
+from gsp.object import Object
+from gsp.io.command import command
+from gsp.core.types import Color
+from gsp.core.canvas import Canvas
 
 # from gsp.transform import Transform
 class Transform: pass

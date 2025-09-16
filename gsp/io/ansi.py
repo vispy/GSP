@@ -6,7 +6,7 @@ import sys
 from types import UnionType
 from typing import Union, get_args, get_origin
 from datetime import datetime
-from .. object import Object, OID
+from gsp. object import Object, OID
 from . command import CommandQueue, Command, Converter, CID
 
 def bold(s): return f"\033[1m{s}\033[0m"

@@ -2,9 +2,9 @@
 # Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
 import numpy as np
-from ..core import Buffer
+from gsp.core import Buffer
 from . transform import Transform
-from ..io.command import command
+from gsp.io.command import command
 
 
 class Accessor(Transform):

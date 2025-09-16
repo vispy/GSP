@@ -3,9 +3,9 @@
 # License: BSD 3 clause
 from __future__ import annotations
 import numpy as np
-from ..object import Object
-from ..core import Buffer
-from ..io.command import command
+from gsp.object import Object
+from gsp.core import Buffer
+from gsp.io.command import command
 
 class Transform(Object):
 
@@ -24,7 +24,7 @@ class Transform(Object):
 
         base :
             The base transform this transform is based on. When non
-            null, all transform parameters are read from the base.
+            null, all transform parameters are read from gsphe base.
         next :
             A transformation can be chained with another transform
             (`next`). In such case, the **`next` transform is applied

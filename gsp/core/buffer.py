@@ -4,9 +4,9 @@
 from __future__ import annotations # Solve circular references with typing
 
 import numpy as np
-from ..object import Object
+from gsp.object import Object
 from . data import Data
-from ..io.command import command, register
+from gsp.io.command import command, register
 
 
 class Buffer(Object):

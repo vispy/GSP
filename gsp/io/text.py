@@ -4,7 +4,7 @@
 import io
 import sys
 from datetime import datetime
-from .. object import Object, OID
+from gsp.object import Object, OID
 from . command import CommandQueue, Command, Converter, CID
 
 def bold(s): return s

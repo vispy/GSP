@@ -3,10 +3,10 @@
 # License: BSD 3 clause
 
 import numpy as np
-from ..visual import Visual
-from ..core import Buffer, Color, Marker, Vec3
-from ..transform import Transform
-from ..io.command import command
+from gsp.visual import Visual
+from gsp.core import Buffer, Color, Marker, Vec3
+from gsp.transform import Transform
+from gsp.io.command import command
 
 class Markers(Visual):
     """

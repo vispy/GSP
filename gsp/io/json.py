@@ -6,11 +6,11 @@ import sys
 import json
 import base64
 import numpy as np
-from .. object import Object
+from gsp.object import Object
 from . command import CommandQueue, Command
 
 def default(obj):
-    from .. core.types import Color
+    from gsp.core.types import Color
 
     if isinstance(obj, memoryview):
         return base64.b64encode(bytes(obj)).decode()

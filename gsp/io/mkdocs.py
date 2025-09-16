@@ -4,9 +4,9 @@
 
 import itertools
 import inspect, linecache
-from ..object import OID, Object
-from ..io import json, ansi
-from ..io.command import CID, Command, CommandQueue
+from gsp.object import OID, Object
+from gsp.io import json, ansi
+from gsp.io.command import CID, Command, CommandQueue
 
 
 class mkdocs():

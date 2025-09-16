@@ -1,9 +1,9 @@
 # Package: Graphic Server Protocol / Matplotlib
 # Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
-from ..core import Buffer
-from ..io.command import command
-from ..transform import Transform
+from gsp.core import Buffer
+from gsp.io.command import command
+from gsp.transform import Transform
 
 class Colormap(Transform):
     """

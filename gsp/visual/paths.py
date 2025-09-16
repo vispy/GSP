@@ -3,10 +3,10 @@
 # License: BSD 3 clause
 
 import numpy as np
-from ..visual import Visual
-from ..core import List, Buffer, Color, LineCap, LineJoin, LineStyle
-from ..transform import Transform
-from ..io.command import command
+from gsp.visual import Visual
+from gsp.core import List, Buffer, Color, LineCap, LineJoin, LineStyle
+from gsp.transform import Transform
+from gsp.io.command import command
 
 class Paths(Visual):
     """Paths is a set of contiguous lines passing through a series of

@@ -16,8 +16,8 @@ from functools import wraps
 from types import UnionType
 from typing import Union, get_origin, get_args
 
-from .. log import log
-from .. object import Object, OID
+from gsp.log import log
+from gsp.object import Object, OID
 from . convert import Converter, get_converter, register
 
 

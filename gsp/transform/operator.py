@@ -1,9 +1,9 @@
 # Package: Graphic Server Protocol / Matplotlib
 # Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
-from ..core import Buffer
+from gsp.core import Buffer
 from . transform import Transform
-from ..io.command import command
+from gsp.io.command import command
 
 class Operator(Transform):
 

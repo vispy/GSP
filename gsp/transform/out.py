@@ -2,8 +2,8 @@
 # Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
 from __future__ import annotations
-from ..io.command import command
-from ..transform import Transform
+from gsp.io.command import command
+from gsp.transform import Transform
 
 class Out(Transform):
     """

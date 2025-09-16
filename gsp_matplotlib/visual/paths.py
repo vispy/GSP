@@ -3,7 +3,7 @@
 # License: BSD 3 clause
 
 import numpy as np
-from .. import glm
+from gsp_matplotlib import glm
 from gsp import visual
 from gsp.io.command import command
 from gsp.transform import Transform

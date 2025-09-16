@@ -3,10 +3,10 @@
 # License: BSD 3 clause
 
 import numpy as np
-from ..object import Object
-from ..transform import Transform
-from ..core import Viewport, List, Buffer, Matrix
-from ..io.command import command
+from gsp.object import Object
+from gsp.transform import Transform
+from gsp.core import Viewport, List, Buffer, Matrix
+from gsp.io.command import command
 
 
 class Visual(Object):
