@@ -24,7 +24,7 @@ class Transform(Object):
 
         base :
             The base transform this transform is based on. When non
-            null, all transform parameters are read from gsphe base.
+            null, all transform parameters are read from the base.
         next :
             A transformation can be chained with another transform
             (`next`). In such case, the **`next` transform is applied
