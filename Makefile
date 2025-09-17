@@ -13,6 +13,9 @@ test_verbose:
 	cd tests
 	pytest -v
 
+test_examples:
+	(cd examples && python run_all_examples.py)
+
 ##########################################################################
 
 examples_output_force_commit:
