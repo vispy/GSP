@@ -47,7 +47,9 @@ def ndarray_to_Buffer(obj):
     #       In the current implementation, Buffer is created each time
     #       this convertes is called such that if the obj has been
     #       mofidied, it shoudl be ok
-    Z = glm.ndarray.tracked(obj)
+
+    # Z = glm.ndarray.tracked(obj)
+    Z = obj.view(glm.ndarray.tracked)
     return Z._tracker.gsp_buffer
 
 @register("tracked", "Buffer")
