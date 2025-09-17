@@ -3,7 +3,7 @@
 # License: BSD 3 clause
 
 import numpy as np
-from gsp import Object
+from gsp.object import Object
 from gsp.transform import Transform
 from gsp.core import Viewport, List, Buffer, Matrix
 from gsp.io.command import command

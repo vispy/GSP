@@ -10,10 +10,10 @@ from . core.buffer import Buffer
 # This part ensures tracked array have an accompanying
 # gsp buffer that keep track of updates.
 import numpy as np
-from gsp import glm
-from gsp.glm.vlist import *
-from gsp.glm.vec234 import *
-from gsp.glm.mat234 import *
+from . import glm
+from glm.vlist import *
+from glm.vec234 import *
+from glm.mat234 import *
 from gsp.io import register
 
 @register("ndarray", "Matrix")
