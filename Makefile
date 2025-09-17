@@ -3,6 +3,7 @@
 help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sed 's/:.*##/:/' | column -t -s:
 
+
 # Test targets
 
 test: ## Run all tests
@@ -12,6 +13,10 @@ test: ## Run all tests
 test_verbose: ## Run all tests with verbose output
 	cd tests
 	pytest -v
+
+test_examples:
+	(cd examples && python run_all_examples.py)
+
 
 # Linting targets
 
@@ -24,11 +29,13 @@ lint_checker_src: ## Run lint checker on source files
 lint_checker_examples: ## Run lint checker on example files
 	pyright examples/**/*.py
 
+
 # ./examples/output is gitignored, so we need to force add and commit any changes
 
 examples_output_force_commit: ## Force add and commit changes in examples/output
 	git add -f examples/output
 	git commit -m "Force commit of recent examples/output images"
+
 
 # Documentation targets
 
