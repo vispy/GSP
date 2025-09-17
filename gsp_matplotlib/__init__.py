@@ -11,9 +11,9 @@ from . core.buffer import Buffer
 # gsp buffer that keep track of updates.
 import numpy as np
 from . import glm
-from .glm.vlist import *
-from .glm.vec234 import *
-from .glm.mat234 import *
+from glm.vlist import *
+from glm.vec234 import *
+from glm.mat234 import *
 from gsp.io import register
 
 @register("ndarray", "Matrix")
