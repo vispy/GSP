@@ -13,7 +13,7 @@ converted just in time.
 
 Keywords: io, command, inheritance
 """
-from gsp.object import Object
+from gsp import Object
 from gsp.io import json
 from gsp.io.command import command, register
 
