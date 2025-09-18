@@ -1,0 +1,73 @@
+{
+        "jsonrpc": "2.0",
+        "commands": [
+                {
+                        "method": "core.Canvas",
+                        "id": 1,
+                        "timestamp": 1758185663.772275,
+                        "parameters": {
+                                "id": 1,
+                                "width": 512,
+                                "height": 512,
+                                "dpi": 100.0
+                        }
+                },
+                {
+                        "method": "core.Viewport",
+                        "id": 2,
+                        "timestamp": 1758185663.91999,
+                        "parameters": {
+                                "id": 2,
+                                "canvas(id)": 1,
+                                "x": 0,
+                                "y": 0,
+                                "width": 512,
+                                "height": 512,
+                                "color": [
+                                        1,
+                                        1,
+                                        1,
+                                        1
+                                ]
+                        }
+                },
+                {
+                        "method": "core.Buffer",
+                        "id": 3,
+                        "timestamp": 1758185668.088774,
+                        "parameters": {
+                                "id": 3,
+                                "count": 200,
+                                "dtype": "float32",
+                                "data": "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"
+                        }
+                },
+                {
+                        "method": "visual.Pixels",
+                        "id": 7,
+                        "timestamp": 1758185668.089566,
+                        "parameters": {
+                                "id": 4,
+                                "positions(id)": 3,
+                                "colors": [
+                                        0,
+                                        0,
+                                        0,
+                                        1
+                                ]
+                        }
+                },
+                {
+                        "method": "Pixels/render",
+                        "id": 8,
+                        "timestamp": 1758185668.089682,
+                        "parameters": {
+                                "id": 4,
+                                "viewport(id)": 2,
+                                "model": null,
+                                "view": null,
+                                "proj": null
+                        }
+                }
+        ]
+}

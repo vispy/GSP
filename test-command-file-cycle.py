@@ -7,7 +7,7 @@ import numpy as np
 
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512, [1,1,1,1])
-n = 2000
+n = 200
 P = glm.to_vec3(np.random.uniform(-1, +1, (n,2)), dtype=np.float32)
 
 # buffer_count = n
