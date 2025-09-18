@@ -9,8 +9,6 @@ from . import io
 from . import core
 from . import visual
 from . import transform
-from . import glm
-from . import matplotlib
 
 # minimal version of python is 3.11 - check it is respected. if not, then exit with an error message
 import sys
