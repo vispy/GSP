@@ -3,7 +3,7 @@
 # License: BSD 3 clause
 from __future__ import annotations
 import numpy as np
-from gsp import Object
+from gsp.object import Object
 from gsp.core import Buffer
 from gsp.io.command import command
 

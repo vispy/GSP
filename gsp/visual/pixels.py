@@ -3,7 +3,6 @@
 # License: BSD 3 clause
 
 import numpy as np
-from gsp import glm
 from gsp.visual import Visual
 from gsp.core import Buffer, Color
 from gsp.transform import Transform

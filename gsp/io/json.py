@@ -6,11 +6,11 @@ import sys
 import json
 import base64
 import numpy as np
-from .. object import Object
+from gsp.object import Object
 from . command import CommandQueue, Command
 
 def default(obj):
-    from .. core.types import Color
+    from gsp.core.types import Color
 
     if isinstance(obj, memoryview):
         return base64.b64encode(bytes(obj)).decode()
@@ -64,7 +64,7 @@ def dump(queue=None, filename=None):
     commands = []
     for command in queue.commands:
         commands.append(dump_command(command, stream=None))
-    payload = { "jsonrpc": "2.0", "commands" : commands }
+    payload = { "gsp_version": "1.0", "commands" : commands }
 
     if filename is None:
         return json.dumps(payload, indent=2, default=default)

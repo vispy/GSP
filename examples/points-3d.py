@@ -34,7 +34,7 @@ def update(viewport, model, view, proj):
     linewidths[...] = 1/(camera.zoom) * _linewidths
     points.render(viewport, model, view, proj)
 
-from camera import Camera
+from common.camera import Camera
 camera = Camera("perspective", theta=-50, phi=-40)
 camera.connect(viewport, "motion",  points.render)
 camera.connect(viewport, "scroll",  update)

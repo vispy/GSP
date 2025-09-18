@@ -14,7 +14,7 @@ converted just in time.
 Keywords: io, command, inheritance
 """
 from gsp import Object
-from gsp.io import yaml
+from gsp.io import json
 from gsp.io.command import command, register
 
 class Foo(Object):
@@ -42,4 +42,4 @@ class Bar(Foo):
 
 bar = Bar(123.0)
 print(bar)
-print(yaml.dump())
+print(json.dump())

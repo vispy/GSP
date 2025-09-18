@@ -3,7 +3,7 @@
 # License: BSD 3 clause
 from __future__ import annotations
 
-from gsp import Object
+from gsp.object import Object
 from gsp.io.command import command
 from gsp.core.types import Color
 from gsp.core.canvas import Canvas

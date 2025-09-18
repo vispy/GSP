@@ -2,7 +2,7 @@
 # Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
 
-from gsp import Object
+from gsp.object import Object
 from gsp.io.command import command
 
 class Canvas(Object):

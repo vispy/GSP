@@ -42,7 +42,7 @@ S2 = visual.Segments(P * pixel,
                      line_widths=0.5)
 
 
-from camera import Camera
+from common.camera import Camera
 camera = Camera("ortho")
 camera.connect(viewport, "motion",  S1.render)
 camera.connect(viewport, "motion",  S2.render)
