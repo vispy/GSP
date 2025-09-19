@@ -56,7 +56,6 @@ def main()->None:
         f"{__dirname__}/paths-2d.py",
         f"{__dirname__}/paths-3d.py",
         f"{__dirname__}/paths-regular-2d.py",
-        f"{__dirname__}/pixels-2d-argparse.py",
         f"{__dirname__}/pixels-2d.py",
         f"{__dirname__}/pixels-3d.py",
         f"{__dirname__}/pixels-colormap.py",
