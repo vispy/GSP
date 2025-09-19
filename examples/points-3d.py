@@ -36,15 +36,10 @@ linewidths[...] = _linewidths
 
 points = visual.Points(positions, sizes, gsp.grey, gsp.white, linewidths)
 
-def update(viewport, model, view, proj):
+def update(viewport, model, view, proj, camera):
     sizes[...] =  1/(camera.zoom**2) * _sizes
     linewidths[...] = 1/(camera.zoom) * _linewidths
     points.render(viewport, model, view, proj)
 
-# FIXME add a `camera_update` callback in the `launcher.render` function
-# thus i can use the `render` function to generate screenshots and test
-from common.camera import Camera
-camera = Camera("perspective", theta=-50, phi=-40)
-camera.connect(viewport, "motion",  points.render)
-camera.connect(viewport, "scroll",  update)
-camera.run()
+# Show or save the result
+render(canvas, [viewport], [points], onRender=update)

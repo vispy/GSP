@@ -7,7 +7,6 @@ Display a point cloud of a terrain
 import numpy as np
 from common.launcher import parse_args
 import common.asset_downloader as asset_downloader
-from common.camera import Camera
 
 # Parse command line arguments
 core, visual, render = parse_args()
@@ -152,7 +151,5 @@ viewport = core.Viewport(canvas, x=0, y=0, width=canvas_width, height=canvas_hei
 # Create a Pixels visual
 pixels = visual.Pixels(positions=point_positions, colors=point_colors)
 
-# Connect the camera to the viewport
-camera = Camera("perspective", theta=-30, phi=0, scale=5.0)
-camera.connect(viewport, "motion", pixels.render)
-camera.run()
+# Show or save the result
+render(canvas, [viewport], [pixels])
