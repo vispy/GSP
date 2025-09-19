@@ -14,7 +14,7 @@ test_verbose: ## Run all tests with verbose output
 	cd tests
 	pytest -v
 
-test_examples:
+test_examples: ## Run all example scripts
 	(cd examples && python run_all_examples.py)
 
 
