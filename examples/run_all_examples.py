@@ -45,10 +45,31 @@ def launch_example(cmdline_args: list[str]) -> bool:
 #
 
 def main()->None:
-    # NOTE: after launcher.py is merged, this list will be generated automatically
     script_paths = [
-        f"{__dirname__}/io_saveload.py",
+        f"{__dirname__}/canvas-base.py",
         f"{__dirname__}/canvas-save.py",
+        f"{__dirname__}/io_inheritance.py",
+        f"{__dirname__}/io_saveload.py",
+        f"{__dirname__}/lidar-point-cloud.py",
+        f"{__dirname__}/markers-2d.py",
+        f"{__dirname__}/markers-3d.py",
+        f"{__dirname__}/paths-2d.py",
+        f"{__dirname__}/paths-3d.py",
+        f"{__dirname__}/paths-regular-2d.py",
+        f"{__dirname__}/pixels-2d-argparse.py",
+        f"{__dirname__}/pixels-2d.py",
+        f"{__dirname__}/pixels-3d.py",
+        f"{__dirname__}/pixels-colormap.py",
+        f"{__dirname__}/pixels-colors.py",
+        f"{__dirname__}/pixels-interactive.py",
+        f"{__dirname__}/points-2d.py",
+        f"{__dirname__}/points-3d.py",
+        f"{__dirname__}/points-colormap.py",
+        f"{__dirname__}/polygons-2d.py",
+        f"{__dirname__}/segments-2d.py",
+        f"{__dirname__}/segments-fixed-size.py",
+        f"{__dirname__}/viewport-multiple.py",
+        f"{__dirname__}/viewport-with-margins.py",
     ]
 
     for script_path in script_paths:
@@ -57,7 +78,7 @@ def main()->None:
         print(f"Running {basename_script} ... ", end="", flush=True)
 
         # launch the example script
-        run_success = launch_example([sys.executable, script_path])
+        run_success = launch_example([sys.executable, script_path, 'matplotlib_image'])
 
         # display X in red if failed, or a check in green if successful
         if run_success:
