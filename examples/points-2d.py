@@ -8,9 +8,15 @@ Points visual (2D)
 This example shows the Points visual with different sizes can be zoomed
 using the mouse and an orthographic camera.
 """
-import gsp
-gsp.use("matplotlib")
+import numpy as np
 
+from common.launcher import parse_args
+from gsp_matplotlib import glm
+
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 black, white = [0,0,0,1], [1,1,1,1]
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512, white)
@@ -27,8 +33,5 @@ sizes[...] = np.linspace(0.05, 12.0,n)**2
 
 points = visual.Points(P, sizes, black, black, 0.0)
 
-from common.camera import Camera
-camera = Camera("ortho")
-camera.connect(viewport, "motion",  points.render)
-camera.save("output/points-2d.png")
-camera.run()
+# Show or save the result
+render(canvas, [viewport], [points])

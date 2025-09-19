@@ -1,7 +1,9 @@
 import os
-import gsp
 import argparse
 import sys
+
+import gsp
+import gsp_matplotlib
 
 from .camera import Camera
 from gsp.visual.visual import Visual
@@ -29,8 +31,8 @@ class _ExampleLauncher:
             gsp_core = gsp.core
             gsp_visual = gsp.visual
         elif args.command == "matplotlib_image" or args.command == "matplotlib_camera":
-            gsp_core = gsp.matplotlib.core
-            gsp_visual = gsp.matplotlib.visual
+            gsp_core = gsp_matplotlib.core
+            gsp_visual = gsp_matplotlib.visual
         else:
             raise ValueError(f"Unknown command: {args.command}")
 
@@ -43,7 +45,7 @@ class _ExampleLauncher:
     @staticmethod
     def render(
         canvas: gsp.core.viewport.Canvas,
-        viewport: gsp.core.viewport.Viewport,
+        viewport: gsp.core.viewport.Viewport|None,
         visuals: list[Visual],
     ) -> None:
         """
@@ -193,6 +195,9 @@ def parse_args(
         viewports: list[gsp.core.viewport.Viewport],
         visuals: list[Visual],
     ) -> None:
-        _ExampleLauncher.render(canvas, viewports[0], visuals)
+        # FIXME run all the viewports, for now just the first one
+        
+        first_viewport = viewports[0] if len(viewports) > 0 else None
+        _ExampleLauncher.render(canvas, first_viewport, visuals)
 
     return core, visual, render_func

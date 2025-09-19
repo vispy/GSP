@@ -10,9 +10,16 @@ increasing line widths is displayed. Some code is commented to show
 the different ways to specify path sizes.
 """
 
-import gsp
-gsp.use("matplotlib")
+import numpy as np
 
+from common.launcher import parse_args
+from gsp_matplotlib import glm
+import gsp
+
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 black, white = [0,0,0,1], [1,1,1,1]
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512, [1,1,1,1])
@@ -38,8 +45,5 @@ paths = visual.Paths(P, I,
                      line_joins = gsp.core.LineJoin.round,
                      line_caps = gsp.core.LineCap.round)
 
-from common.camera import Camera
-camera = Camera("ortho")
-camera.connect(viewport, "motion",  paths.render)
-# camera.save("output/paths-2d.png")
-camera.run()
+# Show or save the result
+render(canvas, [viewport], [paths])

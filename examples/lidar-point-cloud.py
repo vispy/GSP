@@ -5,15 +5,14 @@ Display a point cloud of a terrain
 """
 
 import numpy as np
-
-import gsp
-from gsp.matplotlib import core, visual
-gsp.use("matplotlib")
-
+from common.launcher import parse_args
 import common.asset_downloader as asset_downloader
 from common.camera import Camera
 
+# Parse command line arguments
+core, visual, render = parse_args()
 
+# Create a GSP scene
 def load_npz_point_cloud(
     point_cloud_npz_filename: str,
 ) -> tuple[np.ndarray, np.ndarray]:
