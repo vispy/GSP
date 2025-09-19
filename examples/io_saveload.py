@@ -23,6 +23,8 @@ possible to load them and run them.
 Keywords: command, queue, yaml, json
 """
 
+import os
+
 from gsp import Object
 from gsp.log import log
 from gsp.io import json
@@ -69,10 +71,12 @@ print(Object.objects[1])
 print()
 print("3. Commands load & execution")
 
-json.save("foo.json", queue)
+__dirname__ = os.path.dirname(os.path.abspath(__file__))
+json_path = f"{__dirname__}/output/foo.json"
+json.save(json_path, queue)
 
 Object.objects = {}
-queue = json.load("foo.json")
+queue = json.load(json_path)
 for command in queue:
     log.info("%s" % command)
 

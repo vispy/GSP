@@ -10,9 +10,15 @@ width and color are dependent on the depth. The cube can be rotated
 and zoomed using the mouse and a perspective camera.
 
 """
+from common.launcher import parse_args
+from gsp_matplotlib import glm
+from gsp import transform
 import gsp
-gsp.use("matplotlib")
 
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 black, white = [0,0,0,1], [1,1,1,1]
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512, [1,1,1,1])
@@ -35,8 +41,5 @@ paths = visual.Paths(P, I,
                      line_joins = gsp.core.LineJoin.round,
                      line_caps = gsp.core.LineCap.round)
 
-from common.camera import Camera
-camera = Camera("perspective", theta=50, phi=50, zoom = 1.25)
-camera.connect(viewport, "motion",  paths.render)
-# camera.save("output/paths-3d.png")
-camera.run()
+# Show or save the result
+render(canvas, [viewport], [paths])

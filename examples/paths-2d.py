@@ -8,10 +8,17 @@ Paths visual (2D)
 This example shows the Paths visual where a curve is split into
 segments that are colored using a colormap.
 """
+import numpy as np
 
+from common.launcher import parse_args
+from gsp_matplotlib import glm
+from gsp import transform
 import gsp
-gsp.use("matplotlib")
 
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 black, white = [0,0,0,1], [1,1,1,1]
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512, [1,1,1,1])
@@ -34,8 +41,5 @@ paths = visual.Paths(P, I.tolist(),
                      line_joins = gsp.core.LineJoin.miter,
                      line_caps = gsp.core.LineCap.round)
 
-from common.camera import Camera
-camera = Camera("ortho")
-camera.connect(viewport, "motion",  paths.render)
-# camera.save("output/paths-2d.png")
-camera.run()
+# Show or save the result
+render(canvas, [viewport], [paths])

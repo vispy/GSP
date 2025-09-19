@@ -7,10 +7,16 @@ Polygon visual (2D)
 
 This example shows the Polygons visual where a set of 2D regular polygons.
 """
+import numpy as np
 
+from common.launcher import parse_args
+from gsp_matplotlib import glm
 import gsp
-gsp.use("matplotlib")
 
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 black, white, gray = [0,0,0,1], [1,1,1,1], [0,0,0,0.05]
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512, [1,1,1,1])
@@ -36,8 +42,5 @@ polys = visual.Polygons(P, I,
                         line_styles = gsp.core.LineStyle.solid,
                         line_joins = gsp.core.LineJoin.round)
 
-from common.camera import Camera
-camera = Camera("ortho")
-camera.connect(viewport, "motion",  polys.render)
-# camera.save("output/polygons-2d.png")
-camera.run()
+# Show or save the result
+render(canvas, [viewport], [polys])
