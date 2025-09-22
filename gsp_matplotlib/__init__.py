@@ -2,9 +2,9 @@
 # Authors: Nicolas P .Rougier <nicolas.rougier@gmail.com>
 # License: BSD 3 clause
 
-from . core.canvas import Canvas
-from . core.viewport import Viewport
-from . core.buffer import Buffer
+from .core.canvas import Canvas
+from .core.viewport import Viewport
+from .core.buffer import Buffer
 
 from . import core
 from . import visual
@@ -14,14 +14,16 @@ from . import visual
 # gsp buffer that keep track of updates.
 import numpy as np
 from . import glm
-from glm.vlist import *
-from glm.vec234 import *
-from glm.mat234 import *
+from .glm.vlist import *
+from .glm.vec234 import *
+from .glm.mat234 import *
 from gsp.io import register
+
 
 @register("ndarray", "Matrix")
 def ndarray_to_Matrix(obj):
     return Matrix(obj)
+
 
 @register("list", "Buffer")
 def list_to_Buffer(obj):
@@ -32,6 +34,7 @@ def list_to_Buffer(obj):
     #       mofidied, it shoudl be ok
     Z = glm.ndarray.tracked(obj)
     return Z._tracker.gsp_buffer
+
 
 @register("list", "List")
 def list_to_List(obj):
@@ -53,9 +56,11 @@ def ndarray_to_Buffer(obj):
     Z = glm.ndarray.tracked(obj)
     return Z._tracker.gsp_buffer
 
+
 @register("tracked", "Buffer")
 def tracked_to_Buffer(obj):
     return obj._tracker.gsp_buffer
+
 
 class Tracker:
     def __init__(self, ndarray):
@@ -66,5 +71,6 @@ class Tracker:
 
     def set_data(self, offset, bytes):
         self.gsp_buffer.set_data(offset, bytes)
+
 
 glm.ndarray.tracked.__tracker_class__ = Tracker

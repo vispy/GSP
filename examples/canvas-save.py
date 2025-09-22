@@ -7,8 +7,13 @@ This example shows how to create a canvas and save it to a file.
 Keywords: canvas, save, render
 """
 
-import gsp
-gsp.use("matplotlib")
+from common.launcher import parse_args
 
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 canvas = core.Canvas(512, 512, 100.0)
-# canvas.render("./output/canvas-save.png")
+
+# Show or save the result
+render(canvas, [], [])

@@ -8,11 +8,16 @@ Canvas (base)
 This example shows how to create a canvas with a size specified using
 some units (centimeter) and how t enter the event loop (matplotlib).
 """
-import gsp
-gsp.use("matplotlib")
 
+from gsp import transform
+from common.launcher import parse_args
+
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 cm = transform.Centimeter()
 canvas = core.Canvas(10*cm, 10*cm, 100.0)
 
-# plt.savefig("output/canvas-base.png")
-plt.show()
+# Show or save the result
+render(canvas, [], [])

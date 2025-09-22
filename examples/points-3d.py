@@ -9,9 +9,16 @@ This example shows the Points visual with different sizes can be
 roated and zoomed using the mouse and a perspective camera. Points
 size is updated accordin to zoom level.
 """
-import gsp
-gsp.use("matplotlib")
+import numpy as np
 
+from common.launcher import parse_args
+from gsp_matplotlib import glm
+import gsp
+
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512, gsp.white)
 
@@ -29,14 +36,10 @@ linewidths[...] = _linewidths
 
 points = visual.Points(positions, sizes, gsp.grey, gsp.white, linewidths)
 
-def update(viewport, model, view, proj):
+def update(viewport, model, view, proj, camera):
     sizes[...] =  1/(camera.zoom**2) * _sizes
     linewidths[...] = 1/(camera.zoom) * _linewidths
     points.render(viewport, model, view, proj)
 
-from common.camera import Camera
-camera = Camera("perspective", theta=-50, phi=-40)
-camera.connect(viewport, "motion",  points.render)
-camera.connect(viewport, "scroll",  update)
-camera.save("output/points-3d.png")
-camera.run()
+# Show or save the result
+render(canvas, [viewport], [points], onRender=update)
