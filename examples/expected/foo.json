@@ -1,0 +1,22 @@
+{
+        "gsp_version": "1.0",
+        "commands": [
+                {
+                        "method": "Foo/__init__",
+                        "id": 1,
+                        "timestamp": 1758286144.357932,
+                        "parameters": {
+                                "id": 1,
+                                "value": 123
+                        }
+                },
+                {
+                        "method": "Foo/update",
+                        "timestamp": 1758286144.357973,
+                        "id": 2,
+                        "parameters": {
+                                "id": 1
+                        }
+                }
+        ]
+}
