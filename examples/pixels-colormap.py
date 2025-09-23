@@ -27,6 +27,7 @@ n = 500_000
 P = glm.as_vec3(np.random.uniform(-1, +1, (n,3)))
 C = colormap(depth)
 pixels = visual.Pixels(P, C)
+pixels.render(viewport)
 
 # Show or save the result
 render(canvas, [viewport], [pixels])

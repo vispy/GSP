@@ -35,6 +35,7 @@ sizes = glm.float(n)
 sizes[...] = np.linspace(0.05, 12.0,n)**2
 types = core.Marker.star
 markers = visual.Markers(P, types, sizes, None, angles, black, white, 0.5)
+markers.render(viewport)
 
 # Show or save the result
 render(canvas, [viewport], [markers])

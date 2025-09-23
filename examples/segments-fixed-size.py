@@ -31,6 +31,7 @@ S1 = visual.Segments(P,
                      line_caps = gsp.core.LineCap.round,
                      line_colors = black,
                      line_widths=0.5)
+S1.render(viewport)
 
 P = glm.vec3((4,2))
 P[0] = (-128, -128, 0), (-128,  128, 0)
@@ -46,7 +47,7 @@ S2 = visual.Segments(P * pixel,
                      line_caps = gsp.core.LineCap.round,
                      line_colors = black,
                      line_widths=0.5)
-
+S2.render(viewport)
 
 # Show or save the result
 render(canvas, [viewport], [S1, S2])

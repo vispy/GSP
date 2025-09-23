@@ -40,6 +40,7 @@ paths = visual.Paths(P, I,
                      line_styles = gsp.core.LineStyle.solid,
                      line_joins = gsp.core.LineJoin.round,
                      line_caps = gsp.core.LineCap.round)
+paths.render(viewport)
 
 # Show or save the result
 render(canvas, [viewport], [paths])

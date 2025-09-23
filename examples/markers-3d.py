@@ -39,6 +39,7 @@ markers = visual.Markers(P,
                          fill_colors = colormap(depth),
                          line_colors = white,
                          line_widths = 0.0)
+markers.render(viewport)
 
 # Show or save the result
 render(canvas, [viewport], [markers])

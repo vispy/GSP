@@ -32,6 +32,7 @@ segments = visual.Segments(P,
                            line_caps = gsp.core.LineCap.round,
                            line_colors = black,
                            line_widths=line_widths)
+segments.render(viewport)
 
 # Show or save the result
 render(canvas, [viewport], [segments])

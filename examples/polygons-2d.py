@@ -41,6 +41,7 @@ polys = visual.Polygons(P, I,
                         line_widths = 2.0,
                         line_styles = gsp.core.LineStyle.solid,
                         line_joins = gsp.core.LineJoin.round)
+polys.render(viewport)
 
 # Show or save the result
 render(canvas, [viewport], [polys])
