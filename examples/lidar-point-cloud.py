@@ -150,6 +150,7 @@ viewport = core.Viewport(canvas, x=0, y=0, width=canvas_width, height=canvas_hei
 
 # Create a Pixels visual
 pixels = visual.Pixels(positions=point_positions, colors=point_colors)
+pixels.render(viewport)
 
 # Show or save the result
 render(canvas, [viewport], [pixels])
