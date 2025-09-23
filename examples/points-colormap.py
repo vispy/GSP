@@ -29,6 +29,7 @@ positions = glm.vec3(10_000)
 positions[...] = np.random.uniform(-1, +1, (len(positions),3))
 fill_colors = colormap(depth)
 points = visual.Points(positions, 25.0, fill_colors, gsp.black, 0.25)
+points.render(viewport)
 
 # Show or save the result
 render(canvas, [viewport], [points])

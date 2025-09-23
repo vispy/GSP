@@ -35,6 +35,7 @@ linewidths = glm.float(n)
 linewidths[...] = _linewidths
 
 points = visual.Points(positions, sizes, gsp.grey, gsp.white, linewidths)
+points.render(viewport)
 
 def update(viewport, model, view, proj, camera):
     sizes[...] =  1/(camera.zoom**2) * _sizes

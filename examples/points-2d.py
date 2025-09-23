@@ -32,6 +32,7 @@ sizes = glm.float(n)
 sizes[...] = np.linspace(0.05, 12.0,n)**2
 
 points = visual.Points(P, sizes, black, black, 0.0)
+points.render(viewport)
 
 # Show or save the result
 render(canvas, [viewport], [points])
