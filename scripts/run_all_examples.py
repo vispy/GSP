@@ -93,7 +93,7 @@ Example:
     # Construct full paths
     script_paths = [f"{examples_folder}/{basename}" for basename in basenames]
 
-    print(f"Running {len(script_paths)} examples to check if they run without exception...\n")
+    print(f"Running {len(script_paths)} examples to check if they run without exception...")
 
     for script_path in script_paths:
         # display the basename of the script without new line, and flush the output
