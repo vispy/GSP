@@ -20,6 +20,9 @@ test_examples_image: ## Run all example scripts to generate matplotlib images
 test_examples_commands: ## Run all example scripts to test commands cycles
 	python ./scripts/run_all_examples.py -- commands -cyc
 
+test_examples_output: ## Check all example outputs against expected outputs
+	(cd examples && python check_expected_output.py)
+
 # Linting targets
 
 lint_checker: lint_checker_src lint_checker_examples ## Run lint checker on source and examples
