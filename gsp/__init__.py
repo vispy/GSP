@@ -54,33 +54,6 @@ black = [0.0, 0.0, 0.0, 1.0]
 grey  = [0.5, 0.5, 0.5, 1.0]
 white = [1.0, 1.0, 1.0, 1.0]
 
-def use(backend):
-    """
-    Specify a backend to use by importing core, transform and
-    visual modules into global namespace.
-    """
-
-    import inspect
-    import numpy as np
-    from . import transform
-
-    if backend == "matplotlib":
-        from . import transform
-        from gsp_matplotlib import glm
-        from gsp_matplotlib import core
-        from gsp_matplotlib import visual
-        import matplotlib.pyplot as plt
-        inspect.stack()[1][0].f_globals["glm"] = glm
-        inspect.stack()[1][0].f_globals["plt"] = plt
-    else:
-        from . import core
-
-    inspect.stack()[1][0].f_globals["np"] = np
-    inspect.stack()[1][0].f_globals["core"] = core
-    inspect.stack()[1][0].f_globals["transform"] = transform
-    inspect.stack()[1][0].f_globals["visual"] = visual
-
-
 def save(filename, format=None):
     """
     Save default command stack into a file. If format is not

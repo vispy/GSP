@@ -84,22 +84,18 @@ class _ExampleLauncher:
                 # reset objects - TODO make it cleaner - call a function e.g. .clear() ?
                 gsp.Object.objects = {}
 
-                # gsp.Object.clear()
-
                 # load commands from file
                 command_queue = gsp.io.json.load(commands_filename)
 
+                # dump commands
                 for command in command_queue:
                     gsp.log.info("%s" % command)
 
-                # KEY: REQUIRED FOR THE GLOBALS - Super dirty!!!
-                # gsp.use("matplotlib")
+                # execute commands using gsp_matplotlib as backend
+                command_queue.run(gsp_matplotlib)
 
-                # TODO send matplotlib as namespace in command_queue.run
-                command_queue.run(globals(), locals())
-
+                # Display the result using matplotlib (just to debug)
                 import matplotlib.pyplot as plt
-
                 plt.show(block=True)
         elif args.command == "matplotlib_image":
             import matplotlib.pyplot as plt

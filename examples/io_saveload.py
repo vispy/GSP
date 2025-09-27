@@ -50,6 +50,9 @@ class Foo(Object):
         return f"Foo(id={self.id}, value={self.value})"
 
 
+# Create a fake module to simulate a backend. typically it is `gsp` or `gsp_matplotlib`
+backend_module = type('backend_module', (), {'Foo': Foo})()
+
 print(f"—————{__doc__}—————\n")
 
 # Client
@@ -65,7 +68,7 @@ print("2. Commands execution")
 Object.objects = {}
 for command in queue:
     command.dump()
-queue.run(globals(), locals())
+queue.run(backend_module)
 print(Object.objects[1])
 
 print()
@@ -80,6 +83,6 @@ queue = json.load(json_path)
 for command in queue:
     log.info("%s" % command)
 
-queue.run(globals(), locals())
+queue.run(backend_module)
 print(Object.objects[1])
 print()
