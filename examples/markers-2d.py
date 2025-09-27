@@ -8,9 +8,16 @@ Markers visual (2D)
 This example shows the Markers visual with different sizes can be zoomed
 using the mouse and an orthographic camera.
 """
-import gsp
-gsp.use("matplotlib")
 
+import numpy as np
+
+from common.launcher import parse_args
+from gsp_matplotlib import glm
+
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 black, white = [0,0,0,1], [1,1,1,1]
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512, white)
@@ -28,9 +35,7 @@ sizes = glm.float(n)
 sizes[...] = np.linspace(0.05, 12.0,n)**2
 types = core.Marker.star
 markers = visual.Markers(P, types, sizes, None, angles, black, white, 0.5)
+markers.render(viewport)
 
-from common.camera import Camera
-camera = Camera("ortho")
-camera.connect(viewport, "motion",  markers.render)
-camera.save("output/markers-2d.png")
-camera.run()
+# Show or save the result
+render(canvas, [viewport], [markers])

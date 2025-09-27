@@ -8,9 +8,15 @@ Segments visual (2D)
 This example shows the Segment visual that can be zoomed using the
 mouse and an orthographic camera.
 """
+from common.launcher import parse_args
+from gsp_matplotlib import glm
+from gsp import transform
 import gsp
-gsp.use("matplotlib")
 
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 black, white = [0,0,0,1], [1,1,1,1]
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0.0, 0.0, 1.0, 1.0, white)
@@ -25,6 +31,7 @@ S1 = visual.Segments(P,
                      line_caps = gsp.core.LineCap.round,
                      line_colors = black,
                      line_widths=0.5)
+S1.render(viewport)
 
 P = glm.vec3((4,2))
 P[0] = (-128, -128, 0), (-128,  128, 0)
@@ -40,11 +47,7 @@ S2 = visual.Segments(P * pixel,
                      line_caps = gsp.core.LineCap.round,
                      line_colors = black,
                      line_widths=0.5)
+S2.render(viewport)
 
-
-from common.camera import Camera
-camera = Camera("ortho")
-camera.connect(viewport, "motion",  S1.render)
-camera.connect(viewport, "motion",  S2.render)
-# camera.save("output/segments-fixed-size.png")
-camera.run()
+# Show or save the result
+render(canvas, [viewport], [S1, S2])

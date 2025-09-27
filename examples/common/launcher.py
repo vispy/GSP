@@ -1,7 +1,9 @@
 import os
-import gsp
 import argparse
 import sys
+
+import gsp
+import gsp_matplotlib
 
 from .camera import Camera
 from gsp.visual.visual import Visual
@@ -29,8 +31,8 @@ class _ExampleLauncher:
             gsp_core = gsp.core
             gsp_visual = gsp.visual
         elif args.command == "matplotlib_image" or args.command == "matplotlib_camera":
-            gsp_core = gsp.matplotlib.core
-            gsp_visual = gsp.matplotlib.visual
+            gsp_core = gsp_matplotlib.core
+            gsp_visual = gsp_matplotlib.visual
         else:
             raise ValueError(f"Unknown command: {args.command}")
 
@@ -43,8 +45,9 @@ class _ExampleLauncher:
     @staticmethod
     def render(
         canvas: gsp.core.viewport.Canvas,
-        viewport: gsp.core.viewport.Viewport,
+        viewport: gsp.core.viewport.Viewport|None,
         visuals: list[Visual],
+        onRender: Callable[[gsp.core.viewport.Viewport, gsp_matplotlib.glm.mat4, gsp_matplotlib.glm.mat4, gsp_matplotlib.glm.mat4], None] | None = None,
     ) -> None:
         """
         Show the result of the example. Depending on the command line arguments, it can either generate a command file,
@@ -81,22 +84,18 @@ class _ExampleLauncher:
                 # reset objects - TODO make it cleaner - call a function e.g. .clear() ?
                 gsp.Object.objects = {}
 
-                # gsp.Object.clear()
-
                 # load commands from file
                 command_queue = gsp.io.json.load(commands_filename)
 
+                # dump commands
                 for command in command_queue:
                     gsp.log.info("%s" % command)
 
-                # KEY: REQUIRED FOR THE GLOBALS - Super dirty!!!
-                # gsp.use("matplotlib")
+                # execute commands using gsp_matplotlib as backend
+                command_queue.run(gsp_matplotlib)
 
-                # TODO send matplotlib as namespace in command_queue.run
-                command_queue.run(globals(), locals())
-
+                # Display the result using matplotlib (just to debug)
                 import matplotlib.pyplot as plt
-
                 plt.show(block=True)
         elif args.command == "matplotlib_image":
             import matplotlib.pyplot as plt
@@ -108,8 +107,16 @@ class _ExampleLauncher:
             print(f"Image saved to {image_filename}")
         elif args.command == "matplotlib_camera":
             camera = Camera(mode=args.camera_mode)
-            for _visual in visuals:
-                camera.connect(viewport, "motion", _visual.render)
+
+            def update(viewport, model, view, proj):
+                if onRender is not None:
+                    onRender(viewport, model, view, proj, camera=camera)
+
+                for _visual in visuals:
+                    _visual.render(viewport, model, view, proj)
+
+            camera.connect(viewport, "motion", update)
+            camera.connect(viewport, "scroll", update)
             camera.run()
         else:
             print(f"Unknown command: {args.command}")
@@ -192,7 +199,11 @@ def parse_args(
         canvas: gsp.core.viewport.Canvas,
         viewports: list[gsp.core.viewport.Viewport],
         visuals: list[Visual],
+        onRender: Callable[[gsp.core.viewport.Viewport, gsp_matplotlib.glm.mat4, gsp_matplotlib.glm.mat4, gsp_matplotlib.glm.mat4], None] | None = None,
     ) -> None:
-        _ExampleLauncher.render(canvas, viewports[0], visuals)
+        # FIXME run all the viewports, for now just the first one
+        
+        first_viewport = viewports[0] if len(viewports) > 0 else None
+        _ExampleLauncher.render(canvas, first_viewport, visuals, onRender=onRender)
 
     return core, visual, render_func

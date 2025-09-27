@@ -8,9 +8,16 @@ Markers visual (3D)
 This example shows several star markers placed on the surface of a
 sphere. It can be zoomed and rotated.
 """
-import gsp
-gsp.use("matplotlib")
+import numpy as np
 
+from common.launcher import parse_args
+from gsp_matplotlib import glm
+from gsp import transform
+
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 black, white = [0,0,0,1], [1,1,1,1]
 canvas = core.Canvas(512, 512, 100.0)
 viewport = core.Viewport(canvas, 0, 0, 512, 512, white)
@@ -32,9 +39,7 @@ markers = visual.Markers(P,
                          fill_colors = colormap(depth),
                          line_colors = white,
                          line_widths = 0.0)
+markers.render(viewport)
 
-from common.camera import Camera
-camera = Camera("perspective")
-camera.connect(viewport, "motion",  markers.render)
-camera.save("output/markers-3d.png")
-camera.run()
+# Show or save the result
+render(canvas, [viewport], [markers])

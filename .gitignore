@@ -1,5 +1,6 @@
 # Personal
 attic/
+.vscode/
 
 # OSX
 .DS_Store

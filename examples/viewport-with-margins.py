@@ -8,10 +8,15 @@ Viewport with margins
 This example show how to specify margins expressed in pixels (or
 inches, centimeters, etc) when creating a viewport.
 """
+import numpy as np
 
-import gsp
-gsp.use("matplotlib")
+from common.launcher import parse_args
+from gsp import transform
 
+# Parse command line arguments
+core, visual, render = parse_args()
+
+# Create a GSP scene
 canvas = core.Canvas(512, 512, 100.0)
 pixel = transform.Pixel()
 viewport = core.Viewport(canvas, x = 10*pixel,
@@ -19,5 +24,6 @@ viewport = core.Viewport(canvas, x = 10*pixel,
                                  width = 1.0 - 20*pixel,
                                  height = 1.0 - 20*pixel,
                                  color = (1,1,1,1))
-canvas.render("viewport-with-margins.png")
-plt.show()
+
+# Show or save the result
+render(canvas, [viewport], [])
