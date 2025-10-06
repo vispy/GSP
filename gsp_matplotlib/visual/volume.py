@@ -56,7 +56,7 @@ class Volume(visual.Volume):
         assert volume_width > 0
 
         #############
-        # Convert volume_data into numpy array for `positions` and `fill_colors`
+        # Convert volume_data in a grid for `positions` and `fill_colors`
         #
 
         # Create a grid of normalized coordinates directly in meshgrid
