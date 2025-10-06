@@ -1,7 +1,7 @@
 # Makefile for GSP project
 
 help: ## Show this help message
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sed 's/:.*##/:/' | column -t -s:
+	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 
 # Test targets
@@ -21,7 +21,7 @@ test_examples_commands: ## Run all example scripts to test commands cycles
 	python ./scripts/run_all_examples.py -- commands -cyc
 
 test_examples_output: ## Check all example outputs against expected outputs
-	(cd examples && python check_expected_output.py)
+	python ./scripts/check_expected_output.py
 
 # Linting targets
 
