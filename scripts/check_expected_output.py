@@ -27,13 +27,15 @@ def json_deep_comp(obj_1: object, obj_2: object) -> bool:
     Returns:
         True if the objects are deeply equal, False otherwise.
     """
-    def json_reordered(obj:object) -> object:
+
+    def json_reordered(obj: object) -> object:
         if isinstance(obj, dict):
             return sorted((k, json_reordered(v)) for k, v in obj.items())
         if isinstance(obj, list):
-            return sorted(json_reordered(x) for x in obj)   # type: ignore
+            return sorted(json_reordered(x) for x in obj)  # type: ignore
         else:
-            return obj    
+            return obj
+
     obj_1 = json_reordered(obj_1)
     obj_2 = json_reordered(obj_2)
     return obj_1 == obj_2
@@ -64,12 +66,12 @@ def verify_file_content(expected_path: str, output_path: str) -> bool:
     if file_ext in [".png", ".jpg", ".jpeg"]:
         # Compare images files
 
-        # Read images as np.ndarray using skimage 
+        # Read images as np.ndarray using skimage
         expected_image: np.ndarray = skimage.io.imread(expected_path)
         output_image: np.ndarray = skimage.io.imread(output_path)
 
         # structural similarity index to compare images perceptually - score between -1.0 and 1.0
-        score:float = skimage.metrics.structural_similarity(expected_image, output_image, channel_axis=-1) # type: ignore
+        score: float = skimage.metrics.structural_similarity(expected_image, output_image, channel_axis=-1)  # type: ignore
 
         # tolerance threshold - 1.0 is exact match
         # Make this number less than 1.0 to allow for minor differences due to compression, etc.
@@ -93,17 +95,15 @@ def verify_file_content(expected_path: str, output_path: str) -> bool:
 
 
 def main() -> None:
-    expected_folder = f"{__dirname__}/expected/"
-    output_folder = f"{__dirname__}/output/"
+    expected_folder = f"{__dirname__}/../examples/expected/"
+    output_folder = f"{__dirname__}/../examples/output/"
 
     # get all basename of files in output directory
     expected_basenames = [basename for basename in os.listdir(expected_folder)]
+    # keep only .png and .json files
+    expected_basenames = [basename for basename in expected_basenames if basename.endswith(".png") or basename.endswith(".json")]
 
     for basename_file in expected_basenames:
-        # Keep only .png and .json files
-        if not (basename_file.endswith(".png") or basename_file.endswith(".json")):
-            continue
-
         expected_path = f"{expected_folder}{basename_file}"
         output_path = f"{output_folder}{basename_file}"
 
@@ -127,9 +127,7 @@ def main() -> None:
             print(f"File {basename_file} does not match expected output.")
             sys.exit(1)
 
-    print(
-        f"All {len(expected_basenames)} files matched successfully. \033[92mOK\033[0m"
-    )
+    print(f"All {len(expected_basenames)} files matched successfully. \033[92mOK\033[0m")
 
 
 if __name__ == "__main__":
