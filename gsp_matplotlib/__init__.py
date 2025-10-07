@@ -5,6 +5,7 @@
 from .core.canvas import Canvas
 from .core.viewport import Viewport
 from .core.buffer import Buffer
+from gsp.core.types import Marker
 
 from . import core
 from . import visual
@@ -32,19 +33,22 @@ def list_to_Buffer(obj):
     #       In the current implementation, Buffer is created each time
     #       this convertes is called such that if the obj has been
     #       mofidied, it shoudl be ok
-    Z = glm.ndarray.tracked(obj)
+    # Z = glm.ndarray.tracked(obj)
+    Z = obj.view(glm.ndarray.tracked)
     return Z._tracker.gsp_buffer
-
 
 @register("list", "List")
 def list_to_List(obj):
     count = [len(sublist) for sublist in obj]
     count = glm.ndarray.tracked(count)
     items = [item for sublist in obj for item in sublist]
-    items = glm.ndarray.tracked(items)
-
+    # items = glm.ndarray.tracked(items)
+    items = items.view(glm.ndarray.tracked)
     return List(items, count)
 
+@register("int", "Marker")
+def int_to_Marker(obj):
+    return Marker(obj)
 
 @register("ndarray", "Buffer")
 def ndarray_to_Buffer(obj):
@@ -53,7 +57,8 @@ def ndarray_to_Buffer(obj):
     #       In the current implementation, Buffer is created each time
     #       this convertes is called such that if the obj has been
     #       mofidied, it shoudl be ok
-    Z = glm.ndarray.tracked(obj)
+    # Z = glm.ndarray.tracked(obj)
+    Z = obj.view(glm.ndarray.tracked)
     return Z._tracker.gsp_buffer
 
 
